@@ -32,8 +32,7 @@
 \input{lib/symbols}
 
 % Document meta information
-\isthesis{
-  title={Konzeption einer Datenstruktur-Metasprache \\ und Entwicklung einer Web-Applikation für das Metadatenmanagement},
+\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung},
   author={Max Leonard Inden},
   author-email={max.inden@uni-muenster.de},
   author-phone={+49 178 1493411}, % Use international numbers format
@@ -41,15 +40,15 @@
   author-address={Biemsmaar 4c},
   author-zip={53343},
   author-city={Wachtberg},
-  principal-supervisor={Prof. Dr. Dr. h.c. Dr. h.c. J\"org Becker}, % This has to be a professor
-  associate-supervisor={Dr. Stefan Fleischer}, % This is your main supervisor, i.e., a post doc or PhD student
+  principal-supervisor={Prof.\ Dr.\ Dr.\ h.c. Dr.\ h.c. J\"org Becker}, % This has to be a professor
+  associate-supervisor={Dr.\ Stefan Fleischer}, % This is your main supervisor, i.e., a post doc or PhD student
   tutor-supervisor={}, % If required, define an additional supervisor resp. tutor here
   group={Lehrstuhl für Wirtschaftsinformatik und Informationsmanagement},
   group-institute={Westfälische Wilhelms-Universität, M\"unster},
   associate-group={innoscale AG}, % When the thesis is done in cooperation with another chair, add it here
   %associate-group-institute={innoscale AG}, % add cooperating institute or university here
   seminar={Scientific Writing for Beginners}, % The title of your seminar
-  submission-date={2016-9-30}, % The date you handed in your document
+  submission-date={}, % !!! In  isthesis.cls ändern
   %primary-logo={}, % Uses the WWU logo by default
   %primary-logo-height={}, % Uses 16mm as default height
   secondary-logo={lib/assets/innoscale-logo}, % Logo of the secondary institution (cooperating chair/university), USES Faculty logo by default
@@ -75,13 +74,12 @@
 %\listoftables
 
 % List of listings (if you have listings)
-%\lstlistoflistings
+%\lstlistoflistings{}
 
 % List of abbreviations (if you use acronyms)
-\listofabbreviations
-
+%\listofabbreviations{}
 % List of symbols (if you use symbols)
-%\listofsymbols
+%\listofsymbols{}
 
 % Abstract
 %
@@ -92,19 +90,84 @@
 
 % Content
 \begin{content}
-  \input{content/proposal}
+% ################################################################################
+% \input{content/proposal}
+% ################################################################################
+
+
+
+% ################################################################################
+  \input{content/einleitung}
+% ################################################################################
+
+
+
+% ################################################################################
+  \chapter{Forschung---Datenanalysedialekt}
+% ################################################################################
+  \section{Existierende Dialekte}
+  \begin{itemize}
+    \item H2ForReporting
+  \end{itemize}
+
+  \section{Rahmenbedingungen und Annahmen}
+  \begin{itemize}
+    \item Input Daten per in Tabellen Struktur
+    \item Input Daten voll normalisiert
+    \item => Wie generiert man eine Structure view aus einem SQL-Schema
+  \end{itemize}
+
+  \section{innoscale Datenanalysedialekt}
+  \begin{itemize}
+    \item Structure
+    \item Measure
+    \item (Fact)
+    \item Reports
+  \end{itemize}
+
+
+
+% ################################################################################
+  \chapter{Die Applikation---DataFurnace}
+% ################################################################################
+  \section{Technologienauswahl}
+
+  \section{Umsetzung}
+
+  \section{Beispielkonzeption einer Datenauswertung mit der Webanwendung}
+
+  \section{Ausblick Integration in Datarocket}
+
+  
+
+% ################################################################################
+  \input{content/notes}
+% ################################################################################
+
 \end{content}
 
+
+
+% ################################################################################
 % Appendix
+% ################################################################################
 %\begin{appendix}
 %  \input{content/appendix}
 %\end{appendix}
 
+
+
+% ################################################################################
 % References
+% ################################################################################
 %\references{lib/library}
 
+
+
+% ################################################################################
 % Declaration of authorship
-% \authorshipstatement[pagenumbering=false]
+% ################################################################################
+%\authorshipstatement[pagenumbering=false]
 %\authorshipstatement[pagenumbering=true]
 % \authorshipstatement[pagenumbering=only]
 
