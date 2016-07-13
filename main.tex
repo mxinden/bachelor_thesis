@@ -109,6 +109,8 @@
   \section{Existierende Methoden und Sprachen}
   \begin{itemize}
     \item H2ForReporting
+    \item Cognos
+    \item Palos
   \end{itemize}
 
   \section{Beispielszenario}
@@ -134,16 +136,27 @@
     \item Input Daten voll normalisiert
     \item Star-Schema denormalisiert
     \item Snow-Schema normalisiert
-    \item => Wie generiert man eine Structure view aus einem SQL-Schema
   \end{itemize}
 
   \section{innoscale DataFurnace-Sprache und Methode}
   Ein Subset von H2ForReporting?
+  Für DQM statt für Business Intelligence?
+
   \subsection{Sprache}
+  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, DQM
+  IT-Laien zu ermöglichen, kohärent zu bleiben.
   \begin{itemize}
-    \item Structure
-    \item Stefan: Ich würde es Dimension view nennen. `Structur ist zu generisch'
-    \item Measure
+    \item Structure (Stefan: Ich würde es Dimension view nennen. `Structur ist zu generisch')
+      \begin{itemize}
+        \item Dimension
+        \item Hierarchy level (Wie wäre es mit dimension level?)
+        \item Reference object (Wie wäre es mit item?)
+        \item Alternativ Vorschlag: Es gibt ein Object (Produkt) welches verschiedene Dimensionen
+          (Zeit, Ort) hat welche verschiedene Sichten auf Attribute (Zeit, Ort,
+          Preis) des Objects geben. Diese Dimensionen haben verschiedene
+          Dimensions Level (Tag, Woche).
+      \end{itemize}
+    \item Measure (können auch Qualitätskriterien sein)
     \item (Fact)
     \item Was ist mit Faktberechnungen
     \item Reports
@@ -185,6 +198,10 @@
 
 % ################################################################################
 \chapter{Fazit}
+% ################################################################################
+
+% ################################################################################
+\chapter{Ausblick}
 % ################################################################################
  \section{Integration in Datarocket}
 
