@@ -114,7 +114,7 @@
   \end{itemize}
 
   \section{Beispielszenario}
-  Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario kreiert. Im
+  Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario vorgestellt. Im
   Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
   Produkte sowohl klassisch über ihr lokales Geschäft als auch über einen
   eigenen Online-Shop ab.
@@ -171,11 +171,17 @@
 
   \section{Vorstellung DataRocket}
   \begin{itemize}
+    \item Produkt von innscale
     \item full Stack Stammdatenmanagement-Software
     \item Modellierung der Planwelt, Zuordnung zur Istwelt, Spezifikation von
       Qualitätsregeln, Analyse, Visualisierung, automatische / händische
       Verbesserung und Berichterstattung
     \item USP:\@ Benutzerfreundlichkeit 
+    \item Datapipeline
+      \begin{itemize}
+        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram, Cleaning, Duplicate, Filter, Language)
+        \item DataFurnace ersetzt Calculation-Step
+      \end{itemize}
   \end{itemize}
 
   \section{Anforderungen an das Tool}
@@ -187,6 +193,16 @@
   \section{Bedingungen und Annahmen}
   \begin{itemize}
     \item Kein User-/Group-management da bereits von DR gegeben
+  \end{itemize}
+
+  \section{Beispielkonzeption einer Datenauswertung mit der DataFurnace-Komponente}
+  \begin{itemize}
+    \item Workflow
+      \begin{enumerate}
+        \item Datenstruktur modellieren
+        \item Kennzahlen spezifizieren
+        \item Datenstruktur und Kennzahlen zu einem Report kombinieren
+      \end{enumerate}
   \end{itemize}
 
   \section{Technologienauswahl}
@@ -204,7 +220,6 @@
     \item Chai
     \item Enzyme
     \item react-bootstrap
->>>>>>> Stashed changes
   \end{itemize}
 
   \section{Umsetzung}
@@ -213,8 +228,6 @@
     \item Continuous Integration
     \item Continuous Deployment
   \end{itemize}
-
-  \section{Beispielkonzeption einer Datenauswertung mit der Webanwendung}
 
 
 % ################################################################################
