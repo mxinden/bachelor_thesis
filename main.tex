@@ -77,7 +77,7 @@
 %\lstlistoflistings{}
 
 % List of abbreviations (if you use acronyms)
-%\listofabbreviations{}
+\listofabbreviations{}
 % List of symbols (if you use symbols)
 %\listofsymbols{}
 
@@ -106,7 +106,8 @@
 % ################################################################################
   \chapter{Methode und Sprache zur Analyse von Unternehmensdaten}
 % ################################################################################
-  \section{Existierende Methoden und Sprachen}
+
+  \section{Existierende Methoden und Sprachen zur Analyse von Unternehmensdaten}
   \begin{itemize}
     \item H2ForReporting
     \item Cognos
@@ -116,7 +117,7 @@
   \section{Beispielszenario}
   Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario vorgestellt. Im
   Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
-  Produkte sowohl klassisch über ihr lokales Geschäft als auch über einen
+  Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
   eigenen Online-Shop ab.
 
   Beispiel Dimensionen
@@ -138,22 +139,24 @@
     \item Snow-Schema normalisiert
   \end{itemize}
 
-  \section{innoscale DataFurnace-Sprache und Methode}
-  Ein Subset von H2ForReporting?
-  Für DQM statt für Business Intelligence?
+  \section{innoscale DataFurnace-Sprache und -Methode}
+  \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
   \subsection{Sprache}
-  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, DQM
+  \begin{figure}[caption={Relationship of students and theses}, label={fig:img01}]
+    {\includegraphics[width=1\textwidth]{content/figures/language_spec-erm}}
+  \end{figure}
+  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, \acrshort{DQM}
   IT-Laien zu ermöglichen, kohärent zu bleiben.
   \begin{itemize}
-    \item Structure (Stefan: Ich würde es Dimension view nennen. `Structur ist zu generisch')
+    \item \texthl{Structure (Stefan: Ich w\"urde es Dimension view nennen. `Structur ist zu generisch')}
       \begin{itemize}
         \item Dimension
         \item Hierarchy level (Wie wäre es mit dimension level?)
         \item Reference object (Wie wäre es mit item?)
-        \item Alternativ Vorschlag: Es gibt ein Object (Produkt) welches verschiedene Dimensionen
+        \item Alternativ Vorschlag: Es gibt ein Objekt (Produkt) welches verschiedene Dimensionen
           (Zeit, Ort) hat welche verschiedene Sichten auf Attribute (Zeit, Ort,
-          Preis) des Objects geben. Diese Dimensionen haben verschiedene
+          Preis) des Objekts geben. Diese Dimensionen haben verschiedene
           Dimensions Level (Tag, Woche).
       \end{itemize}
     \item Measure (können auch Qualitätskriterien sein)
@@ -163,6 +166,11 @@
   \end{itemize}
 
   \subsection{Methode}
+  \begin{enumerate}
+    \item Strukturierung der vorhandenen Daten
+    \item Spezifikation von Kennzahlen
+    \item Kombination von Strukturen und Kennzahlen innerhalb eines Berichts
+  \end{enumerate}
 
 
 % ################################################################################
@@ -170,8 +178,9 @@
 % ################################################################################
 
   \section{Vorstellung DataRocket}
+\label{sec:Vorstellung-DataRocket}
   \begin{itemize}
-    \item Produkt von innscale
+    \item Produkt von innoscale
     \item full Stack Stammdatenmanagement-Software
     \item Modellierung der Planwelt, Zuordnung zur Istwelt, Spezifikation von
       Qualitätsregeln, Analyse, Visualisierung, automatische / händische
