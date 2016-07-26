@@ -7,7 +7,7 @@
 % The following commands are not supported in PSTricks at present
 % We define them conditionally, so when they are implemented,
 % this pgf file will use them.
-\ifx\du\undefined
+\ifx\du\undefined{}
   \newlength{\du}
 \fi
 \setlength{\du}{15\unitlength}
@@ -489,8 +489,7 @@
 \pgfsetdash{}{0pt}
 \pgfsetdash{}{0pt}
 \pgfsetbuttcap
-{
-\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+{\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetfillcolor{dialinecolor}
 % was here!!!
 \pgfsetarrowsend{stealth}
@@ -502,8 +501,7 @@
 \pgfsetdash{}{0pt}
 \pgfsetdash{}{0pt}
 \pgfsetbuttcap
-{
-\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+{\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetfillcolor{dialinecolor}
 % was here!!!
 \pgfsetarrowsend{stealth}
