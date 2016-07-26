@@ -90,70 +90,72 @@
 
 % Content
 \begin{content}
-% ################################################################################
-% \input{content/proposal}
-% ################################################################################
+  % ################################################################################
+  % \input{content/proposal}
+  % ################################################################################
 
 
 
-% ################################################################################
-\chapter{Einleitung}
-% ################################################################################
+  % ################################################################################
+  \chapter{Einleitung}
+  % ################################################################################
 
-  \section{Vorstellung innoscale AG}
+
+  \section{Status quo und Problemstellung}
+  \begin{itemize}
+    \item Die Daten sind vorhanden
+    \item Auswertung bisher nur mit dem nötigen EDV-Wissen möglich
+    \item Für technischen Laien sind die Daten unbrauchbar
+    \item Daten enthalten wirtschaftlich relevante Fakten
+    \item Daten sind komplex
+  \end{itemize}
+
   Die \textit{innoscale AG} ist ein im Jahre 2013 gegründetes Unternehmen aus
   Berlin.  Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend
-  als auch mit einem eigenen Produkt zur Verbesserung der Datenqualität namens
+  als auch mit einem eigenen Produkt, zur Verbesserung der Datenqualität, namens
   \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellug
   DataRocket~\ref{sec:Vorstellung-DataRocket}} tätig. Im Rahmen der
   Datenqualitätsverbesserung ist es nötig die Qualität von zuvor strukturierten
-  Daten anhand von Kennzahlen auszuwerten und zu visualieren.
+  Daten anhand von Kennzahlen auszuwerten und zu visualieren. Hierzu wird eine
+  Methode und eine ensprechende \textit{DataRocket}-Komponente benötigt.
 
-\section{Status quo und Problemstellung}
-\begin{itemize}
-  \item Die Daten sind vorhanden
-  \item Auswertung bisher nur mit dem nötigen EDV-Wissen möglich
-  \item Für technischen Laien sind die Daten unbrauchbar
-  \item Daten enthalten wirtschaftlich relevante Fakten
-  \item Daten sind komplex
-\end{itemize}
-
-\section{Ziel}
-\begin{itemize}
-  \item Spezifikation einer Datenanalysepraktik zugeschnitten auf das
-    Unternehmen \textit{innoscale AG}
+  \section{Ziel}
   \begin{itemize}
-    \item Leicht verständlich
-    \item Modellierung von Datenstrukturen, Kennzahlen und die Kombination der
-      beiden als Fakten/Tabelle
-    \item Datenstruktur generiert aus einem SQL-Schema
-    \item Kennzahlen: Modellierung aller gängigen arithmentischen Operationen
-    \item Fakten/Tabelle: mit Zeilen und Spalten aus Datenstruktur und Kennzahl 
+    \item Spezifikation einer Datenanalysemethode zugeschnitten auf das
+      Unternehmen \textit{innoscale AG}
+      \begin{itemize}
+        \item Leicht verständlich
+        \item Modellierung von Datenstrukturen, Kennzahlen und die Kombination der
+          beiden als Fakten/Tabelle
+        \item Datenstruktur generiert aus einem SQL-Schema
+        \item Kennzahlen: Modellierung aller gängigen arithmentischen Operationen
+        \item Fakten/Tabelle: mit Zeilen und Spalten aus Datenstruktur und Kennzahl 
+      \end{itemize}
+    \item DataRocket-Komponente zur Konzeption von Datenauswertungen
+      \begin{itemize}
+        \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
+        \item Leicht verständlich und grafisch ansprechend
+        \item Benutzbar für technischen Laien
+      \end{itemize}
   \end{itemize}
-\item DataRocket-Komponente zur Konzeption von Datenauswertungen
-  \begin{itemize}
-    \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
-    \item Leicht verständlich und grafisch ansprechend
-    \item Benutzbar für technischen Laien
-  \end{itemize}
-\end{itemize}
 
 
 
 
-% ################################################################################
+  % ################################################################################
   \chapter{Methode und Sprache zur Analyse von Unternehmensdaten}
-% ################################################################################
+  % ################################################################################
 
   \section{Existierende Methoden und Sprachen zur Analyse von Unternehmensdaten}
   \begin{itemize}
+    \item dimensional modelling---IBM~\cite[][]{ballard1998data}
     \item H2ForReporting
     \item Cognos
     \item Palos
   \end{itemize}
 
   \section{Beispielszenario}
-  Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario vorgestellt. Im
+  Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
   Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
   Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
   eigenen Online-Shop ab.
@@ -198,10 +200,11 @@
           Dimensions Level (Tag, Woche).
       \end{itemize}
     \item Measure (können auch Qualitätskriterien sein)
-    \item (Fact)
-    \item Was ist mit Faktberechnungen
-    \item Reports
+    \item Reports \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
   \end{itemize}
+
+  \subsection{Hierarchisch Modellierung}
+  Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
 
   \subsection{Methode}
   \begin{enumerate}
@@ -211,9 +214,9 @@
   \end{enumerate}
 
 
-% ################################################################################
+  % ################################################################################
   \chapter{Die DataRocket-Komponente---DataFurnace}
-% ################################################################################
+  % ################################################################################
 
   \section{Vorstellung DataRocket}
 \label{sec:Vorstellung-DataRocket}
@@ -242,16 +245,6 @@
     \item Kein User-/Group-management da bereits von DR gegeben
   \end{itemize}
 
-  \section{Beispielkonzeption einer Datenauswertung mit der DataFurnace-Komponente}
-  \begin{itemize}
-    \item Workflow
-      \begin{enumerate}
-        \item Datenstruktur modellieren
-        \item Kennzahlen spezifizieren
-        \item Datenstruktur und Kennzahlen zu einem Report kombinieren
-      \end{enumerate}
-  \end{itemize}
-
   \section{Technologienauswahl}
   \begin{itemize}
     \item Vorgaben
@@ -269,15 +262,25 @@
     \item react-bootstrap
   \end{itemize}
 
-  \section{Umsetzung}
+  \section{Implementierung}
   \begin{itemize}
     \item GitFlow
     \item Continuous Integration
     \item Continuous Deployment
   \end{itemize}
 
+  \section{Beispielkonzeption einer Datenauswertung mit der DataFurnace-Komponente}
+  \begin{itemize}
+    \item Workflow
+      \begin{enumerate}
+        \item Datenstruktur modellieren
+        \item Kennzahlen spezifizieren
+        \item Datenstruktur und Kennzahlen zu einem Report kombinieren
+      \end{enumerate}
+  \end{itemize}
 
-% ################################################################################
+
+  % ################################################################################
 \chapter{Fazit}
 % ################################################################################
 
@@ -286,11 +289,11 @@
 % ################################################################################
  \section{Integration in Datarocket}
 
-  
 
-% ################################################################################
+
+ % ################################################################################
   \input{content/notes}
-% ################################################################################
+  % ################################################################################
 
 \end{content}
 
@@ -308,7 +311,7 @@
 % ################################################################################
 % References
 % ################################################################################
-%\references{lib/library}
+\references{lib/library}
 
 
 

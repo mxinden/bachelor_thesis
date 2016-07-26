@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     },
     watch: {
       thesis: {
-        files: ['*.tex', '**/*.tex', '*.cls'],
+        files: ['*.tex', '**/*.tex', '*.cls', '**/*.bib'],
         tasks: [
           'pdflatex:thesis',
           'pdflatex:thesis',
