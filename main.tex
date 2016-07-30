@@ -32,7 +32,7 @@
 \input{lib/symbols}
 
 % Document meta information
-\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung \newline \newline Methode und Sprache für die Analyse von Unternehmensdaten innerhalb von DataRocket und Implementierung des strukturellen Aspekts einer entsprechenden Berichtskomponente},
+\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung \newline \newline Methode und Sprache für die Analyse von Unternehmensdaten innerhalb von DataRocket und Implementierung des strukturellen Aspekts einer entsprechenden Berichtskomponente \newline \newline Entwicklung einer Sprache zur Modellierung von Qualitätskennzahlen für DataRocket (und deren prototypische Implementierung)},
   author={Max Leonard Inden},
   author-email={max.inden@uni-muenster.de},
   author-phone={+49 178 1493411}, % Use international numbers format
@@ -100,8 +100,10 @@
   \chapter{Einleitung}
   % ################################################################################
 
+  Alternativer Name: DataLab
 
-  \section{Status quo und Problemstellung}
+
+  \paragraph{Status quo und Problemstellung}
   \begin{itemize}
     \item Die Daten sind vorhanden
     \item Auswertung bisher nur mit dem nötigen EDV-Wissen möglich
@@ -119,7 +121,7 @@
   Daten anhand von Kennzahlen auszuwerten und zu visualieren. Hierzu wird eine
   Methode und eine ensprechende \textit{DataRocket}-Komponente benötigt.
 
-  \section{Ziel}
+  \paragraph{Ziel}
   \begin{itemize}
     \item Spezifikation einer Datenanalysemethode zugeschnitten auf das
       Unternehmen \textit{innoscale AG}
@@ -133,28 +135,38 @@
       \end{itemize}
     \item DataRocket-Komponente zur Konzeption von Datenauswertungen
       \begin{itemize}
+        \item \texthl{Screenshot vom Calculation-Step zeigen}
         \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
         \item Leicht verständlich und grafisch ansprechend
         \item Benutzbar für technischen Laien
       \end{itemize}
   \end{itemize}
 
-  \section{Aufbau der Arbeit}
+  \paragraph{Aufbau der Arbeit}
 
 
 
 
   % ################################################################################
-  \chapter{Methode und Sprache zur Analyse von Unternehmensdaten}
+  \chapter{Sprache zur Analyse von Unternehmensdaten}
   % ################################################################################
 
   \section{Existierende Methoden und Sprachen zur Analyse von Unternehmensdaten}
+
+  \subsection{H2ForReporting}
+  \subsection{Cognos}
+  \subsection{Palos}
+
+  \subsection{IBM}
+  \begin{figure}[caption={Metamodell der IBM-Dimensions-Sprache}, label={fig:img01}]
+    \resizebox{\columnwidth}{!}{\input{content/figures/IBM-dimension-modelling-language.tex}}
+  \end{figure}
+  Zwei Methoden
   \begin{itemize}
-    \item dimensional modelling---IBM~\cite[][Abschnitt 6.4]{ballard1998data}
-    \item H2ForReporting
-    \item Cognos
-    \item Palos
+    \item er modelling---IBM~\cite[][Kapitel 6.3]{ballard1998data}
+    \item dimensional modelling---IBM~\cite[][Kapitel 6.4]{ballard1998data}
   \end{itemize}
+
 
   \section{Beispielszenario}
   Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
@@ -181,11 +193,14 @@
     \item Snow-Schema normalisiert
   \end{itemize}
 
-  \chapter{innoscale DataFurnace-Sprache und -Methode}
+  % ################################################################################
+  \chapter{DataFurnace-Sprache für innoscale}
+  % ################################################################################
+
   \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
-  \subsection{Sprache}
-  \begin{figure}[caption={Relationship of students and theses}, label={fig:img01}]
+  \section{Sprache}
+  \begin{figure}[caption={Metamodell der DataFurnace-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
   \end{figure}
   Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, \acrshort{DQM}
@@ -205,10 +220,10 @@
     \item Reports \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
   \end{itemize}
 
-  \subsection{Hierarchisch Modellierung}
+  \section{Hierarchisch Modellierung}
   Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
 
-  \subsection{Methode}
+  \section{Methode}
   \begin{enumerate}
     \item Strukturierung der vorhandenen Daten
     \item Spezifikation von Kennzahlen
@@ -217,7 +232,7 @@
 
 
   % ################################################################################
-  \chapter{Die DataRocket-Komponente---DataFurnace}
+  \chapter{DataFurnace-Komponente für DataRocket}
   % ################################################################################
 
   \section{Vorstellung DataRocket}
@@ -231,20 +246,19 @@
     \item USP:\@ Benutzerfreundlichkeit 
     \item Datapipeline
       \begin{itemize}
-        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram, Cleaning, Duplicate, Filter, Language)
+        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram,
+          Cleaning, Duplicate, Filter, Language)
         \item DataFurnace ersetzt Calculation-Step
       \end{itemize}
-  \end{itemize}
-
-  \section{Anforderungen an das Tool}
-  \begin{itemize}
-    \item In der Report View sollten unter den standard Spalten auch kumulierte
-      Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
 
   \section{Bedingungen und Annahmen}
   \begin{itemize}
     \item Kein User-/Group-management da bereits von DR gegeben
+    \item Input sind Business Object / EInstances. Wie diese generiert werden
+      ist Aufgabe von DataRocket nicht von DataFurnace
+    \item In der Report View sollten unter den standard Spalten auch kumulierte
+      Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
 
   \section{Technologienauswahl}
