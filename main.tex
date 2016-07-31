@@ -66,6 +66,7 @@
 
 % Table of contents
 \tableofcontents
+\texthl{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
 
 % List of figures (if you have figures)
 %\listoffigures
@@ -151,6 +152,27 @@
   \chapter{Sprache zur Analyse von Unternehmensdaten}
   % ################################################################################
 
+  \section{Basis Datenmodellierungsmethoden}
+  Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
+  Modelltypen, welche das Schema der Daten als Abstraktion dieser vermitteln.
+  Für die Analyse von Unternehmensdaten müssen diese zunächst modelliert
+  werden. \textsc{\citeauthor{phipps2002automating}} zählen die Modellierung
+  der Daten zu den fünf essentiellen Schritten für die Datenanalyse im
+  Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es sollen nun
+  zwei verschiedene Modelltypen beleutet und im Kontext der
+  Unternehmensdatenanalyse miteinander verglichen werden.
+
+  \begin{enumerate}
+    \item Entity-Relationship-Modell~\cite[][Kapitel 6.3]{ballard1998data}
+    \item Dimensions-Modellierung~\cite[][Kapitel 6.4]{ballard1998data}
+  \end{enumerate}
+
+  Laut \textsc{\citeauthor{phipps2002automating}} wird im Umgang mit
+  OLTP-Systemen überwiegend auf die ER-Modellierung zurück gegriffen, wo
+  hingegen OLAP-Systeme meist mit der Dimensions-Modellierung entwickelt
+  werden~\cite[][S. 2]{phipps2002automating}.
+
+
   \section{Existierende Methoden und Sprachen zur Analyse von Unternehmensdaten}
 
   \subsection{H2ForReporting}
@@ -158,14 +180,11 @@
   \subsection{Palos}
 
   \subsection{IBM}
-  \begin{figure}[caption={Metamodell der IBM-Dimensions-Sprache}, label={fig:img01}]
+  \begin{figure}[caption={Metamodell der IBM-Dimension-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/IBM-dimension-modelling-language.tex}}
   \end{figure}
   Zwei Methoden
-  \begin{itemize}
-    \item er modelling---IBM~\cite[][Kapitel 6.3]{ballard1998data}
-    \item dimensional modelling---IBM~\cite[][Kapitel 6.4]{ballard1998data}
-  \end{itemize}
+
 
 
   \section{Beispielszenario}
