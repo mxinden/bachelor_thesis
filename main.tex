@@ -24,6 +24,7 @@
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric}
+\usetikzlibrary{er}
 
 % Import acronyms
 \input{lib/acronyms}
@@ -66,7 +67,8 @@
 
 % Table of contents
 \tableofcontents
-\texthl{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
+\todo[inline]{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
+\todo[inline]{Wann kursiv schreiben?}
 
 % List of figures (if you have figures)
 %\listoffigures
@@ -155,21 +157,71 @@
   \section{Basis Datenmodellierungsmethoden}
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Schema der Daten als Abstraktion dieser vermitteln.
-  Für die Analyse von Unternehmensdaten müssen diese zunächst modelliert
-  werden. \textsc{\citeauthor{phipps2002automating}} zählen die Modellierung
-  der Daten zu den fünf essentiellen Schritten für die Datenanalyse im
+  Die Modellierung der Daten ist essentiell für die Analyse:
+  \textsc{\citeauthor{phipps2002automating}} zählen die Modellierung der Daten
+  zu den fünf Hauptschritten für die Datenanalyse im
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es sollen nun
-  zwei verschiedene Modelltypen beleutet und im Kontext der
-  Unternehmensdatenanalyse miteinander verglichen werden.
+  zwei Modelltypen beleutet und im Kontext der Unternehmensdatenanalyse
+  miteinander verglichen werden.
 
-  \begin{enumerate}
-    \item Entity-Relationship-Modell~\cite[][Kapitel 6.3]{ballard1998data}
-    \item Dimensions-Modellierung~\cite[][Kapitel 6.4]{ballard1998data}
-  \end{enumerate}
+  \subsection{Entity-Relationship-Modell}
+  Als Kombination aus dem
+  Network-Modell, dem Relational-Model und dem Entity-Set-Model stellt
+  \citeauthor{chen1976entity} \citeyear{chen1976entity} mit seinem
+  \texthl{Paper}\todo{Artikel?} \glqq{}The entity-relationship
+  model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
+  (ERM) vor~\cite[][S. 2]{chen1976entity}. In einem \acrshort{ERM} werden Objekte
+  (\textit{Entities}) mit hilfe ihrer jeweiligen Beziehungen
+  (\textit{Relations}) in Verbindung gebracht~\cite[][S. 10]{chen1976entity}.
+  Zusätlich können zu einer Beziehung zwischen zwei Objekten zwei Kardinalitäten
+  angegeben werden, welche verdeutlichen, wie viele Beziehungen eine Instanz des
+  Objekts mit Instanzen des jeweiligen anderen Objekts eingehen kann\cite[][S.
+  38]{ballard1998data}.
+
+  \begin{figure}[caption={Beispiel eines \acrlong{ERM}}, label={fig:img01}]
+    \begin{tikzpicture}[node  distance=7em]
+      \node[entity] (person) {Person};
+      \node[relationship] (sitzen) [right of=person] {Sitzen} edge node[above]{(0,1)} (person);
+      \node[entity] (stuhl) [right of=sitzen] {Stuhl} edge node[above]{(0,1)} (sitzen);
+    \end{tikzpicture}
+  \end{figure}
+
+  \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und Datenbankmanagementsysteme
+  von Gottfried Vossen}
+  \todo[inline]{ERM als Thema zu allgemein? Nicht zum Seiten füllen!}
+
+  \subsection{Dimensions-Modell}
+  Es gibt verschiedene Ausprägungen des Dimensions-Modell. Zunächst wird auf
+  allgemeine Eigenschaften der Modell-Gruppe eingegangen:
+
+  Im Mittelpunkt der Dimensions-Modellierung stehen die
+  betriebswirtschaftlichen \textbf{Fakten}~\cite[][S.  2]{phipps2002automating}. Ein
+  Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein\cite[][S.
+  42]{ballard1998data}. \citeauthor{Kemper2010} nennt als Beispiele:
+  \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
+  Personalbedarf\grqq{}\cite[][S. 66]{Kemper2010}. 
+  
+  Um verschiedene Sichten auf diese Fakten zu erlangen gruppiert man diese in
+  \textbf{Dimensionen} \bzw weist sie Dimensionsausprägungen zu~\cite[][S.
+  66]{Kemper2010}. Dies ermöglicht es in der späteren Analyse nach
+  verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
+  hierarchisch strukturiert. Mit Hilfe der daraus entstehenden \textbf{Hierariestufen}
+  kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
+  66]{Kemper2010}. Wege innerhalb der Hierarchiestufen verlaufen nicht nur als
+  einzelner Pfad linear, sondern auch als Baumstruktur. Ein Beispiel ist die
+  Dimension \textit{Zeit}.  Diese kann zum einen durch die
+  Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
+  Woche, Tag} strukturiert werden.
+
+  Die Dimensions-Modellierung unterteit sich nun in verschiedene Ausprägungen.
+  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
+  2]{phipps2002automating}. Der Name ist zurück auf den Aufbau eines
+  entsprechenden Modells zu f\"uren, welcher die Form eines Sterns hat~\cite[][S.
+  44]{Kimball2013}.
 
   Laut \textsc{\citeauthor{phipps2002automating}} wird im Umgang mit
-  OLTP-Systemen überwiegend auf die ER-Modellierung zurück gegriffen, wo
-  hingegen OLAP-Systeme meist mit der Dimensions-Modellierung entwickelt
+  \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung zurück gegriffen, wo
+  hingegen \acrshort{OLAP}-Systeme meist mit der Dimensions-Modellierung konzipiert
   werden~\cite[][S. 2]{phipps2002automating}.
 
 
