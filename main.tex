@@ -118,12 +118,12 @@
 
   Die \textit{innoscale AG} ist ein im Jahre 2013 gegründetes Unternehmen aus
   Berlin.  Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend
-  als auch mit einem eigenen Produkt, zur Verbesserung der Datenqualität, namens
-  \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellug
-  DataRocket~\ref{sec:Vorstellung-DataRocket}} tätig. Im Rahmen der
-  Datenqualitätsverbesserung ist es nötig die Qualität von zuvor strukturierten
-  Daten anhand von Kennzahlen auszuwerten und zu visualieren. Hierzu wird eine
-  Methode und eine ensprechende \textit{DataRocket}-Komponente benötigt.
+  als auch mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
+  Abschnitt: Vorstellung DataRocket~\ref{sec:Vorstellung-DataRocket}}, zur
+  Verbesserung von Datenqualität, tätig. Im Rahmen der
+  Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor strukturierten
+  Daten anhand von Kennzahlen auszuwerten und zu visualisieren. Hierzu wird eine
+  Sprache und eine anwendende \textit{DataRocket}-Komponente benötigt.
 
   \paragraph{Ziel}
   \begin{itemize}
@@ -134,7 +134,7 @@
         \item Modellierung von Datenstrukturen, Kennzahlen und die Kombination der
           beiden als Fakten/Tabelle
         \item Datenstruktur generiert aus einem SQL-Schema
-        \item Kennzahlen: Modellierung aller gängigen arithmentischen Operationen
+        \item Kennzahlen: Modellierung aller gängigen arithmetischen Operationen
         \item Fakten/Tabelle: mit Zeilen und Spalten aus Datenstruktur und Kennzahl 
       \end{itemize}
     \item DataRocket-Komponente zur Konzeption von Datenauswertungen
@@ -162,7 +162,7 @@
   \textsc{\citeauthor{phipps2002automating}} zählen die Modellierung der Daten
   zu den fünf Hauptschritten für die Datenanalyse im
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es sollen nun
-  zwei Modelltypen beleutet und im Kontext der Unternehmensdatenanalyse
+  zwei Modelltypen beleuchtet und im Kontext der Unternehmensdatenanalyse
   miteinander verglichen werden.
 
   \subsection{Entity-Relationship-Modell}
@@ -172,9 +172,9 @@
   \texthl{Paper}\todo{Artikel?} \glqq{}The entity-relationship
   model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
   (ERM) vor~\cite[][S. 2]{chen1976entity}. In einem \acrshort{ERM} werden Objekte
-  (\textit{Entities}) mit hilfe ihrer jeweiligen Beziehungen
+  (\textit{Entities}) mit Hilfe ihrer jeweiligen Beziehungen
   (\textit{Relations}) in Verbindung gebracht~\cite[][S. 10]{chen1976entity}.
-  Zusätlich können zu einer Beziehung zwischen zwei Objekten zwei Kardinalitäten
+  Zusätzlich können zu einer Beziehung zwischen zwei Objekten zwei Kardinalitäten
   angegeben werden, welche verdeutlichen, wie viele Beziehungen eine Instanz des
   Objekts mit Instanzen des jeweiligen anderen Objekts eingehen kann\cite[][S.
   38]{ballard1998data}.
@@ -207,7 +207,7 @@
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
   66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
-  hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierariestufen
+  hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
   66]{Kemper2010}. Wege innerhalb der Hierarchiestufen verlaufen nicht nur als
   einzelner Pfad linear, sondern auch als Baumstruktur. Ein Beispiel ist die
@@ -215,7 +215,7 @@
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
   Woche, Tag} strukturiert werden.
 
-  Die Dimensions-Modellierung unterteit sich nun in verschiedene Ausprägungen.
+  Die Dimensions-Modellierung unterteilt sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
   2]{phipps2002automating}. Der Name ist zurück zu f\"uhren auf den Aufbau
   eines entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches
@@ -225,7 +225,7 @@
   eine komplette Dimension abbilden und somit im Gegenzug auf die dritte
   Normalform~\todo{Erklären?} verzichten~\cite[][S. 67 f.]{Kemper2010}. Die
   Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) in den
-  Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}} duch
+  Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}} durch
   ihre geringe Größe nicht in einer schlechteren Leistung des Datenbanksystems,
   sondern im Gegenzug in einer besseren Verständlichkeit der
   Struktur~\cite[][S. 15]{Kimball2013}.
@@ -252,7 +252,7 @@
   Ansatz, wohin gegen die Dimensionstabellen des Snowflak-Modells normalisiert
   sind~\cite[][S. 70]{Kemper2010}. \textsc{\citeauthor{Kemper2010}} schlägt
   jedoch nicht den Ansatz der vollen Normalisierung vor, sondern eine
-  Geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
+  geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
   \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
   ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
   Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
@@ -261,7 +261,7 @@
   \textsc{\citeauthor{ballard1998data}} bezeichnet die Dimensions-Modellierung
   als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
   Dimensions-Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
-  mittels der Notatation der ER-Modellierung visualisiert werden~\cite[][S.
+  mittels der Notation der ER-Modellierung visualisiert werden~\cite[][S.
   47]{ballard1998data}. Zum Beispiel können die Fakten eines Dimensions-Modells
   als Objekte eines ER-Modells mit Beziehungen zu den jeweiligen Dimensionen,
   wiederum als Objekt, modelliert werden~\cite[][S. 48]{ballard1998data}. 
@@ -278,7 +278,7 @@
   Dimensions-Modellierung konzipiert werden~\cite[][S.
   2]{phipps2002automating}. \todo{oltp /olap erklären} 
 
-  Systeme, welche nach der ER-Modellierung entwicklet wurden und einer strengen
+  Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
   Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änder- und
   Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen und
   komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
