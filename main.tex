@@ -69,12 +69,13 @@
 \tableofcontents
 \todo[inline]{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
 \todo[inline]{Wann kursiv schreiben?}
+\todo[inline]{Small capitals bei citeauthor gew\"uenscht?}
 
 % List of figures (if you have figures)
-%\listoffigures
+\listoffigures
 
 % List of tables (if you have tables)
-%\listoftables
+\listoftables
 
 % List of listings (if you have listings)
 %\lstlistoflistings{}
@@ -192,20 +193,20 @@
 
   \subsection{Dimensions-Modell}
   Es gibt verschiedene Ausprägungen des Dimensions-Modell. Zunächst wird auf
-  allgemeine Eigenschaften der Modell-Gruppe eingegangen:
+  allgemeine Eigenschaften der Modell-Gruppe eingegangen.
 
   Im Mittelpunkt der Dimensions-Modellierung stehen die
-  betriebswirtschaftlichen \textbf{Fakten}~\cite[][S.  2]{phipps2002automating}. Ein
+  betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein\cite[][S.
-  42]{ballard1998data}. \citeauthor{Kemper2010} nennt als Beispiele:
+  42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
   Personalbedarf\grqq{}\cite[][S. 66]{Kemper2010}. 
   
   Um verschiedene Sichten auf diese Fakten zu erlangen gruppiert man diese in
-  \textbf{Dimensionen} \bzw weist sie Dimensionsausprägungen zu~\cite[][S.
-  66]{Kemper2010}. Dies ermöglicht es in der späteren Analyse nach
+  Dimensionen \bzw weist ihnen Dimensionsausprägungen zu~\cite[][S.
+  66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
-  hierarchisch strukturiert. Mit Hilfe der daraus entstehenden \textbf{Hierariestufen}
+  hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierariestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
   66]{Kemper2010}. Wege innerhalb der Hierarchiestufen verlaufen nicht nur als
   einzelner Pfad linear, sondern auch als Baumstruktur. Ein Beispiel ist die
@@ -215,10 +216,47 @@
 
   Die Dimensions-Modellierung unterteit sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
-  2]{phipps2002automating}. Der Name ist zurück auf den Aufbau eines
-  entsprechenden Modells zu f\"uren, welcher die Form eines Sterns hat~\cite[][S.
-  44]{Kimball2013}.
+  2]{phipps2002automating}. Der Name ist zurück zu f\"uhren auf den Aufbau
+  eines entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches
+  die Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des
+  Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
+  verweist mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils
+  eine komplette Dimension abbilden und somit im Gegenzug auf die dritte
+  Normalform~\todo{Erklären?} verzichten~\cite[][S. 67 f.]{Kemper2010}. Die
+  Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) in den
+  Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}} duch
+  ihre geringe Größe nicht in einer schlechteren Leistung des Datenbanksystems,
+  sondern im Gegenzug in einer besseren Verständlichkeit der
+  Struktur~\cite[][S. 15]{Kimball2013}.
 
+  \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an \cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
+    \resizebox{\columnwidth-100}{!}{\input{content/figures/star-schema.tex}}
+  \end{figure}
+
+  \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort}}, label={table:dimension-table}]
+    \begin{tabular}{c c c c}
+      Ort Id & Straße & Ort & Land \\
+      \hline
+      0 & Corrensstraße & Münster & Deutschland \\
+      1 & Rudolf-Harbig-Weg & Münster & Deutschland \\
+      2 & Steinfurter Straße & Münster & Deutschland \\
+    \end{tabular}
+  \end{figure}
+
+  Eine weitere Ausprägung der Dimensions-Modellierung ist das Snowflake-Modell.
+  Wie auch beim Star-Modell gleicht die Form eines entsprechenden Modells einer
+  Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und Snowflake-Modell
+  unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
+  vorherigen Absatz beschrieben verfolgt das Star-Schema einen denormalisierten
+  Ansatz, wohin gegen die Dimensionstabellen des Snowflak-Modells normalisiert
+  sind~\cite[][S. 70]{Kemper2010}. \textsc{\citeauthor{Kemper2010}} schlägt
+  jedoch nicht den Ansatz der vollen Normalisierung vor, sondern eine
+  Geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
+  \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
+  ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf die
+  Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
+
+  \subsection{Vergleich ER-Modell und Dimensions-Modell}
   Laut \textsc{\citeauthor{phipps2002automating}} wird im Umgang mit
   \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung zurück gegriffen, wo
   hingegen \acrshort{OLAP}-Systeme meist mit der Dimensions-Modellierung konzipiert
