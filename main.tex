@@ -70,6 +70,8 @@
 \todo[inline]{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
 \todo[inline]{Wann kursiv schreiben?}
 \todo[inline]{Small capitals bei citeauthor gew\"uenscht?}
+\todo[inline]{Was machen wenn zwei mal direkt hintereinander das gleiche zitiert wird?}
+\todo[inline]{Bei citeauthor mit mehreren Autoren mit et al plural oder singular im Satz?}
 
 % List of figures (if you have figures)
 \listoffigures
@@ -124,6 +126,10 @@
   Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor strukturierten
   Daten anhand von Kennzahlen auszuwerten und zu visualisieren. Hierzu wird eine
   Sprache und eine anwendende \textit{DataRocket}-Komponente benötigt.
+
+  \begin{figure}[caption={DataRockets Datapipeline-Bausteine}, label={}]
+    \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
+  \end{figure}
 
   \paragraph{Ziel}
   \begin{itemize}
@@ -212,7 +218,7 @@
   hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
   66]{Kemper2010}. Wege innerhalb der Hierarchiestufen verlaufen nicht nur als
-  einzelner Pfad linear, sondern auch als Baumstruktur. Ein Beispiel ist die
+  einzelner Pfad linear, sondern auch als Graph. Ein Beispiel ist die
   Dimension \textit{Zeit}.  Diese kann zum einen durch die
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
   Woche, Tag} strukturiert werden.
@@ -225,7 +231,7 @@
   Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
   verweist mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils
   eine komplette Dimension abbilden und somit im Gegenzug auf die dritte
-  Normalform~\todo{Erklären?} verzichten~\cite[][S. 67 f.]{Kemper2010}. Die
+  Normalform verzichten~\cite[][S. 67 f.]{Kemper2010}. Die
   Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) in den
   Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}} durch
   ihre geringe Größe nicht in einer schlechteren Leistung des Datenbanksystems,
@@ -290,14 +296,33 @@
   sich gegenüber der ER-Modellierung für \acrshort{OLAP}-Systeme besser eignet.
 
 
+  \section{Dimensions-Modellsprachen zur Analyse von Unternehmensdaten}
+  Die Dimensionsmodellierung wird durch verschiedene Modellierungssprachen
+  erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
+  Institut für Wirtschaftsinformatik an der Westfälische Wilhelms-Universität
+  Münster\todo{Stimmt das und wenn ja belegen!}.
+  
+  \textit{H2 for Reporting} erweitert die Dimensions-Modellierung unter anderem
+  um Bezugsobjekte, Kennzahlen und Berichte. Bezugsobjekte bilden die
+  Basisobjekte der Datenanalyse, Beispiele sind Ort, Zeit oder
+  Produkt~\cite[][S.  5]{becker2007h2}. Kennzahlen ermöglichen die qualitative
+  und quantitative Teilanalyse von Bezugsobjekten. Sie werden unterschieden in
+  Basiskennzahlen und berechneten Kennzahlen, welche wiederum in Kennzahlen mit
+  Bezug auf ein und mit Bezug auf mehrere Objekte unterteilt werden~\cite[][S.
+  15]{becker2007h2}. \textsc{\citeauthor{becker2007h2}} nennt als Beispiel
+  einer berechnenden Kennzahl den Umsatz~\cite[][S. 17]{becker2007h2}.
+  Berichte dienen der Visualisierung von Erkenntnissen aus der Kombination von
+  Bezugsobjekten, Dimensionen und Kennzahlen und können zum Beispiel mit der
+  Hilfe einer Tabelle abgebildet werden~\cite[][S. 23]{becker2007h2}.
 
-  \section{Existierende Methoden und Sprachen zur Analyse von Unternehmensdaten}
+  \begin{itemize}
+    \item H2 for Reporting
+    \item Cognos
+    \item Palos
+    \item IBM
+    \item Firmen Cognos, SAP, MicroStrategy oder BusinessObjects
+  \end{itemize}
 
-  \subsection{H2ForReporting}
-  \subsection{Cognos}
-  \subsection{Palos}
-
-  \subsection{IBM}
   \begin{figure}[caption={Metamodell der IBM-Dimension-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/IBM-dimension-modelling-language.tex}}
   \end{figure}
