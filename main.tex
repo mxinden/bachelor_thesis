@@ -76,6 +76,7 @@
 \todo[inline]{Nochmal über den Namen DataFurnace nachdenken?}
 \todo[inline]{Kardinalitäten immer möglichst restriktiv oder möglichst offen?}
 \todo[inline]{30--40 Seiten inklusive Stuff (Literaturverzeichnis,..)?}
+\todo[inline]{Muss auf jede Grafik verwiesen werden?}
 
 % List of figures (if you have figures)
 \listoffigures
@@ -381,13 +382,32 @@
   \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
   \section{Anforderungsanalyse und Annahmen}
+  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket,
+  \acrshort{DQM} IT-Laien zu ermöglichen, kohärent zu bleiben.
 
   \section{Fachliches Konzept der Sprache}
   \begin{figure}[caption={Metamodell der DataFurnace-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
   \end{figure}
-  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, \acrshort{DQM}
-  IT-Laien zu ermöglichen, kohärent zu bleiben.
+
+  \subsection{Geschäftsobjekte}
+  Der Begriff Geschäftsobjekt wird aus dem \textit{DataRocket}-Vokabular
+  übernommen. Geschäftsobjekte sind Datenobjekte innerhalb eines Unternehmens,
+  welche isoliert betrachtet werden können. Sie können sowohl der Klasse der
+  Transaktionsdaten als auch der Stammdaten angehören. Sie bilden den
+  zentralen Baustein der \textit{DataRocket}-Software. Das Geschäftsobjekt kann
+  mit dem Bezugsobjekt der \textit{H2 for Reporting}-Sprache verglichen
+  werden. \todo{Wo liegen die Ähnlichkeiten?}
+
+  Einem Geschäftsobjekt können Attribute untergeordnet werden. 
+
+  \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={fig:img01}]
+    \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
+  \end{figure}
+  
+  \subsection{Dimensionen}
+  \subsection{Kennzahlen}
+  \subsection{Berichte}
   \begin{itemize}
     \item Geschäftsobjekt
       \begin{itemize}
@@ -439,6 +459,9 @@
   \end{itemize}
 
   \section{Fachliches Konzept der \textit{DataRocket}-Komponente}
+  \subsection{Dimensionsansicht}
+  \subsection{Kennzahlansicht}
+  \subsection{Berichtansicht}
 
 
   \section{Technische Umsetzung}
