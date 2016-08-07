@@ -33,7 +33,7 @@
 \input{lib/symbols}
 
 % Document meta information
-\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung \newline \newline Methode und Sprache für die Analyse von Unternehmensdaten innerhalb von DataRocket und Implementierung des strukturellen Aspekts einer entsprechenden Berichtskomponente \newline \newline Entwicklung einer Sprache zur Modellierung von Qualitätskennzahlen für DataRocket (und deren prototypische Implementierung)},
+\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung \newline \newline Methode und Sprache für die Analyse von Unternehmensdaten innerhalb von DataRocket und Implementierung des strukturellen Aspekts einer entsprechenden Berichtskomponente \newline \newline Entwicklung einer Sprache zur Modellierung von Qualitätskennzahlen für DataRocket und deren prototypische Implementierung},
   author={Max Leonard Inden},
   author-email={max.inden@uni-muenster.de},
   author-phone={+49 178 1493411}, % Use international numbers format
@@ -68,10 +68,14 @@
 % Table of contents
 \tableofcontents
 \todo[inline]{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
-\todo[inline]{Wann kursiv schreiben?}
+\todo[inline]{Wann kursiv schreiben? DataRocket immer kursiv?}
 \todo[inline]{Small capitals bei citeauthor gew\"uenscht?}
+\todo[inline]{Vor jedes Zitat vgl.\ schreiben?}
 \todo[inline]{Was machen wenn zwei mal direkt hintereinander das gleiche zitiert wird?}
 \todo[inline]{Bei citeauthor mit mehreren Autoren mit et al plural oder singular im Satz?}
+\todo[inline]{Nochmal über den Namen DataFurnace nachdenken?}
+\todo[inline]{Kardinalitäten immer möglichst restriktiv oder möglichst offen?}
+\todo[inline]{30--40 Seiten inklusive Stuff (Literaturverzeichnis,..)?}
 
 % List of figures (if you have figures)
 \listoffigures
@@ -106,9 +110,6 @@
   \chapter{Einleitung}
   % ################################################################################
 
-  Alternativer Name: DataLab
-
-
   \paragraph{Status quo und Problemstellung}
   \begin{itemize}
     \item Die Daten sind vorhanden
@@ -118,18 +119,38 @@
     \item Daten sind komplex
   \end{itemize}
 
-  Die \textit{innoscale AG} ist ein im Jahre 2013 gegründetes Unternehmen aus
-  Berlin.  Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend
-  als auch mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
+  Die vorliegende \todo{ersetzen} Bachelorarbeit beschäftigt sich mit der
+  konzeptionellen Analyse von Unternehmensdaten in Zusammenarbeit mit der
+  \textit{innoscale AG}, ein im Jahre 2013 gegründetes Unternehmen aus Berlin.
+  Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend als auch
+  mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
   Abschnitt: Vorstellung DataRocket~\ref{sec:Vorstellung-DataRocket}}, zur
   Verbesserung von Datenqualität, tätig. Im Rahmen der
-  Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor strukturierten
-  Daten anhand von Kennzahlen auszuwerten und zu visualisieren. Hierzu wird eine
-  Sprache und eine anwendende \textit{DataRocket}-Komponente benötigt.
+  Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor
+  strukturierten Daten anhand von Kennzahlen auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und visualisieren?}.
+  Hierzu wird eine Sprache und eine (anwendende) \textit{DataRocket}-Komponente
+  benötigt.
 
-  \begin{figure}[caption={DataRockets Datapipeline-Bausteine}, label={}]
-    \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
-  \end{figure}
+  Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
+  Modellierungssprache zur Konzeption von Unternehmensdatenanalysen und zum
+  anderen die Implementierung einer \textit{DataRocket}-Komponente zur
+  Integration der neuen Sprache in das Produkt.
+
+  Die Modellierungssprache soll die Möglichkeit bieten, bestehende
+  Datenstrukturen zu modellieren und zu gliedern, Kennzahlen zur
+  Anwendung auf diesen Daten zu spezifizieren und Daten und Kennzahlen zu
+  Berichten zu kombinieren. Das Vokabular der Sprache soll mit dem von
+  \textit{DataRocket} harmonisieren und an den jeweiligen Schnittpunkten
+  übereinstimmen. Besonderer Wert wird auf die leichte Verständlichkeit der
+  Sprache gesetzt, um IT-Laien die Nutzung von \textit{DataRocket} weiterhin zu
+  ermöglichen. 
+  
+  Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
+  spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
+  alleinstehendes Softwareprodukt konzipiert und entwickelt, soll jedoch zur
+  späteren Integration mit den bestehenden Konventionen und Technologien in
+  \textit{DataRocket} kombinierbar sein.
+
 
   \paragraph{Ziel}
   \begin{itemize}
@@ -149,6 +170,7 @@
         \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
         \item Leicht verständlich und grafisch ansprechend
         \item Benutzbar für technischen Laien
+        \item leicht integrieren
       \end{itemize}
   \end{itemize}
 
@@ -158,26 +180,26 @@
 
 
   % ################################################################################
-  \chapter{Sprache zur Analyse von Unternehmensdaten}
+  \chapter{Grundlagen}
   % ################################################################################
 
-  \section{Basis Datenmodellierungsmethoden}
   \todo[inline]{ER-Modell oder Modellierung---einheitlich!}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
-  Modelltypen, welche das Schema der Daten als Abstraktion dieser vermitteln.
+  Modelltypen, welche das Datenschema abstrahiert darstellen.
   Die Modellierung der Daten ist essentiell für die Analyse:
-  \textsc{\citeauthor{phipps2002automating}} zählen die Modellierung der Daten
-  zu den fünf Hauptschritten für die Datenanalyse im
+  \textsc{\citeauthor{phipps2002automating}} zählen diese
+  zu den fünf Hauptschritten der Datenanalyse im
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es sollen nun
   zwei Modelltypen beleuchtet und im Kontext der Unternehmensdatenanalyse
-  miteinander verglichen werden.
+  miteinander verglichen werden. Des Weiteren wird eine Erweiterung von einem
+  der Modelltypen vorgestellt.
 
-  \subsection{Entity-Relationship-Modell}
+  \section{Entity-Relationship-Modell}
   Als Kombination aus dem
   Network-Modell, dem Relational-Model und dem Entity-Set-Model stellt
   \citeauthor{chen1976entity} \citeyear{chen1976entity} mit seinem
-  \texthl{Paper}\todo{Artikel?} \glqq{}The entity-relationship
+  \texthl{Paper} \todo{Artikel?} \glqq{}The entity-relationship
   model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
   (ERM) vor~\cite[][S. 2]{chen1976entity}. In einem \acrshort{ERM} werden Objekte
   (\textit{Entities}) mit Hilfe ihrer jeweiligen Beziehungen
@@ -200,8 +222,8 @@
   \todo[inline]{ERM als Thema zu allgemein? Nicht zum Seiten füllen!}
   \todo[inline]{Attribute auch erläutern}
 
-  \subsection{Dimensions-Modell}
-  Es gibt verschiedene Ausprägungen des Dimensions-Modell. Zunächst wird auf
+  \section{Dimensions-Modell}
+  Es gibt verschiedene Ausprägungen des Dimensions-Modells. Zunächst wird auf
   allgemeine Eigenschaften der Modell-Gruppe eingegangen.
 
   Im Mittelpunkt der Dimensions-Modellierung stehen die
@@ -211,7 +233,7 @@
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
   Personalbedarf\grqq{}\cite[][S. 66]{Kemper2010}. 
   
-  Um verschiedene Sichten auf diese Fakten zu erlangen gruppiert man diese in
+  Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
   66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
@@ -242,6 +264,7 @@
     \resizebox{\columnwidth-90pt}{!}{\input{content/figures/star-schema.tex}}
   \end{figure}
 
+  \todo{Soll ich erklären, dass die Tabelle nicht normalisiert ist?}
   \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort}}, label={table:dimension-table}]
     \begin{tabular}{c c c c}
       Ort Id & Straße & Ort & Land \\
@@ -253,7 +276,7 @@
   \end{figure}
 
   Eine weitere Ausprägung der Dimensions-Modellierung ist das Snowflake-Modell.
-  Wie auch beim Star-Modell gleicht die Form eines entsprechenden Modells einer
+  Analog zum Star-Modell gleicht die Form eines Snowflake-Modells einer
   Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und Snowflake-Modell
   unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
   vorherigen Absatz beschrieben verfolgt das Star-Schema einen denormalisierten
@@ -264,8 +287,9 @@
   \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
   ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
   Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
+  \todo[inline]{Grafiken als Beispiel wie beim Star-Modell}
 
-  \subsection{Vergleich ER-Modell und Dimensions-Modell}
+  \section{Vergleich ER-Modell und Dimensions-Modell}
   \textsc{\citeauthor{ballard1998data}} bezeichnet die Dimensions-Modellierung
   als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
   Dimensions-Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
@@ -292,28 +316,36 @@
   komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
   52]{ballard2012dimensional}. Mit der Dimensions-Modellierung können diese
   Anfragen schneller verarbeitet werden\cite[][S.  52]{ballard2012dimensional},
-  unter anderem zurück zu führen auf die geringere Normalisierung, wodurch sie
-  sich gegenüber der ER-Modellierung für \acrshort{OLAP}-Systeme besser eignet.
+  unter anderem zurück zu führen auf die geringere Normalisierung, wodurch
+  sich die Dimensions-Modellierung gegenüber der ER-Modellierung für \acrshort{OLAP}-Systeme besser eignet.
 
 
-  \section{Dimensions-Modellsprachen zur Analyse von Unternehmensdaten}
-  Die Dimensionsmodellierung wird durch verschiedene Modellierungssprachen
+  \section{Erweiterung der Dimensions-Modellierung---H2 for Reporting}
+  Die Dimensions-Modellierung wird durch verschiedene Modellierungssprachen
   erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
-  Institut für Wirtschaftsinformatik an der Westfälische Wilhelms-Universität
-  Münster\todo{Stimmt das und wenn ja belegen!}.
-  
-  \textit{H2 for Reporting} erweitert die Dimensions-Modellierung unter anderem
-  um Bezugsobjekte, Kennzahlen und Berichte. Bezugsobjekte bilden die
-  Basisobjekte der Datenanalyse, Beispiele sind Ort, Zeit oder
-  Produkt~\cite[][S.  5]{becker2007h2}. Kennzahlen ermöglichen die qualitative
-  und quantitative Teilanalyse von Bezugsobjekten. Sie werden unterschieden in
-  Basiskennzahlen und berechneten Kennzahlen, welche wiederum in Kennzahlen mit
-  Bezug auf ein und mit Bezug auf mehrere Objekte unterteilt werden~\cite[][S.
-  15]{becker2007h2}. \textsc{\citeauthor{becker2007h2}} nennt als Beispiel
-  einer berechnenden Kennzahl den Umsatz~\cite[][S. 17]{becker2007h2}.
-  Berichte dienen der Visualisierung von Erkenntnissen aus der Kombination von
-  Bezugsobjekten, Dimensionen und Kennzahlen und können zum Beispiel mit der
-  Hilfe einer Tabelle abgebildet werden~\cite[][S. 23]{becker2007h2}.
+  Institut für Wirtschaftsinformatik an der \acrlong{WWU} (WWU)
+  Münster\todo{Stimmt das und wenn ja belegen!}. \textit{H2 for Reporting}
+  ergänzt die Dimensions-Modellierung unter anderem um Bezugsobjekte,
+  Kennzahlen und Berichte:
+  \begin{itemize}
+    \item Bezugsobjekte bilden die
+      Basisobjekte der Datenanalyse, Beispiele sind Ort, Zeit oder
+      Produkt~\cite[][S.  5]{becker2007h2}. 
+    \item Kennzahlen ermöglichen die qualitative
+      und quantitative Teilanalyse von Bezugsobjekten. Sie werden unterschieden in
+      Basiskennzahlen und berechneten \todo{berechnende oder berechnete} Kennzahlen, welche wiederum in Kennzahlen mit
+      Bezug auf ein und mit Bezug auf mehrere Objekte unterteilt werden~\cite[][S.
+      15]{becker2007h2}. \textsc{\citeauthor{becker2007h2}} nennt als Beispiel
+      einer berechnenden Kennzahl den Umsatz~\cite[][S. 17]{becker2007h2}.
+    \item Berichte dienen der Visualisierung von Erkenntnissen aus der Kombination von
+      Bezugsobjekten, Dimensionen und Kennzahlen und können zum Beispiel mit der
+      Hilfe einer Tabelle abgebildet werden~\cite[][S. 23]{becker2007h2}.
+  \end{itemize}
+
+  Für die Anwendung von \textit{H2 for Reporting} kann das
+  Metamodellierungswerkzeug \textit{H2-Toolset} verwendet werden~\cite[][S.
+  33]{fleischer2013konstruktion}. Dieses wurde ebenfalls an der
+  \acrshort{WWU}-Münster entwickelt~\cite[][S. 34]{becker2007h2}.
 
   \begin{itemize}
     \item H2 for Reporting
@@ -323,14 +355,7 @@
     \item Firmen Cognos, SAP, MicroStrategy oder BusinessObjects
   \end{itemize}
 
-  \begin{figure}[caption={Metamodell der IBM-Dimension-Sprache}, label={fig:img01}]
-    \resizebox{\columnwidth}{!}{\input{content/figures/IBM-dimension-modelling-language.tex}}
-  \end{figure}
-  Zwei Methoden
-
-
-
-  \section{Beispielszenario}
+  \paragraph{Beispielszenario}
   Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
   Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
   Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
@@ -348,12 +373,6 @@
     \item Wertansatz (Soll, Ist, Plan)
   \end{itemize}
 
-  \section{Rahmenbedingungen und Annahmen}
-  \begin{itemize}
-    \item Input Daten voll normalisiert
-    \item Star-Schema denormalisiert
-    \item Snow-Schema normalisiert
-  \end{itemize}
 
   % ################################################################################
   \chapter{DataFurnace-Sprache für innoscale}
@@ -361,33 +380,31 @@
 
   \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
-  \section{Sprache}
+  \section{Anforderungsanalyse und Annahmen}
+
+  \section{Fachliches Konzept der Sprache}
   \begin{figure}[caption={Metamodell der DataFurnace-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
   \end{figure}
   Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket, \acrshort{DQM}
   IT-Laien zu ermöglichen, kohärent zu bleiben.
   \begin{itemize}
-    \item Dimension view
+    \item Geschäftsobjekt
+      \begin{itemize}
+        \item Attribute
+      \end{itemize}
+    \item Dimensionen
       \begin{itemize}
         \item Dimension
         \item Dimensions level (Wie wäre es mit dimension level?)
-        \item Geschäftsobjekt (Wie wäre es mit item?)
-        \item Attribute
+        \item Geschäftsobjekt
       \end{itemize}
-    \item Measure (können auch Qualitätskriterien sein)
-    \item Reports \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
+    \item Kennzahlen
+    \item Berichte \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
   \end{itemize}
 
-  \section{Hierarchisch Modellierung}
+  \paragraph{Hierarchische Modellierung}
   Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
-
-  \section{Methode}
-  \begin{enumerate}
-    \item Strukturierung der vorhandenen Daten
-    \item Spezifikation von Kennzahlen
-    \item Kombination von Strukturen und Kennzahlen innerhalb eines Berichts
-  \end{enumerate}
 
 
   % ################################################################################
@@ -411,7 +428,8 @@
       \end{itemize}
   \end{itemize}
 
-  \section{Bedingungen und Annahmen}
+
+  \section{Anforderungsanalyse und Annahmen}
   \begin{itemize}
     \item Kein User-/Group-management da bereits von DR gegeben
     \item Input sind Business Object / EInstances. Wie diese generiert werden
@@ -420,7 +438,12 @@
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
 
-  \section{Technologienauswahl}
+  \section{Fachliches Konzept der \textit{DataRocket}-Komponente}
+
+
+  \section{Technische Umsetzung}
+
+  \paragraph{Technologienauswahl}
   \begin{itemize}
     \item Vorgaben
       \begin{itemize}
@@ -437,21 +460,10 @@
     \item react-bootstrap
   \end{itemize}
 
-  \section{Implementierung}
   \begin{itemize}
     \item GitFlow
     \item Continuous Integration
     \item Continuous Deployment
-  \end{itemize}
-
-  \section{Beispielkonzeption einer Datenauswertung mit der DataFurnace-Komponente}
-  \begin{itemize}
-    \item Workflow
-      \begin{enumerate}
-        \item Datenstruktur modellieren
-        \item Kennzahlen spezifizieren
-        \item Datenstruktur und Kennzahlen zu einem Report kombinieren
-      \end{enumerate}
   \end{itemize}
 
 
@@ -463,6 +475,9 @@
 \chapter{Fazit}
 % ################################################################################
  \paragraph{Integration in Datarocket}
+  \begin{figure}[caption={DataRockets Datapipeline-Bausteine}, label={}]
+    \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
+  \end{figure}
 
 
 

@@ -105,7 +105,7 @@
 \RequirePackage{geometry}
 
 % Hyperlinks and PDF information
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 
 % Glossaries (must be loaded after hyperref)
 \RequirePackage[acronym,nonumberlist,nopostdot,nolong,nosuper,notree,nomain]{glossaries}
