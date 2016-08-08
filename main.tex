@@ -77,6 +77,8 @@
 \todo[inline]{Kardinalitäten immer möglichst restriktiv oder möglichst offen?}
 \todo[inline]{30--40 Seiten inklusive Stuff (Literaturverzeichnis,..)?}
 \todo[inline]{Muss auf jede Grafik verwiesen werden?}
+\todo[inline]{Besseren Begriff für Umsatztransaktion}
+\todo[inline]{Geht die Einleitung zu sehr ins Detail?}
 
 % List of figures (if you have figures)
 \listoffigures
@@ -266,13 +268,13 @@
   \end{figure}
 
   \todo{Soll ich erklären, dass die Tabelle nicht normalisiert ist?}
-  \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort}}, label={table:dimension-table}]
+  \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}, label={table:dimension-table}]
     \begin{tabular}{c c c c}
       Ort Id & Straße & Ort & Land \\
       \toprule
       0 & Corrensstraße & Münster & Deutschland \\
       1 & Rudolf-Harbig-Weg & Münster & Deutschland \\
-      2 & Steinfurter Straße & Münster & Deutschland \\
+      2 & Hauptstraße & Bonn & Deutschland \\
     \end{tabular}
   \end{figure}
 
@@ -289,6 +291,32 @@
   ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
   Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
   \todo[inline]{Grafiken als Beispiel wie beim Star-Modell}
+
+  \begin{figure}[caption={Teilausschnitt eines Snowflake-Schema}, label={fig:snowflake-schema}]
+    \resizebox{400pt}{!}{\input{content/figures/snowflake-schema.tex}}
+  \end{figure}
+
+  \begin{figure}[caption={Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}, label={table:dimension-table}]
+    \begin{tabular}{c c c }
+      Straße Id & Name & Ort Id \\
+      \toprule
+      0 & Corrensstraße & 0 \\
+      1 & Rudolf-Harbig-Weg & 0 \\
+      2 & Hauptstraße & 1 \\
+    \end{tabular}
+    \begin{tabular}{c c c}
+      Ort Id & Name & Land \\
+      \toprule
+      0 & Münster & 0 \\
+      1 & Bonn & 0 \\
+    \end{tabular}
+    \begin{tabular}{c c c }
+      Land Id & Name \\
+      \toprule
+      0 & Deutschland \\
+      1 & Frankreich \\
+    \end{tabular}
+  \end{figure}
 
   \section{Vergleich ER-Modell und Dimensions-Modell}
   \textsc{\citeauthor{ballard1998data}} bezeichnet die Dimensions-Modellierung
@@ -385,6 +413,7 @@
   Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket,
   \acrshort{DQM} IT-Laien zu ermöglichen, kohärent zu bleiben.
 
+  \todo{Was mit der doppelten entity Ausprägung machen?}
   \section{Fachliches Konzept der Sprache}
   \begin{figure}[caption={Metamodell der DataFurnace-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
@@ -394,34 +423,64 @@
   Der Begriff Geschäftsobjekt wird aus dem \textit{DataRocket}-Vokabular
   übernommen. Geschäftsobjekte sind Datenobjekte innerhalb eines Unternehmens,
   welche isoliert betrachtet werden können. Sie können sowohl der Klasse der
-  Transaktionsdaten als auch der Stammdaten angehören. Sie bilden den
-  zentralen Baustein der \textit{DataRocket}-Software. Das Geschäftsobjekt kann
-  mit dem Bezugsobjekt der \textit{H2 for Reporting}-Sprache verglichen
-  werden. \todo{Wo liegen die Ähnlichkeiten?}
+  Transaktionsdaten als auch der Stammdaten angehören. Sie bilden den zentralen
+  Baustein der \textit{DataRocket}-Software. Ein Geschäftsobjekt kann zum
+  Beispiel das \textit{Produkt} aber auch die \textit{Umsatztransaktion} sein.
+  Das Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
+  Reporting}-Sprache verglichen werden. \todo{Wo liegen die Ähnlichkeiten?}
 
-  Einem Geschäftsobjekt können Attribute untergeordnet werden. 
-
-  \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={fig:img01}]
+  \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={geschaeftsobjekt}]
     \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
   \end{figure}
+
+  Einem Geschäftsobjekt werden Attribute untergeordnet (Siehe
+  Abbildung~\ref{geschaeftsobjekt}). Attribute spezifizieren Eigenschaften des
+  Objekts. Zum Beispiel hat das Objekt \textit{Produkt} die Attribute
+  \textit{Preis} und \textit{Farbe}. Attribute haben wiederum Ausprägungen.
+  Diese verkörpern Instanzen eines Attributes. \textit{Blau} und \textit{Grün}
+  sind beispielsweise Ausprägungen des Attributes \textit{Farbe}.
   
   \subsection{Dimensionen}
+  Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
+  Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
+  Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern auf
+  eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
+  anzuwenden.  Eine Dimension bezieht sich nicht direkt auf ein Geschäftsobjekt
+  sondern auf ein Attribut eines Geschäftsobjekts. Die Dimension \textit{Zeit}
+  bezieht sich \zB{} auf das Attribut \textit{Verfallsdatum} des
+  Geschäftsobjekts \textit{Produkt}. 
+
+  \begin{figure}[caption={Teilsprache---Dimension}, label={geschaeftsobjekt}]
+    \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
+  \end{figure}
+  
+  Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
+  Informationen einer Attributinstanz in Teilinformationen unterteilen. Das
+  Attribut \textit{Verfallsdatum} kann zum Beispiel die Instanz '09.08.2016'
+  haben. Wird hierauf die Dimension \textit{Zeit} angewendet, kann die Instanz
+  in den Dimensionsleveln \textit{Jahr} '2016', \textit{Monat} '08' und
+  \textit{Tag} '09' unterschieden werden. Die Teilinformationen bilden die
+  Dimensionslevelausprägungen, im oben genannten Beispiel ist '2016' eine
+  Dimensionslevelausprägung des Dimensionslevels \textit{Jahr} der Dimension
+  \textit{Zeit}.
+  
   \subsection{Kennzahlen}
+
+  \begin{figure}[caption={Teilsprache---Kennzahl}, label={kennzahl}]
+    \resizebox{300px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
+  \end{figure}
+
+  \begin{figure}[caption={EBNF---Kennzahl}, label={ebnf-kennzahl}]
+    Kennzahl = Formel
+    Formel = 
+
+    Operator = "+" | "-" | "*" | "/"
+
+    Klammer = "("~|~")"
+  \end{figure}
+
   \subsection{Berichte}
-  \begin{itemize}
-    \item Geschäftsobjekt
-      \begin{itemize}
-        \item Attribute
-      \end{itemize}
-    \item Dimensionen
-      \begin{itemize}
-        \item Dimension
-        \item Dimensions level (Wie wäre es mit dimension level?)
-        \item Geschäftsobjekt
-      \end{itemize}
-    \item Kennzahlen
-    \item Berichte \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
-  \end{itemize}
+\texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
   \paragraph{Hierarchische Modellierung}
   Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
@@ -460,8 +519,10 @@
 
   \section{Fachliches Konzept der \textit{DataRocket}-Komponente}
   \subsection{Dimensionsansicht}
+  \texthl{Wird hier das Star- oder Snowflake-Modell angewendet?}
+  Star-Schema
   \subsection{Kennzahlansicht}
-  \subsection{Berichtansicht}
+  \subsection{Berichtsansicht}
 
 
   \section{Technische Umsetzung}
@@ -498,6 +559,11 @@
 \chapter{Fazit}
 % ################################################################################
  \paragraph{Integration in Datarocket}
+ Wenn nicht alle Dimensionslevel einer Dimension aus dem gleichen Attribut
+ Informationen bekommen zum Beispiel in dem Fall, dass Jahr und Monat in zwei
+ unterschiedlichen Attributen festgehalten sind, so kann dies im Dimensionsbaum
+ spezifiziert werden, indem ihm mehrere Attribute hinzugefügt werden.
+
   \begin{figure}[caption={DataRockets Datapipeline-Bausteine}, label={}]
     \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
   \end{figure}
