@@ -466,25 +466,68 @@
   \textit{Zeit}.
   
   \subsection{Kennzahlen}
+	\todo[inline]{Konstanten in Grafik, DataFurnace und Text hinzufügen}
 
   \begin{figure}[caption={Teilsprache---Kennzahl}, label={kennzahl}]
-    \resizebox{300px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
+    \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
+
+	Eine Kennzahl bietet ein quantitatives \todo{oder auch qualitatives} Maß,
+	welches die Informationen von einem oder mehreren Instanzen eines
+	Geschäftsobjekts weiterverarbeitet. Sie wird durch eine mathematische Formel
+	spezifiziert, und folgt der Grundrechenart mit den Operationen
+	\textit{Addition}, \textit{Substraktion}, \textit{Multiplikation} und
+	\textit{Division}, welche auf zwei oder mehr Operanden angewendet werden.
+	Statt dem Begriff des \textit{Operanden} wird im weiteren Verlauf der Begriff
+	\textit{Ausdruck} verwendet.  Die Auswertungsreihenfolge der Ausdrücke kann
+	mit Klammern differenziert werden. Ausdrücke können mit dem Voranstellen
+	eines Minuszeichens negiert werden.
 
   % Diagram(
   %   Choice(2,
   %     Sequence('(', 'Ausdruck', ')'),
-  %     Sequence(Choice(0, '+', '-'), 'Ausdruck'),
+  %     Sequence(Choice(0, skip(), '-'), 'Ausdruck'),
   %     Sequence('Ausdruck', Choice(1, '+', '-', '*', '/'), 'Ausdruck'),
   %     Sequence('Funktion', '(', 'Ausdruck', ')'),
   %     'Kennzahl',
   %     'Attribut'
   %   )
   % )
-
   \begin{figure}[caption={Ausdruck Syntaxdiagramm}, label={railroad-kennzahl}]
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
   \end{figure}
+
+	Um innerhalb der Formel einer Kennzahl auf die Informationen einer
+	Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
+	Geschäftsobjekts als Formelausdruck eingebracht werden. Hierzu wird innerhalb
+	der Formel auf das konkrete Attribut eines bestimmten Geschäftsobjekts,
+	und nicht, wie in der Sprache \textit{H2 for Reporting}, auf ein
+	variables Attribut ohne Referenz zu einem Bezugsobjekt, verwiesen~\cite[][S.
+	20]{becker2007h2}. Dieses Vorgehen verhindert die generische Definition und
+	Wiederverwendbarkeit von Kennzahlen, ermöglicht jedoch eine Situationsnahe
+	Konzeption und einen geringeren Konfigurationsaufwand im späteren Gebrauch.
+
+	Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
+	bereit gestellt werden. Hierzu dient die Ausdruckskategorie
+	\textit{Funktion}. Eine Funktion nimmt als Eingabe einen oder mehrere
+	Ausdrücke und gibt im Gegenzug einen solchen zurück. Sie abstrahiert bei
+	diesem Vorgang von der eigentlichen Umsetzung im Inneren, und ermöglicht den
+	Fokus auf das Ergebnis selbst. Eine Funktion kann sowohl innerhalb einer
+	Instanz als auch über mehrere hinaus aggieren. Eine Beispiel für eine
+	Funktion mit Bezug auf eine einzige Instanz ist die \textit{Wurzel}-Funktion.
+	Sie nimmt als Eingabe eine Zahle und gibt die Wurzel der Zahl zurück. Ein
+	Beispiel für eine Funktion, welche Informationen von mehreren Instanzen
+	verarbeitet, ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein
+	Attribut eines Geschäftsobjekts und summiert die Ausprägungen des Attributes
+	über alle Instanzen auf. \todo{Mathematisch belegen}
+
+	Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
+	kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
+	Kennzahl zurück greifen. Wird zum Beispiel die Kennzahl \textit{Gewinn}
+	betrachtet, so kann diese aus der Subtraktion der Kennzahl \textit{Umsatz}
+	als Minuend mit der Kennzahl \textit{Kosten} als Subtrahend berechnet
+	werden.
+
 
   \subsection{Berichte}
 \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
