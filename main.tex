@@ -26,6 +26,7 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{er}
 
+
 % Import acronyms
 \input{lib/acronyms}
 
@@ -470,13 +471,19 @@
     \resizebox{300px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
 
-  \begin{figure}[caption={EBNF---Kennzahl}, label={ebnf-kennzahl}]
-    Kennzahl = Formel
-    Formel = 
+  % Diagram(
+  %   Choice(2,
+  %     Sequence('(', 'Ausdruck', ')'),
+  %     Sequence(Choice(0, '+', '-'), 'Ausdruck'),
+  %     Sequence('Ausdruck', Choice(1, '+', '-', '*', '/'), 'Ausdruck'),
+  %     Sequence('Funktion', '(', 'Ausdruck', ')'),
+  %     'Kennzahl',
+  %     'Attribut'
+  %   )
+  % )
 
-    Operator = "+" | "-" | "*" | "/"
-
-    Klammer = "("~|~")"
+  \begin{figure}[caption={Ausdruck Syntaxdiagramm}, label={railroad-kennzahl}]
+    \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
   \end{figure}
 
   \subsection{Berichte}
