@@ -123,7 +123,7 @@
     \item Daten sind komplex
   \end{itemize}
 
-  Die vorliegende \todo{ersetzen} Bachelorarbeit beschäftigt sich mit der
+  Diese Bachelorarbeit beschäftigt sich mit der
   konzeptionellen Analyse von Unternehmensdaten in Zusammenarbeit mit der
   \textit{innoscale AG}, ein im Jahre 2013 gegründetes Unternehmen aus Berlin.
   Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend als auch
@@ -235,7 +235,7 @@
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
   42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
-  Personalbedarf\grqq{}\cite[][S. 66]{Kemper2010}. 
+  Personalbedarf\grqq{}~\cite[][S. 66]{Kemper2010}. 
   
   Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
@@ -247,7 +247,8 @@
   einzelner Pfad linear, sondern auch als Graph. Ein Beispiel ist die
   Dimension \textit{Zeit}.  Diese kann zum einen durch die
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
-  Woche, Tag} strukturiert werden.
+  Woche, Tag} strukturiert werden.\todo{Noch ein wenig holprig, bzw.\ ist das
+  überhaupt relevant?}
 
   Die Dimensions-Modellierung unterteilt sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
@@ -270,6 +271,7 @@
 
   \todo{Soll ich erklären, dass die Tabelle nicht normalisiert ist?}
   \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}, label={table:dimension-table}]
+    \footnotesize
     \begin{tabular}{c c c c}
       Ort Id & Straße & Ort & Land \\
       \toprule
@@ -298,6 +300,7 @@
   \end{figure}
 
   \begin{figure}[caption={Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}, label={table:dimension-table}]
+    \footnotesize
     \begin{tabular}{c c c }
       Straße Id & Name & Ort Id \\
       \toprule
