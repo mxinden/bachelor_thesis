@@ -34,7 +34,7 @@
 \input{lib/symbols}
 
 % Document meta information
-\isthesis{title={Methode und Sprache für die Analyse von Unternehmensdaten und Entwicklung einer Webanwendung für deren konzeptionelle Umsetzung \newline \newline Methode und Sprache für die Analyse von Unternehmensdaten innerhalb von DataRocket und Implementierung des strukturellen Aspekts einer entsprechenden Berichtskomponente \newline \newline Entwicklung einer Sprache zur Modellierung von Qualitätskennzahlen für DataRocket und deren prototypische Implementierung},
+\isthesis{title={Entwicklung einer Sprache zur Modellierung von Qualitätskennzahlen für \textit{DataRocket} und deren prototypische Implementierung},
   author={Max Leonard Inden},
   author-email={max.inden@uni-muenster.de},
   author-phone={+49 178 1493411}, % Use international numbers format
@@ -68,18 +68,6 @@
 
 % Table of contents
 \tableofcontents
-\todo[inline]{M\"ussen alle Kapitel die gleiche \"Uberschriftentiefe habe?}
-\todo[inline]{Wann kursiv schreiben? DataRocket immer kursiv?}
-\todo[inline]{Small capitals bei citeauthor gew\"uenscht?}
-\todo[inline]{Vor jedes Zitat vgl.\ schreiben?}
-\todo[inline]{Was machen wenn zwei mal direkt hintereinander das gleiche zitiert wird?}
-\todo[inline]{Bei citeauthor mit mehreren Autoren mit et al plural oder singular im Satz?}
-\todo[inline]{Nochmal über den Namen DataFurnace nachdenken?}
-\todo[inline]{Kardinalitäten immer möglichst restriktiv oder möglichst offen?}
-\todo[inline]{30--40 Seiten inklusive Stuff (Literaturverzeichnis,..)?}
-\todo[inline]{Muss auf jede Grafik verwiesen werden?}
-\todo[inline]{Besseren Begriff für Umsatztransaktion}
-\todo[inline]{Geht die Einleitung zu sehr ins Detail?}
 
 % List of figures (if you have figures)
 \listoffigures
@@ -114,6 +102,8 @@
   \chapter{Einleitung}
   % ################################################################################
 
+  \todo[inline]{Einleitung ca.\ 1--2 Seiten}
+
   \paragraph{Status quo und Problemstellung}
   \begin{itemize}
     \item Die Daten sind vorhanden
@@ -128,32 +118,35 @@
   \textit{innoscale AG}, ein im Jahre 2013 gegründetes Unternehmen aus Berlin.
   Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend als auch
   mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
-  Abschnitt: Vorstellung DataRocket~\ref{sec:Vorstellung-DataRocket}}, zur
+  Abschnitt: Vorstellung \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur
   Verbesserung von Datenqualität, tätig. Im Rahmen der
   Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor
   strukturierten Daten anhand von Kennzahlen auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und visualisieren?}.
-  Hierzu wird eine Sprache und eine (anwendende) \textit{DataRocket}-Komponente
+  Hierzu wird eine Sprache und eine (anwendende) Komponente in \textit{DataRocket}
   benötigt.
 
   Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
   Modellierungssprache zur Konzeption von Unternehmensdatenanalysen und zum
-  anderen die Implementierung einer \textit{DataRocket}-Komponente zur
-  Integration der neuen Sprache in das Produkt.
+  anderen die Implementierung einer Komponente zur
+  Integration der neuen Sprache in \textit{DataRocket}.
 
   Die Modellierungssprache soll die Möglichkeit bieten, bestehende
-  Datenstrukturen zu modellieren und zu gliedern, Kennzahlen zur
-  Anwendung auf diesen Daten zu spezifizieren und Daten und Kennzahlen zu
-  Berichten zu kombinieren. Das Vokabular der Sprache soll mit dem von
-  \textit{DataRocket} harmonisieren und an den jeweiligen Schnittpunkten
-  übereinstimmen. Besonderer Wert wird auf die leichte Verständlichkeit der
-  Sprache gesetzt, um IT-Laien die Nutzung von \textit{DataRocket} weiterhin zu
-  ermöglichen. 
+  Datenstrukturen zu modellieren und zu gliedern, Kennzahlen zur Anwendung auf
+  diesen Daten zu spezifizieren und Daten und Kennzahlen zu Berichten zu
+  kombinieren. Das Vokabular der Sprache soll mit dem von \textit{DataRocket}
+  harmonisieren und an den jeweiligen Schnittpunkten übereinstimmen. Besonderer
+  Wert wird auf die leichte Verständlichkeit der Sprache gesetzt, um IT-Laien
+  die Nutzung von \textit{DataRocket} weiterhin zu ermöglichen. Zur
+  einfacheren Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache
+  mit dem Begriff \textit{DataFurnace}-Sprache\todo{DataFurnace Begriff
+  erklären} verwiesen.
   
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
   alleinstehendes Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
-  \textit{DataRocket} kombinierbar sein.
+  \textit{DataRocket} kombinierbar sein. Die Komponente wird im folgenden den
+  Namen \textit{DataFurnace} tragen.
 
 
   \paragraph{Ziel}
@@ -168,7 +161,7 @@
         \item Kennzahlen: Modellierung aller gängigen arithmetischen Operationen
         \item Fakten/Tabelle: mit Zeilen und Spalten aus Datenstruktur und Kennzahl 
       \end{itemize}
-    \item DataRocket-Komponente zur Konzeption von Datenauswertungen
+    \item \textit{DataRocket}-Komponente zur Konzeption von Datenauswertungen
       \begin{itemize}
         \item \texthl{Screenshot vom Calculation-Step zeigen}
         \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
@@ -186,49 +179,28 @@
   % ################################################################################
   \chapter{Grundlagen}
   % ################################################################################
+  
+  \todo[inline]{Grundlagen ca.\ 10 Seiten}
 
-  \todo[inline]{ER-Modell oder Modellierung---einheitlich!}
+  \todo[inline]{Grundlagen ggf.\ aufteilen in Grundlagen für die Sprache und
+  Grundlagen für die Komponente}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Datenschema abstrahiert darstellen.
   Die Modellierung der Daten ist essentiell für die Analyse:
   \textsc{\citeauthor{phipps2002automating}} zählen diese
   zu den fünf Hauptschritten der Datenanalyse im
-  Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es sollen nun
-  zwei Modelltypen beleuchtet und im Kontext der Unternehmensdatenanalyse
-  miteinander verglichen werden. Des Weiteren wird eine Erweiterung von einem
-  der Modelltypen vorgestellt.
+  Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es wird nun
+  die mulidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
+  mit der Entity-Relationship-Modellierung verglichen werden. Des Weiteren wird
+  eine Erweiterung der multidimensionalen Modellierung---\textit{H2 for
+  Reporting}---vorgestellt.
 
-  \section{Entity-Relationship-Modell}
-  Als Kombination aus dem
-  Network-Modell, dem Relational-Model und dem Entity-Set-Model stellt
-  \citeauthor{chen1976entity} \citeyear{chen1976entity} mit seinem
-  \texthl{Paper} \todo{Artikel?} \glqq{}The entity-relationship
-  model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
-  (ERM) vor~\cite[][S. 2]{chen1976entity}. In einem \acrshort{ERM} werden Objekte
-  (\textit{Entities}) mit Hilfe ihrer jeweiligen Beziehungen
-  (\textit{Relations}) in Verbindung gebracht~\cite[][S. 10]{chen1976entity}.
-  Zusätzlich können zu einer Beziehung zwischen zwei Objekten zwei Kardinalitäten
-  angegeben werden, welche verdeutlichen, wie viele Beziehungen eine Instanz des
-  Objekts mit Instanzen des jeweiligen anderen Objekts eingehen kann\cite[][S.
-  38]{ballard1998data}.
 
-  \begin{figure}[caption={Beispiel eines \acrlong{ERM}}, label={fig:img01}]
-    \begin{tikzpicture}[node  distance=7em]
-      \node[entity] (person) {Person};
-      \node[relationship] (sitzen) [right of=person] {Sitzen} edge node[above]{(0,1)} (person);
-      \node[entity] (stuhl) [right of=sitzen] {Stuhl} edge node[above]{(0,1)} (sitzen);
-    \end{tikzpicture}
-  \end{figure}
 
-  \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und Datenbankmanagementsysteme
-  von Gottfried Vossen}
-  \todo[inline]{ERM als Thema zu allgemein? Nicht zum Seiten füllen!}
-  \todo[inline]{Attribute auch erläutern}
-
-  \section{Dimensions-Modell}
-  Es gibt verschiedene Ausprägungen des Dimensions-Modells. Zunächst wird auf
-  allgemeine Eigenschaften der Modell-Gruppe eingegangen.
+  \section{Multidimensionale Modellierung}
+  Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
+  Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen.
 
   Im Mittelpunkt der Dimensions-Modellierung stehen die
   betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
@@ -243,12 +215,17 @@
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
   hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
-  66]{Kemper2010}. Wege innerhalb der Hierarchiestufen verlaufen nicht nur als
-  einzelner Pfad linear, sondern auch als Graph. Ein Beispiel ist die
+  66]{Kemper2010}. Wege innerhalb der Dimension verlaufen nicht nur als
+  einzelner Pfad linear, sondern auch als Struktur. Ein Beispiel ist die
   Dimension \textit{Zeit}.  Diese kann zum einen durch die
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
-  Woche, Tag} strukturiert werden.\todo{Noch ein wenig holprig, bzw.\ ist das
-  überhaupt relevant?}
+  Woche, Tag} strukturiert werden (Siehe
+  Abbildung~\ref{hierarchie-level-struktur}).\todo{Noch ein wenig holprig,
+  bzw.\ ist das überhaupt relevant?}
+
+  \begin{figure}[caption={Dimensionslevelstrukturbeispiel---Zeit}, label={hierarchie-level-struktur}]
+    \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
+  \end{figure}
 
   Die Dimensions-Modellierung unterteilt sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
@@ -269,7 +246,7 @@
     \resizebox{\columnwidth-90pt}{!}{\input{content/figures/star-schema.tex}}
   \end{figure}
 
-  \todo{Soll ich erklären, dass die Tabelle nicht normalisiert ist?}
+  \todo{Referenz zu jemandem klugen, der Erklärt was Normalisierung ist}
   \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}, label={table:dimension-table}]
     \footnotesize
     \begin{tabular}{c c c c}
@@ -287,7 +264,10 @@
   unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
   vorherigen Absatz beschrieben verfolgt das Star-Schema einen denormalisierten
   Ansatz, wohin gegen die Dimensionstabellen des Snowflak-Modells normalisiert
-  sind~\cite[][S. 70]{Kemper2010}. \textsc{\citeauthor{Kemper2010}} schlägt
+  sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
+  visualisiert die strenge Normalisierung an der Dimension Ort,
+  Abbildung~\ref{table:dimension-table} zeigt konkrete Beispieldaten dieser
+  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt
   jedoch nicht den Ansatz der vollen Normalisierung vor, sondern eine
   geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
   \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
@@ -322,12 +302,34 @@
     \end{tabular}
   \end{figure}
 
-  \section{Vergleich ER-Modell und Dimensions-Modell}
-  \textsc{\citeauthor{ballard1998data}} bezeichnet die Dimensions-Modellierung
+  \section{Vergleich ER-Modellierung und multidimensionale Modellierung}
+
+  \paragraph{Entity-Relationship-Modellierung}
+  Als Kombination aus dem Network-Modell, dem Relational-Model und dem
+  Entity-Set-Model stellt \citeauthor{chen1976entity} \citeyear{chen1976entity}
+  mit seinem \texthl{Paper} \todo{Artikel?} \glqq{}The entity-relationship
+  model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
+  (ERM) vor~\cite[][S. 2]{chen1976entity}. Abbildung~\ref{beispiel-erm}
+  repräsentiert ein Beispiel eines Entity-Relationship-Modells.
+  \todo[inline]{Mache Verweis zu weiteren Quellen zum Nachlesen über das
+  Modell, \zB{} ballard1998data, oder 161 von Fleischer Diss (2004 = Kardinalität, 2012 = Disjunkt, Total)}
+  \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
+  Datenbankmanagementsysteme von Gottfried Vossen}
+
+  \todo{Diese Grafik im Vergleich zu entsprechendem Multidimensionalen Modell darstellen/erweitern}
+  \begin{figure}[caption={Beispiel eines \acrlong{ERM}}, label={beispiel-erm}]
+    \begin{tikzpicture}[node  distance=7em]
+      \node[entity] (person) {Person};
+      \node[relationship] (sitzen) [right of=person] {Sitzen} edge node[above]{(0,1)} (person);
+      \node[entity] (stuhl) [right of=sitzen] {Stuhl} edge node[above]{(0,1)} (sitzen);
+    \end{tikzpicture}
+  \end{figure}
+
+  \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale Modellierung
   als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
   Dimensions-Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
   mittels der Notation der ER-Modellierung visualisiert werden~\cite[][S.
-  47]{ballard1998data}. Zum Beispiel können die Fakten eines Dimensions-Modells
+  47]{ballard1998data}. Zum Beispiel können die Fakten eines multidimensionalen Modells
   als Objekte eines ER-Modells mit Beziehungen zu den jeweiligen Dimensionen,
   wiederum als Objekt, modelliert werden~\cite[][S. 48]{ballard1998data}. 
 
@@ -340,25 +342,26 @@
   334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
   im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
   zurück gegriffen, wo hingegen \acrshort{OLAP}-Systeme meist mit der
-  Dimensions-Modellierung konzipiert werden~\cite[][S.
+  multidimensionalen Modellierung konzipiert werden~\cite[][S.
   2]{phipps2002automating}. 
 
   Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
   Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änder- und
   Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen und
   komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
-  52]{ballard2012dimensional}. Mit der Dimensions-Modellierung können diese
+  52]{ballard2012dimensional}. Mit der multidimensionalen Modellierung können diese
   Anfragen schneller verarbeitet werden\cite[][S.  52]{ballard2012dimensional},
   unter anderem zurück zu führen auf die geringere Normalisierung, wodurch
-  sich die Dimensions-Modellierung gegenüber der ER-Modellierung für \acrshort{OLAP}-Systeme besser eignet.
+  sich die multidimensionale Modellierung gegenüber der ER-Modellierung für
+  \acrshort{OLAP}-Systeme besser eignet.
 
 
   \section{Erweiterung der Dimensions-Modellierung---H2 for Reporting}
-  Die Dimensions-Modellierung wird durch verschiedene Modellierungssprachen
+  Die multidimensionale Modellierung wird durch verschiedene Modellierungssprachen
   erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
   Institut für Wirtschaftsinformatik an der \acrlong{WWU} (WWU)
   Münster\todo{Stimmt das und wenn ja belegen!}. \textit{H2 for Reporting}
-  ergänzt die Dimensions-Modellierung unter anderem um Bezugsobjekte,
+  ergänzt die multidimensionale Modellierung unter anderem um Bezugsobjekte,
   Kennzahlen und Berichte:
   \begin{itemize}
     \item Bezugsobjekte bilden die
@@ -386,6 +389,9 @@
     \item Palos
     \item IBM
     \item Firmen Cognos, SAP, MicroStrategy oder BusinessObjects
+    \item Adapt
+    \item DFM
+    \item MERM
   \end{itemize}
 
   \paragraph{Beispielszenario}
@@ -406,31 +412,50 @@
     \item Wertansatz (Soll, Ist, Plan)
   \end{itemize}
 
+  \section{Datenqualitätsmanagement}
+
+  \section{Vorstellung \textit{DataRocket}}
+\label{sec:Vorstellung-DataRocket}
+  \begin{itemize}
+    \item Produkt von innoscale
+    \item full Stack Stammdatenmanagement-Software
+    \item Modellierung der Planwelt, Zuordnung zur Istwelt, Spezifikation von
+      Qualitätsregeln, Analyse, Visualisierung, automatische / händische
+      Verbesserung und Berichterstattung
+    \item USP:\@ Benutzerfreundlichkeit 
+    \item Datapipeline
+      \begin{itemize}
+        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram,
+          Cleaning, Duplicate, Filter, Language)
+        \item \textit{DataFurnace} ersetzt Calculation-Step
+      \end{itemize}
+  \end{itemize}
+
 
   % ################################################################################
-  \chapter{DataFurnace-Sprache für innoscale}
+  \chapter{\textit{DataFurnace}-Sprache für innoscale}
   % ################################################################################
 
   \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
   \section{Anforderungsanalyse und Annahmen}
-  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von DataRocket,
+  \todo[inline]{Eine schlaue Methode zur Anforderungsanalyse zitieren!}
+  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von \textit{DataRocket},
   \acrshort{DQM} IT-Laien zu ermöglichen, kohärent zu bleiben.
 
-  \todo{Was mit der doppelten entity Ausprägung machen?}
-  \section{Fachliches Konzept der Sprache}
-  \begin{figure}[caption={Metamodell der DataFurnace-Sprache}, label={fig:img01}]
-    \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
-  \end{figure}
+  \section{Fachliches Konzept}
 
-  \subsection{Geschäftsobjekte}
-  Der Begriff Geschäftsobjekt wird aus dem \textit{DataRocket}-Vokabular
-  übernommen. Geschäftsobjekte sind Datenobjekte innerhalb eines Unternehmens,
-  welche isoliert betrachtet werden können. Sie können sowohl der Klasse der
-  Transaktionsdaten als auch der Stammdaten angehören. Sie bilden den zentralen
-  Baustein der \textit{DataRocket}-Software. Ein Geschäftsobjekt kann zum
-  Beispiel das \textit{Produkt} aber auch die \textit{Umsatztransaktion} sein.
-  Das Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
+  \subsection{Dimensionen}
+  Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
+  Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
+  fundamental aufbaut. Der Begriff Geschäftsobjekt wird aus dem
+  \textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
+  innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
+  können sowohl der Klasse der Transaktionsdaten als auch der Stammdaten
+  angehören. Sie bilden den zentralen Baustein der
+  \textit{DataRocket}-Software. Ein Geschäftsobjekt kann zum Beispiel das
+  \textit{Produkt} aber auch die \textit{Umsatztransaktion} sein.  Das
+  Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
   Reporting}-Sprache verglichen werden. \todo{Wo liegen die Ähnlichkeiten?}
 
   \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={geschaeftsobjekt}]
@@ -444,7 +469,6 @@
   Diese verkörpern Instanzen eines Attributes. \textit{Blau} und \textit{Grün}
   sind beispielsweise Ausprägungen des Attributes \textit{Farbe}.
   
-  \subsection{Dimensionen}
   Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
   Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
   Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern auf
@@ -454,7 +478,7 @@
   bezieht sich \zB{} auf das Attribut \textit{Verfallsdatum} des
   Geschäftsobjekts \textit{Produkt}. 
 
-  \begin{figure}[caption={Teilsprache---Dimension}, label={geschaeftsobjekt}]
+  \begin{figure}[caption={Teilsprache---Dimension}, label={dimension-erm}]
     \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
   \end{figure}
   
@@ -466,111 +490,112 @@
   \textit{Tag} '09' unterschieden werden. Die Teilinformationen bilden die
   Dimensionslevelausprägungen, im oben genannten Beispiel ist '2016' eine
   Dimensionslevelausprägung des Dimensionslevels \textit{Jahr} der Dimension
-  \textit{Zeit}.
+  \textit{Zeit}. In Abbildung~\ref{dimension-erm} wird dieses Konstrukt mit
+  Hilfe eines \acrshort{ERM}s verdeutlicht.
   
   \subsection{Kennzahlen}
-	\todo[inline]{Konstanten in Grafik, DataFurnace und Text hinzufügen}
+  \todo[inline]{Konstanten in Grafik, \textit{DataFurnace} und Text hinzufügen}
 
   \begin{figure}[caption={Teilsprache---Kennzahl}, label={kennzahl}]
     \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
 
-	Eine Kennzahl bietet ein quantitatives \todo{oder auch qualitatives} Maß,
-	welches die Informationen von einem oder mehreren Instanzen eines
-	Geschäftsobjekts weiterverarbeitet. Sie wird durch eine mathematische Formel
-	spezifiziert, und folgt der Grundrechenart mit den Operationen
-	\textit{Addition}, \textit{Substraktion}, \textit{Multiplikation} und
-	\textit{Division}, welche auf zwei oder mehr Operanden angewendet werden.
-	Statt dem Begriff des \textit{Operanden} wird im weiteren Verlauf der Begriff
-	\textit{Ausdruck} verwendet.  Die Auswertungsreihenfolge der Ausdrücke kann
-	mit Klammern differenziert werden. Ausdrücke können mit dem Voranstellen
-	eines Minuszeichens negiert werden.
+  Eine Kennzahl bietet ein quantitatives \todo{oder auch qualitatives} Maß,
+  welches die Informationen von einem oder mehreren Instanzen eines
+  Geschäftsobjekts weiterverarbeitet. Sie wird durch eine mathematische Formel
+  spezifiziert, und folgt der Grundrechenart mit den Operationen
+  \textit{Addition}, \textit{Substraktion}, \textit{Multiplikation} und
+  \textit{Division}, welche auf zwei oder mehr Operanden angewendet werden
+  (Siehe Abbildung~\ref{railroad-kennzahl} Gleis eins).  Statt dem Begriff des
+  \textit{Operanden} wird im weiteren Verlauf der Begriff \textit{Ausdruck}
+  verwendet.  Die Auswertungsreihenfolge der Ausdrücke kann mit Klammern
+  differenziert werden, erneut verdeutlicht durch
+  Abbildung~\ref{railroad-kennzahl} Gleis zwei. Ausdrücke können mit dem
+  Voranstellen eines Minuszeichens negiert werden (Siehe
+  Abbildung~\ref{railroad-kennzahl} Gleis drei).
 
   % Diagram(
   %   Choice(2,
+  %     Sequence('Ausdruck', Choice(1, '+', '-', '*', '/'), 'Ausdruck'),
   %     Sequence('(', 'Ausdruck', ')'),
   %     Sequence(Choice(0, skip(), '-'), 'Ausdruck'),
-  %     Sequence('Ausdruck', Choice(1, '+', '-', '*', '/'), 'Ausdruck'),
-  %     Sequence('Funktion', '(', 'Ausdruck', ')'),
-  %     'Kennzahl',
   %     'Attribut'
+  %     Sequence('Transformationsfunktion', '(', 'Ausdruck', ')'),
+  %     Sequence('Aggregationsfunktion', '(', 'Ausdruck', ')'),
+  %     'Kennzahl',
   %   )
   % )
+  \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
   \begin{figure}[caption={Ausdruck Syntaxdiagramm}, label={railroad-kennzahl}]
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
   \end{figure}
 
-	Um innerhalb der Formel einer Kennzahl auf die Informationen einer
-	Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
-	Geschäftsobjekts als Formelausdruck eingebracht werden. Hierzu wird innerhalb
-	der Formel auf das konkrete Attribut eines bestimmten Geschäftsobjekts,
-	und nicht, wie in der Sprache \textit{H2 for Reporting}, auf ein
-	variables Attribut ohne Referenz zu einem Bezugsobjekt, verwiesen~\cite[][S.
-	20]{becker2007h2}. Dieses Vorgehen verhindert die generische Definition und
-	Wiederverwendbarkeit von Kennzahlen, ermöglicht jedoch eine Situationsnahe
-	Konzeption und einen geringeren Konfigurationsaufwand im späteren Gebrauch.
+  Um innerhalb der Formel einer Kennzahl auf die Informationen einer
+  Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
+  Geschäftsobjekts als Formelausdruck eingebracht werden, wie in
+  Abbildung~\ref{railroad-kennzahl} durch die Station \textit{Attribut} verdeutlicht. Hierzu
+  wird innerhalb der Formel auf das konkrete Attribut eines bestimmten
+  Geschäftsobjekts, und nicht, wie in der Sprache \textit{H2 for Reporting},
+  auf ein variables Attribut ohne Referenz zu einem Bezugsobjekt,
+  verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen verhindert die
+  generische Definition und Wiederverwendbarkeit von Kennzahlen, ermöglicht
+  jedoch eine Situationsnahe Konzeption und einen geringeren
+  Konfigurationsaufwand im späteren Gebrauch.
 
-	Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
-	bereit gestellt werden. Hierzu dient die Ausdruckskategorie
-	\textit{Funktion}. Eine Funktion nimmt als Eingabe einen oder mehrere
-	Ausdrücke und gibt im Gegenzug einen solchen zurück. Sie abstrahiert bei
-	diesem Vorgang von der eigentlichen Umsetzung im Inneren, und ermöglicht den
-	Fokus auf das Ergebnis selbst. Eine Funktion kann sowohl innerhalb einer
-	Instanz als auch über mehrere hinaus aggieren. Eine Beispiel für eine
-	Funktion mit Bezug auf eine einzige Instanz ist die \textit{Wurzel}-Funktion.
-	Sie nimmt als Eingabe eine Zahle und gibt die Wurzel der Zahl zurück. Ein
-	Beispiel für eine Funktion, welche Informationen von mehreren Instanzen
-	verarbeitet, ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein
-	Attribut eines Geschäftsobjekts und summiert die Ausprägungen des Attributes
-	über alle Instanzen auf. \todo{Mathematisch belegen}
+  Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
+  bereit gestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
+  (Siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
+  Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
+  zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
+  Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Eine Funktion kann
+  sowohl innerhalb einer Instanz als auch über mehrere hinaus aggieren. Eine
+  \todo{Erklären: Transformationsfunktion und Aggregationsfunktion}
+  Beispiel für eine Funktion mit Bezug auf eine einzige Instanz ist die
+  \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe eine Zahle und gibt die
+  Wurzel der Zahl zurück. Ein Beispiel für eine Funktion, welche Informationen
+  von mehreren Instanzen verarbeitet, ist die \textit{Summen}-Funktion. Sie
+  nimmt als Eingabe ein Attribut eines Geschäftsobjekts und summiert die
+  Ausprägungen des Attributes über alle Instanzen auf. \todo{Mathematisch
+  belegen}
 
-	Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
-	kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
-	Kennzahl zurück greifen. Wird zum Beispiel die Kennzahl \textit{Gewinn}
-	betrachtet, so kann diese aus der Subtraktion der Kennzahl \textit{Umsatz}
-	als Minuend mit der Kennzahl \textit{Kosten} als Subtrahend berechnet
-	werden.
+  Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
+  kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
+  Kennzahl zurück greifen, verdeutlicht durch das letzte Gleis des
+  Syntaxdiagramms (Abbildung~\ref{railroad-kennzahl}). Wird zum Beispiel die
+  Kennzahl \textit{Gewinn} betrachtet, so kann diese aus der Subtraktion der
+  Kennzahl \textit{Umsatz} als Minuend mit der Kennzahl \textit{Kosten} als
+  Subtrahend berechnet werden.
 
 
   \subsection{Berichte}
 \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
+
+  \begin{figure}[caption={Metamodell der \textit{DataFurnace}-Sprache}, label={fig:img01}]
+    \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
+  \end{figure}
 
   \paragraph{Hierarchische Modellierung}
   Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
 
 
   % ################################################################################
-  \chapter{DataFurnace-Komponente für DataRocket}
+  \chapter{\textit{DataFurnace}-Komponente für \textit{DataRocket}}
   % ################################################################################
 
-  \section{Vorstellung DataRocket}
-\label{sec:Vorstellung-DataRocket}
-  \begin{itemize}
-    \item Produkt von innoscale
-    \item full Stack Stammdatenmanagement-Software
-    \item Modellierung der Planwelt, Zuordnung zur Istwelt, Spezifikation von
-      Qualitätsregeln, Analyse, Visualisierung, automatische / händische
-      Verbesserung und Berichterstattung
-    \item USP:\@ Benutzerfreundlichkeit 
-    \item Datapipeline
-      \begin{itemize}
-        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram,
-          Cleaning, Duplicate, Filter, Language)
-        \item DataFurnace ersetzt Calculation-Step
-      \end{itemize}
-  \end{itemize}
 
 
   \section{Anforderungsanalyse und Annahmen}
   \begin{itemize}
     \item Kein User-/Group-management da bereits von DR gegeben
     \item Input sind Business Object / EInstances. Wie diese generiert werden
-      ist Aufgabe von DataRocket nicht von DataFurnace
+      ist Aufgabe von \textit{DataRocket} nicht von \textit{DataFurnace}
     \item In der Report View sollten unter den standard Spalten auch kumulierte
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
 
-  \section{Fachliches Konzept der \textit{DataRocket}-Komponente}
+  \section{Fachliches Konzept}
+  \todo[inline]{Hier auch auf die Methode eingehen: Dimensionen modellieren ->
+  Kennzahlen spezifizieren -> zu Berichten kombinieren}
   \subsection{Dimensionsansicht}
   \texthl{Wird hier das Star- oder Snowflake-Modell angewendet?}
   Star-Schema
@@ -579,6 +604,8 @@
 
 
   \section{Technische Umsetzung}
+  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, ggf.\ bis zu fünf Seiten}
+  \todo[inline]{Grafik vom Tech-Stack}
 
   \paragraph{Technologienauswahl}
   \begin{itemize}
@@ -605,21 +632,24 @@
 
 
 % ################################################################################
-\chapter{Auswertung}
-% ################################################################################
-
-% ################################################################################
-\chapter{Fazit}
-% ################################################################################
- \paragraph{Integration in Datarocket}
+\chapter{Evaluation}
+\todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
+\texthl{Wie finden andere das Tool, Feedback dokumentieren, ggf. mit Fragebogen}
+ \paragraph{Integration in \textit{Datarocket}}
  Wenn nicht alle Dimensionslevel einer Dimension aus dem gleichen Attribut
  Informationen bekommen zum Beispiel in dem Fall, dass Jahr und Monat in zwei
  unterschiedlichen Attributen festgehalten sind, so kann dies im Dimensionsbaum
  spezifiziert werden, indem ihm mehrere Attribute hinzugefügt werden.
 
-  \begin{figure}[caption={DataRockets Datapipeline-Bausteine}, label={}]
+  \begin{figure}[caption={\textit{DataRockets} Datapipeline-Bausteine}, label={}]
     \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
   \end{figure}
+% ################################################################################
+
+% ################################################################################
+\chapter{Fazit}
+% ################################################################################
+\todo[inline]{Fazit ca.\ 1--2 Seiten}
 
 
 
