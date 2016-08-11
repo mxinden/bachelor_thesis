@@ -19,6 +19,8 @@
 % Graphics rendering using TikZ
 % See: https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
 \usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{caption}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
@@ -182,7 +184,7 @@
   
   \todo[inline]{Grundlagen ca.\ 10 Seiten}
 
-  \todo[inline]{Grundlagen ggf.\ aufteilen in Grundlagen für die Sprache und
+  \todo[inline]{Grundlagen \ggf aufteilen in Grundlagen für die Sprache und
   Grundlagen für die Komponente}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
@@ -235,18 +237,20 @@
   Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
   verweist mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils
   eine komplette Dimension abbilden und somit im Gegenzug auf die dritte
-  Normalform verzichten~\cite[][S. 67 f.]{Kemper2010}. Die
-  Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) in den
-  Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}} durch
-  ihre geringe Größe nicht in einer schlechteren Leistung des Datenbanksystems,
-  sondern im Gegenzug in einer besseren Verständlichkeit der
-  Struktur~\cite[][S. 15]{Kimball2013}.
+  Normalform verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende
+  Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) durch Mangel an
+  Normalisierung in den Dimensionstabellen resultiert laut
+  \textsc{\citeauthor{Kimball2013}} durch ihre geringe Größe nicht in einer
+  schlechteren Leistung des Datenbanksystems, sondern im Gegenzug in einer
+  besseren Verständlichkeit der Struktur~\cite[][S. 15]{Kimball2013}. Weitere
+  Details zur Datenbanknormalisierung können in den Publikationen des
+  Erfinders, \textsc{\citeauthor{codd1970relational}}, gefunden
+  werden~\cite[][]{codd1970relational,codd1972further}.
 
   \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
-    \resizebox{\columnwidth-90pt}{!}{\input{content/figures/star-schema.tex}}
+    \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
   \end{figure}
 
-  \todo{Referenz zu jemandem klugen, der Erklärt was Normalisierung ist}
   \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}, label={table:dimension-table}]
     \footnotesize
     \begin{tabular}{c c c c}
@@ -266,20 +270,19 @@
   Ansatz, wohin gegen die Dimensionstabellen des Snowflak-Modells normalisiert
   sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
   visualisiert die strenge Normalisierung an der Dimension Ort,
-  Abbildung~\ref{table:dimension-table} zeigt konkrete Beispieldaten dieser
+  Abbildung~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten dieser
   Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt
   jedoch nicht den Ansatz der vollen Normalisierung vor, sondern eine
   geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
   \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
   ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
   Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
-  \todo[inline]{Grafiken als Beispiel wie beim Star-Modell}
 
   \begin{figure}[caption={Teilausschnitt eines Snowflake-Schema}, label={fig:snowflake-schema}]
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
   \end{figure}
 
-  \begin{figure}[caption={Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}, label={table:dimension-table}]
+  \begin{figure}[caption={Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}, label={table:dimension-table-snow}]
     \footnotesize
     \begin{tabular}{c c c }
       Straße Id & Name & Ort Id \\
@@ -302,28 +305,21 @@
     \end{tabular}
   \end{figure}
 
-  \section{Vergleich ER-Modellierung und multidimensionale Modellierung}
+  \section{Vergleich Entity-Relationship-Modellierung und multidimensionale Modellierung}
 
-  \paragraph{Entity-Relationship-Modellierung}
-  Als Kombination aus dem Network-Modell, dem Relational-Model und dem
-  Entity-Set-Model stellt \citeauthor{chen1976entity} \citeyear{chen1976entity}
-  mit seinem \texthl{Paper} \todo{Artikel?} \glqq{}The entity-relationship
-  model—toward a unified view of data\grqq{} das Entity-Relationship-Modell
-  (ERM) vor~\cite[][S. 2]{chen1976entity}. Abbildung~\ref{beispiel-erm}
-  repräsentiert ein Beispiel eines Entity-Relationship-Modells.
-  \todo[inline]{Mache Verweis zu weiteren Quellen zum Nachlesen über das
-  Modell, \zB{} ballard1998data, oder 161 von Fleischer Diss (2004 = Kardinalität, 2012 = Disjunkt, Total)}
+  \paragraph{Entity-Relationship-Modellierung} Als Kombination aus dem
+  Network-Modell, dem Relational-Model und dem Entity-Set-Model stellt
+  \citeauthor{chen1976entity} \citeyear{chen1976entity} mit seiner Publikation
+  \glqq{}The entity-relationship model—toward a unified view of data\grqq{} das
+  Entity-Relationship-Modell (ERM) vor~\cite[][S. 2]{chen1976entity}.  Genauer
+  auf \acrshort{ERM} einzugehen ist nicht Teil dieser Arbeit. Weitere Details
+  des Grundmodells werden in \textsc{\cite{chen1976entity}} beschrieben. Die
+  Erweiterungen der ER-Modellierung mit Kardinalitäten, Generalisierung und
+  Spezialisierung wird in \textsc{\cite{becker2004handelsinformationssysteme}}
+  Seite 89--91, \textsc{\cite{becker2012grundsatze}} Seite 4--9 und
+  \textsc{\cite{schutte2013grundsatze}} Seite 93--99 erklärt.
   \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
   Datenbankmanagementsysteme von Gottfried Vossen}
-
-  \todo{Diese Grafik im Vergleich zu entsprechendem Multidimensionalen Modell darstellen/erweitern}
-  \begin{figure}[caption={Beispiel eines \acrlong{ERM}}, label={beispiel-erm}]
-    \begin{tikzpicture}[node  distance=7em]
-      \node[entity] (person) {Person};
-      \node[relationship] (sitzen) [right of=person] {Sitzen} edge node[above]{(0,1)} (person);
-      \node[entity] (stuhl) [right of=sitzen] {Stuhl} edge node[above]{(0,1)} (sitzen);
-    \end{tikzpicture}
-  \end{figure}
 
   \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale Modellierung
   als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
@@ -331,11 +327,28 @@
   mittels der Notation der ER-Modellierung visualisiert werden~\cite[][S.
   47]{ballard1998data}. Zum Beispiel können die Fakten eines multidimensionalen Modells
   als Objekte eines ER-Modells mit Beziehungen zu den jeweiligen Dimensionen,
-  wiederum als Objekt, modelliert werden~\cite[][S. 48]{ballard1998data}. 
+  wiederum als Objekt, wie in Abbildung~\ref{vergleich-erm}, modelliert
+  werden~\cite[][S. 48]{ballard1998data}. 
 
-  \acrlong{OLTP}-Systeme (OLTP) sind operative Echtzeitsysteme mit dem
+  \begin{figure}[caption={Vergleich multidimensionale Modellierung und ERM}, label={}]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{\input{content/figures/star-schema.tex}}
+      \caption{Multidimensionales Modell}
+      \label{}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{\input{content/figures/star-schema-erm.tex}}
+      \caption{Entity-Relationship-Modell}
+      \label{vergleich-erm}
+    \end{subfigure}
+  \end{figure}
+
+  \acrlong{OLTP}-Systeme (\acrshort{OLTP}) sind operative Echtzeitsysteme mit dem
   spezifischen Fokus auf Transaktionsdaten des Tagesgeschäfts~\cite[][S.
-  11]{gabriel2009data}. \acrlong{OLAP}-Systeme (OLAP) sind analytische Systeme,
+  11]{gabriel2009data}. \acrlong{OLAP}-Systeme (\acrshort{OLAP}) sind analytische Systeme,
   welche mit aufbereiteten, historischen Daten in Entscheidungsprozessen der
   Unternehmensführung helfen sollen~\cite[][S. 1]{chaudhuri1997overview}. Die
   Anwendungsbereiche der beiden Systeme sind disjunkt~\cite[][S.
@@ -604,7 +617,7 @@
 
 
   \section{Technische Umsetzung}
-  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, ggf.\ bis zu fünf Seiten}
+  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf bis zu fünf Seiten}
   \todo[inline]{Grafik vom Tech-Stack}
 
   \paragraph{Technologienauswahl}
@@ -634,7 +647,7 @@
 % ################################################################################
 \chapter{Evaluation}
 \todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
-\texthl{Wie finden andere das Tool, Feedback dokumentieren, ggf. mit Fragebogen}
+\texthl{Wie finden andere das Tool, Feedback dokumentieren, gegebenenfalls mit Fragebogen}
  \paragraph{Integration in \textit{Datarocket}}
  Wenn nicht alle Dimensionslevel einer Dimension aus dem gleichen Attribut
  Informationen bekommen zum Beispiel in dem Fall, dass Jahr und Monat in zwei
