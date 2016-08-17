@@ -194,7 +194,7 @@
   zu den fünf Hauptschritten der Datenanalyse im
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es wird nun
   die mulidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
-  mit der Entity-Relationship-Modellierung verglichen werden. Des Weiteren wird
+  mit der Entity-Relationship-Modellierung verglichen. Des Weiteren wird
   eine Erweiterung der multidimensionalen Modellierung---\textit{H2 for
   Reporting}---vorgestellt.
 
@@ -424,48 +424,81 @@
   \end{itemize}
 
   \section{Stammdatenmanagement}
-	Das Stammdatenmanagement strebt eine langfristig hohe Datenqualität der
-	Stammdaten an und beinhaltet sowohl den organisatorischen als auch
-	technischen Umgang in einem Unternehmen~\cite[][S.  2]{legner2007stammdaten}.
-	Die Definition von Prozessen im Umgang mit Stammdaten gehört \zB{} zum
-	organisatorischen Stammdatenmanagement, wohingegen der Einsatz eines
-	Stammdatenmanagement-Tools wie \textit{DataRocket} zum technischen
-	Stammdatenmanagement gezählt werden kann.  Das Thema steigt laut
-	\textsc{\citeauthor{otto2012design}} sowohl in der Wissenschaft als auch in
-	der Praxis in seiner Relevanz~\cite[][S.  1]{otto2012design}.  \todo{Fakten
-	einer Umfrage}
+	Das Stammdatenmanagement ist eine Funktion eines Unternehmens, welches eine
+	langfristig hohe Datenqualität der Stammdaten an anstrebt und sowohl den
+	organisatorischen als auch technischen Umgang in einem Unternehmen
+	beinhaltet~\cite[][S.  2]{legner2007stammdaten}.  Die Definition von
+	Prozessen im Umgang mit Stammdaten gehört \zB{} zum organisatorischen
+	Stammdatenmanagement, wohingegen der Einsatz eines Stammdatenmanagement-Tools
+	wie \textit{DataRocket} zum technischen Stammdatenmanagement gezählt werden
+	kann.  
+	
+	Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
+	Wissenschaft als auch in der Praxis in seiner Relevanz~\cite[][S.
+	1]{otto2012design}. Diese steigende Aufmerksamkeit lässt sich auf hohe Kosten
+	durch durch schlechte Stammdatenqualitätsprobleme in Unternehmen zurück
+	führen, wie zum Beispiel laut \textsc{\citeauthor{eckerson2002data}} in den
+	USA mit 600 Milliarden US-Dollar im Jahr~\cite[][S. 3]{eckerson2002data}.
+	\citeauthor{otto2011stammdatenmanagement} zählt als aktuelle Hürden des
+	Stammdatenmanagements die notwendige Datenstandardisierung über
+	Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
+	360-Grad-Blick\footnote{Für weitere Details zum Begriff
+	siehe~\cite{kotorov2003customer} und~\cite{otto2016master}} auf einen Kunden
+	und den Einsatz von Stammdaten in der Unternehmensdatenanalyse auf, welche
+	alle eine hohe Stammdatenqualität voraussetzen~\cite[][S. 5
+	f.]{otto2011stammdatenmanagement}.
 
-	\textsc{\citeauthor{otto2012design}} definiert Stammdaten als die zentralen
-	Datensätze eines Unternehmens, welche über mehrere Abteilungen hinaus genutzt
-	werden~\cite[][S. 1 f.]{otto2012design}.  Neben ihrer zentralen Nutzung
-	zeichnen sie sich durch ihre Beständigkeit im Unternehmen aus~\cite[][S.
-	1]{knolmayer2006quality}. \textsc{\citeauthor{knolmayer2006quality}} nennen
-	als Beispiele \textit{Kunden}, \textit{Lieferanten} und
-	\textit{Produkte}~\cite[][S. 1]{knolmayer2006quality}.
+	\paragraph{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
+	Stammdaten als die zentralen Datensätze eines Unternehmens, welche über
+	mehrere Abteilungen hinaus genutzt werden~\cite[][S. 1 f.]{otto2012design}.
+	Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre Beständigkeit im
+	Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
+	\textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
+	\textit{Kunden}, \textit{Lieferanten} und \textit{Produkte}~\cite[][S.
+	1]{knolmayer2006quality}. Die Qualität der Stammdaten gibt an, wie gut sich
+	die Daten für einen bestimmten Einsatz verwenden lassen können~\cite[][S.
+	8]{otto2011stammdatenmanagement}.
 
-	Die Datenqualität von Stammdaten lässt sich anhand von verschiendenen
+	Die Stammdatenqualität lässt sich anhand von verschiendenen
 	Qualitätsdimensionen genauer spezifizieren.
-	\textsc{\citeauthor{pipino2002data}} nennt \zB{} \textit{Fehlerfreiheit},
+	\textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
 	\textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
 	Darstellung}, \textit{Relevanz}, \textit{Veränderbarkeit},
 	\textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
-	Dimensionen~\cite[][S. 213 f., S. 4 f.]{pipino2002data, legner2007stammdaten}.
+	Dimensionen~\cite[][S. 213 f., S. 4 f.]{pipino2002data,
+	legner2007stammdaten}. \textsc{\citeauthor{baghi2013controlling}} hingegen
+	nutzen für ihre Fallstudie lediglich die Datenqualitätydimensionen
+	\textit{Genauigkeit} und \textit{Vollständigkeit}~\cite[][S.
+	4]{baghi2013controlling}, basierend auf der Sammlung von
+	\textsc{\citeauthor{wand1996anchoring}}~\cite[][S. 8 f.]{wand1996anchoring}.
 
+	\paragraph{Messung und Verbesserung von Stammdatenqualität}
+	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
+	nur verbessert werden kann, wenn diese dauerhaft gemessen und überwacht
+	wird~\cite[][S. 2]{baghi2013controlling}. Diese Messung kann anhand von
+	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
+	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
+	Datenqualitätskennzahl \textit{isEmpty} prüft \zB{} ob ein bestimmtes Feld
+	eines Stammdatums gefüllt oder leer ist. Angewandt auf die
+	Datenqualitätsdimension \textit{Vollständigkeit} kann sie angeben, wie
+	vollständig ein bestimmtes Datum ist. Die Überwachung der Stammdatenqualität
+	eines Unternehmens kann nach der Spezifikation von Datenqualitätskennzahlen
+	von einem Datenqualitätsmanagement-Tools wie \zB{} \textit{DataRocket}
+	kontinuierlich auf die gesamten Stammdaten eines Unternehmens angewandt
+	werden, womit nach \textsc{\citeauthor{baghi2013controlling}} das Fundament
+	für die Datenqualitätsverbesserung erstellt ist~\cite[][S.
+	2]{baghi2013controlling}.
 
-  Wofür wird Datenqualitätsmanagement benötigt?
-  \subsection{Datenqualität}
-  Datenkonsistenz
-  Wie misst sich Datenqualität? Durch \textbf{Kennzahlen}
-	"Only what can be measured can be improved"\cite{baghi2013controlling}
-	\begin{enumerate}
-		\item Vollständigkeit
-		\item Aktualität
-		\item Konsistenz
-		\item Zugänglichkeit
-		\item Interpretierbarkeit
-	\end{enumerate}\cite{legner2007stammdaten}
+	Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden gilt es die
+	vorhandenen Fehler zu beseitigen und deren Ursache zu identifizieren, um
+	zukünftige Fehler vermeiden zu können~\cite[][S. 22]{eckerson2002data}. Ein
+	Beispiel für einen Datenqualitätsmisstand ist das Fehlen der Postleitzahl in
+	einer Adresse eines Kundenstammdatums. Schritt eins ist es den
+	Kundendatensatz um die fehlende Postleitzahl zu erweitern. Wird in der
+	Kundendateneingabemaske die Postleitzahl als Pflichtfeld deklariert wird
+	dieser Fehler in der zukunft für weitere Datensätze verhindert, womit auch
+	Schritt zwei erfüllt ist.
 
-  \subsection{Wie lässt sich Datenqualität verbessern?}
 
   \section{Vorstellung \textit{DataRocket}}
 \label{sec:Vorstellung-DataRocket}
