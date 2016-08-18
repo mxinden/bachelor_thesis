@@ -558,7 +558,7 @@
 		\item Eine Soll-Modellierung wird durchgeführt, indem Geschäftsobjekte und
 		ihre Attribute definiert werden und mit einander in Beziehung gebracht
 		werden. Ein Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die
-		Attribute \textit{Name} und \textit{Adresse} hat. Zusätzlich besitzt es
+		Attribute \textit{Name} und \textit{E-Mail-Adresse} hat. Zusätzlich besitzt es
 		eine Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
 
 		\item Eine Ist-Modellierung wird erstellt, indem verschiedenste
@@ -578,8 +578,17 @@
 		3]{becker2006konzeptionelle}.\todo{Nicht direkt Sollmodellierung, nur in
 		Datenmigrationsprojekten, alternativen Begriff suchen}
 
-		\item Qualitätskennzahlen werden spezifiziert.
-		\item Analyse 
+		\item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten definiert. Ein
+		Beispiel einer Qualitätskennzahl für das Geschäftsobjekt \textit{Kunde} ist
+		eine Kennzahl, welche überprüft, ob das Attribut \textit{E-Mail-Adresse}
+		ein At-Zeichen enthält.
+
+		\item Instanzen von Geschäftsobjekten werden mit hilfe der zuvor
+		spezifizierten Qualitätskennzahlen analysiert. Ein mögliches
+		Auswertungsergebnis für das Geschäftsobjekt Kunde ist, dass vier Prozent
+		aller Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das
+		At-Zeichen fehlt.
+
 		\item Visualisierung
 		\item Manuelle und automatisierte Verbesserung
 		\item kontinuierliche Überwachung und Berichterstattung
