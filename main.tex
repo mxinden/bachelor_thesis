@@ -429,7 +429,7 @@
 	organisatorischen als auch technischen Umgang in einem Unternehmen
 	beinhaltet~\cite[][S.  2]{legner2007stammdaten}.  Die Definition von
 	Prozessen im Umgang mit Stammdaten gehört \zB{} zum organisatorischen
-	Stammdatenmanagement, wohingegen der Einsatz eines Stammdatenmanagement-Tools
+	Stammdatenmanagement, wohingegen der Einsatz einer Stammdatenmanagement-Software
 	wie \textit{DataRocket} zum technischen Stammdatenmanagement gezählt werden
 	kann.  
 	
@@ -483,7 +483,7 @@
 	Datenqualitätsdimension \textit{Vollständigkeit} kann sie angeben, wie
 	vollständig ein bestimmtes Datum ist. Die Überwachung der Stammdatenqualität
 	eines Unternehmens kann nach der Spezifikation von Datenqualitätskennzahlen
-	von einem Datenqualitätsmanagement-Tools wie \zB{} \textit{DataRocket}
+	von einer Stammdatenmanagement-Software wie \zB{} \textit{DataRocket}
 	kontinuierlich auf die gesamten Stammdaten eines Unternehmens angewandt
 	werden, womit nach \textsc{\citeauthor{baghi2013controlling}} das Fundament
 	für die Datenqualitätsverbesserung erstellt ist~\cite[][S.
@@ -499,16 +499,96 @@
 	dieser Fehler in der zukunft für weitere Datensätze verhindert, womit auch
 	Schritt zwei erfüllt ist.
 
+	\paragraph{Stammdatenmanagement-Software}
+	\textsc{\citeauthor{baghi2014toward}} definieren
+	Stammdatenmanagement-Software allgemein als eine Applikation, welche
+	Attribute von Stammdaten erstellen, speichern und verändern kann~\cite[][S.
+	3828]{baghi2014toward}.\todo{Direkt übersetzt! Anführungszeichen?} Sie
+	ermöglicht es dem Endnutzer, die Daten in einer qualitativ hochwertigen
+	konsolidierten Form zu konsumieren~\cite[][Abschnitt
+	1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
+	unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
+	\textit{Central-System}, \textit{Leading-System},
+	\textit{Service-Oriented-Architecture}, \textit{Registry},
+	\textit{Consolidation-Hub} und \textit{Peer-to-Peer}~\cite[][S.
+	3829]{baghi2014toward}, siehe hierzu auch~\cite[][Abschnitt
+	5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
+	die Architektur \textit{Leading-System} und \textit{Consolidation-Hub}
+	verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
+	erläutert werden.
+	
+	Im Ansatz der \textit{Leading-System}-Architektur wird für jede
+	Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
+	Klasse der Kundendaten, welches die Hauptverwaltung dieser Klasse übernimmt,
+	andere Systeme erhalten ihre Informationen über die Stammdatenklasse vom
+	Hauptsystem~\cite[][S. 3829]{baghi2014toward}. Der Archtikturansatz
+	\textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
+	beschreibt ein zentrales System, welches verschiedenste andere Systeme und
+	Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
+	Version zur Verfügung stellt~\cite[][S. 3829]{baghi2014toward}. Siehe hierzu
+	\textsc{\citeauthor{loshin2010master}}, wessen Definition von
+	Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
+	gleicht~\cite[][S. 8]{loshin2010master}. Auf die übrigen Architekturen wird
+	im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre Erklärungen
+	auch nicht Teil dieser Arbeit sind, hier wird lediglich auf die Erklärungen
+	von~\cite{baghi2014toward} verwiesen.
+
 
   \section{Vorstellung \textit{DataRocket}}
+
+	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
+	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
+	Architektonisch verfolgt sie den Ansatz des
+	\textit{Consolidation-Hubs}\footnote{Siehe~\cite{baghi2014toward}}, indem es
+	verschiedenste Informationssysteme eines Unternehemens anbindet, deren Daten
+	strukturiert extrahiert und diese analysiert und in ihrer Qualität überwacht
+	und verbessert. \textit{DataRocket} kann auch mit
+	\textit{Leading-Systems}\footnote{Siehe~\cite{baghi2014toward}}
+	kollaborieren, da es Änderungen an Attributen eines Stammdatums an diese
+	weiter geben kann, \bzw{} die Änderungen zurück schreiben kann.
+	Alleinstellungsmerkmale der Software sind: Domänenunabhängigkeit, einfache
+	Bedienung und hoher Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch
+	ersetzen}.
+
+	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
+	Unternehemns ist ein Prozess von Nöten, welcher im folgenden anhand seiner
+	Schritte erleutert wird:
+
+	\begin{enumerate}
+		\item Eine Soll-Modellierung wird durchgeführt, indem Geschäftsobjekte und
+		ihre Attribute definiert werden und mit einander in Beziehung gebracht
+		werden. Ein Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die
+		Attribute \textit{Name} und \textit{Adresse} hat. Zusätzlich besitzt es
+		eine Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
+
+		\item Eine Ist-Modellierung wird erstellt, indem verschiedenste
+		Informationssysteme eines Unternehmens an \textit{DataRocket} angebunden
+		werden und deren Struktur entweder automatisiert, oder manuell in der
+		Software übernommen werden. 
+
+		\item Die Soll-Modellierung wird der Ist-Modellierung zugeordnet, indem
+		Geschäftsobjekte beider Welten miteinander verbuden werden. Im Kontext des
+		oben genannten Beispiels wird hier das \acrshort{CRM}-System eines
+		Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
+		Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
+		Geschäftsobjekt \textit{Kunde} der Soll-Modellierung zugewiesen. Die Soll-
+		und Ist-Modellierung ist zurück zu führen auf
+		\textsc{\citeauthor{becker2006konzeptionelle}}, welche diese \zB{} für den
+		Einsatz in \glqq{}Reorganisationsprojekten\grqq{} vorschlagen~\cite[][S.
+		3]{becker2006konzeptionelle}.\todo{Nicht direkt Sollmodellierung, nur in
+		Datenmigrationsprojekten, alternativen Begriff suchen}
+
+		\item Qualitätskennzahlen werden spezifiziert.
+		\item Analyse 
+		\item Visualisierung
+		\item Manuelle und automatisierte Verbesserung
+		\item kontinuierliche Überwachung und Berichterstattung
+	\end{enumerate}
+
+	\todo[inline]{Plan- und Soll-Modellierung zitieren}
+
 \label{sec:Vorstellung-DataRocket}
   \begin{itemize}
-    \item Produkt von innoscale
-    \item full Stack Stammdatenmanagement-Software
-    \item Modellierung der Planwelt, Zuordnung zur Istwelt, Spezifikation von
-      Qualitätsregeln, Analyse, Visualisierung, automatische / händische
-      Verbesserung und Berichterstattung
-    \item USP:\@ Benutzerfreundlichkeit 
     \item Datapipeline
       \begin{itemize}
         \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram,
