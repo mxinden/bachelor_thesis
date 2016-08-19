@@ -193,7 +193,7 @@
   \textsc{\citeauthor{phipps2002automating}} zählen diese
   zu den fünf Hauptschritten der Datenanalyse im
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es wird nun
-  die mulidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
+  die multidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
   mit der Entity-Relationship-Modellierung verglichen. Des Weiteren wird
   eine Erweiterung der multidimensionalen Modellierung---\textit{H2 for
   Reporting}---vorgestellt.
@@ -204,7 +204,7 @@
   Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
   Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen.
 
-  Im Mittelpunkt der Dimensions-Modellierung stehen die
+  Im Mittelpunkt der multidimensionalen Modellierung stehen die
   betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
   42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
@@ -229,9 +229,9 @@
     \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
   \end{figure}
 
-  Die Dimensions-Modellierung unterteilt sich nun in verschiedene Ausprägungen.
+  Die multidimensionale Modellierung unterteilt sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
-  2]{phipps2002automating}. Der Name ist zurück zu f\"uhren auf den Aufbau
+  2]{phipps2002automating}. Der Name ist zurück zu führen auf den Aufbau
   eines entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches
   die Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des
   Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
@@ -262,7 +262,7 @@
     \end{tabular}
   \end{figure}
 
-  Eine weitere Ausprägung der Dimensions-Modellierung ist das Snowflake-Modell.
+  Eine weitere Ausprägung der multidimensionalen Modellierung ist das Snowflake-Modell.
   Analog zum Star-Modell gleicht die Form eines Snowflake-Modells einer
   Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und Snowflake-Modell
   unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
@@ -323,7 +323,7 @@
 
   \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale Modellierung
   als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
-  Dimensions-Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
+  multidimensionale Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
   mittels der Notation der ER-Modellierung visualisiert werden~\cite[][S.
   47]{ballard1998data}. Zum Beispiel können die Fakten eines multidimensionalen Modells
   als Objekte eines ER-Modells mit Beziehungen zu den jeweiligen Dimensionen,
@@ -367,7 +367,7 @@
   \acrshort{OLAP}-Systeme besser eignet.
 
 
-  \section{Erweiterung der Dimensions-Modellierung---H2 for Reporting}
+  \section{Erweiterung der multidimensionalen Modellierung---H2 for Reporting}
   Die multidimensionale Modellierung wird durch verschiedene Modellierungssprachen
   erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
   Institut für Wirtschaftsinformatik an der \acrlong{WWU} (WWU)
@@ -405,23 +405,23 @@
     \item MERM
   \end{itemize}
 
-  \paragraph{Beispielszenario}
-  Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
-  Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
-  Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
-  eigenen Online-Shop ab.
+  % \paragraph{Beispielszenario}
+  % Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
+  % Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
+  % Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
+  % eigenen Online-Shop ab.
 
-  Beispiel Dimensionen
-  \begin{itemize}
-    \item Absatzkanal
-    \item Zeit
-    \item Produkt
-    \item Ort
-    \item Kunde
-    \item Personal
-    \item Lieferant
-    \item Wertansatz (Soll, Ist, Plan)
-  \end{itemize}
+  % Beispiel Dimensionen
+  % \begin{itemize}
+  %   \item Absatzkanal
+  %   \item Zeit
+  %   \item Produkt
+  %   \item Ort
+  %   \item Kunde
+  %   \item Personal
+  %   \item Lieferant
+  %   \item Wertansatz (Soll, Ist, Plan)
+  % \end{itemize}
 
   \section{Stammdatenmanagement}
 	Das Stammdatenmanagement ist eine Funktion eines Unternehmens, welches eine
@@ -459,7 +459,7 @@
 	die Daten für einen bestimmten Einsatz verwenden lassen können~\cite[][S.
 	8]{otto2011stammdatenmanagement}.
 
-	Die Stammdatenqualität lässt sich anhand von verschiendenen
+	Die Stammdatenqualität lässt sich anhand von verschiedenen
 	Qualitätsdimensionen genauer spezifizieren.
 	\textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
 	\textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
@@ -467,7 +467,7 @@
 	\textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
 	Dimensionen~\cite[][S. 213 f., S. 4 f.]{pipino2002data,
 	legner2007stammdaten}. \textsc{\citeauthor{baghi2013controlling}} hingegen
-	nutzen für ihre Fallstudie lediglich die Datenqualitätydimensionen
+	nutzen für ihre Fallstudie lediglich die Datenqualitätsdimensionen
 	\textit{Genauigkeit} und \textit{Vollständigkeit}~\cite[][S.
 	4]{baghi2013controlling}, basierend auf der Sammlung von
 	\textsc{\citeauthor{wand1996anchoring}}~\cite[][S. 8 f.]{wand1996anchoring}.
@@ -496,7 +496,7 @@
 	einer Adresse eines Kundenstammdatums. Schritt eins ist es den
 	Kundendatensatz um die fehlende Postleitzahl zu erweitern. Wird in der
 	Kundendateneingabemaske die Postleitzahl als Pflichtfeld deklariert wird
-	dieser Fehler in der zukunft für weitere Datensätze verhindert, womit auch
+	dieser Fehler in der Zukunft für weitere Datensätze verhindert, womit auch
 	Schritt zwei erfüllt ist.
 
 	\paragraph{Stammdatenmanagement-Software}
@@ -521,7 +521,7 @@
 	Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
 	Klasse der Kundendaten, welches die Hauptverwaltung dieser Klasse übernimmt,
 	andere Systeme erhalten ihre Informationen über die Stammdatenklasse vom
-	Hauptsystem~\cite[][S. 3829]{baghi2014toward}. Der Archtikturansatz
+	Hauptsystem~\cite[][S. 3829]{baghi2014toward}. Der Architekturansatz
 	\textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
 	beschreibt ein zentrales System, welches verschiedenste andere Systeme und
 	Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
@@ -534,13 +534,13 @@
 	von~\cite{baghi2014toward} verwiesen.
 
 
-  \section{Vorstellung \textit{DataRocket}}
+  \section{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
 
 	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
 	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
 	Architektonisch verfolgt sie den Ansatz des
 	\textit{Consolidation-Hubs}\footnote{Siehe~\cite{baghi2014toward}}, indem es
-	verschiedenste Informationssysteme eines Unternehemens anbindet, deren Daten
+	verschiedenste Informationssysteme eines Unternehmens anbindet, deren Daten
 	strukturiert extrahiert und diese analysiert und in ihrer Qualität überwacht
 	und verbessert. \textit{DataRocket} kann auch mit
 	\textit{Leading-Systems}\footnote{Siehe~\cite{baghi2014toward}}
@@ -551,61 +551,82 @@
 	ersetzen}.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehemns ist ein Prozess von Nöten, welcher im folgenden anhand seiner
-	Schritte erleutert wird:
+	Unternehmens ist ein Prozess von Nöten, welcher im folgenden anhand seiner
+	Schritte erläutert wird:
 
 	\begin{enumerate}
-		\item Eine Soll-Modellierung wird durchgeführt, indem Geschäftsobjekte und
-		ihre Attribute definiert werden und mit einander in Beziehung gebracht
-		werden. Ein Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die
-		Attribute \textit{Name} und \textit{E-Mail-Adresse} hat. Zusätzlich besitzt es
-		eine Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
+    \item Eine Soll-Modellierung wird durchgeführt, indem Geschäftsobjekte und
+      ihre Attribute definiert werden und mit einander in Beziehung gebracht
+      werden. Ein Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die
+      Attribute \textit{Name} und \textit{E-Mail-Adresse} hat. Zusätzlich
+      besitzt es eine Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
 
-		\item Eine Ist-Modellierung wird erstellt, indem verschiedenste
-		Informationssysteme eines Unternehmens an \textit{DataRocket} angebunden
-		werden und deren Struktur entweder automatisiert, oder manuell in der
-		Software übernommen werden. 
+    \item Eine Ist-Modellierung wird erstellt, indem verschiedenste
+      Informationssysteme eines Unternehmens an \textit{DataRocket} angebunden
+      werden und deren Struktur entweder automatisiert, oder manuell in der
+      Software übernommen werden. 
 
-		\item Die Soll-Modellierung wird der Ist-Modellierung zugeordnet, indem
-		Geschäftsobjekte beider Welten miteinander verbuden werden. Im Kontext des
-		oben genannten Beispiels wird hier das \acrshort{CRM}-System eines
-		Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
-		Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
-		Geschäftsobjekt \textit{Kunde} der Soll-Modellierung zugewiesen. Die Soll-
-		und Ist-Modellierung ist zurück zu führen auf
-		\textsc{\citeauthor{becker2006konzeptionelle}}, welche diese \zB{} für den
-		Einsatz in \glqq{}Reorganisationsprojekten\grqq{} vorschlagen~\cite[][S.
-		3]{becker2006konzeptionelle}.\todo{Nicht direkt Sollmodellierung, nur in
-		Datenmigrationsprojekten, alternativen Begriff suchen}
+    \item Die Soll-Modellierung wird der Ist-Modellierung zugeordnet, indem
+      Geschäftsobjekte beider Welten miteinander verbunden werden. Im Kontext
+      des oben genannten Beispiels wird hier das \acrshort{CRM}-System eines
+      Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
+      Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
+      Geschäftsobjekt \textit{Kunde} der Soll-Modellierung zugewiesen. Die
+      Soll- und Ist-Modellierung ist zurück zu führen auf
+      \textsc{\citeauthor{becker2006konzeptionelle}}, welche diese \zB{} für
+      den Einsatz in \glqq{}Reorganisationsprojekten\grqq{}
+      vorschlagen~\cite[][S.  3]{becker2006konzeptionelle}.\todo{Nicht direkt
+      Soll-Modellierung, nur in Datenmigrationsprojekten, alternativen Begriff
+      suchen}
 
-		\item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten definiert. Ein
-		Beispiel einer Qualitätskennzahl für das Geschäftsobjekt \textit{Kunde} ist
-		eine Kennzahl, welche überprüft, ob das Attribut \textit{E-Mail-Adresse}
-		ein At-Zeichen enthält.
+    \item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten
+      definiert. Ein Beispiel einer Qualitätskennzahl für das Geschäftsobjekt
+      \textit{Kunde} ist eine Kennzahl, welche überprüft, ob das Attribut
+      \textit{E-Mail-Adresse} ein At-Zeichen enthält.
 
-		\item Instanzen von Geschäftsobjekten werden mit hilfe der zuvor
-		spezifizierten Qualitätskennzahlen analysiert. Ein mögliches
-		Auswertungsergebnis für das Geschäftsobjekt Kunde ist, dass vier Prozent
-		aller Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das
-		At-Zeichen fehlt.
+    \item Instanzen von Geschäftsobjekten werden mit Hilfe der zuvor
+      spezifizierten Qualitätskennzahlen analysiert. Ein mögliches
+      Auswertungsergebnis für das Geschäftsobjekt Kunde ist, dass vier Prozent
+      aller Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das
+      At-Zeichen fehlt.
 
-		\item Visualisierung
-		\item Manuelle und automatisierte Verbesserung
-		\item kontinuierliche Überwachung und Berichterstattung
+    \item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
+      verschiedensten Graphen visualisiert werden. Diese können in der
+      Berichterstattungskomponente, welche im nachfolgenden genauer beschrieben
+      wird, aufgegriffen werden.
+
+    \item Datenqualitätsprobleme können manuell oder automatisiert behoben werden. Für
+      die manuelle Behebung werden einem User nacheinander Geschäftsobjekte mit
+      Datenqualitätsproblemen angezeigt, welche er direkt in der Software
+      bereinigen kann. Für de automatisierte Behebung bietet
+      \textit{DataRocket} verschieden Module. Ein Beispielmodul dient der
+      Bereinigung von Adressdaten. Hierzu werden externe Geo-Datenbanken\todo{Beispiel für eine Datenbank}
+      angebunden, welche \textit{DataRocket} mit den Adressdaten der
+      Geschäftsobjekte vergleicht und diese hiermit \ggf{} ergänzt oder korrigiert.
+
+    \item \textit{DataRocket} überwacht alle angebundenen Datenquellen
+      kontinuierlich und bietet in der Benutzerschnittstelle eine
+      Berichterstattungskomponente, welche dem User sowohl den aktuellen Status
+      quo der Datenqualität im Unternehmen, als auch die Entwicklung im
+      Zeitverlauf präsentiert.
 	\end{enumerate}
 
-	\todo[inline]{Plan- und Soll-Modellierung zitieren}
+  Der sequentielle \textit{DataRocket}-Prozess (Schritt 5--7) wird in der
+  Benutzeroberfläche durch die \textit{DataPipeline} abgebildet. Diese
+  ermöglicht es dem Nutzer verschiedene Prozessschritte wie Bausteine aneinander
+  zu reihen, welche jeweils auf den Ergebnissen ihrer Vorgänger aufbauen. Im
+  bisherigen Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde}
+  mit Hilfe der zuvor definierten Qualitätskennzahlen im \textit{Calculation}
+  Baustein analysiert. Die Ergebnisse der Analyse werden weiter an den
+  \textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
+  darstellt. Abschließend werden die Ergebnisse an den
+  \textit{Cleaning-Baustein} weiter gegeben, in dem der User die zuvor
+  festgestellten Datenqualitätsprobleme beheben kann.
 
-\label{sec:Vorstellung-DataRocket}
-  \begin{itemize}
-    \item Datapipeline
-      \begin{itemize}
-        \item Bausteine (BusinessObject, QualityCritera, Calculation, Diagram,
-          Cleaning, Duplicate, Filter, Language)
-        \item \textit{DataFurnace} ersetzt Calculation-Step
-      \end{itemize}
-  \end{itemize}
-
+  Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
+  prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
+  \textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
+  \textit{Calculation}-Baustein Anwendung finden.
 
   % ################################################################################
   \chapter{\textit{DataFurnace}-Sprache für innoscale}
