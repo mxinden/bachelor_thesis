@@ -613,15 +613,15 @@
 
   Der sequentielle \textit{DataRocket}-Prozess (Schritt 5--7) wird in der
   Benutzeroberfläche durch die \textit{DataPipeline} abgebildet. Diese
-  ermöglicht es dem Nutzer verschiedene Prozessschritte wie Bausteine aneinander
-  zu reihen, welche jeweils auf den Ergebnissen ihrer Vorgänger aufbauen. Im
-  bisherigen Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde}
-  mit Hilfe der zuvor definierten Qualitätskennzahlen im \textit{Calculation}
-  Baustein analysiert. Die Ergebnisse der Analyse werden weiter an den
-  \textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
-  darstellt. Abschließend werden die Ergebnisse an den
-  \textit{Cleaning-Baustein} weiter gegeben, in dem der User die zuvor
-  festgestellten Datenqualitätsprobleme beheben kann.
+  ermöglicht es dem Nutzer verschiedene Prozessschritte wie Bausteine
+  aneinander zu reihen, welche jeweils auf den Ergebnissen ihrer Vorgänger
+  aufbauen. Im bisherigen Beispielszenario wird zunächst das Geschäftsobjekt
+  \textit{Kunde} mit Hilfe der zuvor definierten Qualitätskennzahlen im
+  \textit{Calculation} Baustein analysiert. Die Ergebnisse der Analyse werden
+  weiter an den \textit{Visualization-Baustein} gegeben, welcher diese in Form
+  von Graphen darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf
+  die Ergebnisse zu, in welchem der User die zuvor festgestellten
+  Datenqualitätsprobleme beheben kann.
 
   Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
   prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
@@ -722,9 +722,11 @@
   %   )
   % )
   \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
-  \begin{figure}[caption={Ausdruck Syntaxdiagramm}, label={railroad-kennzahl}]
+  \begin{figure}[caption={Ausdruck Syntaxdiagramm \protect\footnotemark}, label={railroad-kennzahl}]
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
   \end{figure}
+  \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
+  Compiler, Railroad-Diagram, horizontale Linien gleich Gleise}}
 
   Um innerhalb der Formel einer Kennzahl auf die Informationen einer
   Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
@@ -735,7 +737,7 @@
   auf ein variables Attribut ohne Referenz zu einem Bezugsobjekt,
   verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen verhindert die
   generische Definition und Wiederverwendbarkeit von Kennzahlen, ermöglicht
-  jedoch eine Situationsnahe Konzeption und einen geringeren
+  jedoch eine situationsnahe Konzeption und einen geringeren
   Konfigurationsaufwand im späteren Gebrauch.
 
   Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
@@ -785,7 +787,7 @@
     \item Kein User-/Group-management da bereits von DR gegeben
     \item Input sind Business Object / EInstances. Wie diese generiert werden
       ist Aufgabe von \textit{DataRocket} nicht von \textit{DataFurnace}
-    \item In der Report View sollten unter den standard Spalten auch kumulierte
+    \item In der Report-View sollten unter den Standardspalten auch kumulierte
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
 
