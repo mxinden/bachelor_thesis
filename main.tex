@@ -652,36 +652,95 @@
   Im Folgenden wird eine Anforderungsanalyse für die
   \textit{DataFurnace}-Sprache durchgeführte um genauere Anforderungen an die
   Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
-  Hierzu wird auf die Vorgehensweise der
-  \textit{zielorientierten Anforderungsanalyse}, näher beschrieben von
-  \textsc{\citeauthor{van2001goal}}, zurück gegriffen~\cite[][]{van2001goal}.
-  Ziele werden unterschieden in \textit{funktionale} und \textit{nicht-funktionale} Ziele~\cite[][S. 36]{mylopoulos1999object}. Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen sich mit der Art und Weise \bzw{} mit der Qualität der Leistung~\cite[][S. 250]{van2001goal}.
+  Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
+  Anforderungsanalyse} zurück gegriffen, näher beschrieben von
+  \textsc{\citeauthor{van2001goal}}~(\citeyear{van2001goal}).
+  Ziele werden unterschieden in \textit{funktionale} und
+  \textit{nicht-funktionale} Ziele~\cite[][S.  36]{mylopoulos1999object}.
+  Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen
+  sich mit der Art und Weise respektive mit der Qualität der Leistung~\cite[][S.
+  250]{van2001goal}.
 
-  \begin{itemize}
-    \item Funktionale Anforderungen
-      \begin{itemize}
-        \item Bestehende Datenstrukturen von Unternehmensdaten in
-          hierarchischer Form modellieren und gliedern
-        \item Datenqualitäts- und Unternehemenskennzahlen spezifizieren zur
-          Anwendung auf die Unternehmensdaten
-        \item Berichtstrukturen aus Daten und Kennzahlen kombinieren
-      \end{itemize}
-    \item Nicht-funktionale Anforderungen
-      \begin{itemize}
-        \item Vokabular der Sprache \~= Vokabular von DataRocket
-        \item Vokabular an Schnittpunkten übereinstimmen
-        \item Die Sprache ist bewusst schlicht gehalten um mit dem USP von
-          \textit{DataRocket}, \acrshort{DQM} IT-Laien zu ermöglichen, kohärent
-          zu bleiben. Leicht verständlich
-      \end{itemize}
-    \item Annahmen
-      \begin{itemize}
-        \item Eingangsdaten sind hierarchisch strukturiert
-        \item Die Unternehmensdaten können in jegliche gewünschte Struktur
-          transformiert werden (technische Transformation nicht Teil dieser BA)
-      \end{itemize}
-  \end{itemize}
+  \paragraph{Funktionale Ziele}
+    \begin{enumerate}
+      \item \textbf{Spezifikation der Unternehmensdatenstrukturen} 
+        
+        Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
+        können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
+        und die Spezifikation der hierarchischen Strukturen innerhalb seiner
+        Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
+        die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
+        werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren in
+        seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
+        aufgeteilt werden können, wobei der Warenbereich der Warenlinie
+        funktional untergeordnet werden soll.
 
+      \item \textbf{Definition von Datenqualitätskennzahlen} 
+
+        \textit{DataRocket} misst Datenqualität anhand von
+        Datenqualtitätskennzahlen. Ziel ist es diese mit Hilfe der
+        \textit{DataFurnace}-Sprache definieren zu können.
+        Datenqualitätskennzahlen beziehen sich auf Attribute von
+        Unternehmensdatentypen. Die Sprache soll es dem Nutzer ermöglichen
+        komplizierte Qualitätskennzahlberechnungen zu spezifizieren, welche
+        sowohl qualitativem als auch quantitativem Ursprungs sein können. Es
+        soll zum Beispiel eine Qualtitätskennzahl definiert werden können,
+        welche kontrolliert, dass im oben genannten Szenario der \textit{Preis}
+        des Unternehmensdatentypus \textit{Produkt} keine Buchstaben enthält.
+        
+      \item \textbf{Kombination zu Berichten}
+
+        Ein Nutzer soll die Kombination von zuvor spezifizierten
+        Unternehmensdaten mit den definierten Datenqualtiätskennzahlen zu
+        verschiedensten Auswertungsszenarien mit Hilfe der Sprache beschreiben
+        können. Somit soll es die Sprache ermöglichen Fragestellungen zu
+        entwickeln, welche die Qualtität von bestimmten Datensätzen hinterfragen.
+        Zusätzlich soll sie den Nutzer befähigen, innerhalb einer
+        Fragestellung, mit Hilfe von Attributen, Datensätze gefiltert zu
+        betrachten und anhand von Attributgruppen zu vergleichen. Eine mögliche
+        Fragestellung im oben aufgespannten Szenario ist: Wie viele
+        \textit{Produkte} in der \textit{Warenlinie} \textit{Elektronik} haben
+        im Vergleich zur \textit{Warenlinie} \textit{Lebenmittel} Buchstaben im
+        Attribut \textit{Preis}.
+    \end{enumerate}
+
+  \paragraph{Nicht-funktionale Ziele}
+    \begin{enumerate}
+      \item \textbf{Hohe Verständlichkeit}
+        
+        Die Sprache soll sehr leicht verständlich sein, um mit dem
+        Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
+        Datenqualitätsmanagement IT-Laien zu ermöglichen, kohärent zu bleiben.
+        Besonderer Fokus soll auf einer geringen Komplexität liegen, wodurch
+        der Nutzer die Sprache schnell verstehen und erlernen kann.
+
+      \item \textbf{Verwendung des \textit{DataRocket}-Vokabulars}
+        
+        Die Software \textit{DataRocket} nutzt in ihrer Oberfläche die
+        Englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
+        die Software einige Begriffe des Datenqualitätsmanagement-Jargons und
+        führt in einigen wenigen fällenn ein eigenes Vokabular ein, welches
+        unikale Komponenten und Vorgänge der Software betitelt. Zwar soll die
+        \textit{DataFurnace}-Sprache und -Komponente alleinstehend entwickelt
+        werden, jedoch soll bei der Entwicklung auch die zukünftige Integration
+        der beiden in \textit{DataRocket} nicht unbeachtet bleiben. Folglich
+        sollte sich das Vokabular der \textit{DataFurnace}-Sprache an dem
+        Vokabular von \textit{DataRocket} orientieren und an den
+        Funktionsschnittstellen übereinstimmen.
+    \end{enumerate}
+
+  \paragraph{Annahmen} Neben \textit{funktionalen} und \textit{nicht-funktionalen} Zielen müssen des
+  Weiteren Annahmen getroffen werden, welche von der \textit{innoscale AG}
+  vorrausgesetzt werden, und somit die Entwicklung der Sprache beeinflussen:
+  \begin{enumerate}
+    \item \textit{DataRocket} bringt in seinem Funktionsumfang den so genannten
+      \textit{Mapper} mit, welcher es dem Nutzer ermöglicht, Daten in
+      verschiedenste gewünschte Strukturen zu transformieren. Folglich kann für
+      die Entwicklung der \textit{DataFurnace}-Sprache die Möglichkeit der
+      Beschreibung einer Transformation von Datenstrukturen außer Acht gelassen
+      werden mit der Annahme, dass die \textit{DataFurnace}-Komponente auf die
+      zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann.
+  \end{enumerate}
 
 
   \section{Fachliches Konzept}
@@ -829,6 +888,7 @@
 
   \section{Anforderungsanalyse und Annahmen}
   \begin{itemize}
+    \item Leichter durchstrukturierter Prozess
     \item Kein User-/Group-management da bereits von DR gegeben
     \item Input sind Business Object / EInstances. Wie diese generiert werden
       ist Aufgabe von \textit{DataRocket} nicht von \textit{DataFurnace}
