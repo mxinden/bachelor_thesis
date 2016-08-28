@@ -659,7 +659,8 @@
   \textit{nicht-funktionale} Ziele~\cite[][S.  36]{mylopoulos1999object}.
   Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen
   sich mit der Art und Weise respektive mit der Qualität der Leistung~\cite[][S.
-  250]{van2001goal}.
+  250]{van2001goal}. Die Ziele der \textit{DataFurnace}-Sprache werden in den
+  folgenden Aufzählungen benannt, näher beschrieben und begründet.
 
   \paragraph{Funktionale Ziele}
     \begin{enumerate}
@@ -745,6 +746,12 @@
 
   \section{Fachliches Konzept}
 
+  Die \textit{DataFurnace}-Sprache wurde in enger Zusammenarbeit und ständiger
+  Absprache mit der \textit{innoscale AG} und mit der Einbeziehung des
+  aktuellen Stand der Wissenschaft im Bereich des Datenqualitätsmanagements und
+  der Unternehmensdatenanalyse entwickelt. Im Folgenden wird die Sprache,
+  strukturiert anhand ihres Vokabulars, erklärt.
+
   \subsection{Dimensionen}
   Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
   Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
@@ -767,7 +774,8 @@
   Objekts. Zum Beispiel hat das Objekt \textit{Produkt} die Attribute
   \textit{Preis} und \textit{Farbe}. Attribute haben wiederum Ausprägungen.
   Diese verkörpern Instanzen eines Attributes. \textit{Blau} und \textit{Grün}
-  sind beispielsweise Ausprägungen des Attributes \textit{Farbe}.
+  sind beispielsweise Ausprägungen des Attributes \textit{Farbe} des
+  Geschäftsobjekts \textit{Produkt}.
   
   Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
   Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
@@ -800,7 +808,7 @@
     \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
 
-  Eine Kennzahl bietet ein quantitatives \todo{oder auch qualitatives} Maß,
+  Eine Kennzahl bietet ein quantitatives oder auch qualitatives Maß,
   welches die Informationen von einem oder mehreren Instanzen eines
   Geschäftsobjekts weiterverarbeitet. Sie wird durch eine mathematische Formel
   spezifiziert, und folgt der Grundrechenart mit den Operationen
@@ -850,7 +858,7 @@
   Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
   zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
   Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Eine Funktion kann
-  sowohl innerhalb einer Instanz als auch über mehrere hinaus aggieren. Eine
+  sowohl innerhalb einer Instanz als auch über mehrere hinaus aggieren. Ein
   \todo{Erklären: Transformationsfunktion und Aggregationsfunktion}
   Beispiel für eine Funktion mit Bezug auf eine einzige Instanz ist die
   \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe eine Zahle und gibt die
@@ -859,6 +867,9 @@
   nimmt als Eingabe ein Attribut eines Geschäftsobjekts und summiert die
   Ausprägungen des Attributes über alle Instanzen auf. \todo{Mathematisch
   belegen}
+
+  \todo[inline]{Noch zusätzlich auf andere Funktionen wie \zB{} notEmpty oder
+  contains eingehen}
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
