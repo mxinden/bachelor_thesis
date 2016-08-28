@@ -585,24 +585,26 @@
       \textit{E-Mail-Adresse} ein At-Zeichen enthält.
 
     \item Instanzen von Geschäftsobjekten werden mit Hilfe der zuvor
-      spezifizierten Qualitätskennzahlen analysiert. Ein mögliches
-      Auswertungsergebnis für das Geschäftsobjekt Kunde ist, dass vier Prozent
-      aller Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das
-      At-Zeichen fehlt.
+      spezifizierten Qualitätskennzahlen im \textit{Calculation}-Baustein
+      analysiert. Ein mögliches Auswertungsergebnis für das Geschäftsobjekt
+      Kunde ist, dass vier Prozent aller Kundenstammdaten in dem Attribut
+      \textit{E-Mail-Adresse} das At-Zeichen fehlt.
 
     \item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
-      verschiedensten Graphen visualisiert werden. Diese können in der
-      Berichterstattungskomponente, welche im nachfolgenden genauer beschrieben
-      wird, aufgegriffen werden.
+      verschiedensten Graphen im \textit{Visualization}-Baustein visualisiert
+      werden. Diese können in der Berichterstattungskomponente, welche im
+      nachfolgenden genauer beschrieben wird, aufgegriffen werden.
 
-    \item Datenqualitätsprobleme können manuell oder automatisiert behoben werden. Für
-      die manuelle Behebung werden einem User nacheinander Geschäftsobjekte mit
+    \item Datenqualitätsprobleme können manuell oder automatisiert im
+      \textit{Cleaning}-Baustein behoben werden. Für die manuelle Behebung
+      werden einem User nacheinander Geschäftsobjekte mit
       Datenqualitätsproblemen angezeigt, welche er direkt in der Software
       bereinigen kann. Für de automatisierte Behebung bietet
       \textit{DataRocket} verschieden Module. Ein Beispielmodul dient der
-      Bereinigung von Adressdaten. Hierzu werden externe Geo-Datenbanken\todo{Beispiel für eine Datenbank}
-      angebunden, welche \textit{DataRocket} mit den Adressdaten der
-      Geschäftsobjekte vergleicht und diese hiermit \ggf{} ergänzt oder korrigiert.
+      Bereinigung von Adressdaten. Hierzu werden externe
+      Geo-Datenbanken\todo{Beispiel für eine Datenbank} angebunden, welche
+      \textit{DataRocket} mit den Adressdaten der Geschäftsobjekte vergleicht
+      und diese hiermit \ggf{} ergänzt oder korrigiert.
 
     \item \textit{DataRocket} überwacht alle angebundenen Datenquellen
       kontinuierlich und bietet in der Benutzerschnittstelle eine
@@ -626,18 +628,61 @@
   Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
   prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
   \textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
-  \textit{Calculation}-Baustein Anwendung finden.
+  \textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Sprache für innoscale}
+  \chapter{\textit{DataFurnace}-Modellierungssprache}
   % ################################################################################
 
-  \texthl{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
+  \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
   \section{Anforderungsanalyse und Annahmen}
-  \todo[inline]{Eine schlaue Methode zur Anforderungsanalyse zitieren!}
-  Die Sprache ist bewusst schlicht gehalten um mit dem Ziel von \textit{DataRocket},
-  \acrshort{DQM} IT-Laien zu ermöglichen, kohärent zu bleiben.
+  Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
+  Datenqualitätsverbesserung die Qualität von Unternehmensdaten zunächst untersuchen. Der
+  \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket} genau anweisen,
+  nach welchen Kriterien er Datenqualität definiert, und wie die Daten anhand
+  der Datenqualitätskriterien analysiert werden sollen. Für die Kommunikation
+  zwischen \textit{DataRocket} und Nutzer ist folglich eine Sprache von Nöten,
+  welche es dem Nutzer ermöglicht \textit{DataRocket} die funktionale Struktur
+  der Daten zu erklären, Qualitätskriterien zu definieren, und Analyseziele zu
+  spezifizieren. Gegenstandsbereich der Sprache ist der Einsatz in
+  \textit{DataRocket} im \textit{Calculation}-Baustein der
+  \textit{DataPipeline}.
+
+  Im Folgenden wird eine Anforderungsanalyse für die
+  \textit{DataFurnace}-Sprache durchgeführte um genauere Anforderungen an die
+  Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
+  Hierzu wird auf die Vorgehensweise der
+  \textit{zielorientierten Anforderungsanalyse}, näher beschrieben von
+  \textsc{\citeauthor{van2001goal}}, zurück gegriffen~\cite[][]{van2001goal}.
+  Ziele werden unterschieden in \textit{funktionale} und \textit{nicht-funktionale} Ziele~\cite[][S. 36]{mylopoulos1999object}. Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen sich mit der Art und Weise \bzw{} mit der Qualität der Leistung~\cite[][S. 250]{van2001goal}.
+
+  \begin{itemize}
+    \item Funktionale Anforderungen
+      \begin{itemize}
+        \item Bestehende Datenstrukturen von Unternehmensdaten in
+          hierarchischer Form modellieren und gliedern
+        \item Datenqualitäts- und Unternehemenskennzahlen spezifizieren zur
+          Anwendung auf die Unternehmensdaten
+        \item Berichtstrukturen aus Daten und Kennzahlen kombinieren
+      \end{itemize}
+    \item Nicht-funktionale Anforderungen
+      \begin{itemize}
+        \item Vokabular der Sprache \~= Vokabular von DataRocket
+        \item Vokabular an Schnittpunkten übereinstimmen
+        \item Die Sprache ist bewusst schlicht gehalten um mit dem USP von
+          \textit{DataRocket}, \acrshort{DQM} IT-Laien zu ermöglichen, kohärent
+          zu bleiben. Leicht verständlich
+      \end{itemize}
+    \item Annahmen
+      \begin{itemize}
+        \item Eingangsdaten sind hierarchisch strukturiert
+        \item Die Unternehmensdaten können in jegliche gewünschte Struktur
+          transformiert werden (technische Transformation nicht Teil dieser BA)
+      \end{itemize}
+  \end{itemize}
+
+
 
   \section{Fachliches Konzept}
 
@@ -777,7 +822,7 @@
 
 
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Komponente für \textit{DataRocket}}
+  \chapter{\textit{DataFurnace}-Modellierungskomponente}
   % ################################################################################
 
 
