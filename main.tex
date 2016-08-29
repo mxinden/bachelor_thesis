@@ -779,12 +779,13 @@
   
   Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
   Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
-  Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern auf
-  eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
-  anzuwenden.  Eine Dimension bezieht sich nicht direkt auf ein Geschäftsobjekt
-  sondern auf ein Attribut eines Geschäftsobjekts. Die Dimension \textit{Zeit}
-  bezieht sich \zB{} auf das Attribut \textit{Verfallsdatum} des
-  Geschäftsobjekts \textit{Produkt}. 
+  Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern
+  auf eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
+  anzuwenden. Des Weiteren können Untermengen der gesamnte Geschäftsobjektmenge
+  gefiltert werden.  Eine Dimension bezieht sich nicht direkt auf ein
+  Geschäftsobjekt sondern auf ein Attribut eines Geschäftsobjekts. Die
+  Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
+  \textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
   \begin{figure}[caption={Teilsprache---Dimension}, label={dimension-erm}]
     \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
@@ -823,33 +824,34 @@
   Abbildung~\ref{railroad-kennzahl} Gleis drei).
 
   % Diagram(
-  %   Choice(2,
+  %   Choice(1,
   %     Sequence('Ausdruck', Choice(1, '+', '-', '*', '/'), 'Ausdruck'),
   %     Sequence('(', 'Ausdruck', ')'),
-  %     Sequence(Choice(0, skip(), '-'), 'Ausdruck'),
-  %     'Attribut'
+  %     Sequence('-', 'Ausdruck'),
+  %     'Attribut',
   %     Sequence('Transformationsfunktion', '(', 'Ausdruck', ')'),
   %     Sequence('Aggregationsfunktion', '(', 'Ausdruck', ')'),
-  %     'Kennzahl',
+  %     'Kennzahl'
   %   )
   % )
+
   \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
   \begin{figure}[caption={Ausdruck Syntaxdiagramm \protect\footnotemark}, label={railroad-kennzahl}]
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
   \end{figure}
   \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
-  Compiler, Railroad-Diagram, horizontale Linien gleich Gleise}}
+  Compiler, Railroad-Diagram, horizontale Linien gleich Gleise, Stationen erklaeren}}
 
   Um innerhalb der Formel einer Kennzahl auf die Informationen einer
   Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
   Geschäftsobjekts als Formelausdruck eingebracht werden, wie in
-  Abbildung~\ref{railroad-kennzahl} durch die Station \textit{Attribut} verdeutlicht. Hierzu
-  wird innerhalb der Formel auf das konkrete Attribut eines bestimmten
-  Geschäftsobjekts, und nicht, wie in der Sprache \textit{H2 for Reporting},
-  auf ein variables Attribut ohne Referenz zu einem Bezugsobjekt,
-  verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen verhindert die
-  generische Definition und Wiederverwendbarkeit von Kennzahlen, ermöglicht
-  jedoch eine situationsnahe Konzeption und einen geringeren
+  Abbildung~\ref{railroad-kennzahl} durch die Station \textit{Attribut}
+  verdeutlicht. Hierzu wird innerhalb der Formel auf das konkrete Attribut
+  eines bestimmten Geschäftsobjekts, und nicht, wie in der Sprache \textit{H2
+  for Reporting}, auf ein variables Attribut ohne Referenz zu einem
+  Bezugsobjekt, verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen
+  verhindert die generische Definition und Wiederverwendbarkeit von Kennzahlen,
+  ermöglicht jedoch eine situationsnahe Konzeption und einen geringeren
   Konfigurationsaufwand im späteren Gebrauch.
 
   Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
@@ -857,19 +859,25 @@
   (Siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
   Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
   zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
-  Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Eine Funktion kann
-  sowohl innerhalb einer Instanz als auch über mehrere hinaus aggieren. Ein
-  \todo{Erklären: Transformationsfunktion und Aggregationsfunktion}
-  Beispiel für eine Funktion mit Bezug auf eine einzige Instanz ist die
-  \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe eine Zahle und gibt die
-  Wurzel der Zahl zurück. Ein Beispiel für eine Funktion, welche Informationen
-  von mehreren Instanzen verarbeitet, ist die \textit{Summen}-Funktion. Sie
-  nimmt als Eingabe ein Attribut eines Geschäftsobjekts und summiert die
-  Ausprägungen des Attributes über alle Instanzen auf. \todo{Mathematisch
-  belegen}
-
-  \todo[inline]{Noch zusätzlich auf andere Funktionen wie \zB{} notEmpty oder
-  contains eingehen}
+  Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Funktionen werden
+  unterschieden in Transformationsfunktionen und Aggregationsfunktionen. Eine
+  Transformationsfunktion arbeitet lediglich mit den Attributen einer
+  Geschäftsobjektinstanz wohingegen eine Aggregationsfunktion über mehrere
+  Geschäftsobjektinstanzen hinaus aggiert.
+  
+  Ein \todo{Begriffe überprüfen: Transformationsfunktion und
+  Aggregationsfunktion} Beispiel für eine Transformationsfunktion mit Bezug auf
+  eine einzige Instanz ist die \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe
+  eine Zahl und gibt die Wurzel dieser zurück. Ein Beispiel für eine
+  Aggregationsfunktion, welche Attribute von mehreren Instanzen verarbeitet,
+  ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein Attribut eines
+  Geschäftsobjekts und summiert die Ausprägungen des Attributes über alle
+  Instanzen auf. Des weiteren werden datenqualitätsspezifische Funktionen zur
+  Verfügung gestellt. Beispiele sind die \textit{nicht-leer}-Funktion, welche
+  prüft ob ein Ausdruck Inhalt hat und die \textit{enthält}-Funktion, welche
+  zwei Ausdrücke als Parameter nimmt und kontrolliert ob der erste Audruck im
+  zweiten Ausdruck vorhanden ist. Mit der letzteren kann \zB{} geprüft werden,
+  ob das Attribut \textit{E-Mail-Adresse} ein At-Zeichen enthält.
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
@@ -881,7 +889,40 @@
 
 
   \subsection{Berichte}
-\texthl{(Ist es ok, wenn ich Fakten weg lasse)}
+
+  Das letzte Teilvokabular der \textit{DataFurnace}-Sprache ist der Bericht,
+  welcher Dimensionen und Kenzahlen, wie in
+  Abbildung~\ref{language_spec-erm-bericht} gezeigt, kombiniert. Ein Bericht
+  bildet eine Fragestellung des Nutzers mit Bezug auf die Datenqualität seiner
+  Geschäftsobjekte ab. Der Bericht wird unterteilt in eine filternde und eine
+  analysierende Komponente. Anhand dieser Zweiteilung wird im folgenden die
+  Teilsprache Bericht näher erläutert.
+
+  \begin{figure}[caption={Bericht-Teilsprache}, label={language_spec-erm-bericht}]
+    \resizebox{120px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
+  \end{figure}
+  
+  \paragraph{Filternde Komponente} Um Fragestellungen genau addressieren zu
+  können, gibt die \textit{DataFurnace}-Sprache dem Nutzer zunächst die
+  Möglichkeit seine Fragestellung auf eine Untermenge der gesamten
+  Geschäftsobjektdaten zu beziehen, indem er verschiedene Filter auf die
+  Gesamtdatenmenge anwendet. Filter können sowohl auf
+  Dimensionslevelausprägungen, als auch auf die Ergebnisse von Kennzahlen
+  zurückgreifen. 
+  
+  Für die Filterung über Dimensionslevelausprägungen benennt der Nutzer
+  zunächst die Dimensionslevel nach denen er filtern möchte. Daraufhin erstellt
+  er für jedes zuvor spezifizierte Dimensionslevel eine Positivliste, welche
+  alle die Ausprägungen des Dimensionslevels enthält, nach denen er filtern
+  möchte. Will ein Nutzer der \textit{DataFurnace}-Sprache beispielsweise in
+  seiner Fragestellung lediglich die Instanzen des Geschäftsobjekts
+  \textit{Produkt} betrachten, welche in diesem Jahr ablaufen, fügt er das
+  Dimensionslevel \textit{Jahr} der Dimension \textit{Zeit} bezogen auf das
+  Attribut \textit{Verfallsdatum} als Filter hinzu. In diesem Filter fügt er
+  die Dimensionslevelausprägung \textit{2016} in die Positivliste ein.
+
+  \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
+
 
   \begin{figure}[caption={Metamodell der \textit{DataFurnace}-Sprache}, label={fig:img01}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
