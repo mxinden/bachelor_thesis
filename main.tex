@@ -676,7 +676,7 @@
         aufgeteilt werden können, wobei der Warenbereich der Warenlinie
         funktional untergeordnet werden soll.
 
-      \item \textbf{Definition von Datenqualitätskennzahlen} 
+      \item \textbf{Definition von Kennzahlen} 
 
         \textit{DataRocket} misst Datenqualität anhand von
         Datenqualtitätskennzahlen. Ziel ist es diese mit Hilfe der
@@ -688,6 +688,16 @@
         soll zum Beispiel eine Qualtitätskennzahl definiert werden können,
         welche kontrolliert, dass im oben genannten Szenario der \textit{Preis}
         des Unternehmensdatentypus \textit{Produkt} keine Buchstaben enthält.
+
+        Um im späteren Bericht nicht nur nach Datenqualitätsmerkmalen filtern
+        zu können, sollen die \textit{DataFurnace}-Kennzahlen so allgemein
+        gehalten werden, dass sie nicht nur der Datenqualitätsbeurteilung
+        dienen, sondern auch allgemeine Beurteilungen erbringen können. Will
+        sich ein Nutzer beispielsweise in einem großen Datenqualitätsprojekt
+        zunächst nur auf die lukrativen Instanzen des Geschäftsobjekt
+        \textit{Produkt} konzentrieren, so soll er mit Hilfe der
+        betriebswirtschaftlichen Kennzahl \textit{Gewinn} diese gefiltert
+        analysieren können.
         
       \item \textbf{Kombination zu Berichten}
 
@@ -920,6 +930,25 @@
   Dimensionslevel \textit{Jahr} der Dimension \textit{Zeit} bezogen auf das
   Attribut \textit{Verfallsdatum} als Filter hinzu. In diesem Filter fügt er
   die Dimensionslevelausprägung \textit{2016} in die Positivliste ein.
+
+  Alternativ zu der Filterung über Dimensionslevelausprägungen kann der Nutzer
+  auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Hierzu wählt
+  der Nutzer eine zuvor definierte Kennzahl aus und konkretisiert bei welchen
+  Ergebnissen der Kennzahl eine Instanz eines Geschäftsobjekts in die nähere
+  Auswahl aufgenommen oder ausgefiltert wird. Diese Konkretisierung formuliert
+  der Nutzer indem er Ober- und oder Untergrenze bennent, respektive
+  spezifiziert ob er alle Instanzen haben will, welche die Beurteilung der
+  Kennzahl bestehen oder solche, welche sie nicht bestehen. 
+  
+  Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
+  Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
+  validen Preis haben, fügt er die selbst erstellte Kennzahl
+  \textit{Preisvalidation}, welche prüft ob die Ausprägung des Attributes
+  \textit{Preis} keine Buchstaben enthält, als Filter dem Bericht hinzu. In dem
+  Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
+  die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen.
+
+  \paragraph{Analysierende Komponente}
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
