@@ -948,7 +948,68 @@
   Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
   die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen.
 
-  \paragraph{Analysierende Komponente}
+  \paragraph{Analysierende Komponente} Die Fragestellungen eines Nutzers der
+  \textit{DataFurnace}-Sprache können sich auf mehr als zwei Dimensionen
+  beziehen. Diese multidimensionalen Fragestellungen werden in der Sprache, wie
+  auch in \textit{H2 for Reporting}, in Form einer Tabelle aus dem
+  multidimensionalen Raum ins Zweidimensionale projeziert~\cite[][S.
+  23]{becker2007h2}. Diese Tabelle bildet die Kernkomponente eines Berichts.
+  Sie wird über ihre Kopfzeile und Kopfspalte konfiguriert.
+
+  Die Tabellenkopfzeile spezifiziert welche Unternehmensdaten in die Analyse
+  mit einfließen und nach welchen in der Auswertung wie gruppiert wird. Dies
+  geschieht mit Hilfe der zuvor spezifizierten Dimensionen und Dimensionslevel,
+  welche die Unternehmensdatengesamtheit gruppieren. Die Tabellenkopfzeile
+  unterteilt sich in beliebig viele Unterzeilen, welche jeweils genau ein
+  Dimensionslevel repräsentieren. Eine Dimension kann mehrfach mit
+  verschiedenen Dimensionsleveln in der Tabellelkopfzeile vorkommen, die
+  Kopfzeile kann jedoch ein bestimmtes Dimensionslevel nur einmal enthalten.
+  Innerhalb einer Unterzeile wird bestimmt, welche Ausprägungen des
+  zugeordneten Dimensionslevels betrachtet und welche außer Acht gelassen
+  werden. Ein Nutzer fragt sich zum Beispiel wie viele Instanzen des
+  Geschäftsobjekts \textit{Produkt} einen validen \textit{Preis} haben bezogen
+  auf die Dimensionslevelausprägungen \textit{2015} und \textit{2016} des
+  Dimensionslevels \textit{Jahr} der Dimension \textit{Zeit} hinsichtlich des
+  Attributs \textit{Verfallsdatum}. Für diese Fragestellung fügt er der
+  Kopfzeile der Berichtstabelle das Dimensionslevel \textit{Jahr} hinzu und
+  wählt die Dimensionslevelausprägungen \textit{2015} und \textit{2016} aus.
+
+  Wird die Tabellenkopfzeile mit mehr als einem Dimensionslevel bestückt, kann
+  deren Auftrittsreihenfolge bestimmt werden. Die Auftrittsreihenfolge ist in
+  sofern relevant, da die Ergebniswerte eines Dimensionslevels in der Tabelle
+  in Abhängigkeit des Dimensionslevels darüber berechnet und positioniert
+  werden. Nachfolgend wird das vorhergegangene Beispiel erweitert. Fügt der
+  Nutzer neben dem Dimensionslevel \textit{Jahr} das Dimensionslevel
+  \textit{Bundesland} der Dimension \textit{Ort} des Attributes
+  \textit{Herstellungsort} hinzu kann er dies entweder oberhalb oder unterhalb
+  des \textit{Jahres} machen, abhängig davon, ob er in seiner Fragestellung
+  zunächst \textit{2015} und \textit{2016} und dann \textit{NRW} und
+  \textit{HH} vergleichen möchte, oder anders herum. Die Wahl der
+  Auftrittsreihenfolge dient lediglich der Übersichtlichkeit, die eigentlichen
+  Aussagen der Tabelle werden hierdurch nur verschieden in dieser positioniert,
+  nachvollziehbar an den Tabellen in
+  Abbildung~\ref{table:auftrittsreihenfolge}.
+  
+  \begin{figure}[caption={Auswertung des Geschäftsobjets \textit{Produkt}}, label={table:auftrittsreihenfolge}]
+    \footnotesize
+    \begin{tabular}{c c c c c}
+      \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
+      \textbf{Budesland} & NRW & HH & NRW & HH \\
+      \toprule
+      \textbf{Anzahl} & 750 & 250 & 1000 & 500\\
+    \end{tabular}
+    \begin{tabular}{c c c c c}
+      \textbf{Bundesland} & \multicolumn{2}{c}{NRW} & \multicolumn{2}{c}{HH} \\
+      \textbf{Jahr} & 2015 & 2016 & 2015 & 2016 \\
+      \toprule
+      \textbf{Anzahl} & 750 & 1000 & 250 & 500 \\
+    \end{tabular}
+  \end{figure}
+
+  Die Tabellenkopfspalte legt fest mit welchen Kennzahlen die zuvor
+  ausgewählten Geschäftsobjektinstanzen analysiert werden sollen.
+
+
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
