@@ -613,17 +613,18 @@
       Zeitverlauf präsentiert.
 	\end{enumerate}
 
-  Der sequentielle \textit{DataRocket}-Prozess (Schritt 5--7) wird in der
-  Benutzeroberfläche durch die \textit{DataPipeline} abgebildet. Diese
-  ermöglicht es dem Nutzer verschiedene Prozessschritte wie Bausteine
-  aneinander zu reihen, welche jeweils auf den Ergebnissen ihrer Vorgänger
-  aufbauen. Im bisherigen Beispielszenario wird zunächst das Geschäftsobjekt
-  \textit{Kunde} mit Hilfe der zuvor definierten Qualitätskennzahlen im
-  \textit{Calculation} Baustein analysiert. Die Ergebnisse der Analyse werden
-  weiter an den \textit{Visualization-Baustein} gegeben, welcher diese in Form
-  von Graphen darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf
-  die Ergebnisse zu, in welchem der User die zuvor festgestellten
-  Datenqualitätsprobleme beheben kann.
+    Der sequentielle \textit{DataRocket}-Prozess (Schritt 5--7) wird in der
+    Benutzeroberfläche durch die \textit{DataPipeline}
+    abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es
+    dem Nutzer verschiedene Prozessschritte wie Bausteine aneinander zu reihen,
+    welche jeweils auf den Ergebnissen ihrer Vorgänger aufbauen. Im bisherigen
+    Beispielszenario wird zunächst das Geschäftsobjekt \textit{Kunde} mit Hilfe
+    der zuvor definierten Qualitätskennzahlen im \textit{Calculation} Baustein
+    analysiert. Die Ergebnisse der Analyse werden weiter an den
+    \textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
+    darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf die
+    Ergebnisse zu, in welchem der User die zuvor festgestellten
+    Datenqualitätsprobleme beheben kann.
 
   Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
   prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
@@ -636,7 +637,7 @@
 
   \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
-  \section{Anforderungsanalyse und Annahmen}
+  \section{Motivation}
   Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
   Datenqualitätsverbesserung die Qualität von Unternehmensdaten zunächst untersuchen. Der
   \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket} genau anweisen,
@@ -649,6 +650,7 @@
   \textit{DataRocket} im \textit{Calculation}-Baustein der
   \textit{DataPipeline}.
 
+  \section{Anforderungsanalyse und Annahmen}\label{sec:sprache/anforderungsanalyse}
   Im Folgenden wird eine Anforderungsanalyse für die
   \textit{DataFurnace}-Sprache durchgeführte um genauere Anforderungen an die
   Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
@@ -1040,29 +1042,63 @@
 
 
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Modellierungskomponente}
+  \chapter{\textit{DataFurnace}-Softwarekomponente}
   % ################################################################################
 
-  \section{Anforderungsanalyse und Annahmen}
+  \section{Motivation}
   In Abschnitt~\ref{sec:Vorstellung-DataRocket} wurde die \textit{DataPipeline}
-  vorgestellt. Sie bildet das Kernstück der Unternehmensdatenanalyse. Eine
-  Komponente der \textit{DataPipeline} ist der \textit{Calculation}-Baustein.
-  Aufgabe des Bausteins ist es, Geschäftsobjektinstanzen mit Kennzahlen zu
-  analysieren. Eingabewerte sind die Geschäftsobjektinstanzen, Ausgabewerte
-  sind Berichte in tabellarischer Form.
+  vorgestellt. Sie bildet das Kernstück der Unternehmensdatenanalyse in
+  \textit{DataRocket}. Eine Komponente der \textit{DataPipeline} ist der
+  \textit{Calculation}-Baustein.  Aufgabe des Bausteins ist es,
+  Geschäftsobjektinstanzen mit Kennzahlen zu analysieren. Eingabewerte sind die
+  Geschäftsobjektinstanzen, Ausgabewerte sind Berichte in tabellarischer Form.
+  Eine rudimentäre Implementierung des \textit{Calculation}-Bausteins ist
+  bereits in \textit{DataRocket} integriert, jedoch mangelt es dieser an
+  Konsistenz und Funktionsumfang, weshalb die \textit{innnoscale AG}
+  beabsichtigt diese zu ersetzen.
 
-  Die im Rahmen dieser Arbeit prototypisch entwickelte
-  \textit{DataFurnace}-Komponente soll im soeben aufgegriffenen
-  \textit{Calculation}-Baustein zum Tragen kommen. 
-  
-  Ein- und Ausgabewerte der
-  Komponente sollen mit denen des Bausteins übereinstimmen.
+  \section{Anforderungsanalyse und Annahmen}
+  Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
+  prototypische Softwarekomponente, \textit{DataFurnace}-Komponente, konzipiert
+  und entwickelt werden, welche es ermöglicht Unternehmensdatenanalysen, mit
+  besonderem Fokus auf die Datenqualitätsanalyse, in der
+  \textit{DataFurnace}-Sprache zu modellieren.  Sie soll zunächst als
+  alleinstehendes Softwareprodukt existieren, welches aber auch im soeben
+  aufgegriffenen \textit{Calculation}-Baustein, als Ersatz zur bisherigen
+  Implementierung, in der Zukunft zum Tragen kommen kann. Die
+  Anforderungsanalyse für die Komponente wird, wie in der Anforderungsanalyse
+  der \textit{DataFurnace}-Sprache
+  (Abschnitt~\ref{sec:sprache/anforderungsanalyse}), mit Hilfe der
+  \textit{zielorientierten Anforderungsanalyse}~\cite[][]{van2001goal}
+  durchgeführt\footnote{Für Details zur \textit{zielorientierten
+  Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}}. 
 
-  \begin{itemize}
+  \paragraph{Funktionale Ziele}
+  \begin{enumerate}
+    \item Anwendungssoftware für die \textit{DataFurnace}-Sprache
+    \item Modellierung von Dimensionen
+    \item Spezifikation von Kennzahlen
+    \item Kombination zu Berichten
+  \end{enumerate}
+  \paragraph{Nicht-funktionale Ziele}
+  \begin{enumerate}
     \item Leichter durchstrukturierter Prozess
+    \item Alleinstehende Software
+    \item Ein- und Ausgabewerte der
+      Komponente sollen mit denen des \textit{Calculation}-Bausteins übereinstimmen.
+    \item Kombinierbar mit bestehenden Konventionen und Technologien von \textit{DataRocket}
+  \end{enumerate}
+  \paragraph{Annahmen}
+  \begin{enumerate}
     \item Kein User-/Group-management da bereits von DR gegeben
+    \item Die eigentliche Analyse selbst ist nicht Teil der Arbeit, da sie im
+      Backend schon von \textit{DataRocket} gestellt wird.
     \item Input sind Business Object / EInstances. Wie diese generiert werden
       ist Aufgabe von \textit{DataRocket} nicht von \textit{DataFurnace}
+  \end{enumerate}
+  
+
+  \begin{itemize}
     \item In der Report-View sollten unter den Standardspalten auch kumulierte
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
   \end{itemize}
@@ -1101,7 +1137,10 @@
   \begin{itemize}
     \item GitFlow
     \item Continuous Integration
+    \item Travis CI
     \item Continuous Deployment
+    \item Digital Ocean
+    \item Docker
   \end{itemize}
 
 
