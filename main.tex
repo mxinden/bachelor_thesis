@@ -209,11 +209,11 @@
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
   42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
-  Personalbedarf\grqq{}~\cite[][S. 66]{Kemper2010}. 
+  Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
   
   Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
-  66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
+  66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse, nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
   hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
@@ -231,7 +231,7 @@
 
   Die multidimensionale Modellierung unterteilt sich nun in verschiedene Ausprägungen.
   Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
-  2]{phipps2002automating}. Der Name ist zurück zu führen auf den Aufbau
+  2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil verwiesen?}. Der Name ist zurück zu führen auf den Aufbau
   eines entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches
   die Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des
   Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
@@ -245,7 +245,7 @@
   besseren Verständlichkeit der Struktur~\cite[][S. 15]{Kimball2013}. Weitere
   Details zur Datenbanknormalisierung können in den Publikationen des
   Erfinders, \textsc{\citeauthor{codd1970relational}}, gefunden
-  werden~\cite[][]{codd1970relational,codd1972further}.
+  werden~\citeyearpar{codd1970relational,codd1972further}.
 
   \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
     \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
@@ -271,12 +271,12 @@
   sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
   visualisiert die strenge Normalisierung an der Dimension Ort,
   Abbildung~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten dieser
-  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt
-  jedoch nicht den Ansatz der vollen Normalisierung vor, sondern eine
-  geschwindigkeitsorientierte Teilnormalisierung~\cite[][S. 70]{Kemper2010}.
-  \textsc{\citeauthor{Kimball2013}} hingegen rät komplett vom Snowflake-Modell
-  ab, da es seiner Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
-  Geschwindigkeit negativ beeinträchtigt~\cite[][S. 50]{Kimball2013}.
+  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt alternativ
+  nicht den Ansatz der vollen Normalisierung im Snowflake-Modell vor, sondern eine
+  geschwindigkeitsorientierte Teilnormalisierung~(\citeyear{Kemper2010}, S. 70).
+  \textsc{\citeauthor{Kimball2013}} hingegen raten komplett vom Snowflake-Modell
+  ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
+  Geschwindigkeit negativ beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
 
   \begin{figure}[caption={Teilausschnitt eines Snowflake-Schema}, label={fig:snowflake-schema}]
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
@@ -308,10 +308,10 @@
   \section{Vergleich Entity-Relationship-Modellierung und multidimensionale Modellierung}
 
   \paragraph{Entity-Relationship-Modellierung} Als Kombination aus dem
-  Network-Modell, dem Relational-Model und dem Entity-Set-Model stellt
-  \citeauthor{chen1976entity} \citeyear{chen1976entity} mit seiner Publikation
+  Network-Modell, dem Relational-Modell und dem Entity-Set-Modell stellt
+  \textsc{\citeauthor{chen1976entity}} \citeyear{chen1976entity} mit seiner Publikation
   \glqq{}The entity-relationship model—toward a unified view of data\grqq{} das
-  Entity-Relationship-Modell (ERM) vor~\cite[][S. 2]{chen1976entity}.  Genauer
+  Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S. 2]{chen1976entity}.  Genauer
   auf \acrshort{ERM} einzugehen ist nicht Teil dieser Arbeit. Weitere Details
   des Grundmodells werden in \textsc{\cite{chen1976entity}} beschrieben. Die
   Erweiterungen der ER-Modellierung mit Kardinalitäten, Generalisierung und
@@ -321,14 +321,15 @@
   \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
   Datenbankmanagementsysteme von Gottfried Vossen}
 
-  \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale Modellierung
-  als Obermenge der ER-Modellierung~\cite[][S. 47]{ballard1998data}. Die
-  multidimensionale Modellierung kann laut \textsc{\citeauthor{ballard1998data}}
-  mittels der Notation der ER-Modellierung visualisiert werden~\cite[][S.
-  47]{ballard1998data}. Zum Beispiel können die Fakten eines multidimensionalen Modells
-  als Objekte eines ER-Modells mit Beziehungen zu den jeweiligen Dimensionen,
-  wiederum als Objekt, wie in Abbildung~\ref{vergleich-erm}, modelliert
-  werden~\cite[][S. 48]{ballard1998data}. 
+  \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale
+  Modellierung eine Obermenge der ER-Modellierung~(\citeyear{ballard1998data},
+  S. 47). Die multidimensionale Modellierung kann laut
+  \textsc{\citeauthor{ballard1998data}} mittels der Notation der
+  ER-Modellierung visualisiert werden~(\citeyear{ballard1998data}, S. 47). Zum
+  Beispiel können die Fakten eines multidimensionalen Modells als Objekte eines
+  ER-Modells mit Beziehungen zu den jeweiligen Dimensionen, wiederum als
+  Objekt, wie in Abbildung~\ref{vergleich-erm}, modelliert werden~\cite[][S.
+  48]{ballard1998data}. 
 
   \begin{figure}[caption={Vergleich multidimensionale Modellierung und ERM}, label={}]
     \centering
@@ -353,8 +354,7 @@
   334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
   im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
   zurück gegriffen, wo hingegen \acrshort{OLAP}-Systeme meist mit der
-  multidimensionalen Modellierung konzipiert werden~\cite[][S.
-  2]{phipps2002automating}. 
+  multidimensionalen Modellierung konzipiert werden~(\citeyear{phipps2002automating}, S. 2). 
 
   Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
   Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änder- und
@@ -377,13 +377,15 @@
   \begin{itemize}
     \item Bezugsobjekte bilden die
       Basisobjekte der Datenanalyse, Beispiele sind Ort, Zeit oder
-      Produkt~\cite[][S.  5]{becker2007h2}. 
+      Produkt~\cite[][S.  5]{becker2007h2}.\todo{Das ist noch zu wenig!}
+
     \item Kennzahlen ermöglichen die qualitative
       und quantitative Teilanalyse von Bezugsobjekten. Sie werden unterschieden in
       Basiskennzahlen und berechneten Kennzahlen, welche wiederum in Kennzahlen mit
       Bezug auf ein und mit Bezug auf mehrere Objekte unterteilt werden~\cite[][S.
       15]{becker2007h2}. \textsc{\citeauthor{becker2007h2}} nennt als Beispiel
-      einer berechneten Kennzahl den Umsatz~\cite[][S. 17]{becker2007h2}.
+      einer berechneten Kennzahl den Umsatz~(\cite{becker2007h2}, S. 17).
+
     \item Berichte dienen der Visualisierung von Erkenntnissen aus der Kombination von
       Bezugsobjekten, Dimensionen und Kennzahlen und können zum Beispiel mit der
       Hilfe einer Tabelle abgebildet werden~\cite[][S. 23]{becker2007h2}.
@@ -425,57 +427,59 @@
 
   \section{Stammdatenmanagement}
 	Das Stammdatenmanagement ist eine Funktion eines Unternehmens, welches eine
-	langfristig hohe Datenqualität der Stammdaten an anstrebt und sowohl den
+	langfristig hohe Datenqualität der Stammdaten anstrebt und sowohl den
 	organisatorischen als auch technischen Umgang in einem Unternehmen
 	beinhaltet~\cite[][S.  2]{legner2007stammdaten}.  Die Definition von
 	Prozessen im Umgang mit Stammdaten gehört \zB{} zum organisatorischen
 	Stammdatenmanagement, wohingegen der Einsatz einer Stammdatenmanagement-Software
 	wie \textit{DataRocket} zum technischen Stammdatenmanagement gezählt werden
 	kann.  
-	
-	Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
-	Wissenschaft als auch in der Praxis in seiner Relevanz~\cite[][S.
-	1]{otto2012design}. Diese steigende Aufmerksamkeit lässt sich auf hohe Kosten
-	durch durch schlechte Stammdatenqualitätsprobleme in Unternehmen zurück
-	führen, wie zum Beispiel laut \textsc{\citeauthor{eckerson2002data}} in den
-	USA mit 600 Milliarden US-Dollar im Jahr~\cite[][S. 3]{eckerson2002data}.
-	\citeauthor{otto2011stammdatenmanagement} zählt als aktuelle Hürden des
-	Stammdatenmanagements die notwendige Datenstandardisierung über
-	Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
-	360-Grad-Blick\footnote{Für weitere Details zum Begriff
-	siehe~\cite{kotorov2003customer} und~\cite{otto2016master}} auf einen Kunden
-	und den Einsatz von Stammdaten in der Unternehmensdatenanalyse auf, welche
-	alle eine hohe Stammdatenqualität voraussetzen~\cite[][S. 5
-	f.]{otto2011stammdatenmanagement}.
 
-	\paragraph{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
-	Stammdaten als die zentralen Datensätze eines Unternehmens, welche über
-	mehrere Abteilungen hinaus genutzt werden~\cite[][S. 1 f.]{otto2012design}.
-	Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre Beständigkeit im
-	Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
-	\textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
-	\textit{Kunden}, \textit{Lieferanten} und \textit{Produkte}~\cite[][S.
-	1]{knolmayer2006quality}. Die Qualität der Stammdaten gibt an, wie gut sich
-	die Daten für einen bestimmten Einsatz verwenden lassen können~\cite[][S.
-	8]{otto2011stammdatenmanagement}.
+  Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
+  Wissenschaft als auch in der Praxis in seiner
+  Relevanz~(\citeyear{otto2012design}, S. 1). Diese steigende Aufmerksamkeit
+  lässt sich auf hohe Kosten durch schlechte Stammdatenqualitätsprobleme in
+  Unternehmen zurück führen, wie zum Beispiel laut
+  \textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
+  US-Dollar im Jahr~(\cite{eckerson2002data}, S. 3).
+  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
+  des Stammdatenmanagements die notwendige Datenstandardisierung über
+  Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
+  360-Grad-Blick\footnote{Für weitere Details zum Begriff
+  siehe~\cite{kotorov2003customer} und~\cite{otto2016master}} auf einen Kunden
+  und den Einsatz von Stammdaten in der Unternehmensdatenanalyse auf, welche
+  alle eine hohe Stammdatenqualität
+  voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
 
-	Die Stammdatenqualität lässt sich anhand von verschiedenen
-	Qualitätsdimensionen genauer spezifizieren.
-	\textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
-	\textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
-	Darstellung}, \textit{Relevanz}, \textit{Veränderbarkeit},
-	\textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
-	Dimensionen~\cite[][S. 213 f., S. 4 f.]{pipino2002data,
-	legner2007stammdaten}. \textsc{\citeauthor{baghi2013controlling}} hingegen
-	nutzen für ihre Fallstudie lediglich die Datenqualitätsdimensionen
-	\textit{Genauigkeit} und \textit{Vollständigkeit}~\cite[][S.
-	4]{baghi2013controlling}, basierend auf der Sammlung von
-	\textsc{\citeauthor{wand1996anchoring}}~\cite[][S. 8 f.]{wand1996anchoring}.
+  \paragraph{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
+  Stammdaten als die zentralen Datensätze eines Unternehmens, welche über
+  mehrere Abteilungen hinaus genutzt werden~(\citeyear{otto2012design}, S. 1
+  f.).  Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre
+  Beständigkeit im Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
+  \textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
+  \textit{Kunden}, \textit{Lieferanten} und
+  \textit{Produkte}~(\citeyear{knolmayer2006quality}, S. 1). Die Qualität der
+  Stammdaten gibt an, wie gut sich die Daten für einen bestimmten Einsatz
+  verwenden lassen können~\cite[][S.  8]{otto2011stammdatenmanagement}.
+
+  Die Stammdatenqualität lässt sich anhand von verschiedenen
+  Qualitätsdimensionen genauer spezifizieren.
+  \textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
+  \textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
+  Darstellung}, \textit{Relevanz}, \textit{Veränderbarkeit},
+  \textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
+  Dimensionen~(\citeyear{pipino2002data, legner2007stammdaten}, S. 213 f., S. 4
+  f.). \textsc{\citeauthor{baghi2013controlling}} hingegen nutzen für ihre
+  Fallstudie lediglich die Datenqualitätsdimensionen \textit{Genauigkeit} und
+  \textit{Vollständigkeit}~(\citeyear{baghi2013controlling}, S. 4), basierend
+  auf der Sammlung von
+  \textsc{\citeauthor{wand1996anchoring}}~(\citeyear{wand1996anchoring}, S. 8
+  f.).
 
 	\paragraph{Messung und Verbesserung von Stammdatenqualität}
 	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
 	nur verbessert werden kann, wenn diese dauerhaft gemessen und überwacht
-	wird~\cite[][S. 2]{baghi2013controlling}. Diese Messung kann anhand von
+  wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
 	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
 	Datenqualitätskennzahl \textit{isEmpty} prüft \zB{} ob ein bestimmtes Feld
@@ -486,8 +490,7 @@
 	von einer Stammdatenmanagement-Software wie \zB{} \textit{DataRocket}
 	kontinuierlich auf die gesamten Stammdaten eines Unternehmens angewandt
 	werden, womit nach \textsc{\citeauthor{baghi2013controlling}} das Fundament
-	für die Datenqualitätsverbesserung erstellt ist~\cite[][S.
-	2]{baghi2013controlling}.
+  für die Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S. 2).
 
 	Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden gilt es die
 	vorhandenen Fehler zu beseitigen und deren Ursache zu identifizieren, um
@@ -502,16 +505,14 @@
 	\paragraph{Stammdatenmanagement-Software}
 	\textsc{\citeauthor{baghi2014toward}} definieren
 	Stammdatenmanagement-Software allgemein als eine Applikation, welche
-	Attribute von Stammdaten erstellen, speichern und verändern kann~\cite[][S.
-	3828]{baghi2014toward}.\todo{Direkt übersetzt! Anführungszeichen?} Sie
+  Attribute von Stammdaten erstellen, speichern und verändern kann~(\citeyear{baghi2014toward}, S. 3828). \todo{Direkt übersetzt! Anführungszeichen?} Sie
 	ermöglicht es dem Endnutzer, die Daten in einer qualitativ hochwertigen
 	konsolidierten Form zu konsumieren~\cite[][Abschnitt
 	1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
 	unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
 	\textit{Central-System}, \textit{Leading-System},
 	\textit{Service-Oriented-Architecture}, \textit{Registry},
-	\textit{Consolidation-Hub} und \textit{Peer-to-Peer}~\cite[][S.
-	3829]{baghi2014toward}, siehe hierzu auch~\cite[][Abschnitt
+  \textit{Consolidation-Hub} und \textit{Peer-to-Peer}~(\citeyear{baghi2014toward}, S. 3829), siehe hierzu auch~\cite[][Abschnitt
 	5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
 	die Architektur \textit{Leading-System} und \textit{Consolidation-Hub}
 	verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
@@ -525,10 +526,10 @@
 	\textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
 	beschreibt ein zentrales System, welches verschiedenste andere Systeme und
 	Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
-	Version zur Verfügung stellt~\cite[][S. 3829]{baghi2014toward}. Siehe hierzu
+  Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe hierzu
 	\textsc{\citeauthor{loshin2010master}}, wessen Definition von
 	Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
-	gleicht~\cite[][S. 8]{loshin2010master}. Auf die übrigen Architekturen wird
+  gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen wird
 	im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre Erklärungen
 	auch nicht Teil dieser Arbeit sind, hier wird lediglich auf die Erklärungen
 	von~\cite{baghi2014toward} verwiesen.
@@ -548,10 +549,10 @@
 	weiter geben kann, \bzw{} die Änderungen zurück schreiben kann.
 	Alleinstellungsmerkmale der Software sind: Domänenunabhängigkeit, einfache
 	Bedienung und hoher Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch
-	ersetzen}.
+  ersetzen}. \textit{DataRocket} fällt in die Gruppe der \arcshort{OLAP}-Systeme.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehmens ist ein Prozess von Nöten, welcher im folgenden anhand seiner
+	Unternehmens wird ein Prozess vorgegeben, welcher im folgenden anhand seiner
 	Schritte erläutert wird:
 
 	\begin{enumerate}
@@ -575,7 +576,7 @@
       Soll- und Ist-Modellierung ist zurück zu führen auf
       \textsc{\citeauthor{becker2006konzeptionelle}}, welche diese \zB{} für
       den Einsatz in \glqq{}Reorganisationsprojekten\grqq{}
-      vorschlagen~\cite[][S.  3]{becker2006konzeptionelle}.\todo{Nicht direkt
+      vorschlagen~(\citeyear{becker2006konzeptionelle}, S. 3).\todo{Nicht direkt
       Soll-Modellierung, nur in Datenmigrationsprojekten, alternativen Begriff
       suchen}
 
@@ -602,7 +603,7 @@
       bereinigen kann. Für de automatisierte Behebung bietet
       \textit{DataRocket} verschieden Module. Ein Beispielmodul dient der
       Bereinigung von Adressdaten. Hierzu werden externe
-      Geo-Datenbanken\todo{Beispiel für eine Datenbank} angebunden, welche
+      Geo-Datenbanken \todo{Beispiel für eine Datenbank} angebunden, welche
       \textit{DataRocket} mit den Adressdaten der Geschäftsobjekte vergleicht
       und diese hiermit \ggf{} ergänzt oder korrigiert.
 
@@ -656,7 +657,7 @@
   Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
   Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
   Anforderungsanalyse} zurück gegriffen, näher beschrieben von
-  \textsc{\citeauthor{van2001goal}}~(\citeyear{van2001goal}).
+  \textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.
   Ziele werden unterschieden in \textit{funktionale} und
   \textit{nicht-funktionale} Ziele~\cite[][S.  36]{mylopoulos1999object}.
   Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen
