@@ -124,7 +124,7 @@
   Verbesserung von Datenqualität, tätig. Im Rahmen der
   Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor
   strukturierten Daten anhand von Kennzahlen auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und visualisieren?}.
-  Hierzu wird eine Sprache und eine (anwendende) Komponente in \textit{DataRocket}
+  Hierzu wird eine Sprache und eine Komponente, welche die Sprache in \textit{DataRocket} integriert,
   benötigt.
 
   Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
@@ -148,7 +148,7 @@
   alleinstehendes Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im folgenden den
-  Namen \textit{DataFurnace} tragen.
+  Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
 
   \paragraph{Ziel}
@@ -632,7 +632,7 @@
   \textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Modellierungssprache}
+  \chapter{\textit{DataFurnace}-Sprache}
   % ################################################################################
 
   \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
@@ -751,7 +751,7 @@
       verschiedenste gewünschte Strukturen zu transformieren. Folglich kann für
       die Entwicklung der \textit{DataFurnace}-Sprache die Möglichkeit der
       Beschreibung einer Transformation von Datenstrukturen außer Acht gelassen
-      werden mit der Annahme, dass die \textit{DataFurnace}-Komponente auf die
+      werden mit der Annahme, dass die \textit{DataFurnace}-Software auf die
       zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann indem es
       direkt mit Geschäftsobjekten\footnote{Der \textit{DataRocket}-Begriff
       Geschäftsobjekt wird in Abschnitt~\ref{subsec:dimension} erläutert.}
@@ -1028,7 +1028,7 @@
   analysieren und das Ergebnis in der Zelle mit der Zeilenkoordinate der
   Kennzahl under der Spaltenkoordinate der Dimensionsgruppe einzutragen. Fügt
   der Nutzer im bisherigen Szenario die Kennzahl \textit{Preisvalidation} der
-  Tabellenkopfspalte hinzu, dann wäre die \textit{DataFurnace}-Komponente angewiesen,
+  Tabellenkopfspalte hinzu, dann wäre die \textit{DataFurnace}-Sprache angewiesen,
   die Geschäftsobjektinstanzgruppen mit den Dimensionslevelausprägungen
   \textit{2015} \textit{NRW}, \textit{2015} \textit{HH}, \textit{2016}
   \textit{NRW} und \textit{2016} \textit{HH} mit der Kennzahl zu analysieren
@@ -1042,7 +1042,7 @@
 
 
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Softwarekomponente}
+  \chapter{\textit{DataFurnace}-Software}
   % ################################################################################
 
   \section{Motivation}
@@ -1059,9 +1059,9 @@
 
   \section{Anforderungsanalyse und Annahmen}
   Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
-  prototypische Softwarekomponente, \textit{DataFurnace}-Komponente, konzipiert
-  und entwickelt werden, welche es ermöglicht Unternehmensdatenanalysen, mit
-  besonderem Fokus auf die Datenqualitätsanalyse, in der
+  Softwarekomponente, \textit{DataFurnace}-Software, konzipiert
+  und prototypisch entwickelt werden, welche es ermöglicht Unternehmensdatenanalysen, mit
+  besonderem Fokus auf Datenqualitätsanalysen, in der
   \textit{DataFurnace}-Sprache zu modellieren.  Sie soll zunächst als
   alleinstehendes Softwareprodukt existieren, welches aber auch im soeben
   aufgegriffenen \textit{Calculation}-Baustein, als Ersatz zur bisherigen
@@ -1073,20 +1073,79 @@
   durchgeführt\footnote{Für Details zur \textit{zielorientierten
   Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}}. 
 
+  \todo[inline]{Kontrollieren: Habe ich alle Ziele im späteren Text adressiert?}
+
   \paragraph{Funktionale Ziele}
   \begin{enumerate}
-    \item Anwendungssoftware für die \textit{DataFurnace}-Sprache
-    \item Modellierung von Dimensionen
-    \item Spezifikation von Kennzahlen
-    \item Kombination zu Berichten
+    \item \textbf{Modellierung von Dimensionen}
+
+      Die \textit{DataFurnace}-Software soll es einem Nutzer zunächst
+      ermöglichen, die Geschäftsobjekte eines Unternehmens abzubilden und ihnen
+      Attribute unterzuordnen. Sowohl Geschäftsobjekten als auch Attributen
+      ist ein Name zur Identifikation hinzuzufügen. Des Weiteren soll die
+      Möglichkeit bestehen ein Attribut mit möglichen Attributausprägungen zu
+      ergänzen.
+
+      Um Geschäftsobjektinstanzen gruppieren und filtern zu können, muss es
+      möglich sein, Dimensionen zu modellieren, welche jeweils auf ein Attribut
+      eines Geschäftsobjekts aufsetzten. In der Software soll der Nutzer
+      Dimensionen erstellen und mit Dimensionsleveln hierarchisch strukturieren
+      können. Wie Attribute, sollen auch Dimensionslevel mit möglichen
+      Ausprägungen näher spezifiziert werden können. Einer Dimension und einem
+      Dimensionslevel können beliebig viele Dimensionslevel folgen. Ein
+      Dimensionslevel darf nie ohne eine zugehörige Dimension existieren.
+      Dimensionen und Dimensionslevel sollen ebenfalls mit Hilfe eines Namens,
+      spezifiziert in der Oberfläche, identifiziert werden.
+
+    \item \textbf{Definition von Kennzahlen}
+
+      Um vorhandene Geschäftsobjekte und ihre Instanzen analysieren zu können,
+      muss die \textit{DataFurnace}-Software die Voraussetzung zur
+      Spezifikation von komplexen Kennzahlen schaffen. Die Komplexität der
+      Kennzahlen soll sich sowohl über mathematische Formeln als auch
+      über programmatische Funktionen abbilden lassen. Der Bezug dieser soll auf
+      eine einzelne Geschäftsobjektinstanz, ebenso wie auf mehrere Instanzen
+      liegen können.
+
+    \item \textbf{Kombination zu Berichten}
+
+      Dimensionen und Kennzahlen sollen in der \textit{DataFurnace}-Software zu
+      Berichten der \textit{DataFurnace}-Sprache kombiniert werden können.
+      Berichte sollen, wie auch im \textit{DataRocket}
+      \textit{Calculation}-Baustein, den finalen Ausgabewert der Komponente
+      bilden. Sie sollen in der Oberfläche tabellarisch visualisiert werden und
+      mit der Möglichkeit zur Spezifikation von Filtern ausgestattet sein.
+
   \end{enumerate}
   \paragraph{Nicht-funktionale Ziele}
   \begin{enumerate}
-    \item Leichter durchstrukturierter Prozess
+    \item \textbf{Hohe Benutzerfreundlichkeit}
+
+      Bei der Konzeption und Entwicklung der \textit{DataFurnace}-Software soll
+      besonderer Wert auf die Benutzerfreundlichkeit der Oberfläche gesetzt
+      werden, um jedem Nutzer, obgleich seiner bisherigen Kenntnisse,  einen
+      leichten Zugang zu der \textit{DataFurnace}-Sprache über die Software zu
+      eröffnen. Orientierung sollen hier die \glqq{}Ten usability heuristics of
+      user interface and design\grqq{} von
+      \textsc{\citeauthor{nielsen1994heuristic}}
+      bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
+      Heuristiken eingegangen wurde}.
+
+
+    \item \textbf{Strukturierter Prozess}\todo{Prozess oder Methode?}
+      
+      Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
+      \textit{DataRocket} für die Datenqualitätsverbesserung einem eindeutig
+      strukturierten Prozess. Die \textit{DataFurnace}-Software soll dies
+      \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer ohne viel
+      Einarbeitungszeit durch das Datenanalyseverfahren zu leiten. Dieser
+      Prozess soll tief in der Struktur der Oberfläche verankert sein.
+
     \item Alleinstehende Software
     \item Ein- und Ausgabewerte der
       Komponente sollen mit denen des \textit{Calculation}-Bausteins übereinstimmen.
     \item Kombinierbar mit bestehenden Konventionen und Technologien von \textit{DataRocket}
+    \item Kollaboration in der Software (WebApp)
   \end{enumerate}
   \paragraph{Annahmen}
   \begin{enumerate}
