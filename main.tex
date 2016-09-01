@@ -145,7 +145,7 @@
   
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
-  alleinstehendes Softwareprodukt konzipiert und entwickelt, soll jedoch zur
+  eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im folgenden den
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
@@ -1063,7 +1063,7 @@
   und prototypisch entwickelt werden, welche es ermöglicht Unternehmensdatenanalysen, mit
   besonderem Fokus auf Datenqualitätsanalysen, in der
   \textit{DataFurnace}-Sprache zu modellieren.  Sie soll zunächst als
-  alleinstehendes Softwareprodukt existieren, welches aber auch im soeben
+  eigenständiges Softwareprodukt existieren, welches aber auch im soeben
   aufgegriffenen \textit{Calculation}-Baustein, als Ersatz zur bisherigen
   Implementierung, in der Zukunft zum Tragen kommen kann. Die
   Anforderungsanalyse für die Komponente wird, wie in der Anforderungsanalyse
@@ -1117,8 +1117,30 @@
       mit der Möglichkeit zur Spezifikation von Filtern ausgestattet sein.
 
   \end{enumerate}
+
   \paragraph{Nicht-funktionale Ziele}
   \begin{enumerate}
+
+    \item \textbf{Eigenständige Software integrierbar in \textit{DataRocket}}
+
+      Die \textit{DataFurnace}-Software soll als eigenständige Software,
+      losgelöst von \textit{DataRocket}, konzipiert und entwickelt werden. Zum
+      einen beschleunigt diese Entscheidung die Implementierungsphase, indem
+      die Integration in die Software \textit{DataRocket} zunächst entfällt,
+      zum anderen kann somit der Anwendungsfall abgedeckt werden, dass ein Nutzer
+      lediglich softwareunterstützt in der \textit{DataFurnace}-Sprache
+      modellieren will, ohne sich mit dem gesamten Ökosystem
+      \textit{DataRocket} zu befassen.
+
+      Um die mögliche spätere Integration der \textit{DataFurnace}-Sprache und
+      -Software in \textit{DataRocket} nicht zu behindern, sollen, trotz dem
+      Ziel einer eigenständigen Software, die verwendeten Konventionen und
+      Technologien mit denen von \textit{DataRocket} abgestimmt sein.  Des
+      Weiteren sollen die Ein- und Ausgabewerte der Software denen des
+      \textit{DataRocket} \textit{Calculation}-Bausteins übereinstimmen.
+      Hierbei handelt es sich um Geschäftsobjektinstanzen als Eingabewerte und
+      um tabellarische Berichte als Ausgabewerte.
+
     \item \textbf{Hohe Benutzerfreundlichkeit}
 
       Bei der Konzeption und Entwicklung der \textit{DataFurnace}-Software soll
@@ -1131,7 +1153,6 @@
       bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
       Heuristiken eingegangen wurde}.
 
-
     \item \textbf{Strukturierter Prozess}\todo{Prozess oder Methode?}
       
       Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
@@ -1141,11 +1162,8 @@
       Einarbeitungszeit durch das Datenanalyseverfahren zu leiten. Dieser
       Prozess soll tief in der Struktur der Oberfläche verankert sein.
 
-    \item Alleinstehende Software
-    \item Ein- und Ausgabewerte der
-      Komponente sollen mit denen des \textit{Calculation}-Bausteins übereinstimmen.
-    \item Kombinierbar mit bestehenden Konventionen und Technologien von \textit{DataRocket}
-    \item Kollaboration in der Software (WebApp)
+    \item Kollaboration Echtzeit in der Software (WebApp)
+      
   \end{enumerate}
   \paragraph{Annahmen}
   \begin{enumerate}
