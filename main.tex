@@ -745,7 +745,7 @@
 
   \paragraph{Annahmen} Neben \textit{funktionalen} und \textit{nicht-funktionalen} Zielen müssen des
   Weiteren Annahmen getroffen werden, welche von der \textit{innoscale AG}
-  vorrausgesetzt werden, und somit die Entwicklung der Sprache beeinflussen:
+  vorrausgesetzt werden, und somit die Entwicklung der Sprache beeinflussen.
   \begin{enumerate}
     \item \textit{DataRocket} bringt in seinem Funktionsumfang den so genannten
       \textit{Mapper} mit, welcher es dem Nutzer ermöglicht, Daten in
@@ -768,9 +768,9 @@
   der Unternehmensdatenanalyse entwickelt. Im Folgenden wird die Sprache,
   strukturiert anhand ihres Vokabulars, erklärt. Dieses unterteilt sich in die
   Vokabulargruppen Dimensionen, Kennzahlen und Berichte, welche in ihrer Summe
-  die \textit{DataFurnace}-Sprache abbilden. Die gesamte Sprache ist in
-  Abbildung~\ref{fig:language_spec-erm} gezeigt und wird für jede
-  Vokabulargruppe in Ausschnitten betrachtet.
+  die \textit{DataFurnace}-Sprache ausmachen. Die gesamte Sprache ist in
+  Abbildung~\ref{fig:language_spec-erm} gezeigt, welche für jede
+  Vokabulargruppe in Ausschnitten betrachtet wird.
 
   \begin{figure}[caption={Metamodell der \textit{DataFurnace}-Sprache}, label={fig:language_spec-erm}]
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
@@ -1059,20 +1059,22 @@
   beabsichtigt diese zu ersetzen.
 
   \section{Anforderungsanalyse und Annahmen}
-  Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
-  Softwarekomponente, \textit{DataFurnace}-Software, konzipiert
-  und prototypisch entwickelt werden, welche es ermöglicht Unternehmensdatenanalysen, mit
-  besonderem Fokus auf Datenqualitätsanalysen, in der
-  \textit{DataFurnace}-Sprache zu modellieren.  Sie soll zunächst als
-  eigenständiges Softwareprodukt existieren, welches aber auch im soeben
-  aufgegriffenen \textit{Calculation}-Baustein, als Ersatz zur bisherigen
-  Implementierung, in der Zukunft zum Tragen kommen kann. Die
-  Anforderungsanalyse für die Komponente wird, wie in der Anforderungsanalyse
-  der \textit{DataFurnace}-Sprache
-  (Abschnitt~\ref{sec:sprache/anforderungsanalyse}), mit Hilfe der
-  \textit{zielorientierten Anforderungsanalyse}~\cite[][]{van2001goal}
-  durchgeführt\footnote{Für Details zur \textit{zielorientierten
-  Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}}. 
+	Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
+	Softwarekomponente, \textit{DataFurnace}-Software, konzipiert und
+	prototypisch entwickelt werden, welche es ermöglicht,
+	Unternehmensdatenanalysen, mit besonderem Fokus auf Datenqualitätsanalysen,
+	in der \textit{DataFurnace}-Sprache zu modellieren. Die Implementierung der
+	eigentlichen Analyselogik ist nicht Teil dieser Arbeit.  Die
+	\textit{DataFurnace}-Software soll zunächst als eigenständiges Produkt
+	existieren, welches aber auch im soeben aufgegriffenen
+	\textit{Calculation}-Baustein, als Ersatz zur bisherigen Implementierung, in
+	der Zukunft zum Tragen kommen kann. Die Anforderungsanalyse für die
+	Komponente wird, wie in der Anforderungsanalyse der
+	\textit{DataFurnace}-Sprache
+	(Abschnitt~\ref{sec:sprache/anforderungsanalyse}), mit Hilfe der
+	\textit{zielorientierten Anforderungsanalyse}~\cite[][]{van2001goal}
+	durchgeführt\footnote{Für Details zur \textit{zielorientierten
+	Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}}. 
 
   \todo[inline]{Kontrollieren: Habe ich alle Ziele im späteren Text adressiert?}
 
@@ -1137,7 +1139,7 @@
       -Software in \textit{DataRocket} nicht zu behindern, sollen, trotz dem
       Ziel einer eigenständigen Software, die verwendeten Konventionen und
       Technologien mit denen von \textit{DataRocket} abgestimmt sein.  Des
-      Weiteren sollen die Ein- und Ausgabewerte der Software denen des
+      Weiteren sollen die Ein- und Ausgabewerte der Software mit denen des
       \textit{DataRocket} \textit{Calculation}-Bausteins übereinstimmen.
       Hierbei handelt es sich um Geschäftsobjektinstanzen als Eingabewerte und
       um tabellarische Berichte als Ausgabewerte.
@@ -1163,30 +1165,119 @@
       Einarbeitungszeit durch das Datenanalyseverfahren zu leiten. Dieser
       Prozess soll tief in der Struktur der Oberfläche verankert sein.
 
-    \item Kollaboration Echtzeit in der Software (WebApp)
+    \item \textbf{Echtzeitkollaboration}
+
+			Das Datenqualitätsmanagement eines Unternehmens ist nicht Aufgabe eines
+			einzelnen Mitarbeiters, sondern involviert viele Mitarbeiter aus
+			verschiedenen Abteilungen~\cite[][S. 2]{geiger2004data}. Daraus resultiert der
+			Bedarf an einer Software, welche die Nutzung und Kollaboration mehrerer
+			Anwender zur gleichen Zeit unterstützt. Die \textit{DataFurnace}-Software
+			soll die Möglichkeit bieten, dass mehrere Mitarbeiter in Echtzeit gemeinsam
+			Unternehmensdatenstrukturen spezifizieren, Kennzahlen
+			definieren und Berichte erstellen können.
       
   \end{enumerate}
-  \paragraph{Annahmen}
-  \begin{enumerate}
-    \item Kein User-/Group-management da bereits von DR gegeben
-    \item Die eigentliche Analyse selbst ist nicht Teil der Arbeit, da sie im
-      Backend schon von \textit{DataRocket} gestellt wird.
-    \item Input sind Business Object / EInstances. Wie diese generiert werden
-      ist Aufgabe von \textit{DataRocket} nicht von \textit{DataFurnace}
-  \end{enumerate}
-  
 
-  \begin{itemize}
-    \item In der Report-View sollten unter den Standardspalten auch kumulierte
-      Zellen angezeigt werden, welche die oben stehenden Zellen summieren.
-  \end{itemize}
+
+	\paragraph{Annahmen} Wie auch für die \textit{DataFurnace}-Sprache, sollen
+	für die \textit{DataFurncae}-Software Annahmen getroffen, welche von der
+	\textit{innoscale AG} vorausgesetzt werden und somit Konzeption und
+	Entwicklung der Software beeinflussen.
+
+  \begin{enumerate}
+    \item \textbf{Nutzer- und Gruppenmanagement}
+
+		Die Implementierung einen Nutzer- und Gruppenmanagement in der
+		\textit{DataFurnace}-Software ist nicht von Nöten, da die Software, im
+		Falle einer Integration in \textit{DataRocket}, das vorhandene Management
+		mit nutzen kann.
+
+    \item \textbf{Keine Datenanalyselogik}
+
+			Die \textit{DataFurnace}-Software soll lediglich die Modellierung von
+			Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
+			die Implementierung der dafür nötigen Analyselogik kann bereits von \textit{DataRocket}
+			selbst gestellt werden und muss folglich nicht erneut in der
+			\textit{DataFurnace}-Software entwickelt werden.
+  \end{enumerate}
+
+    \todo[inline]{In der Report-View könnten unter den Standardspalten auch kumulierte
+      Zellen angezeigt werden, welche die oben stehenden Zellen summieren.}
+
 
   \section{Fachliches Konzept}
   \todo[inline]{Hier auch auf die Methode eingehen: Dimensionen modellieren ->
   Kennzahlen spezifizieren -> zu Berichten kombinieren}
+
+  Die Struktur der \textit{DataFurnace}-Software unterteilt sich anhand ihrer
+  drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
+  Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
+  Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
+  \textit{DataFurnace}-Software. In dem Verfahren der Methode modelliert der
+  Nutzer zunächst seine Geschäftsobjekte mit den zugehörigen Dimensionen,
+  spezifiziert Kennzahlen, mit Bezug auf die Attribute der Geschäftsobjekte,
+  und kombiniert beide zu Berichten. Im folgenden wird das fachliche Konzept
+  der Software anhand dieser drei Ansichten respektive Schritte erklärt.
+
+
+
+
   \subsection{Dimensionsansicht}
   \texthl{Wird hier das Star- oder Snowflake-Modell angewendet?}
   Star-Schema
+
+  Die Modellierungsmethode beginnt in der Dimensionsansicht, welche sich aus
+  Baumstrukturen auf der linken Seite, zur Representation von
+  Geschäftsobjekten mit ihren Attributen und Dimensionen, und einer
+  Detailansicht auf der rechten Seite, zur näheren Beschreibung einzelner
+  Elemente, aufbaut. 
+
+  Auf der linken Seite der Benutzeroberfläche fügt der Nutzer zunächst alle
+  Geschäftsobjekte, zu welchen er eine Analyse modellieren möchte, hinzu. Im oberen Teil der
+  Box, welche für jedes neues Geschäftsobjekt erscheint, kann der Name eines
+  Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht werden. Für die
+  weitere Erläuterung der Ansicht wird das Wort Element als Generalisierung von
+  Dimensionen, Dimensionsleveln und Attributen verwendet. In der Box können des
+  Weiteren Dimensionen dem Geschäftsobjekt hinzugefügt werden, welchen
+  wiederum beliebig viele Dimensionslevel und schlussendlich ein Attribut
+	untergeordnet werden kann. Einem Geschäftsobjekt können folglich beliebig viele
+	Dimensionen angehören. Eine Dimension kann in beliebig viele Dimensionslevel
+	aufgeteilt werden. Einem Dimensionslevel können weitere Dimensionslevel oder
+	ein Attribut folgen. Eine Dimension-Dimensionslevel Kette muss mit einem
+	Attribut enden. Einem Attribut können keine weiteren Elemente
+	folgen.\todo{Grafik zu Verdeutlichung einfügen} 
+	
+	Wird einer Dimension ein Dimensionslevel, einem
+  Dimensionslevel ein weiteres Dimensionslevel oder einem Dimensionslevel ein
+  Attribut untergeordnet, so erscheint dieses unterhalb des Elternelements,
+  eingerückt, wie in einer klassischen Ordnerbaumstruktur. Die Kindelemente
+  eines Elternelements können auf- und zugeklappt, \bzw{} ein- und ausgeblendet
+  werden, was es dem Nutzer ohne viel Aufwand ermöglicht, Teilausschnitte des
+  Modells übersichtlich betrachten zu können, ohne diese in seperate Modelle
+  exportieren zu müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. \todo{Zitat nochmal
+  überprüfen. Ordentlich umschrieben?} Elemente können, durch einen klick auf
+  das \textit{Löschen}-Icon, gelöscht und, durch einen Klick auf den Namen, an
+  der Stelle umbenannt werden.
+
+	Neben der einfachen Charakterisierung von Elementen durch einen Namen,
+	spezifiziert in der Baumstruktur auf der linken Seite der Dimensionsansicht,
+	kann ein Nutzer das Element auf der rechten Seite detaillierter beschreiben.
+	Hierzu wählt er in der Baumstruktur ein Element durch einen Klick aus,
+	welches daraufhin auf der rechten Seite der Ansicht im Detail angezeigt
+	wird. Im oberen Teil der Detailansicht ist zunächst der Name des Elements
+	inklusive der Namen seiner Elternelemente als sogenannte
+	\textit{Breadcrumb}-Navigation~\cite[][S. 1316]{maldonado2002common}
+	angezeigt.  Der Name des Elements kann auch hier, durch einen Klick auf das
+	Wort, an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
+	bearbeitet werden, genügt ein Klick auf den Namen des Elternelements in der
+	\textit{Breadcrump}-Navigation, um zur Detailansicht des geforderten Elements
+	zu wechseln. Unterhalb dieser Hierarchienavigation findet sich der Typ des
+	Elements, zur Auswahl stehen, als Erinnerung, Dimension, Dimensionslevel und
+	Attribut.
+
+
+
+
   \subsection{Kennzahlansicht}
   \subsection{Berichtsansicht}
 
