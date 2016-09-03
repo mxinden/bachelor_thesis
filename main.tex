@@ -927,13 +927,13 @@
     \resizebox{120px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
   \end{figure}
   
-  \paragraph{Filternde Komponente} Um Fragestellungen genau addressieren zu
-  können, gibt die \textit{DataFurnace}-Sprache dem Nutzer zunächst die
-  Möglichkeit seine Fragestellung auf eine Untermenge der gesamten
-  Geschäftsobjektdaten zu beziehen, indem er verschiedene Filter auf die
-  Gesamtdatenmenge anwendet. Filter können sowohl auf
-  Dimensionslevelausprägungen, als auch auf die Ergebnisse von Kennzahlen
-  zurückgreifen. 
+  \paragraph{Filternde Komponente}\label{paragraph:filternde-komponente} Um
+  Fragestellungen genau addressieren zu können, gibt die
+  \textit{DataFurnace}-Sprache dem Nutzer zunächst die Möglichkeit seine
+  Fragestellung auf eine Untermenge der gesamten Geschäftsobjektdaten zu
+  beziehen, indem er verschiedene Filter auf die Gesamtdatenmenge anwendet.
+  Filter können sowohl auf Dimensionslevelausprägungen, als auch auf die
+  Ergebnisse von Kennzahlen zurückgreifen. 
   
   Für die Filterung über Dimensionslevelausprägungen benennt der Nutzer
   zunächst die Dimensionslevel nach denen er filtern möchte. Daraufhin erstellt
@@ -953,7 +953,11 @@
   Auswahl aufgenommen oder ausgefiltert wird. Diese Konkretisierung formuliert
   der Nutzer indem er Ober- und oder Untergrenze bennent, respektive
   spezifiziert ob er alle Instanzen haben will, welche die Beurteilung der
-  Kennzahl bestehen oder solche, welche sie nicht bestehen. 
+  Kennzahl bestehen oder solche, welche sie nicht bestehen.
+
+  \todo[inline]{Filter über Kennzahlen in zwei Gruppen aufteilen: Filter mit
+  Ober- und Untergrenze und Filter mit bestehen bzw nicht bestehen. Auch in
+  \textit{DataFurnace}-Sprache entsprechend ändern}
   
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
@@ -1342,8 +1346,9 @@
   einen Klick auf diesen in der oberen Leiste setzen, außerdem kann er über das
   \textit{Löschen}-Symbol die Kennzahl aus dem System entfernen. In der unteren
   Leiste wird der Ausdruckkasten angezeigt. Mögliche Ausdrücke sind der
-  Attribut-, Konstanten-, Kennzahl-, Operator-, Funktions- und Klammerausdruck. Des Weiteren
-  ist rechts neben dem Funktionsbaukasten die Funktion zur Löschung eines Ausdrucks gegeben.
+  Attribut-, Konstanten-, Kennzahl-, Operator-, Funktions- und Klammerausdruck.
+  Des Weiteren ist rechts neben dem Funktionsbaukasten die Funktion zur
+  Löschung eines Ausdrucks gegeben.
 
   In der Mitte des Kennzahleditors wird die Formel zu Berechnung der Kennzahl
   angezeigt. Bei einer just erstellten Kennzahl wird hier lediglich der
@@ -1417,10 +1422,50 @@
   Dimensionsspezifikationen und Kennzahldefinitionen zu Berichtsmodellen in der
   Berichtsansicht kombiniert. Die Struktur der Berichtsansicht teilt sich in
   drei Komponenten auf. Auf der linken Seite werden alle Geschäftsobjekte mit
-  ihren zugehörigen Dimensionen, Dimensionsleveln und Attributen abgebildet.
-  Auf der rechten Seite werden alle Kennzahlen aufgelistet. In der Mitte
-  befindet sich die Berichtskomponente, unterteilt in einen Abschnitt zur
-  Filterung und der finalen Berichtstabelle.
+  ihren zugehörigen Dimensionen, Dimensionsleveln und Attributen, in der
+  bereits bekannten Baumstruktur, in der Geschäftsobjektkomponente abgebildet.
+  Auf der rechten Seite werden alle Kennzahlen in der Kennzahlkomponente
+  aufgelistet. In der Mitte befindet sich die Berichtskomponente, unterteilt in
+  einen Abschnitt zur Filterung und der finalen Berichtstabelle.
+
+  Sowohl die Geschäftsobjektkomponente auf der linken, als auch die
+  Kennzahlkomponente auf der rechten Seite der Berichtsansicht sind übernommen
+  aus den jeweils linken Seiten der Dimensions- und Kennzahlansicht, jedoch
+  ohne der Funktionalität zur Erstellung, Bearbeitung oder Löschung ihrer
+  Elemente, lediglich als anzeigende Komponenten. Sie dienen, wie der
+  Funktionsbaukasten in der Kennzahlansicht, als Quelle für Dimensionslevel,
+  Attribute und Kennzahlen in der Modellierung von Berichten. Wie auch in der
+  Dimensionsansicht können die Geschäftsobjektbaumstrukturen auf der linken
+  Seite der Berichtsansicht weiterhin durch auf- und zuklappen traversiert
+  werden.
+
+  In der Mitte der Berichtsansicht befindet sich die Kernkomponente für die
+  Berichtsmodellierung. Sie unterteilt sich horizontal in den tabellarischen
+  Bericht (Tabellenkomponente) selbst und den spezifizierten Filtern
+  (Filterkomponente) darunter. Zunächst soll auf die Filterspezifikation
+  eingegangenn werden. Wie in Abschnitt~\ref{paragraph:filternde-komponente}
+  beschrieben kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
+  Kennzahl, basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
+  Dimensionslevels erstellen, sucht er das Level zunächst aus den
+  Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
+  und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
+  Filterkomponente der Ansicht. Sobald er das Dimensionslevel in der Komponente
+  ablegt wird ein neuer Filter erstellt. In dem Filter werden alle
+  Dimensionslevelausprägungen aufgelistet, welche im ersten Schritt der
+  \textit{DataFurnace}-Modellierungsmethode für das Dimensionslevel
+  spezifiziert wurden. Nun kann der Nutzer, anhand einer Positivliste,
+  diejenigen Ausprägungen auswählen, nach welchen er die gesamte
+  Geschäftsobjektinstanzmenge filtern möchte.
+
+  Möchte der Nutzer auf Basis einer Kennzahl filtern, zieht er, analog zur
+  Basis auf ein Dimensionslevel, eine Kennzahl aus der rechten
+  Kennzahlkomponente und legt diese in der Filterkomponente ab. Sobald die
+  Kennzahl über der Filterkomponente los gelassen wird, wird ein Filter auf Basis der
+  Kennzahl erstellt. Nun kann der Nutzer im Filter spezifizieren, bei welchen
+  Ergebnissen der Kennzahl er ausfiltern möchte, und bei welchen Ergebnissen
+  eine Geschäftsobjektinstanz weiter kommt, indem er \zB{} Ober- und
+  Untergrenzen definiert, oder entscheidet ob Geschäftsobjektinstanzen die
+  Prüfung der Kennzahl bestehen müssen, oder nicht bestehen dürfen.
 
 
   \section{Umsetzung}
@@ -1443,6 +1488,9 @@
         \item JS / NodeJS (impliziert durch Meteor)
       \end{itemize}
     \item ReactJS
+      \begin{itemize}
+        \item Wiederverwendbarkeit (Geschäftsobjekt- und Kennzahlkomponente in der Berichtsansicht)
+      \end{itemize}
     \item Less
     \item ES6
     \item Mocha
