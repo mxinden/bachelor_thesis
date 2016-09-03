@@ -21,6 +21,7 @@
 \usepackage{tikz}
 \usepackage{subcaption}
 \usepackage{caption}
+\usepackage{forest}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
@@ -482,8 +483,8 @@
   wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
 	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
-	Datenqualitätskennzahl \textit{isEmpty} prüft \zB{} ob ein bestimmtes Feld
-	eines Stammdatums gefüllt oder leer ist. Angewandt auf die
+	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{} ob ein bestimmtes Feld
+	eines Stammdatums gefüllt ist. Angewandt auf die
 	Datenqualitätsdimension \textit{Vollständigkeit} kann sie angeben, wie
 	vollständig ein bestimmtes Datum ist. Die Überwachung der Stammdatenqualität
 	eines Unternehmens kann nach der Spezifikation von Datenqualitätskennzahlen
@@ -1217,15 +1218,15 @@
   Nutzer zunächst seine Geschäftsobjekte mit den zugehörigen Dimensionen,
   spezifiziert Kennzahlen, mit Bezug auf die Attribute der Geschäftsobjekte,
   und kombiniert beide zu Berichten. Im folgenden wird das fachliche Konzept
-  der Software anhand dieser drei Ansichten respektive Schritte erklärt.
+  der Software anhand dieser drei Ansichten respektive Schritte erklärt. Der
+  Wechsel zwischen den Ansichten gelingt über die Kopfleiste der
+  \textit{DataFurnace}-Software, in welcher zu jeder Ansicht ein Link
+  abgebildet ist.
 
 
 
 
   \subsection{Dimensionsansicht}
-  \texthl{Wird hier das Star- oder Snowflake-Modell angewendet?}
-  Star-Schema
-
   Die Modellierungsmethode beginnt in der Dimensionsansicht, welche sich aus
   Baumstrukturen auf der linken Seite, zur Representation von
   Geschäftsobjekten mit ihren Attributen und Dimensionen, und einer
@@ -1233,56 +1234,203 @@
   Elemente, aufbaut. 
 
   Auf der linken Seite der Benutzeroberfläche fügt der Nutzer zunächst alle
-  Geschäftsobjekte, zu welchen er eine Analyse modellieren möchte, hinzu. Im oberen Teil der
-  Box, welche für jedes neues Geschäftsobjekt erscheint, kann der Name eines
-  Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht werden. Für die
-  weitere Erläuterung der Ansicht wird das Wort Element als Generalisierung von
-  Dimensionen, Dimensionsleveln und Attributen verwendet. In der Box können des
-  Weiteren Dimensionen dem Geschäftsobjekt hinzugefügt werden, welchen
-  wiederum beliebig viele Dimensionslevel und schlussendlich ein Attribut
-	untergeordnet werden kann. Einem Geschäftsobjekt können folglich beliebig viele
-	Dimensionen angehören. Eine Dimension kann in beliebig viele Dimensionslevel
-	aufgeteilt werden. Einem Dimensionslevel können weitere Dimensionslevel oder
-	ein Attribut folgen. Eine Dimension-Dimensionslevel Kette muss mit einem
-	Attribut enden. Einem Attribut können keine weiteren Elemente
-	folgen.\todo{Grafik zu Verdeutlichung einfügen} 
-	
-	Wird einer Dimension ein Dimensionslevel, einem
-  Dimensionslevel ein weiteres Dimensionslevel oder einem Dimensionslevel ein
-  Attribut untergeordnet, so erscheint dieses unterhalb des Elternelements,
-  eingerückt, wie in einer klassischen Ordnerbaumstruktur. Die Kindelemente
-  eines Elternelements können auf- und zugeklappt, \bzw{} ein- und ausgeblendet
-  werden, was es dem Nutzer ohne viel Aufwand ermöglicht, Teilausschnitte des
-  Modells übersichtlich betrachten zu können, ohne diese in seperate Modelle
-  exportieren zu müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. \todo{Zitat nochmal
+  Geschäftsobjekte, zu welchen er eine Analyse modellieren möchte, hinzu. Im
+  oberen Teil der Box, welche für jedes neues Geschäftsobjekt erscheint, kann
+  der Name eines Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht
+  werden. Für die weitere Erläuterung der Ansicht wird das Wort Element als
+  Generalisierung von Dimensionen, Dimensionsleveln und Attributen verwendet.
+  In der Box können des Weiteren Dimensionen dem Geschäftsobjekt hinzugefügt
+  werden, welchen wiederum beliebig viele Dimensionslevel und schlussendlich
+  ein Attribut untergeordnet werden kann. Einem Geschäftsobjekt können folglich
+  beliebig viele Dimensionen angehören. Eine Dimension kann in beliebig viele
+  Dimensionslevel aufgeteilt werden. Einem Dimensionslevel können weitere
+  Dimensionslevel oder ein Attribut folgen. Eine Dimension-Dimensionslevel
+  Kette muss mit einem Attribut enden. Einem Attribut können keine weiteren
+	Elemente folgen. Ein Beispiel ist in Abbildung~\ref{fig:baumstruktur-produkt}
+	zu sehen.
+
+	\begin{figure}[caption={Baumstruktur des Geschäftsobjekts \textit{Produkt}}, label={fig:baumstruktur-produkt}]
+		\footnotesize
+
+		\begin{forest}
+			for tree={grow'=0,
+				child anchor=west,
+				parent anchor=south,
+				anchor=west,
+				calign=first,
+				edge path={\noexpand\path[draw, \forestoption{edge}]
+					(!u.south west) + (7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+				},
+				before typesetting nodes={if n=1
+						{insert before={[,phantom]}}
+						{}
+				},
+				fit=band,
+				before computing xy={l=15pt},
+			}
+		[Geschäftsobjekt \textit{Produkt}
+			[Dimension \textit{Zeit}
+				[Dimenionslevel \textit{Jahr}
+					[\ldots{}
+						[Attribut \textit{Verfallsdatum}
+						]
+					]
+				]
+			]
+			[Dimension \textit{Ort}
+				[\ldots{}]
+			]
+		]
+		\end{forest}
+	\end{figure}
+
+  Wird einer Dimension ein Dimensionslevel, einem Dimensionslevel ein weiteres
+  Dimensionslevel oder einem Dimensionslevel ein Attribut untergeordnet, so
+  erscheint dieses unterhalb des Elternelements, eingerückt, wie in einer
+  klassischen Ordnerbaumstruktur. Die Kindelemente eines Elternelements können
+  auf- und zugeklappt, \bzw{} ein- und ausgeblendet werden, was es dem Nutzer
+  ohne viel Aufwand ermöglicht, Teilausschnitte des Modells übersichtlich
+  betrachten zu können, ohne diese in seperate Modelle exportieren zu
+  müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. \todo{Zitat nochmal
   überprüfen. Ordentlich umschrieben?} Elemente können, durch einen klick auf
-  das \textit{Löschen}-Icon, gelöscht und, durch einen Klick auf den Namen, an
+  das \textit{Löschen}-Symbol, gelöscht und, durch einen Klick auf den Namen, an
   der Stelle umbenannt werden.
 
-	Neben der einfachen Charakterisierung von Elementen durch einen Namen,
-	spezifiziert in der Baumstruktur auf der linken Seite der Dimensionsansicht,
-	kann ein Nutzer das Element auf der rechten Seite detaillierter beschreiben.
-	Hierzu wählt er in der Baumstruktur ein Element durch einen Klick aus,
-	welches daraufhin auf der rechten Seite der Ansicht im Detail angezeigt
-	wird. Im oberen Teil der Detailansicht ist zunächst der Name des Elements
-	inklusive der Namen seiner Elternelemente als sogenannte
-	\textit{Breadcrumb}-Navigation~\cite[][S. 1316]{maldonado2002common}
-	angezeigt.  Der Name des Elements kann auch hier, durch einen Klick auf das
-	Wort, an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
-	bearbeitet werden, genügt ein Klick auf den Namen des Elternelements in der
-	\textit{Breadcrump}-Navigation, um zur Detailansicht des geforderten Elements
-	zu wechseln. Unterhalb dieser Hierarchienavigation findet sich der Typ des
-	Elements, zur Auswahl stehen, als Erinnerung, Dimension, Dimensionslevel und
-	Attribut.
+  \todo[inline]{Wird hier das Star- oder Snowflake-Modell angewendet?
+  Gegebenenfalls schon im Sprachen-Abschnitt ansprechen?}
 
+  Neben der einfachen Charakterisierung von Elementen durch einen Namen,
+  spezifiziert in der Baumstruktur auf der linken Seite der Dimensionsansicht,
+  kann ein Nutzer auf der rechten Seite Details eines Elements einsehen und
+  bearbeiten.  Hierzu wählt er in der Baumstruktur ein Element durch einen
+  Klick aus, welches daraufhin auf der rechten Seite der Ansicht im Detail
+  angezeigt wird. Im oberen Teil der Detailansicht ist zunächst der Name des
+  Elements inklusive der Namen seiner Elternelemente als sogenannte
+  \textit{Breadcrumb}-Navigation~\cite[][S. 1316]{maldonado2002common}
+  angezeigt.  Der Name des Elements kann auch hier, durch einen Klick auf das
+  Wort, an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
+  bearbeitet werden, genügt ein Klick auf den Namen des Elternelements in der
+  \textit{Breadcrump}-Navigation, um zur Detailansicht des geforderten Elements
+  zu wechseln. 
 
+  Unterhalb dieser Hierarchienavigation findet sich der Typ des Elements,
+  Möglichkeiten sind, zur Erinnerung: Dimension, Dimensionslevel und Attribut.
+  Reicht der Name selbst nicht zur Beschreibung des Elements aus, kann
+  unterhalb des Typ-Feldes eine Beschreibung in einem Freitextfeld spezifiziert
+  werden. Für die spätere Modellierung von Filtern und Gruppen in Berichten
+  können Dimensionsleveln und Attributen unterhalb der Beschreibung mögliche
+  Ausprägungen hinzugefügt werden, welche in einer Liste erscheinen. Der Name
+  einer Ausprägung kann durch einen Klick auf eben diesen erneut verändert
+  werden und die gesamte Ausprägung kann durch einen Klick auf das
+  \textit{Löschen}-Symbol gelöscht werden.
 
 
   \subsection{Kennzahlansicht}
+
+  Der zweite Schritt der \textit{DataFurnace}-Modellierungsmethode ist die
+  Definition von Kennzahlen für die spätere Auswertung der
+  Geschäftsobjektinstanzen, welche in der Kennzahlansicht vorgenommen werden
+  kann. Wie auch die Dimensionsansicht, teilt sie sich in zwei Spalten auf. Auf
+  der linken Seite befindet sich eine Auflistung aller erstellten Kennzahlen.
+  Durch einen Klick auf das Plus-Symbol in der oberen rechten Ecke können
+  beliebig viele weitere Kennzahlen hinzugefügt werden, welche in eben dieser
+  Liste neu erscheinen.
+
+  Klickt ein Nutzer auf eine Kennzahl in der Liste auf der linken Seite der
+  Ansicht, erscheint auf der rechten Seite der Kennzahleditor für die
+  ausgewählte Kennzahl. Zunächst kann ein Nutzer den Namen der Kennzahl über
+  einen Klick auf diesen in der oberen Leiste setzen, außerdem kann er über das
+  \textit{Löschen}-Symbol die Kennzahl aus dem System entfernen. In der unteren
+  Leiste wird der Ausdruckkasten angezeigt. Mögliche Ausdrücke sind der
+  Attribut-, Konstanten-, Kennzahl-, Operator-, Funktions- und Klammerausdruck. Des Weiteren
+  ist rechts neben dem Funktionsbaukasten die Funktion zur Löschung eines Ausdrucks gegeben.
+
+  In der Mitte des Kennzahleditors wird die Formel zu Berechnung der Kennzahl
+  angezeigt. Bei einer just erstellten Kennzahl wird hier lediglich der
+  Kennzahlname, gefolgt von einem Gleichheitszeichen, visualisiert. Das
+  Gleichheitszeichen hält hier die Funktion einer Zuweisung, wie im Gebrauch
+  der Informatik, nicht eines Vergleichs wie in der Mathematik, inne,
+  alternativ könnte die Zuweisung an dieser Stelle auch durch das Zeichen
+  \glqq{}:=\grqq{} verdeutlicht werden. 
+  
+  Eine Kennzahlformel in der \textit{DataFurnace}-Sprache besteht aus
+  Ausdrücken, welche ein Nutzer über den Funktionsbaukasten in der unteren
+  Leiste der Formel hinzufügen kann. Um an beliebigen Positionen der Formel
+  Ausdrücke hinzufügen \bzw{} löschen zu können, kann mit Hilfe der Maus ein
+  Cursor vor oder hinter jeden bestehenden Ausdruck gesetzt werden, welcher die
+  aktuelle Position wie in einem Texteingabefeld markiert. Will ein Nutzer die
+  Formel einer neu erstellten Kennzahl spezifizieren, klickt er zunächst hinter
+  das Gleichheitszeichen um den Cursor zu positionieren.  Daraufhin wählt er
+  aus dem Funktionsbaukasten beliebig viele Ausdrücke aus, welche in der
+  gleichen Reihenfolge hinter dem gesetzten Cursor erscheinen.  Dieser springt
+  nach dem erscheinen eines Ausdrucks eine Stelle weiter nach rechts hinter den
+  neu erstellten Ausdruck. 
+
+  Viele Ausdrücke der \textit{DataFurnace}-Sprache sind durch das soeben
+  beschriebene Hinzufügen noch nicht ausreichend konfiguriert. Hierzu zählt der
+  Attributausdruck, der Konstantenausdruck, der Kennzahlausdruck, der
+  Operatorausdruck und der Funktionsausdruck. 
+
+  \begin{itemize} 
+    \item Durch einen Klick auf einen \textbf{Attributausdruck} wird ein Auswahldialog
+      angezeigt, welcher alle zuvor in der Dimensionsansicht modellierten
+      Geschäftsobjektattribute dem Nutzer zur Auswahl stellt.  Nach der Auswahl
+      eines Attributes wird dessen Name in der Formel als Platzhalter
+      angezeigt. 
+      
+    \item  \textbf{Konstantenausdrücke} können in der Formel über ein
+      Textfeld, welches durch einen Klick auf den Ausdruck erscheint,
+      spezifiziert werden. Hier können sowohl konkrete Zahlenwerte, wie auch
+      Namen als Synonym genannt werden.
+
+    \item Durch einen Klick auf einen \textbf{Kennzahlausdruck} wird, wie
+      auch beim Attributausdruck, ein Auswahldialog angezeigt, welcher alle
+      erstellten Kennzahlen im System, bis auf die aktuelle, zur Auswahl
+      stellt. Ein Nutzer kann hiervon eine auswählen, wessen Namen als
+      ebenfalls als Platzhalter in der Formel erscheint.  
+
+    \item Wird ein \textbf{Operatorausdruck} zur Konfiguration ausgewählt,
+      kann der Nutzer zwischen den Operatoren für die mathematischen
+      Grundrechenarten Addition, Subtraktion, Multiplikation und Division
+      wählen, welche nach der Auswahl mit ihrem mathematischen Symbol in der Formel
+      repräsentiert werden.
+
+    \item Zur Konfiguration eines \textbf{Funktionsausdrucks} werden dem Nutzer
+      vordefinierte Funktionen, wie \zB{} die \textit{nicht-leer}-Funktion oder
+      die \textit{enthält}-Funktion, angezeigt und die Möglichkeit gegeben,
+      eigene Funktionen zu benennen.
+  \end{itemize}
+
+  Macht ein Nutzer während der Konfiguration eines Ausdrucks einen Fehler oder
+  möchte im Nachhinein etwas an dem Ausdruck ändern, so kann der
+  Konfigurationsprozess auf den gleichen Weg erneut gestartet werden.  Will ein
+  Nutzer an spezifischen Positionen der Formel weitere Ausdrücke hinzufügen
+  oder löschen klickt er an die gewünschte Position und erstellt über den
+  Funktionsbaukasten weitere Ausdrücke oder löscht den Ausdruck links vom Cursor
+  mit einem Klick auf das \textit{Löschen}-Symbol rechts vom Funktionsbaukasten
+  in der unteren Leiste.
+
+
   \subsection{Berichtsansicht}
 
+  Im letzten Schritt der \textit{DataFurnace}-Modellierungsmethode werden
+  Dimensionsspezifikationen und Kennzahldefinitionen zu Berichtsmodellen in der
+  Berichtsansicht kombiniert. Die Struktur der Berichtsansicht teilt sich in
+  drei Komponenten auf. Auf der linken Seite werden alle Geschäftsobjekte mit
+  ihren zugehörigen Dimensionen, Dimensionsleveln und Attributen abgebildet.
+  Auf der rechten Seite werden alle Kennzahlen aufgelistet. In der Mitte
+  befindet sich die Berichtskomponente, unterteilt in einen Abschnitt zur
+  Filterung und der finalen Berichtstabelle.
 
-  \section{Technische Umsetzung}
+
+  \section{Umsetzung}
+
+  \paragraph{UI-Sachen}
+  \begin{itemize}
+    \item im Ausdrucksbaukasten werden die Ausdrücke ausgegraut, welche keinen Sinn machen
+    \item Drag und Drop verfahren
+  \end{itemize}
+
   \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
   \todo[inline]{Grafik vom Tech-Stack}
 
@@ -1326,6 +1474,11 @@
   \begin{figure}[caption={\textit{DataRockets} \textit{Datapipeline}-Bausteine}, label={}]
     \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
   \end{figure}
+
+	Ideen für die Zukunft
+	\begin{itemize}
+		\item Tastaturunterstützung im Formeleditor
+	\end{itemize}
 % ################################################################################
 
 % ################################################################################
