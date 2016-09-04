@@ -83,6 +83,7 @@
 
 % List of abbreviations (if you use acronyms)
 \listofabbreviations{}
+
 % List of symbols (if you use symbols)
 %\listofsymbols{}
 
@@ -919,15 +920,15 @@
   welcher Dimensionen und Kenzahlen, wie in
   Abbildung~\ref{language_spec-erm-bericht} gezeigt, kombiniert. Ein Bericht
   bildet eine Fragestellung des Nutzers mit Bezug auf die Datenqualität seiner
-  Geschäftsobjekte ab. Der Bericht wird unterteilt in eine filternde und eine
-  analysierende Komponente. Anhand dieser Zweiteilung wird im folgenden die
+  Geschäftsobjekte ab. Der Bericht wird unterteilt in eine Filterkomponente und
+  eine Tabellenkomponente. Anhand dieser Zweiteilung wird im folgenden die
   Teilsprache Bericht näher erläutert.
 
   \begin{figure}[caption={Bericht-Teilsprache}, label={language_spec-erm-bericht}]
     \resizebox{120px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
   \end{figure}
   
-  \paragraph{Filternde Komponente}\label{paragraph:filternde-komponente} Um
+  \paragraph{Filterkomponente}\label{paragraph:filternde-komponente} Um
   Fragestellungen genau addressieren zu können, gibt die
   \textit{DataFurnace}-Sprache dem Nutzer zunächst die Möglichkeit seine
   Fragestellung auf eine Untermenge der gesamten Geschäftsobjektdaten zu
@@ -967,7 +968,7 @@
   Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
   die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen.
 
-  \paragraph{Analysierende Komponente} Die Fragestellungen eines Nutzers der
+  \paragraph{Tabellenkomponente}\label{paragraph:tabellenkomponente} Die Fragestellungen eines Nutzers der
   \textit{DataFurnace}-Sprache können sich auf mehr als zwei Dimensionen
   beziehen. Diese multidimensionalen Fragestellungen werden in der Sprache, wie
   auch in \textit{H2 for Reporting}, in Form einer Tabelle aus dem
@@ -975,38 +976,43 @@
   23]{becker2007h2}. Diese Tabelle bildet die Kernkomponente eines Berichts.
   Sie wird über ihre Kopfzeile und Kopfspalte konfiguriert.
 
-  Die Tabellenkopfzeile spezifiziert welche Unternehmensdaten in die Analyse
-  mit einfließen und nach welchen in der Auswertung wie gruppiert wird. Dies
+  Die Tabellenkopfzeilen spezifizieren welche Unternehmensdaten in der Analyse
+  betrachtet werden und nach welchen in der Auswertung wie gruppiert wird. Dies
   geschieht mit Hilfe der zuvor spezifizierten Dimensionen und Dimensionslevel,
-  welche die Unternehmensdatengesamtheit gruppieren. Die Tabellenkopfzeile
-  unterteilt sich in beliebig viele Unterzeilen, welche jeweils genau ein
-  Dimensionslevel repräsentieren. Eine Dimension kann mehrfach mit
-  verschiedenen Dimensionsleveln in der Tabellelkopfzeile vorkommen, die
-  Kopfzeile kann jedoch ein bestimmtes Dimensionslevel nur einmal enthalten.
-  Innerhalb einer Unterzeile wird bestimmt, welche Ausprägungen des
+  welche die Unternehmensdatengesamtheit gruppieren. Eine Tabellenkopfzeile
+  repräsentiert jeweils genau ein Dimensionslevel. Eine Dimension kann mehrfach
+  mit verschiedenen Dimensionsleveln in den Tabellelkopfzeilen vorkommen, die
+  Kopfzeilen können jedoch ein bestimmtes Dimensionslevel nur einmal enthalten.
+  Innerhalb einer Tabellenkopfzeile wird bestimmt, welche Ausprägungen des
   zugeordneten Dimensionslevels betrachtet und welche außer Acht gelassen
   werden. Ein Nutzer fragt sich zum Beispiel wie viele Instanzen des
   Geschäftsobjekts \textit{Produkt} einen validen \textit{Preis} haben bezogen
   auf die Dimensionslevelausprägungen \textit{2015} und \textit{2016} des
   Dimensionslevels \textit{Jahr} der Dimension \textit{Zeit} hinsichtlich des
-  Attributs \textit{Verfallsdatum}. Für diese Fragestellung fügt er der
-  Kopfzeile der Berichtstabelle das Dimensionslevel \textit{Jahr} hinzu und
+  Attributs \textit{Verfallsdatum}. Für diese Fragestellung fügt er den
+  Kopfzeilen der Berichtstabelle das Dimensionslevel \textit{Jahr} hinzu und
   wählt die Dimensionslevelausprägungen \textit{2015} und \textit{2016} aus.
 
-  Wird die Tabellenkopfzeile mit mehr als einem Dimensionslevel bestückt, kann
-  deren Auftrittsreihenfolge bestimmt werden. Die Auftrittsreihenfolge ist in
-  sofern relevant, da die Ergebniswerte eines Dimensionslevels in der Tabelle
-  in Abhängigkeit des Dimensionslevels darüber berechnet und positioniert
-  werden. Nachfolgend wird das vorhergegangene Beispiel erweitert. Fügt der
-  Nutzer neben dem Dimensionslevel \textit{Jahr} das Dimensionslevel
-  \textit{Bundesland} der Dimension \textit{Ort} des Attributes
-  \textit{Herstellungsort} hinzu kann er dies entweder oberhalb oder unterhalb
-  des \textit{Jahres} machen, abhängig davon, ob er in seiner Fragestellung
-  zunächst \textit{2015} und \textit{2016} und dann \textit{NRW} und
-  \textit{HH} vergleichen möchte, oder anders herum. Die Wahl der
+  Wird die Tabelle mit mehr als einem Dimensionslevel bestückt, zeigt die
+  Tabelle pro möglicher Dimensionslevelausprägungskombination eine Spalte an.
+  Im Szenario von zwei Dimensionsleveln mit jeweils zwei selektierten
+  Dimensionslevelausprägungen resultiert dies in vier Spalten, exklusive der
+  Tabellenkopfspalte auf der linken Seite\footnote{Siehe hierzu Tabellen in
+  Abbildung~\ref{table:auftrittsreihenfolge}}. Bei mehreren Dimensionsleveln
+  kann die Auftrittsreihenfolge der Tabellenkopfzeilen bestimmt werden. Die
+  Auftrittsreihenfolge ist in sofern relevant, da die Ergebniswerte eines
+  Dimensionslevels in der Tabelle in Abhängigkeit des Dimensionslevels darüber
+  berechnet und positioniert werden. Nachfolgend wird das vorhergegangene
+  Beispiel erweitert. Fügt der Nutzer neben dem Dimensionslevel \textit{Jahr}
+  das Dimensionslevel \textit{Bundesland} der Dimension \textit{Ort} des
+  Attributes \textit{Herstellungsort} hinzu kann er dies entweder oberhalb oder
+  unterhalb des \textit{Jahres} machen, abhängig davon, ob er in seiner
+  Fragestellung zunächst \textit{2015} und \textit{2016} und dann \textit{NRW}
+  und \textit{HH} vergleichen möchte, oder anders herum. Die Wahl der
   Auftrittsreihenfolge dient lediglich der Übersichtlichkeit, die eigentlichen
   Aussagen der Tabelle werden hierdurch nur verschieden in dieser positioniert,
-  nachvollziehbar an den Tabellen in
+  die Menge der Permutationen zwischen oberem und unterem Dimensionslevel
+  bleibt gleich, nachvollziehbar an den Tabellen in
   Abbildung~\ref{table:auftrittsreihenfolge}.
   
   \begin{figure}[caption={Auswertung des Geschäftsobjets \textit{Produkt}}, label={table:auftrittsreihenfolge}]
@@ -1025,16 +1031,16 @@
     \end{tabular}
   \end{figure}
 
-  Die Tabellenkopfspalte legt fest mit welchen Kennzahlen die zuvor
+  Die Tabellenkopfspalten legen fest mit welchen Kennzahlen die zuvor
   ausgewählten Geschäftsobjektinstanzen analysiert werden sollen. Ein Nutzer
-  kann beliebig viele Kennzahlen der Tabellenkopfspalte hinzufügen. Da die
+  kann beliebig viele Kennzahlen der Tabelle hinzufügen. Da die
   Kennzahlen bereits geschäftsobjektspezifisch definiert wurden sind keine
   weiteren Eingaben nötig. Die Sprache weist somit an die
   Geschäftsobjektinstanzen nach Gruppen gebündelt mit den Kennzahlen zu
   analysieren und das Ergebnis in der Zelle mit der Zeilenkoordinate der
   Kennzahl under der Spaltenkoordinate der Dimensionsgruppe einzutragen. Fügt
   der Nutzer im bisherigen Szenario die Kennzahl \textit{Preisvalidation} der
-  Tabellenkopfspalte hinzu, dann wäre die \textit{DataFurnace}-Sprache angewiesen,
+  Tabelle hinzu, dann wäre die \textit{DataFurnace}-Sprache angewiesen,
   die Geschäftsobjektinstanzgruppen mit den Dimensionslevelausprägungen
   \textit{2015} \textit{NRW}, \textit{2015} \textit{HH}, \textit{2016}
   \textit{NRW} und \textit{2016} \textit{HH} mit der Kennzahl zu analysieren
@@ -1042,10 +1048,6 @@
   einzutragen.
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
-
-  \paragraph{Hierarchische Modellierung}
-  Bessere digitale Visualisierung~\citep[][S. 6 f.]{fleischer2013konstruktion}
-
 
   % ################################################################################
   \chapter{\textit{DataFurnace}-Software}
@@ -1445,7 +1447,11 @@
   (Filterkomponente) darunter. Zunächst soll auf die Filterspezifikation
   eingegangenn werden. Wie in Abschnitt~\ref{paragraph:filternde-komponente}
   beschrieben kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
-  Kennzahl, basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
+  Kennzahl, basieren. 
+
+  \paragraph{Filterkomponente}
+  
+  Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
   und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
@@ -1467,6 +1473,35 @@
   Untergrenzen definiert, oder entscheidet ob Geschäftsobjektinstanzen die
   Prüfung der Kennzahl bestehen müssen, oder nicht bestehen dürfen.
 
+  Wird ein Filter nicht mehr benötigt, kann dieser über das
+  \textit{Löschen}-Symbol am rechten Rand des Filters gelöscht werden. Die
+  Dimensionslevel- oder Kennzahlbasis eines Filters ist in der Gesamtmenge
+  aller spezifizierten Filter einzigartig. Die gleiche Basis kann nicht in
+  mehreren Filtern eines Berichts vorkommen.
+
+  \paragraph{Tabellenkomponente}
+
+  Die Tabellenkomponente der Berichtsansicht der \textit{DataFurnace}-Software
+  ermöglicht es Berichtstabellen der \textit{DataFurnace}-Sprache zu
+  modellieren. Die Modellierung lässt sich in zwei Gruppen unterteilen, in die
+  Modellierung der Tabellenkopfzeilen mit Dimensionsleveln und in die
+  Modellierung der Tabellenkopfspalten mit Kennzahlen.
+
+  Wie in Abschnitt~\ref{paragraph:tabellenkomponente} beschrieben,
+  spezifizieren die Tabellenkopfzeilen, mit Hilfe von Dimensionsleveln, welche
+  Unternehmensdaten in der Analyse betrachtet werden und wie die Daten
+  gruppiert werden. Hierzu wählt ein Nutzer zunächst die Dimensionslevel für
+  die Tabelle aus, indem er sie in den Geschäftsobjektbaumstrukturen auf der
+  linken Seite der Berichtsansicht ausfindig macht und sie auf die Tabelle
+  zieht. Sobald ein Dimensionslevel auf der Tabelle abgesetzt wurde, wird eine
+  neue Tabellenkopfzeile auf Basis dieses Dimensionslevels erstellt. Dieser
+  Vorgang kann mit beliebig vielen Dimensionsleveln wiederholt werden. Die erste Zelle einer neu erstellten Tabellenkopfzeile enthält den Namen des Dimensionslevels, auf wessen Basis die Zeile beruht.
+  
+  Zur Erstellung der Positivliste der zu betrachtenden Dimensionslevelausprägungen klickt ein Nutzer zunächst auf das 
+
+
+
+
 
   \section{Umsetzung}
 
@@ -1474,6 +1509,7 @@
   \begin{itemize}
     \item im Ausdrucksbaukasten werden die Ausdrücke ausgegraut, welche keinen Sinn machen
     \item Drag und Drop verfahren
+    \item Dimension und Kennzahl Symbol durch die gesamte Applikation durch
   \end{itemize}
 
   \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
