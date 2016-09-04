@@ -19,6 +19,7 @@
 % Graphics rendering using TikZ
 % See: https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
 \usepackage{tikz}
+\usetikzlibrary{fit}
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{forest}
@@ -1442,16 +1443,19 @@
   werden.
 
   In der Mitte der Berichtsansicht befindet sich die Kernkomponente für die
-  Berichtsmodellierung. Sie unterteilt sich horizontal in den tabellarischen
-  Bericht (Tabellenkomponente) selbst und den spezifizierten Filtern
-  (Filterkomponente) darunter. Zunächst soll auf die Filterspezifikation
-  eingegangenn werden. Wie in Abschnitt~\ref{paragraph:filternde-komponente}
-  beschrieben kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
-  Kennzahl, basieren. 
-
+  Berichtsmodellierung. Zunächst muss ein neuer Bericht
+  in der Komponente erstellt werden, welcher sich wiederum über das
+  \textit{Löschen}-Symbol entfernen und in der oberen Leiste durch einen Klick
+  auf den Namen benennen lässt. Die Komponente unterteilt sich horizontal in
+  den tabellarischen Bericht (Tabellenkomponente) und den spezifizierten
+  Filtern (Filterkomponente) darunter. Zunächst soll auf die
+  Filterspezifikation eingegangenn werden. 
+  
   \paragraph{Filterkomponente}
   
-  Will ein Nutzer eine neue Kennzahl auf Basis eines
+  Wie in Abschnitt~\ref{paragraph:filternde-komponente}
+  beschrieben kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
+  Kennzahl, basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
   und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
@@ -1495,15 +1499,84 @@
   linken Seite der Berichtsansicht ausfindig macht und sie auf die Tabelle
   zieht. Sobald ein Dimensionslevel auf der Tabelle abgesetzt wurde, wird eine
   neue Tabellenkopfzeile auf Basis dieses Dimensionslevels erstellt. Dieser
-  Vorgang kann mit beliebig vielen Dimensionsleveln wiederholt werden. Die erste Zelle einer neu erstellten Tabellenkopfzeile enthält den Namen des Dimensionslevels, auf wessen Basis die Zeile beruht.
+  Vorgang kann mit beliebig vielen Dimensionsleveln wiederholt werden, jedoch
+  kann ein Dimensionslevel nicht mehrfach einer Tabelle hinzugefügt werden. Die
+  erste Zelle einer neu erstellten Tabellenkopfzeile enthält den Namen des
+  Dimensionslevels, auf wessen Basis die Zeile beruht. Des Weiteren wird der
+  Tabellenkopfzeile pro verfügbarer Ausprägung des Dimensionslevels eine Zelle
+  mit dem Namen des Dimensionslevels hinzugefügt.
+
+  Sollen nicht alle Ausprägungen eines Dimensionslevels in der Tabelle des
+  Berichts betrachtet werden, können einzelne Ausprägungen abgewählt werden.
+  Hierzu wird zunächst der Ausprägungsauswahldialog über das
+  \textit{Filter}-Symbol links neben dem Namen des Dimensionslevels geöffnet.
+  In diesem können ausgewählte Dimensionslevelausprägungen ab- und abgewählte
+  Dimensionslevel ausgewählt werden. Die Tabelle passt sich in Echtzeit an die
+  vorgenommenen Änderungen an, indem sie die Anzahl der Zellen der aktuellen
+  Tabellenkopfspalte um die Ausprägung erweitert respektive kürzt und alle
+  Ausprägungskombinationen der darunterliegenden Tabellenkopfzeilen in
+  Abhängigkeit der Änderungen entsprechend korrigiert.
+
+  In Abschnitt~\ref{paragraph:tabellenkomponente} wurde festgestellt, dass die
+  Auftrittsreihenfolge der Tabellenkopfzeilen für die Übersichtlichtkeit der
+  Tabelle relevant sein, weswegen es die \textit{DataFurnace}-Software
+  ermöglicht diese anpassen zu können. Hierzu zieht ein Nutzer die zu
+  verschiebende Zeile an ihre neue Position. Die
+  Dimensionslevelausprägungskombinationen werden automatisch ensprechend
+  angepasst. Soll eine Tabellenkopfzeile nicht verschoben sondern gänzlich aus
+  der Tabelle entfernt werden, kann dies über einen Klick auf das
+  \textit{Löschen}-Symbol rechts neben dem Dimensionslevelnamen in der ersten
+  Zelle realisiert werden.
+
+  Die Spezifikation von Kennzahlen in der Berichtstabelle wird in der
+  Tabellenkopfspalte realisiert. Analog zu den Tabellenkopfzeilen kann eine
+  Kennzahl der Tabellenkopfspalte hinzugefügt werden, indem sie aus der rechten
+  Kennzahlkomponente auf die Berichtstabelle herüber gezogen wird. Wird die
+  Kennzahl über der Berichtstabelle los gelassen, erstellt die
+  \textit{DataFurnace}-Software in der Spalte eine neue Zelle mit dem Namen der
+  Kennzahl. Wurde eine Kennzahl versehentlich hinzugefügt oder in der
+  Berichtstabelle nicht weiter benötigt kann sie über das
+  \textit{Löschen}-Symbol entfernt werden.
   
-  Zur Erstellung der Positivliste der zu betrachtenden Dimensionslevelausprägungen klickt ein Nutzer zunächst auf das 
 
 
 
 
 
   \section{Umsetzung}
+
+	\begin{figure}[caption={Systemarchitektur}, label={fig:systemarchitektur}]
+		\footnotesize
+    \begin{tikzpicture}[]
+      \tikzstyle{container} =  [dashed, draw, minimum width=\textwidth - 70pt, inner sep=12pt]
+      \tikzstyle{box} =  [draw, minimum width=\textwidth - 200pt]
+
+      \node (publish) [box] {Data publish};
+      \node (businessLogic) [box, below = 10pt of publish] {Business logic};
+
+      \node (nodeJS) [container, fit= (publish) (businessLogic)] {};
+      \node [fill=white, right=10pt] at (nodeJS.north west) {Webserver framework};
+
+      \node (mongoDB) [box, draw, below = 10pt of nodeJS] {Database};
+
+      \node (docker) [container, fit= (nodeJS) (mongoDB)] {};
+      \node[fill=white, right=10pt] at (docker.north west) {Container virtualization};
+
+      \node (line) [draw, minimum height=0pt, minimum width=\textwidth - 70pt, inner sep=0pt, above = 30pt of docker] {};
+
+      \node [above=2pt] at (line.north) {Client};
+      \node [below=2pt] at (line.south) {Server};
+      \node [fill=white, draw] at (line.north west) {Data protocol};
+      \node [fill=white, draw] at (line.north east) {Data protocol};
+
+      \node (subscribe) [box, above=30pt of line] {Data subscription};
+      \node (businessLogicClient) [box, above= 10pt of subscribe] {Business logic};
+      \node (reactJS) [box, above= 10pt of businessLogicClient] {View library};
+      \node (bootstrap) [box, above=10pt of reactJS] {CSS library};
+
+
+    \end{tikzpicture}
+	\end{figure}
 
   \paragraph{UI-Sachen}
   \begin{itemize}
