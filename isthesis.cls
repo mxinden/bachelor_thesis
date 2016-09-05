@@ -474,7 +474,6 @@
     % \endtabular%
     \ifthenelse{\isundefined{\table@toc}}{%
         % Without dedicated TOC caption
-        \caption{\table@caption\label{\table@label}}%
     }{%
         % With dedicated TOC caption
         \caption[\table@toc]{\table@caption\label{\table@label}}%
@@ -651,7 +650,7 @@
 \isthesis@new@option{associate-supervisor}{supervisor@associate}{}
 \isthesis@new@option{tutor-supervisor}{supervisor@tutor}{} %Betreuer
 \isthesis@new@option{seminar}{seminar}{}
-\isthesis@new@option*{submission-date}{submission@date}{}{\DTMsavedate{submissiondate}{2016-09-26}}
+\isthesis@new@option*{submission-date}{submission@date}{}{\DTMsavedate{submissiondate}{2016-09-30}}
 % Roman page numbering from the beginning
 \AtBeginDocument{%
     \pagenumbering{Roman}%

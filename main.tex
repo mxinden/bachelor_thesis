@@ -20,7 +20,6 @@
 % See: https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
 \usepackage{tikz}
 \usetikzlibrary{fit}
-\usepackage{subcaption}
 \usepackage{caption}
 \usepackage{forest}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
@@ -555,7 +554,7 @@
   ersetzen}. \textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehmens wird ein Prozess vorgegeben, welcher im folgenden anhand seiner
+	Unternehmens wird eine Methode vorgegeben, welche im folgenden anhand seiner
 	Schritte erläutert wird:
 
 	\begin{enumerate}
@@ -617,7 +616,7 @@
       Zeitverlauf präsentiert.
 	\end{enumerate}
 
-    Der sequentielle \textit{DataRocket}-Prozess (Schritt 5--7) wird in der
+    Der sequentielle Prozess (Schritt 5--7) wird in der
     Benutzeroberfläche durch die \textit{DataPipeline}
     abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es
     dem Nutzer verschiedene Prozessschritte wie Bausteine aneinander zu reihen,
@@ -1164,14 +1163,15 @@
       bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
       Heuristiken eingegangen wurde}.
 
-    \item \textbf{Strukturierter Prozess}\todo{Prozess oder Methode?}
-      
+    \item \textbf{Strukturierte Methode}\todo{Prozess oder Methode?}
+
       Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
-      \textit{DataRocket} für die Datenqualitätsverbesserung einem eindeutig
-      strukturierten Prozess. Die \textit{DataFurnace}-Software soll dies
-      \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer ohne viel
-      Einarbeitungszeit durch das Datenanalyseverfahren zu leiten. Dieser
-      Prozess soll tief in der Struktur der Oberfläche verankert sein.
+      \textit{DataRocket} für die Datenqualitätsverbesserung einer Methode mit
+      genau definierten Prozessschritten. Die \textit{DataFurnace}-Software
+      soll dies \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer
+      ohne viel Einarbeitungszeit durch das Datenanalyseverfahren zu leiten.
+      Diese Methode soll mit ihrem Prozess tief in der Struktur der Oberfläche
+      verankert sein.
 
     \item \textbf{Echtzeitkollaboration}
 
@@ -1221,19 +1221,31 @@
   drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
   Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
   Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
-  \textit{DataFurnace}-Software. In dem Verfahren der Methode modelliert der
+  \textit{DataFurnace}-Software. In dem Prozess der Methode modelliert der
   Nutzer zunächst seine Geschäftsobjekte mit den zugehörigen Dimensionen,
   spezifiziert Kennzahlen, mit Bezug auf die Attribute der Geschäftsobjekte,
   und kombiniert beide zu Berichten. Im folgenden wird das fachliche Konzept
-  der Software anhand dieser drei Ansichten respektive Schritte erklärt. Der
-  Wechsel zwischen den Ansichten gelingt über die Kopfleiste der
-  \textit{DataFurnace}-Software, in welcher zu jeder Ansicht ein Link
-  abgebildet ist.
+  der Software anhand dieser drei Ansichten respektive Schritte erklärt. 
 
-
+  Der Wechsel zwischen der Dimensions-, Kennzahl- und Berichtsansicht gelingt
+  über die Kopfleiste der \textit{DataFurnace}-Software, in welcher zu jeder
+  Ansicht ein Link abgebildet ist. Neben dem Link ist des Weiteren jeweils ein
+  individuelles Symbol abgebildet, welches in jeder Ansicht bei Referenzen auf
+  den jeweiligen Typ Dimension, Kennzahl oder Bericht, wieder verwendet wird.
+  Diese konsistente Nutzung der Symbole durch die gesamte Oberfläche hindurch
+  basiert auf der vierten \textit{Usability-Heuristic} von
+  \textsc{\citeauthor{nielsen1994heuristic}} für Konsistenz und Standards und
+  reduziert die nötige Denkleistung eines Nutzers bei der Bedienung der
+  Software durch die bessere Wiedererkennbarkeit der
+  Typen~(\citeyear{nielsen1994heuristic}, S. 30).  Die gleiche
+  \textit{Usability-Heuristik} wird auch bei der Funktion zur Löschung von
+  Objekten beachtet. In der gesamten Oberfläche kann ein Objekt durch einen
+  Klick auf das \textit{Löschen}-Symbol, einem roten Papierkorb, entfernt
+  werden, welches direkt auf dem zu löschenden Objekt abgebildet ist.
 
 
   \subsection{Dimensionsansicht}
+
   Die Modellierungsmethode beginnt in der Dimensionsansicht, welche sich aus
   Baumstrukturen auf der linken Seite, zur Representation von
   Geschäftsobjekten mit ihren Attributen und Dimensionen, und einer
@@ -1242,19 +1254,28 @@
 
   Auf der linken Seite der Benutzeroberfläche fügt der Nutzer zunächst alle
   Geschäftsobjekte, zu welchen er eine Analyse modellieren möchte, hinzu. Im
-  oberen Teil der Box, welche für jedes neues Geschäftsobjekt erscheint, kann
+  oberen Teil des Geschäftsobjektkastens, welcher für jedes neues Geschäftsobjekt erscheint, kann
   der Name eines Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht
-  werden. Für die weitere Erläuterung der Ansicht wird das Wort Element als
-  Generalisierung von Dimensionen, Dimensionsleveln und Attributen verwendet.
-  In der Box können des Weiteren Dimensionen dem Geschäftsobjekt hinzugefügt
-  werden, welchen wiederum beliebig viele Dimensionslevel und schlussendlich
-  ein Attribut untergeordnet werden kann. Einem Geschäftsobjekt können folglich
-  beliebig viele Dimensionen angehören. Eine Dimension kann in beliebig viele
-  Dimensionslevel aufgeteilt werden. Einem Dimensionslevel können weitere
-  Dimensionslevel oder ein Attribut folgen. Eine Dimension-Dimensionslevel
-  Kette muss mit einem Attribut enden. Einem Attribut können keine weiteren
-	Elemente folgen. Ein Beispiel ist in Abbildung~\ref{fig:baumstruktur-produkt}
-	zu sehen.
+  werden. Zum löschen des Geschäftsobjekts klickt ein Nutzer zunächst auf das
+  \textit{Löschen}-Symbol in der oberen Leiste, wodurch ein Dialog zur
+  Bestätigung geöffnet wird. Erst wenn der Nutzer diesen Dialog bestätigt, wird
+  das Geschäftsobjekt mit all seinen Dimensionen, Dimensionsleveln und
+  Attributen aus dem System gelöscht. Dieser Sicherheitsmechanismus folgt der
+  fünften \textit{Usability-Heuristic} von
+  \textsc{\citeauthor{nielsen1994heuristic}} zur Vorbeugung von schwerwiegenden
+  Fehlern eines Nutzers~(\citeyear{nielsen1994heuristic}, S. 30).
+
+  Im Geschäftsobjektkasten können des Weiteren Dimensionen dem Geschäftsobjekt
+  hinzugefügt werden, welchen wiederum beliebig viele Dimensionslevel und
+  schlussendlich ein Attribut untergeordnet werden kann. Für die weitere
+  Erläuterung der Ansicht wird das Wort Element als Generalisierung von
+  Dimension, Dimensionslevel und Attribut verwendet.  Einem
+  Geschäftsobjekt können folglich beliebig viele Dimensionen angehören. Eine
+  Dimension kann in beliebig viele Dimensionslevel aufgeteilt werden. Einem
+  Dimensionslevel können weitere Dimensionslevel oder ein Attribut folgen. Eine
+  Dimension-Dimensionslevel Kette muss mit einem Attribut enden. Einem Attribut
+  können keine weiteren Elemente folgen. Ein Beispiel ist in
+  Abbildung~\ref{fig:baumstruktur-produkt} zu sehen.
 
 	\begin{figure}[caption={Baumstruktur des Geschäftsobjekts \textit{Produkt}}, label={fig:baumstruktur-produkt}]
 		\footnotesize
@@ -1328,8 +1349,8 @@
   können Dimensionsleveln und Attributen unterhalb der Beschreibung mögliche
   Ausprägungen hinzugefügt werden, welche in einer Liste erscheinen. Der Name
   einer Ausprägung kann durch einen Klick auf eben diesen erneut verändert
-  werden und die gesamte Ausprägung kann durch einen Klick auf das
-  \textit{Löschen}-Symbol gelöscht werden.
+  werden und die gesamte Ausprägung kann über das
+  \textit{Löschen}-Symbol entfernt werden.
 
 
   \subsection{Kennzahlansicht}
@@ -1373,6 +1394,20 @@
   gleichen Reihenfolge hinter dem gesetzten Cursor erscheinen.  Dieser springt
   nach dem erscheinen eines Ausdrucks eine Stelle weiter nach rechts hinter den
   neu erstellten Ausdruck. 
+
+  Um Fehler in der Kennzahlformel zu verhindern, werden dem Nutzer im
+  Funktionsbaukasten immer nur die Ausdrücke zur Auswahl gestellt, welche nicht
+  zu einer syntaktisch inkorrekten Formel führen, wenn man sie an der aktuellen
+  Cursor-Position einfügt. Hat ein Nutzer beispielsweise in einer neuen
+  Kennzahlformel bisher lediglich eine Konstante hinzugefügt und den Cursor
+  hinter dieser belassen, so wird ihm im Formelbaukasten nun lediglich der
+  Operatorausdruck zur Auswahl gestellt. Fügt der Nutzer diesen der Formel
+  hinzu, werden ihm im nächsten Schritt alle Ausdrücke bis auf den
+  Operatorausdruck im Funktionsbaukasten zur Verfügung gestellt. Diese
+  intelligente Auswahl im Baukasten ist angelehnt an die fünfte
+  \textit{Usability-Heuristic} von \textsc{\citeauthor{nielsen1994heuristic}},
+  indem sie mögliches Fehlerverhalten des Nutzers
+  verhindert~(\citeyear{nielsen1994heuristic}, S. 30).
 
   Viele Ausdrücke der \textit{DataFurnace}-Sprache sind durch das soeben
   beschriebene Hinzufügen noch nicht ausreichend konfiguriert. Hierzu zählt der
@@ -1515,12 +1550,37 @@
   vorgenommenen Änderungen an, indem sie die Anzahl der Zellen der aktuellen
   Tabellenkopfspalte um die Ausprägung erweitert respektive kürzt und alle
   Ausprägungskombinationen der darunterliegenden Tabellenkopfzeilen in
-  Abhängigkeit der Änderungen entsprechend korrigiert.
+  Abhängigkeit der Änderungen entsprechend korrigiert. Als Beispiel dienen hier
+  Tabelle~\ref{table:berichtstabellenkopf20142015}
+  und~\ref{table:berichtstabellenkopf201420152016}, welche die Tabellenkopfspalten
+  ohne und mit der Dimensionslevelausprägung \textit{2016} des Dimensionslevels
+  \textit{Jahr} abbilden. Hier gilt es die Änderungen in der Zeile
+  \textit{Bundesland} zu betrachten.
+
+    \begin{table}[]
+      \footnotesize
+      \begin{tabular}{c c c c c c c c c}
+        \textbf{Warenlinie} & \multicolumn{4}{c}{Bürobedarf} & \multicolumn{4}{c}{Lebensmittel} \\
+        \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015}\\
+        \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
+      \end{tabular}
+      \caption{Beispiel der Tabellenkopfzeilen mit den Ausprägungen \textit{2014} und \textit{2015}}\label{table:berichtstabellenkopf20142015}
+    \end{table}
+
+    \begin{table}
+      \footnotesize
+      \begin{tabular}{c c c c c c c c c c c c c}
+        \textbf{Warenlinie} & \multicolumn{6}{c}{Bürobedarf} & \multicolumn{6}{c}{Lebensmittel} \\
+        \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016}\\
+        \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
+      \end{tabular}
+      \caption{Beispiel der Tabellenkopfzeilen mit den Ausprägungen \textit{2014}, \textit{2015} und \textit{2016}}\label{table:berichtstabellenkopf201420152016}
+    \end{table}
 
   In Abschnitt~\ref{paragraph:tabellenkomponente} wurde festgestellt, dass die
   Auftrittsreihenfolge der Tabellenkopfzeilen für die Übersichtlichtkeit der
   Tabelle relevant sein, weswegen es die \textit{DataFurnace}-Software
-  ermöglicht diese anpassen zu können. Hierzu zieht ein Nutzer die zu
+  ermöglicht, diese anpassen zu können. Hierzu zieht ein Nutzer die zu
   verschiebende Zeile an ihre neue Position. Die
   Dimensionslevelausprägungskombinationen werden automatisch ensprechend
   angepasst. Soll eine Tabellenkopfzeile nicht verschoben sondern gänzlich aus
@@ -1543,7 +1603,11 @@
 
 
 
-  \section{Umsetzung}
+  \section{Technische Umsetzung}
+  
+  \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
+  Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
+  \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
 
 	\begin{figure}[caption={Systemarchitektur}, label={fig:systemarchitektur}]
 		\footnotesize
@@ -1573,8 +1637,6 @@
       \node (businessLogicClient) [box, above= 10pt of subscribe] {Business logic};
       \node (reactJS) [box, above= 10pt of businessLogicClient] {View library};
       \node (bootstrap) [box, above=10pt of reactJS] {CSS library};
-
-
     \end{tikzpicture}
 	\end{figure}
 
@@ -1582,13 +1644,13 @@
   \begin{itemize}
     \item im Ausdrucksbaukasten werden die Ausdrücke ausgegraut, welche keinen Sinn machen
     \item Drag und Drop verfahren
-    \item Dimension und Kennzahl Symbol durch die gesamte Applikation durch
   \end{itemize}
 
   \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
   \todo[inline]{Grafik vom Tech-Stack}
 
   \paragraph{Technologienauswahl}
+  \todo[inline]{Publish und Subscripe design Pattern zitieren}
   \begin{itemize}
     \item Vorgaben
       \begin{itemize}
@@ -1634,7 +1696,9 @@
 
 	Ideen für die Zukunft
 	\begin{itemize}
-		\item Tastaturunterstützung im Formeleditor
+    \item Tastaturunterstützung im Formeleditor (Nielsen Nummer 7 `Flexibility
+      and efficiency of use')
+    \item Support Undo redo (Nielsen Nummer 3 `user control and freedom')
 	\end{itemize}
 % ################################################################################
 
