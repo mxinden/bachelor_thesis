@@ -1073,7 +1073,8 @@
   Konsistenz und Funktionsumfang, weshalb die \textit{innnoscale AG}
   beabsichtigt diese zu ersetzen.
 
-  \section{Anforderungsanalyse und Annahmen}
+  \section{Anforderungsanalyse und Annahmen}\label{sec:software/anforderungsanalyse}
+
 	Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
 	Softwarekomponente, \textit{DataFurnace}-Software, konzipiert und
 	prototypisch entwickelt werden, welche es ermöglicht,
@@ -1611,7 +1612,10 @@
 
   \section{Technische Umsetzung}
 
-  Die \textit{DataFurnace}-Software ist eine eigenständige moderne Applikation, welche sich
+  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
+  \todo[inline]{Sollen alle Technologien mit einer Fußnote mit der Website ausgestattet werden?}
+
+  Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
   innovativer Technologien aus dem neuesten Stand der Informationstechnik
   bedient. Eine nähere Erläuterung jeder Technologie und deren
   Implementierung in der Software würde über den Rahmen dieser Arbeit hinaus
@@ -1619,43 +1623,30 @@
   einzelner Entscheidungserläuterungen, und den Entwicklungsprozess kurz
   eingegangen werden.
 
-  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
-  \todo[inline]{Sollen alle Technologien mit einer Fußnote mit der Website ausgestattet werden?}
-
 
   \paragraph{Systemarchitektur}
 
-  Die \textit{DataFurnace}-Software ist eine Webanwendung, welche auf dem
-  hierfür klassischem Client-Sever-Modell aufbaut. Die Serverarchitektur setzt
-  sich aus einem Webserver und einem Datenbankserver zusammen. Der Webserver
-  ist eine \textit{NodeJS}-Anwendung unter Verwendung des
-  \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll, für Anzeige-
-  und Anwendungslogik, und das \textit{DDP}-Protokoll, für Anwendungsdaten,
-  kommuniziert er mit dem Client. Neben der Verbindung zum Client hat der
-  Anwendungsserver direkten Zugriff auf den Datenbankserver.  Bedingt durch die
-  Einschränkung, dass \textit{MeteorJS} seine volle Funktionalität nur in
-  Verbindung mit einem \textit{MongoDB}-Datenbankservers bieten kann, wird eben
-  diese Technologie für den Datenbankserver der \textit{DataFurnace}-Software
-  eingesetzt. Sowohl Webserver als auch Datenbankserver werden mit der
-  Virtualisierungssoftware \textit{Docker} isoliert in Containern betrieben.
-  Der Client der \textit{DataFurnace}-Software kann mit Hilfe eines Webbrowsers
-  aufgerufen werden. Für das Frontend der Applikation wird die
+  Die \textit{DataFurnace}-Software ist eine eigenständige  Webanwendung,
+  welche auf dem hierfür klassischem Client-Sever-Modell aufbaut. Die
+  Serverarchitektur setzt sich aus einem Webserver und einem Datenbankserver
+  zusammen. Der Webserver ist eine \textit{NodeJS}-Anwendung unter Verwendung
+  des \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll, für
+  Anzeige- und Anwendungslogik, und das \textit{DDP}-Protokoll, für
+  Anwendungsdaten, kommuniziert er mit dem Client. Neben der Verbindung zum
+  Client hat der Anwendungsserver direkten Zugriff auf den Datenbankserver.
+  Bedingt durch die Einschränkung, dass \textit{MeteorJS} seine volle
+  Funktionalität nur in Verbindung mit einem \textit{MongoDB}-Datenbankservers
+  bieten kann, wird eben diese Technologie für den Datenbankserver der
+  \textit{DataFurnace}-Software eingesetzt. Sowohl Webserver als auch
+  Datenbankserver werden mit der Virtualisierungssoftware \textit{Docker}
+  isoliert in Containern betrieben.  Der Client der
+  \textit{DataFurnace}-Software kann mit Hilfe eines Webbrowsers aufgerufen
+  werden. Für das Frontend der Applikation wird die
   \textit{Javascript}-Bibliothek \textit{ReactJS} in Kombination mit der
   Anzeigebibliothek \textit{React-Bootstrap} und dem Programmpaket
   \textit{React-Router} für das \textit{URI}-Routen-Management verwendet. Der
   gesamte Aufbau der Architektur wird durch
   Abbildung~\ref{fig:systemarchitektur} erneut verdeutlicht.
-
-  \paragraph{Publish und Subscribe}
-  Designpattern
-
-  \paragraph{Echtzeitkollaboration}
-  \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
-  Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
-  Falls auf React eingegangen wird, auch die Wiederverwendbarkeit einzelner Komponenten beschreiben.
-
-  \paragraph{React-Router}
-  \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
 
   \begin{figure}[caption={Systemarchitektur der \textit{DataFurnace}-Software}, label={fig:systemarchitektur}]
 		\footnotesize
@@ -1694,7 +1685,49 @@
     \end{tikzpicture}
 	\end{figure}
 
-  \paragraph{Entwicklungsprozess}
+
+  \paragraph{Publish und Subscribe}
+  Designpattern
+
+
+  \paragraph{Echtzeitkollaboration}
+
+  Wie in der Anforderungsanalyse der \textit{DataFurnace}-Software,
+  Abschnitt~\ref{sec:software/anforderungsanalyse}, beschrieben, soll die
+  Software von mehreren Personen gleichzeitig genutzt werden können. Um diese
+  Kollaboration über mehrere Clients hinweg so benutzerfreundlich wie möglich
+  zu gestalten, müssen Änderungen eines Nutzers in Echtzeit nicht nur im
+  eigenen Client, sondern allen Clients sichtbar sein. Um diese Reaktivität
+  technisch umsetzen zu können, wird das Webserver-Framework \textit{MeteorJS},
+  die Datenbank \textit{MongoDB}, sowie die \textit{JavaScript}-Bibliothek
+  \textit{ReactJS} verwendet. Anhand eines konkreten Beispiels soll im
+  Folgenden das Zusammenspiel dieser Technologien erläutert werden. Klickt
+  Nutzer A in der Dimensionsansicht auf das \textit{Löschen}-Symbol eines
+  Geschäftsobjekts, wird von dem \textit{JavaScript}-Framework \textit{ReactJS}
+  eine Funktion ausgeführt, welche das Geschäftsobjekt aus dem lokalen Speicher
+  löscht. Wird der lokale Speicher geändert, reagiert \textit{ReactJS} darauf,
+  indem es die aktuelle Oberfläche im Hintergrund neu berechnet und das Delta
+  aus aktueller und neuer Oberfläche in der aktuellen anpasst. Während
+  \textit{ReactJS} die Oberfläche ändert, reagiert auch das
+  \textit{Meteor}-Framework, indem es
+  die Änderungen auch auf den Serverspeicher, alias die \textit{MongoDB},
+  anwendet. Wird etwas an dem Zustand der \textit{MongoDB} geändert, so werden
+  diese Änderungen automatisch von Meteor an alle Clients verteilt. Somit wird
+  auch der lokale Speicher von Client B automatisch angepasst, was wiederum zur
+  Folge hat, dass das \textit{ReactJS}-Framework die Oberfläche des Clients B
+  neu berechnet und anzeigt, womit auch hier das Geschäftsobjekt gelöscht wird.
+
+  \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
+  Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
+  Falls auf React eingegangen wird, auch die Wiederverwendbarkeit einzelner Komponenten beschreiben.
+
+  \paragraph{React-Router}
+  \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
+
+  \paragraph{Entwicklungsprozess} Um eine hohe Softwarequalität sicher zu
+  stellen, wurde die \textit{DataFurnace}-Software angelehnt an dem
+  \textit{GitFlow}-Prinzip mit einer hohen Testabdeckung entwickelt.
+  
   \begin{itemize}
     \item GitFlow
     \item Continuous Integration
