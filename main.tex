@@ -951,30 +951,38 @@
   auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Hierzu wählt
   der Nutzer eine zuvor definierte Kennzahl aus und konkretisiert bei welchen
   Ergebnissen der Kennzahl eine Instanz eines Geschäftsobjekts in die nähere
-  Auswahl aufgenommen oder ausgefiltert wird. Diese Konkretisierung formuliert
-  der Nutzer indem er Ober- und oder Untergrenze bennent, respektive
-  spezifiziert ob er alle Instanzen haben will, welche die Beurteilung der
-  Kennzahl bestehen oder solche, welche sie nicht bestehen.
+  Auswahl aufgenommen oder ausgefiltert wird. Für diese Konkretisierung müssen
+  Kennzahlen zunächst anhand ihrer Ergebnistypen in zwei Gruppen unterteilt werden. Die
+  erste Gruppe gibt als Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer
+  Ober- und Untergrenzen benennen, in welchen der Ergebniszahlenwert der
+  Kennzahl einer Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu
+  werden. Ein Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt
+  ist der \textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen,
+  welche einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die
+  gesuchte Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen
+  muss oder nicht bestehen darf. Als Beispiel kann hier die
+  \textit{nicht-leer}-Kennzahl genannt werden, welche lediglich \textit{wahr},
+  das Attribut der Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder
+  \textit{falsch}, das Attribut ist nicht gefüllt, zurück gibt.
 
-  \todo[inline]{Filter über Kennzahlen in zwei Gruppen aufteilen: Filter mit
-  Ober- und Untergrenze und Filter mit bestehen bzw nicht bestehen. Auch in
-  \textit{DataFurnace}-Sprache entsprechend ändern}
-  
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
   validen Preis haben, fügt er die selbst erstellte Kennzahl
   \textit{Preisvalidation}, welche prüft ob die Ausprägung des Attributes
   \textit{Preis} keine Buchstaben enthält, als Filter dem Bericht hinzu. In dem
   Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
-  die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen.
+  die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen oder
+  anders gesagt, bei denen das Ergebnis der Kennzahl der boolesche Wert
+  \textit{wahr} ist.
 
-  \paragraph{Tabellenkomponente}\label{paragraph:tabellenkomponente} Die Fragestellungen eines Nutzers der
-  \textit{DataFurnace}-Sprache können sich auf mehr als zwei Dimensionen
-  beziehen. Diese multidimensionalen Fragestellungen werden in der Sprache, wie
-  auch in \textit{H2 for Reporting}, in Form einer Tabelle aus dem
-  multidimensionalen Raum ins Zweidimensionale projeziert~\cite[][S.
-  23]{becker2007h2}. Diese Tabelle bildet die Kernkomponente eines Berichts.
-  Sie wird über ihre Kopfzeile und Kopfspalte konfiguriert.
+  \paragraph{Tabellenkomponente}\label{paragraph:tabellenkomponente} 
+  Die Fragestellungen eines Nutzers der \textit{DataFurnace}-Sprache können
+  sich auf mehr als zwei Dimensionen beziehen. Diese multidimensionalen
+  Fragestellungen werden in der Sprache, wie auch in \textit{H2 for Reporting},
+  in Form einer Tabelle aus dem multidimensionalen Raum ins Zweidimensionale
+  projeziert~\cite[][S.  23]{becker2007h2}. Diese Tabelle bildet die
+  Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeile und Kopfspalte
+  konfiguriert.
 
   Die Tabellenkopfzeilen spezifizieren welche Unternehmensdaten in der Analyse
   betrachtet werden und nach welchen in der Auswertung wie gruppiert wird. Dies
@@ -1188,7 +1196,7 @@
 
 
 	\paragraph{Annahmen} Wie auch für die \textit{DataFurnace}-Sprache, sollen
-	für die \textit{DataFurncae}-Software Annahmen getroffen, welche von der
+	für die \textit{DataFurncae}-Software Annahmen getroffen werden, welche von der
 	\textit{innoscale AG} vorausgesetzt werden und somit Konzeption und
 	Entwicklung der Software beeinflussen.
 
@@ -1205,7 +1213,7 @@
 			Die \textit{DataFurnace}-Software soll lediglich die Modellierung von
 			Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
 			die Implementierung der dafür nötigen Analyselogik kann bereits von \textit{DataRocket}
-			selbst gestellt werden und muss folglich nicht erneut in der
+			selbst gestellt werden und muss folglich nicht erneut im Rahmen der
 			\textit{DataFurnace}-Software entwickelt werden.
   \end{enumerate}
 
@@ -1505,12 +1513,14 @@
   Möchte der Nutzer auf Basis einer Kennzahl filtern, zieht er, analog zur
   Basis auf ein Dimensionslevel, eine Kennzahl aus der rechten
   Kennzahlkomponente und legt diese in der Filterkomponente ab. Sobald die
-  Kennzahl über der Filterkomponente los gelassen wird, wird ein Filter auf Basis der
-  Kennzahl erstellt. Nun kann der Nutzer im Filter spezifizieren, bei welchen
-  Ergebnissen der Kennzahl er ausfiltern möchte, und bei welchen Ergebnissen
-  eine Geschäftsobjektinstanz weiter kommt, indem er \zB{} Ober- und
-  Untergrenzen definiert, oder entscheidet ob Geschäftsobjektinstanzen die
-  Prüfung der Kennzahl bestehen müssen, oder nicht bestehen dürfen.
+  Kennzahl über der Filterkomponente los gelassen wird, wird ein Filter auf
+  Basis der Kennzahl erstellt. Nun kann der Nutzer im Filter spezifizieren, bei
+  welchen Ergebnissen der Kennzahl er ausfiltern möchte, und bei welchen
+  Ergebnissen eine Geschäftsobjektinstanz in die nähere Auswahl weiter kommt,
+  indem er \zB{} Ober- und Untergrenzen, bei Kennzahlen mit
+  Zahlenwertergebnissen, definiert, oder bei Kennzahlen mit booleschen
+  Rückgabewerten entscheidet, ob Geschäftsobjektinstanzen die Prüfung der
+  Kennzahl bestehen müssen, oder nicht bestehen dürfen.
 
   Wird ein Filter nicht mehr benötigt, kann dieser über das
   \textit{Löschen}-Symbol am rechten Rand des Filters gelöscht werden. Die
@@ -1597,19 +1607,57 @@
   Kennzahl. Wurde eine Kennzahl versehentlich hinzugefügt oder in der
   Berichtstabelle nicht weiter benötigt kann sie über das
   \textit{Löschen}-Symbol entfernt werden.
-  
-
-
-
 
 
   \section{Technische Umsetzung}
-  
+
+  Die \textit{DataFurnace}-Software ist eine eigenständige moderne Applikation, welche sich
+  innovativer Technologien aus dem neuesten Stand der Informationstechnik
+  bedient. Eine nähere Erläuterung jeder Technologie und deren
+  Implementierung in der Software würde über den Rahmen dieser Arbeit hinaus
+  gehen, jedoch soll im folgenden auf die Systemarchitektur, inklusive
+  einzelner Entscheidungserläuterungen, und den Entwicklungsprozess kurz
+  eingegangen werden.
+
+  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
+  \todo[inline]{Sollen alle Technologien mit einer Fußnote mit der Website ausgestattet werden?}
+
+
+  \paragraph{Systemarchitektur}
+
+  Die \textit{DataFurnace}-Software ist eine Webanwendung, welche auf dem
+  hierfür klassischem Client-Sever-Modell aufbaut. Die Serverarchitektur setzt
+  sich aus einem Webserver und einem Datenbankserver zusammen. Der Webserver
+  ist eine \textit{NodeJS}-Anwendung unter Verwendung des
+  \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll, für Anzeige-
+  und Anwendungslogik, und das \textit{DDP}-Protokoll, für Anwendungsdaten,
+  kommuniziert er mit dem Client. Neben der Verbindung zum Client hat der
+  Anwendungsserver direkten Zugriff auf den Datenbankserver.  Bedingt durch die
+  Einschränkung, dass \textit{MeteorJS} seine volle Funktionalität nur in
+  Verbindung mit einem \textit{MongoDB}-Datenbankservers bieten kann, wird eben
+  diese Technologie für den Datenbankserver der \textit{DataFurnace}-Software
+  eingesetzt. Sowohl Webserver als auch Datenbankserver werden mit der
+  Virtualisierungssoftware \textit{Docker} isoliert in Containern betrieben.
+  Der Client der \textit{DataFurnace}-Software kann mit Hilfe eines Webbrowsers
+  aufgerufen werden. Für das Frontend der Applikation wird die
+  \textit{Javascript}-Bibliothek \textit{ReactJS} in Kombination mit der
+  Anzeigebibliothek \textit{React-Bootstrap} und dem Programmpaket
+  \textit{React-Router} für das \textit{URI}-Routen-Management verwendet. Der
+  gesamte Aufbau der Architektur wird durch
+  Abbildung~\ref{fig:systemarchitektur} erneut verdeutlicht.
+
+  \paragraph{Publish und Subscribe}
+  Designpattern
+
+  \paragraph{Echtzeitkollaboration}
   \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
   Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
+  Falls auf React eingegangen wird, auch die Wiederverwendbarkeit einzelner Komponenten beschreiben.
+
+  \paragraph{React-Router}
   \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
 
-	\begin{figure}[caption={Systemarchitektur}, label={fig:systemarchitektur}]
+  \begin{figure}[caption={Systemarchitektur der \textit{DataFurnace}-Software}, label={fig:systemarchitektur}]
 		\footnotesize
     \begin{tikzpicture}[]
       \tikzstyle{container} =  [dashed, draw, minimum width=\textwidth - 70pt, inner sep=12pt]
@@ -1619,57 +1667,34 @@
       \node (businessLogic) [box, below = 10pt of publish] {Business logic};
 
       \node (nodeJS) [container, fit= (publish) (businessLogic)] {};
-      \node [fill=white, right=10pt] at (nodeJS.north west) {Webserver framework};
+      \node [fill=white, right=10pt] at (nodeJS.north west) {Web server};
 
-      \node (mongoDB) [box, draw, below = 10pt of nodeJS] {Database};
+      \node (mongoDB) [box, draw, below = 20pt of nodeJS] {Database};
 
-      \node (docker) [container, fit= (nodeJS) (mongoDB)] {};
+      \node (databaseserver) [container, fit=(mongoDB)] {};
+      \node [fill=white, right=10pt] at (databaseserver.north west) {Database server};
+
+      \node (docker) [container, fit= (nodeJS) (databaseserver)] {};
       \node[fill=white, right=10pt] at (docker.north west) {Container virtualization};
 
       \node (line) [draw, minimum height=0pt, minimum width=\textwidth - 70pt, inner sep=0pt, above = 30pt of docker] {};
 
       \node [above=2pt] at (line.north) {Client};
       \node [below=2pt] at (line.south) {Server};
-      \node [fill=white, draw] at (line.north west) {Data protocol};
-      \node [fill=white, draw] at (line.north east) {Data protocol};
+      \node [fill=white, draw] at (line.north west) {Data transfer protocol};
+      \node [fill=white, draw] at (line.north east) {Logic transfer protocol};
 
-      \node (subscribe) [box, above=30pt of line] {Data subscription};
+      \node (subscribe) [box, above=40pt of line] {Data subscription};
       \node (businessLogicClient) [box, above= 10pt of subscribe] {Business logic};
-      \node (reactJS) [box, above= 10pt of businessLogicClient] {View library};
-      \node (bootstrap) [box, above=10pt of reactJS] {CSS library};
+      \node (reactJS) [box, above= 10pt of businessLogicClient] {View \& CSS library};
+      \node (router) [box, above=10pt of reactJS] {Routing library};
+
+      \node (webbrowser) [container, fit= (subscribe) (businessLogicClient) (reactJS) (router)]{};
+      \node[fill=white, right=10pt] at (webbrowser.north west) {Web browser};
     \end{tikzpicture}
 	\end{figure}
 
-  \paragraph{UI-Sachen}
-  \begin{itemize}
-    \item im Ausdrucksbaukasten werden die Ausdrücke ausgegraut, welche keinen Sinn machen
-    \item Drag und Drop verfahren
-  \end{itemize}
-
-  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
-  \todo[inline]{Grafik vom Tech-Stack}
-
-  \paragraph{Technologienauswahl}
-  \todo[inline]{Publish und Subscripe design Pattern zitieren}
-  \begin{itemize}
-    \item Vorgaben
-      \begin{itemize}
-        \item Meteor
-        \item MongoDB (impliziert durch Meteor)
-        \item JS / NodeJS (impliziert durch Meteor)
-      \end{itemize}
-    \item ReactJS
-      \begin{itemize}
-        \item Wiederverwendbarkeit (Geschäftsobjekt- und Kennzahlkomponente in der Berichtsansicht)
-      \end{itemize}
-    \item Less
-    \item ES6
-    \item Mocha
-    \item Chai
-    \item Enzyme
-    \item react-bootstrap
-  \end{itemize}
-
+  \paragraph{Entwicklungsprozess}
   \begin{itemize}
     \item GitFlow
     \item Continuous Integration
@@ -1677,6 +1702,9 @@
     \item Continuous Deployment
     \item Digital Ocean
     \item Docker
+    \item Mocha
+    \item Chai
+    \item Enzyme
   \end{itemize}
 
 
