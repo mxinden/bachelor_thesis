@@ -189,6 +189,8 @@
   \todo[inline]{Grundlagen \ggf{} aufteilen in Grundlagen für die Sprache und
   Grundlagen für die Komponente}
 
+  \section{Modellierung}
+
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Datenschema abstrahiert darstellen.
   Die Modellierung der Daten ist essentiell für die Analyse:
@@ -202,7 +204,7 @@
 
 
 
-  \section{Multidimensionale Modellierung}
+  \subsection{Multidimensionale Modellierung}
   Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
   Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen.
 
@@ -307,7 +309,7 @@
     \end{tabular}
   \end{figure}
 
-  \section{Vergleich Entity-Relationship-Modellierung und multidimensionale Modellierung}
+  \subsection{Vergleich \acrshort{ER}-Modellierung und multidimensionale Modellierung}
 
   \paragraph{Entity-Relationship-Modellierung} Als Kombination aus dem
   Network-Modell, dem Relational-Modell und dem Entity-Set-Modell stellt
@@ -369,7 +371,7 @@
   \acrshort{OLAP}-Systeme besser eignet.
 
 
-  \section{Erweiterung der multidimensionalen Modellierung---H2 for Reporting}
+  \subsection{\textit{H2 for Reporting}}
   Die multidimensionale Modellierung wird durch verschiedene Modellierungssprachen
   erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
   Institut für Wirtschaftsinformatik an der \acrlong{WWU} (WWU)
@@ -453,7 +455,7 @@
   alle eine hohe Stammdatenqualität
   voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
 
-  \paragraph{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
+  \subsection{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
   Stammdaten als die zentralen Datensätze eines Unternehmens, welche über
   mehrere Abteilungen hinaus genutzt werden~(\citeyear{otto2012design}, S. 1
   f.).  Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre
@@ -478,7 +480,7 @@
   \textsc{\citeauthor{wand1996anchoring}}~(\citeyear{wand1996anchoring}, S. 8
   f.).
 
-	\paragraph{Messung und Verbesserung von Stammdatenqualität}
+	\subsection{Messung und Verbesserung von Stammdatenqualität}
 	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
 	nur verbessert werden kann, wenn diese dauerhaft gemessen und überwacht
   wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
@@ -504,7 +506,7 @@
 	dieser Fehler in der Zukunft für weitere Datensätze verhindert, womit auch
 	Schritt zwei erfüllt ist.
 
-	\paragraph{Stammdatenmanagement-Software}
+	\subsection{Stammdatenmanagement-Software}
 	\textsc{\citeauthor{baghi2014toward}} definieren
 	Stammdatenmanagement-Software allgemein als eine Applikation, welche
   Attribute von Stammdaten erstellen, speichern und verändern kann~(\citeyear{baghi2014toward}, S. 3828). \todo{Direkt übersetzt! Anführungszeichen?} Sie
@@ -537,7 +539,7 @@
 	von~\cite{baghi2014toward} verwiesen.
 
 
-  \section{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
+  \subsection{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
 
 	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
 	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
@@ -554,7 +556,7 @@
   ersetzen}. \textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehmens wird eine Methode vorgegeben, welche im folgenden anhand seiner
+	Unternehmens wird eine Methode vorgegeben, welche im folgenden anhand ihrer
 	Schritte erläutert wird:
 
 	\begin{enumerate}
@@ -634,8 +636,10 @@
   \textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
   \textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
+  \section{Anwendungsfall}
+
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Sprache}
+  \chapter{Entwicklung der \textit{DataFurnace}-Sprache}
   % ################################################################################
 
   \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
@@ -1057,8 +1061,9 @@
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
+
   % ################################################################################
-  \chapter{\textit{DataFurnace}-Software}
+  \chapter{Implementierung der \textit{DataFurnace}-Software}
   % ################################################################################
 
   \section{Motivation}
