@@ -123,7 +123,7 @@
   Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend als auch
   mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
   Abschnitt: Vorstellung \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur
-  Verbesserung von Datenqualität, tätig. Im Rahmen der
+  Verbesserung von Stammdatenqualität, tätig. Im Rahmen der
   Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor
   strukturierten Daten anhand von Kennzahlen auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und visualisieren?}.
   Hierzu wird eine Sprache und eine Komponente, welche die Sprache in \textit{DataRocket} integriert,
@@ -204,7 +204,7 @@
 
 
 
-  \subsection{Multidimensionale Modellierung}
+  \subsection{Multidimensionale Modellierung}\label{subsec:multidimensionale-modellierung}
   Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
   Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen.
 
@@ -255,7 +255,7 @@
     \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
   \end{figure}
 
-  \begin{figure}[caption={Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}, label={table:dimension-table}]
+  \begin{table}[]
     \footnotesize
     \begin{tabular}{c c c c}
       Ort Id & Straße & Ort & Land \\
@@ -264,7 +264,8 @@
       1 & Rudolf-Harbig-Weg & Münster & Deutschland \\
       2 & Hauptstraße & Bonn & Deutschland \\
     \end{tabular}
-  \end{figure}
+    \caption{Beispiel der Dimensionstabelle \textit{Ort} im Star-Schema}\label{table:dimension-table}
+  \end{table}
 
   Eine weitere Ausprägung der multidimensionalen Modellierung ist das Snowflake-Modell.
   Analog zum Star-Modell gleicht die Form eines Snowflake-Modells einer
@@ -286,7 +287,7 @@
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
   \end{figure}
 
-  \begin{figure}[caption={Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}, label={table:dimension-table-snow}]
+  \begin{table}
     \footnotesize
     \begin{tabular}{c c c }
       Straße Id & Name & Ort Id \\
@@ -307,7 +308,8 @@
       0 & Deutschland \\
       1 & Frankreich \\
     \end{tabular}
-  \end{figure}
+    \caption{Beispiel der Dimensionstabellen \textit{Ort} im Snowflake-Schema}\label{table:dimension-table-snow}
+  \end{table}
 
   \subsection{Vergleich \acrshort{ER}-Modellierung und multidimensionale Modellierung}
 
@@ -753,13 +755,15 @@
   Weiteren Annahmen getroffen werden, welche von der \textit{innoscale AG}
   vorrausgesetzt werden, und somit die Entwicklung der Sprache beeinflussen.
   \begin{enumerate}
-    \item \textit{DataRocket} bringt in seinem Funktionsumfang den so genannten
+    \item \textbf{Datentransformation durch \textit{DataRocket}}
+      
+      \textit{DataRocket} bringt in seinem Funktionsumfang den so genannten
       \textit{Mapper} mit, welcher es dem Nutzer ermöglicht, Daten in
       verschiedenste gewünschte Strukturen zu transformieren. Folglich kann für
       die Entwicklung der \textit{DataFurnace}-Sprache die Möglichkeit der
       Beschreibung einer Transformation von Datenstrukturen außer Acht gelassen
       werden mit der Annahme, dass die \textit{DataFurnace}-Software auf die
-      zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann indem es
+      zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann, indem es
       direkt mit Geschäftsobjekten\footnote{Der \textit{DataRocket}-Begriff
       Geschäftsobjekt wird in Abschnitt~\ref{subsec:dimension} erläutert.}
       arbeitet.
@@ -1027,7 +1031,7 @@
   bleibt gleich, nachvollziehbar an den Tabellen in
   Abbildung~\ref{table:auftrittsreihenfolge}.
   
-  \begin{figure}[caption={Auswertung des Geschäftsobjets \textit{Produkt}}, label={table:auftrittsreihenfolge}]
+  \begin{table}
     \footnotesize
     \begin{tabular}{c c c c c}
       \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
@@ -1041,7 +1045,8 @@
       \toprule
       \textbf{Anzahl} & 750 & 1000 & 250 & 500 \\
     \end{tabular}
-  \end{figure}
+    \caption{Auswertung des Geschäftsobjets \textit{Produkt}}\label{table:auftrittsreihenfolge}
+  \end{table}
 
   Die Tabellenkopfspalten legen fest mit welchen Kennzahlen die zuvor
   ausgewählten Geschäftsobjektinstanzen analysiert werden sollen. Ein Nutzer
@@ -1216,11 +1221,25 @@
 
     \item \textbf{Keine Datenanalyselogik}
 
-			Die \textit{DataFurnace}-Software soll lediglich die Modellierung von
-			Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
-			die Implementierung der dafür nötigen Analyselogik kann bereits von \textit{DataRocket}
-			selbst gestellt werden und muss folglich nicht erneut im Rahmen der
-			\textit{DataFurnace}-Software entwickelt werden.
+      Die \textit{DataFurnace}-Software soll lediglich die Modellierung von
+      Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
+      die Implementierung der dafür nötigen Analyselogik kann bereits von
+      \textit{DataRocket} selbst gestellt werden und muss folglich nicht erneut
+      im Rahmen der \textit{DataFurnace}-Software entwickelt werden.
+
+    \item \textbf{ETL-Prozess durch \textit{DataRocket}}
+
+      Es kann angenommen werden, dass die oben beschriebenen Eingabedaten der
+      \textit{DataFurnace}-Software in denormalisierter Form, wie im
+      Star-Modell\footnote{Für nähere Erläuterungen zum Star-Modell siehe
+      Abschnitt~\ref{subsec:multidimensionale-modellierung}}, vorliegen.
+      \textit{DataRocket} bietet die volle Funktionalität für einen
+      \textit{Extract}-\textit{Transform}-\textit{Load}-Prozess
+      \todo{ETL-Prozess zitieren} an, welcher normalisierte Daten aus
+      verschiedensten Datenquellen kombiniert in denormalisierte
+      Geschäftsobjektinstanzen wandeln kann, auf welche wiederum die
+      \textit{DataFurnace}-Software aufbauen soll.
+
   \end{enumerate}
 
     \todo[inline]{In der Report-View könnten unter den Standardspalten auch kumulierte
@@ -1314,8 +1333,7 @@
 			[Dimension \textit{Zeit}
 				[Dimenionslevel \textit{Jahr}
 					[\ldots{}
-						[Attribut \textit{Verfallsdatum}
-						]
+						[Attribut \textit{Verfallsdatum}]
 					]
 				]
 			]
@@ -1337,9 +1355,6 @@
   überprüfen. Ordentlich umschrieben?} Elemente können, durch einen klick auf
   das \textit{Löschen}-Symbol, gelöscht und, durch einen Klick auf den Namen, an
   der Stelle umbenannt werden.
-
-  \todo[inline]{Wird hier das Star- oder Snowflake-Modell angewendet?
-  Gegebenenfalls schon im Sprachen-Abschnitt ansprechen?}
 
   Neben der einfachen Charakterisierung von Elementen durch einen Namen,
   spezifiziert in der Baumstruktur auf der linken Seite der Dimensionsansicht,
@@ -1649,7 +1664,7 @@
   werden. Für das Frontend der Applikation wird die
   \textit{Javascript}-Bibliothek \textit{ReactJS} in Kombination mit der
   Anzeigebibliothek \textit{React-Bootstrap} und dem Programmpaket
-  \textit{React-Router} für das \textit{URI}-Routen-Management verwendet. Der
+  \textit{React-Router} für das \textit{URI}-Routen-Management verwendet.  Der
   gesamte Aufbau der Architektur wird durch
   Abbildung~\ref{fig:systemarchitektur} erneut verdeutlicht.
 
@@ -1689,10 +1704,23 @@
       \node[fill=white, right=10pt] at (webbrowser.north west) {Web browser};
     \end{tikzpicture}
 	\end{figure}
+  
+  Mit dieser Systemarchitektur kann die \textit{DataFurnace}-Software losgelöst
+  von \textit{DataRocket} eigenständig betrieben und genutzt werden. Neben der
+  Eigenständigkeit der Software ist auch die Integrierbarkeit in
+  \textit{DataRocket} gefordert. Sowohl \textit{DataRocket} als auch die
+  \textit{DataFurnace}-Software sind server- und clientseitig in der
+  Programmiersprache \textit{JavaScript} geschrieben, des Weiteren nutzen beide
+  das \textit{MeteorJS}-Framework, womit die Integration der serverseitigen
+  Funktionalität leicht umzusetzen ist. Clientseitig setzt \textit{DataRocket}
+  auf die Oberflächenbibliothek \textit{Blaze}, \textit{DataFurnace} setzt den
+  Konkurrenten \textit{ReactJS} ein, beide sind jedoch in sofern kompatibel, da
+  einzelne \textit{ReactJS}-Komponenten mit Hilfe einer kleinen Hilfsbibliothek
+  in \textit{Blaze}-Komponenten integriert werden können.
 
 
-  \paragraph{Publish und Subscribe}
-  Designpattern
+  % \paragraph{Publish und Subscribe}
+  % Designpattern
 
 
   \paragraph{Echtzeitkollaboration}
@@ -1706,44 +1734,45 @@
   technisch umsetzen zu können, wird das Webserver-Framework \textit{MeteorJS},
   die Datenbank \textit{MongoDB}, sowie die \textit{JavaScript}-Bibliothek
   \textit{ReactJS} verwendet. Anhand eines konkreten Beispiels soll im
-  Folgenden das Zusammenspiel dieser Technologien erläutert werden. Klickt
-  Nutzer A in der Dimensionsansicht auf das \textit{Löschen}-Symbol eines
-  Geschäftsobjekts, wird von dem \textit{JavaScript}-Framework \textit{ReactJS}
-  eine Funktion ausgeführt, welche das Geschäftsobjekt aus dem lokalen Speicher
-  löscht. Wird der lokale Speicher geändert, reagiert \textit{ReactJS} darauf,
-  indem es die aktuelle Oberfläche im Hintergrund neu berechnet und das Delta
-  aus aktueller und neuer Oberfläche in der aktuellen anpasst. Während
-  \textit{ReactJS} die Oberfläche ändert, reagiert auch das
-  \textit{Meteor}-Framework, indem es
-  die Änderungen auch auf den Serverspeicher, alias die \textit{MongoDB},
-  anwendet. Wird etwas an dem Zustand der \textit{MongoDB} geändert, so werden
-  diese Änderungen automatisch von Meteor an alle Clients verteilt. Somit wird
-  auch der lokale Speicher von Client B automatisch angepasst, was wiederum zur
-  Folge hat, dass das \textit{ReactJS}-Framework die Oberfläche des Clients B
-  neu berechnet und anzeigt, womit auch hier das Geschäftsobjekt gelöscht wird.
-
-  \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
-  Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
-  Falls auf React eingegangen wird, auch die Wiederverwendbarkeit einzelner Komponenten beschreiben.
-
-  \paragraph{React-Router}
-  \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
-
-  \paragraph{Entwicklungsprozess} Um eine hohe Softwarequalität sicher zu
-  stellen, wurde die \textit{DataFurnace}-Software angelehnt an dem
-  \textit{GitFlow}-Prinzip mit einer hohen Testabdeckung entwickelt.
+  Folgenden das Zusammenspiel dieser Technologien erläutert werden. 
   
-  \begin{itemize}
-    \item GitFlow
-    \item Continuous Integration
-    \item Travis CI
-    \item Continuous Deployment
-    \item Digital Ocean
-    \item Docker
-    \item Mocha
-    \item Chai
-    \item Enzyme
-  \end{itemize}
+  Klickt Nutzer A in der Dimensionsansicht auf das \textit{Löschen}-Symbol
+  eines Geschäftsobjekts, wird von dem \textit{JavaScript}-Framework
+  \textit{ReactJS} eine Funktion ausgeführt, welche das Geschäftsobjekt aus dem
+  lokalen Speicher löscht. Wird der lokale Speicher geändert, reagiert
+  \textit{ReactJS} darauf, indem es die aktuelle Oberfläche im Hintergrund neu
+  berechnet und das Delta aus aktueller und neuer Oberfläche in der aktuellen
+  anpasst. Während \textit{ReactJS} die Oberfläche ändert, reagiert auch das
+  \textit{Meteor}-Framework, indem es die Änderungen auch auf den
+  Serverspeicher, alias die \textit{MongoDB}, anwendet. Wird etwas an dem
+  Zustand der \textit{MongoDB} geändert, so werden diese Änderungen automatisch
+  von Meteor an alle Clients verteilt. Somit wird auch der lokale Speicher von
+  Client B automatisch angepasst, was wiederum zur Folge hat, dass das
+  \textit{ReactJS}-Framework die Oberfläche des Clients B neu berechnet und
+  anzeigt, womit auch hier das Geschäftsobjekt gelöscht wird.
+
+  % \todo[inline]{Dieser Abschnitt muss nicht-funktionales Ziel `Eigenständige
+  % Software integrierbar in DataRocket' und `Echtzeitkollaboration' beantworten}
+  % Falls auf React eingegangen wird, auch die Wiederverwendbarkeit einzelner Komponenten beschreiben.
+
+%  \paragraph{React-Router}
+%  \todo[inline]{React router Lade-Symbol für Usability Heuristic 1 `Visibility of system status'}
+
+%  \paragraph{Entwicklungsprozess} Um eine hohe Softwarequalität sicher zu
+%  stellen, wurde die \textit{DataFurnace}-Software angelehnt an dem
+%  \textit{GitFlow}-Prinzip mit einer hohen Testabdeckung entwickelt.
+%  
+%  \begin{itemize}
+%    \item GitFlow
+%    \item Continuous Integration
+%    \item Travis CI
+%    \item Continuous Deployment
+%    \item Digital Ocean
+%    \item Docker
+%    \item Mocha
+%    \item Chai
+%    \item Enzyme
+%  \end{itemize}
 
 
 % ################################################################################
