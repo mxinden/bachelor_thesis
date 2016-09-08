@@ -233,23 +233,25 @@
     \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
   \end{figure}
 
-  Die multidimensionale Modellierung unterteilt sich nun in verschiedene Ausprägungen.
-  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
-  2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil verwiesen?}. Der Name ist zurück zu führen auf den Aufbau
-  eines entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches
-  die Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des
-  Sterns befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese
-  verweist mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils
-  eine komplette Dimension abbilden und somit im Gegenzug auf die dritte
-  Normalform verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende
-  Datenredundanz (Siehe Abbildung~\ref{table:dimension-table}) durch Mangel an
-  Normalisierung in den Dimensionstabellen resultiert laut
-  \textsc{\citeauthor{Kimball2013}} durch ihre geringe Größe nicht in einer
-  schlechteren Leistung des Datenbanksystems, sondern im Gegenzug in einer
-  besseren Verständlichkeit der Struktur~\cite[][S. 15]{Kimball2013}. Weitere
-  Details zur Datenbanknormalisierung können in den Publikationen des
-  Erfinders, \textsc{\citeauthor{codd1970relational}}, gefunden
-  werden~\citeyearpar{codd1970relational,codd1972further}.
+	Die multidimensionale Modellierung unterteilt sich nun in verschiedene
+	Ausprägungen.  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
+	2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil
+	verwiesen?}. Der Name ist zurück zu führen auf den Aufbau eines
+	entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches die
+	Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des Sterns
+	befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese verweist
+	mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
+	komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
+	verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
+	(Siehe Abbildung~\ref{table:dimension-table}), durch Mangel an Normalisierung
+	in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
+	durch ihre geringe Größe nicht in einer schlechteren Leistung des
+	Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
+	Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
+	Datenbanknormalisierung können in den Publikationen des
+	Erfinders\todo{Erfinder das richtige Wort?},
+	\textsc{\citeauthor{codd1970relational}}, gefunden
+	werden~\citeyearpar{codd1970relational,codd1972further}.
 
   \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
     \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
@@ -367,40 +369,54 @@
   Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen und
   komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
   52]{ballard2012dimensional}. Mit der multidimensionalen Modellierung können diese
-  Anfragen schneller verarbeitet werden\cite[][S.  52]{ballard2012dimensional},
+  Anfragen schneller verarbeitet werden,
   unter anderem zurück zu führen auf die geringere Normalisierung, wodurch
   sich die multidimensionale Modellierung gegenüber der ER-Modellierung für
-  \acrshort{OLAP}-Systeme besser eignet.
+  \acrshort{OLAP}-Systeme besser eignet~\cite[][S.  52]{ballard2012dimensional}.
 
 
-  \subsection{\textit{H2 for Reporting}}
-  Die multidimensionale Modellierung wird durch verschiedene Modellierungssprachen
-  erweitert. Hierzu zählt \zB{} \textit{H2 for Reporting}, entwickelt vom
-  Institut für Wirtschaftsinformatik an der \acrlong{WWU} (WWU)
-  Münster\todo{Stimmt das und wenn ja belegen!}. \textit{H2 for Reporting}
-  ergänzt die multidimensionale Modellierung unter anderem um Bezugsobjekte,
-  Kennzahlen und Berichte:
-  \begin{itemize}
-    \item Bezugsobjekte bilden die
-      Basisobjekte der Datenanalyse, Beispiele sind Ort, Zeit oder
-      Produkt~\cite[][S.  5]{becker2007h2}.\todo{Das ist noch zu wenig!}
+	\subsection{\textit{H2 for Reporting}}
 
-    \item Kennzahlen ermöglichen die qualitative
-      und quantitative Teilanalyse von Bezugsobjekten. Sie werden unterschieden in
-      Basiskennzahlen und berechneten Kennzahlen, welche wiederum in Kennzahlen mit
-      Bezug auf ein und mit Bezug auf mehrere Objekte unterteilt werden~\cite[][S.
-      15]{becker2007h2}. \textsc{\citeauthor{becker2007h2}} nennt als Beispiel
-      einer berechneten Kennzahl den Umsatz~(\cite{becker2007h2}, S. 17).
+	Die multidimensionale Modellierung wird durch verschiedene
+	Modellierungssprachen erweitert. Zu diesen Erweiterungen zählt \textit{H2 for
+	Reporting}, entwickelt vom Institut für Wirtschaftsinformatik an der
+	\acrlong{WWU} (WWU) Münster\todo{Stimmt das und wenn ja belegen!}. \textit{H2
+	for Reporting} ergänzt die multidimensionale Modellierung unter anderem um
+	die Modelltypen Bezugsobjekte, Kennzahlen und Berichte:
 
-    \item Berichte dienen der Visualisierung von Erkenntnissen aus der Kombination von
-      Bezugsobjekten, Dimensionen und Kennzahlen und können zum Beispiel mit der
-      Hilfe einer Tabelle abgebildet werden~\cite[][S. 23]{becker2007h2}.
-  \end{itemize}
+	\begin{itemize}
 
-  Für die Anwendung von \textit{H2 for Reporting} kann das
-  Metamodellierungswerkzeug \textit{H2-Toolset} verwendet werden~\cite[][S.
-  33]{fleischer2013konstruktion}. Dieses wurde ebenfalls an der
-  \acrshort{WWU}-Münster entwickelt~\cite[][S. 34]{becker2007h2}.
+		\item Bezugsobjekte bilden die Basisobjekte der Datenanalyse, Beispiele
+		sind \textit{Zeit} oder \textit{Produkt}~\cite[][S.  5]{becker2007h2}. Eine
+		Menge hierarchisch angeordneter Bezugsobjekte bilden zusammen eine
+		Dimension~\cite[][S.  88]{becker2012fachkonzeptionelle}. Zum Beispiel
+		können die Bezugsobjekte \textit{Hausnummer}, \textit{Straße} und
+		\textit{Postleitzahl} zusammen die Dimension \textit{Ort} bilden.
+
+		\item Kennzahlen ermöglichen die qualitative und quantitative Teilanalyse
+		von Bezugsobjekten und werden in Kennzahlsystemen
+		gruppiert~\cite[][S.88]{becker2012fachkonzeptionelle}. Sie werden
+		unterschieden in Basiskennzahlen und berechneten Kennzahlen, welche
+		wiederum in Kennzahlen mit Bezug auf ein und mit Bezug auf mehrere Objekte
+		unterteilt werden~\cite[][S.  15]{becker2007h2}.
+		\textsc{\citeauthor{becker2007h2}} nennt als Beispiel einer berechneten
+		Kennzahl den Umsatz~(\cite{becker2007h2}, S. 17).
+
+		\item Berichte dienen der Visualisierung von Erkenntnissen aus der
+		Kombination von Bezugsobjekten, Dimensionen und Kennzahlen~\cite[][S.
+		23]{becker2007h2}. Besonderheit der Sprache ist die Möglichkeit der
+		Beschreibung von Tabellen als Visualisierungskomponente eines
+		Berichts~\cite[][S. 86]{becker2012fachkonzeptionelle}.
+
+	\end{itemize}
+
+	Für die Anwendung von \textit{H2 for Reporting} kann das
+	Metamodellierungswerkzeug \textit{H2-Toolset} verwendet werden~\cite[][S.
+	33]{fleischer2013konstruktion}, welches darüber hinaus Weiterentwicklungen
+	der Sprache \textit{H2 for Reporting}, sowie andere Sprachen
+	unterstützt~\cite[][S. 86]{becker2012fachkonzeptionelle}. Das
+	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
+	entwickelt~\cite[][S.  34]{becker2007h2}.
 
   \begin{itemize}
     \item H2 for Reporting
@@ -1227,18 +1243,21 @@
       \textit{DataRocket} selbst gestellt werden und muss folglich nicht erneut
       im Rahmen der \textit{DataFurnace}-Software entwickelt werden.
 
-    \item \textbf{ETL-Prozess durch \textit{DataRocket}}
+    \item \textbf{\acrshort{ETL}-Prozess durch \textit{DataRocket}}
 
-      Es kann angenommen werden, dass die oben beschriebenen Eingabedaten der
-      \textit{DataFurnace}-Software in denormalisierter Form, wie im
-      Star-Modell\footnote{Für nähere Erläuterungen zum Star-Modell siehe
-      Abschnitt~\ref{subsec:multidimensionale-modellierung}}, vorliegen.
-      \textit{DataRocket} bietet die volle Funktionalität für einen
-      \textit{Extract}-\textit{Transform}-\textit{Load}-Prozess
-      \todo{ETL-Prozess zitieren} an, welcher normalisierte Daten aus
-      verschiedensten Datenquellen kombiniert in denormalisierte
-      Geschäftsobjektinstanzen wandeln kann, auf welche wiederum die
-      \textit{DataFurnace}-Software aufbauen soll.
+			Es kann angenommen werden, dass die oben beschriebenen Eingabedaten der
+			\textit{DataFurnace}-Software in denormalisierter Form, wie im
+			Star-Modell\footnote{Für nähere Erläuterungen zum Star-Modell siehe
+			Abschnitt~\ref{subsec:multidimensionale-modellierung}}, vorliegen.
+			\textit{DataRocket} bietet die volle Funktionalität für einen
+			\textit{Extract}-\textit{Transform}-\textit{Load}-Prozess\footnote{Für
+			Definitionen des ETL-Prozesses
+			siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
+			\citeyearpar{vassiliadis2002conceptual}
+			und~\textsc{\citeauthor{trujillo2003uml}} \citeyearpar{trujillo2003uml}}
+			an, welcher normalisierte Daten aus verschiedensten Datenquellen
+			kombiniert in denormalisierte Geschäftsobjektinstanzen wandeln kann, auf
+			welche wiederum die \textit{DataFurnace}-Software aufbauen soll.
 
   \end{enumerate}
 
