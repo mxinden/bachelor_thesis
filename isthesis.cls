@@ -762,6 +762,7 @@
 }
 
 \renewcommand{\cftfigindent}{0pt}
+\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
 
 
 % List of tables
@@ -778,6 +779,7 @@
 
 \renewcommand{\cfttabindent}{0pt}
 \setlength{\cfttabnumwidth}{2cm}
+\renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
 
 
 % List of listings

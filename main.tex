@@ -641,11 +641,18 @@
 		welche überprüft, ob das Attribut \textit{E-Mail-Adresse} des
 		Geschäftsobjekts ein At-Zeichen enthält.
 
-    \item Instanzen von Geschäftsobjekten werden mit Hilfe der zuvor
-      spezifizierten Qualitätskennzahlen im \textit{Calculation}-Baustein
-      analysiert. Ein mögliches Auswertungsergebnis für das Geschäftsobjekt
-      Kunde ist, dass vier Prozent aller Kundenstammdaten in dem Attribut
-      \textit{E-Mail-Adresse} das At-Zeichen fehlt.
+		\item Aggregierte Instanzen eines zuvor modellierten Geschäftsobjekts
+		werden geladen. Hierzu spezifiziert der Nutzer das gewünschte
+		Geschäftsobjekt, welches er im weiteren Verlauf analysieren möchte, und die
+		angebunden Datenquellen, aus welchen er die Instanzen laden möchte.
+
+		\item Die Instanzen der Geschäftsobjekten werden mit Hilfe der zuvor
+		spezifizierten Qualitätskennzahlen im \textit{Calculation}-Baustein
+		analysiert. Die Auswertungsergebnisse einzelner Instanzen werden anhand von
+		Geschäftsobjektinstanzaggregationen gruppiert. Ein mögliches
+		Auswertungsergebnis für das gesamte Geschäftsobjekt Kunde über alle
+		Instanzen ist, dass vier Prozent aller Kundenstammdaten in dem Attribut
+		\textit{E-Mail-Adresse} das At-Zeichen fehlt.
 
     \item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
       verschiedensten Graphen im \textit{Visualization}-Baustein visualisiert
