@@ -117,17 +117,17 @@
     \item Daten sind komplex
   \end{itemize}
 
-  Diese Bachelorarbeit beschäftigt sich mit der
-  konzeptionellen Analyse von Unternehmensdaten in Zusammenarbeit mit der
-  \textit{innoscale AG}, ein im Jahre 2013 gegründetes Unternehmen aus Berlin.
-  Spezialisiert auf das Stammdatenmanagement ist es sowohl beratend als auch
-  mit einem eigenen Produkt, namens \textit{DataRocket}\footnote{Siehe
-  Abschnitt: Vorstellung \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur
-  Verbesserung von Stammdatenqualität, tätig. Im Rahmen der
-  Datenqualitätsverbesserung ist es nötig, die Qualität von zuvor
-  strukturierten Daten anhand von Kennzahlen auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und visualisieren?}.
-  Hierzu wird eine Sprache und eine Komponente, welche die Sprache in \textit{DataRocket} integriert,
-  benötigt.
+  Diese Bachelorarbeit beschäftigt sich mit der konzeptionellen Analyse von
+  Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein im
+  Jahre 2013 gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
+  Stammdatenmanagement ist es sowohl beratend als auch mit einem eigenen
+  Produkt, namens \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
+  \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur Verbesserung von
+  Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung ist es
+  nötig, die Qualität von zuvor strukturierten Daten anhand von Kennzahlen
+  auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und
+  visualisieren?}.  Hierzu wird eine Sprache und eine Komponente, welche die
+  Sprache in \textit{DataRocket} integriert, benötigt.
 
   Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
   Modellierungssprache zur Konzeption von Unternehmensdatenanalysen und zum
@@ -375,7 +375,7 @@
   \acrshort{OLAP}-Systeme besser eignet~\cite[][S.  52]{ballard2012dimensional}.
 
 
-	\subsection{\textit{H2 for Reporting}}
+	\subsection{Erweiterung der multidimensionalen Modellierung}
 
 	Die multidimensionale Modellierung wird durch verschiedene
 	Modellierungssprachen erweitert. Zu diesen Erweiterungen zählt \textit{H2 for
@@ -421,12 +421,14 @@
 	Das \textit{Dimensional-Fact}-Modell (\textit{\acrshort{DFM}}), mit den Typen
 	\textit{Fakt}, \textit{Kennzahl}, \textit{Dimension} und
 	\textit{Hierarchie}~\cite[][]{golfarelli1998dimensional}, das
-	\textit{Multidimensional-Entity-Relationship}-Modell, basierend auf dem
-	\textit{\acrlong{ERM}}, mit den Spezialisierung \textit{Dimensions-Level} des
-	\textit{Entity}-Typen und \textit{Fact} und \textit{Roll-Up-To} des
+	\textit{\acrlong{ME/R}}-Modell (\textit{\acrshort{ME/R}-Modell}), basierend
+	auf dem \textit{\acrlong{ERM}}, mit den Spezialisierung
+	\textit{Dimensions-Level} des \textit{Entity}-Typen und \textit{Fact} und
+	\textit{Roll-Up-To} des
 	\textit{Relationship}-Typen~\cite[][]{sapia1998extending}, sowie das
-	\textit{Adapt}-Modell \todo{Quelle für ADAPT hinzufügen} sind alternative Erweiterungen der multidimensionalen
-	Modellierung.
+	\textit{\acrlong{ADAPT}}-Modell (\textit{\acrshort{ADAPT}}), mit einer
+	Vielzahl eigener Modellierungstypen~\cite[][]{chamoni2013analytische}, sind
+	alternative Erweiterungen der multidimensionalen Modellierung.
 
   % \begin{itemize}
   %   \item H2 for Reporting
@@ -483,46 +485,58 @@
   alle eine hohe Stammdatenqualität
   voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
 
-  \subsection{Stammdatenqualität} \textsc{\citeauthor{otto2012design}} definiert
-  Stammdaten als die zentralen Datensätze eines Unternehmens, welche über
-  mehrere Abteilungen hinaus genutzt werden~(\citeyear{otto2012design}, S. 1
-  f.).  Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre
-  Beständigkeit im Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
-  \textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
-  \textit{Kunden}, \textit{Lieferanten} und
-  \textit{Produkte}~(\citeyear{knolmayer2006quality}, S. 1). Die Qualität der
-  Stammdaten gibt an, wie gut sich die Daten für einen bestimmten Einsatz
-  verwenden lassen können~\cite[][S.  8]{otto2011stammdatenmanagement}.
+	\subsection{Stammdatenqualität} \textsc{\citeauthor{otto2012design}}
+	definiert Stammdaten als die zentralen Datensätze eines Unternehmens, welche
+	über mehrere Abteilungen hinaus genutzt werden~(\citeyear{otto2012design}, S.
+	1 f.).  Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre
+	Beständigkeit im Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
+	\textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
+	\textit{Kunden}, \textit{Lieferanten} und
+	\textit{Produkte}~(\citeyear{knolmayer2006quality}, S. 1). Die Qualität der
+	Stammdaten gibt an, wie gut sich die Daten für einen bestimmten Einsatz
+	verwenden lassen können~(\citeauthor{otto2011stammdatenmanagement}
+	\citeyear{otto2011stammdatenmanagement} S.
+	8;~\citeauthor{hinrichs2002datenqualitatsmanagement}
+	\citeyear{hinrichs2002datenqualitatsmanagement} S. 26).
 
-  Die Stammdatenqualität lässt sich anhand von verschiedenen
-  Qualitätsdimensionen genauer spezifizieren.
-  \textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
-  \textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
-  Darstellung}, \textit{Relevanz}, \textit{Veränderbarkeit},
-  \textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
-  Dimensionen~(\citeyear{pipino2002data, legner2007stammdaten}, S. 213 f., S. 4
-  f.). \textsc{\citeauthor{baghi2013controlling}} hingegen nutzen für ihre
-  Fallstudie lediglich die Datenqualitätsdimensionen \textit{Genauigkeit} und
-  \textit{Vollständigkeit}~(\citeyear{baghi2013controlling}, S. 4), basierend
-  auf der Sammlung von
-  \textsc{\citeauthor{wand1996anchoring}}~(\citeyear{wand1996anchoring}, S. 8
-  f.).
+	Die Stammdatenqualität lässt sich anhand von verschiedenen
+	Qualitätsdimensionen genauer spezifizieren.
+	\textsc{\citeauthor{pipino2002data}} nennen \zB{} \textit{Fehlerfreiheit},
+	\textit{Vollständigkeit}, \textit{Konsistenz}, \textit{prägnante
+	Darstellung}, \textit{Relevanz}, \textit{Veränderbarkeit},
+	\textit{Glaubhaftigkeit} und \textit{Aktualität} als mögliche
+	Dimensionen~(\citeyear{pipino2002data, legner2007stammdaten}, S. 213 f., S. 4
+	f.). \textsc{\citeauthor{baghi2013controlling}} hingegen nutzen für ihre
+	Fallstudie lediglich die Datenqualitätsdimensionen \textit{Genauigkeit} und
+	\textit{Vollständigkeit}~(\citeyear{baghi2013controlling}, S. 4), basierend
+	auf der Sammlung von
+	\textsc{\citeauthor{wand1996anchoring}}~(\citeyear{wand1996anchoring}, S. 8
+	f.). Die \acrlong{DGIQ} (\acrshort{DGIQ}) teilt Datenqualitätsdimensionen in
+	die vier Kategorien \textit{Nutzung}, \textit{System}, \textit{Darstellung}
+	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat}, welche jeweils den Betrachtungsraum der Dimensionen
+	abbilden, siehe Abbildung~\ref{15-dimensions}.
+
+  \begin{figure}[caption={Datenqualitätsdimensionen angeleht an~\cite{rohweder2015informationsqualitat} S. 30}, label={15-dimensions}]
+    \includegraphics[scale=0.60]{content/figures/15-dimensions}
+  \end{figure}
 
 	\subsection{Messung und Verbesserung von Stammdatenqualität}
 	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
 	nur verbessert werden kann, wenn diese dauerhaft gemessen und überwacht
-  wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
+	wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
 	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
 	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{} ob ein bestimmtes Feld
-	eines Stammdatums gefüllt ist. Angewandt auf die
-	Datenqualitätsdimension \textit{Vollständigkeit} kann sie angeben, wie
-	vollständig ein bestimmtes Datum ist. Die Überwachung der Stammdatenqualität
-	eines Unternehmens kann nach der Spezifikation von Datenqualitätskennzahlen
-	von einer Stammdatenmanagement-Software wie \zB{} \textit{DataRocket}
-	kontinuierlich auf die gesamten Stammdaten eines Unternehmens angewandt
-	werden, womit nach \textsc{\citeauthor{baghi2013controlling}} das Fundament
-  für die Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S. 2).
+	eines Stammdatums gefüllt ist. Angewandt auf die Datenqualitätsdimension
+	\textit{Vollständigkeit} der Dimensionskategorie \textit{Nutzung}, kann sie
+	angeben, wie vollständig ein bestimmtes Datum ist. Die Überwachung der
+	Stammdatenqualität eines Unternehmens kann nach der Spezifikation von
+	Datenqualitätskennzahlen von einer Stammdatenmanagement-Software wie \zB{}
+	\textit{DataRocket} kontinuierlich auf die gesamten Stammdaten eines
+	Unternehmens angewandt werden, womit nach
+	\textsc{\citeauthor{baghi2013controlling}} das Fundament für die
+	Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S.
+	2).
 
 	Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden gilt es die
 	vorhandenen Fehler zu beseitigen und deren Ursache zu identifizieren, um
@@ -549,7 +563,7 @@
 	die Architektur \textit{Leading-System} und \textit{Consolidation-Hub}
 	verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
 	erläutert werden.
-	
+
 	Im Ansatz der \textit{Leading-System}-Architektur wird für jede
 	Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
 	Klasse der Kundendaten, welches die Hauptverwaltung dieser Klasse übernimmt,
@@ -558,13 +572,13 @@
 	\textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
 	beschreibt ein zentrales System, welches verschiedenste andere Systeme und
 	Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
-  Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe hierzu
-	\textsc{\citeauthor{loshin2010master}}, wessen Definition von
+	Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe
+	hierzu auch \textsc{\citeauthor{loshin2010master}}, wessen Definition von
 	Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
-  gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen wird
-	im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre Erklärungen
-	auch nicht Teil dieser Arbeit sind, hier wird lediglich auf die Erklärungen
-	von~\cite{baghi2014toward} verwiesen.
+	gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen
+	wird im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre
+	Erklärungen auch nicht Teil dieser Arbeit sind, hier wird lediglich auf die
+	Erklärungen von~\cite{baghi2014toward} verwiesen.
 
 
   \subsection{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
@@ -581,41 +595,51 @@
 	weiter geben kann, \bzw{} die Änderungen zurück schreiben kann.
 	Alleinstellungsmerkmale der Software sind: Domänenunabhängigkeit, einfache
 	Bedienung und hoher Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch
-  ersetzen}. \textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme.
+	ersetzen}. \textit{DataRocket} fällt in die Gruppe der
+	\acrshort{OLAP}-Systeme und implementiert einen
+	\textit{\acrlong{ETL}}-Prozess.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
 	Unternehmens wird eine Methode vorgegeben, welche im folgenden anhand ihrer
-	Schritte erläutert wird:
+	Schritte näher erläutert wird:
 
 	\begin{enumerate}
-    \item Eine Soll-Modellierung wird durchgeführt, indem Geschäftsobjekte und
-      ihre Attribute definiert werden und mit einander in Beziehung gebracht
-      werden. Ein Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die
-      Attribute \textit{Name} und \textit{E-Mail-Adresse} hat. Zusätzlich
-      besitzt es eine Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
+		\item Eine Aggregations-Modellierung wird durchgeführt, indem so genannte
+		Geschäftsobjekte\footnote{Der DataRocket-Begriff Geschäftsobjekt wird in
+		Abschnitt~\ref{subsec:dimension} erläutert.} und ihre Attribute definiert
+		werden und mit einander in Beziehung gebracht werden. In späteren Schritten
+		wird ein solches Geschäftsobjekt mit Informationen aus verschiedenen
+		Datenquellen befüllt, womit es eine Aggregation dieser darstellt. Ein
+		Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die Attribute
+		\textit{Name} und \textit{E-Mail-Adresse} hat. Zusätzlich besitzt es eine
+		Beziehung zum Geschäftsobjekt \textit{Mitarbeiter}. 
 
     \item Eine Ist-Modellierung wird erstellt, indem verschiedenste
       Informationssysteme eines Unternehmens an \textit{DataRocket} angebunden
       werden und deren Struktur entweder automatisiert, oder manuell in der
-      Software übernommen werden. 
+			Software übernommen werden. Ein Beispiel für ein solches
+			Informationssystem ist eine \textit{SQL}-Datenbank. \textit{DataRocket}
+			kann das Schema der Datenbank auslesen und automatisiert ein passendes
+			\textit{\acrshort{ER}} ähnliches Modell erstellen.
 
-    \item Die Soll-Modellierung wird der Ist-Modellierung zugeordnet, indem
-      Geschäftsobjekte beider Welten miteinander verbunden werden. Im Kontext
-      des oben genannten Beispiels wird hier das \acrshort{CRM}-System eines
-      Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
-      Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
-      Geschäftsobjekt \textit{Kunde} der Soll-Modellierung zugewiesen. Die
-      Soll- und Ist-Modellierung ist zurück zu führen auf
-      \textsc{\citeauthor{becker2006konzeptionelle}}, welche diese \zB{} für
-      den Einsatz in \glqq{}Reorganisationsprojekten\grqq{}
-      vorschlagen~(\citeyear{becker2006konzeptionelle}, S. 3).\todo{Nicht direkt
-      Soll-Modellierung, nur in Datenmigrationsprojekten, alternativen Begriff
-      suchen}
+		\item Die Aggregations-Modellierung wird der Ist-Modellierung zugeordnet,
+		indem Geschäftsobjekte beider Welten miteinander verbunden werden. Im
+		Kontext des oben genannten Beispiels wird hier das \acrshort{CRM}-System
+		eines Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
+		Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
+		Geschäftsobjekt \textit{Kunde} der Aggregations-Modellierung zugewiesen.
+		Kommt dieser Prozess \zB{} im Rahmen einer Umstrukturierungsmaßnahme
+		zum Einsatz, so kann die Aggregations- und Ist-Modellierung mit der Soll-
+		und Ist-Modellierung nach \textsc{\citeauthor{becker2006konzeptionelle}}
+		verglichen werden~(\citeyear{becker2006konzeptionelle}, S. 3).
 
-    \item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten
-      definiert. Ein Beispiel einer Qualitätskennzahl für das Geschäftsobjekt
-      \textit{Kunde} ist eine Kennzahl, welche überprüft, ob das Attribut
-      \textit{E-Mail-Adresse} ein At-Zeichen enthält.
+		\item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten
+		definiert, indem entweder auf einen bereitgestellten Katalog von
+		Auswertungsfunktionen zurück gegriffen wird, oder eigene, durch die
+		Formulierung von regulären Ausdrücken, erstellt werden. Ein Beispiel einer
+		Qualitätskennzahl für das Geschäftsobjekt \textit{Kunde} ist eine Kennzahl,
+		welche überprüft, ob das Attribut \textit{E-Mail-Adresse} des
+		Geschäftsobjekts ein At-Zeichen enthält.
 
     \item Instanzen von Geschäftsobjekten werden mit Hilfe der zuvor
       spezifizierten Qualitätskennzahlen im \textit{Calculation}-Baustein
@@ -637,32 +661,34 @@
       Bereinigung von Adressdaten. Hierzu werden externe
       Geo-Datenbanken \todo{Beispiel für eine Datenbank} angebunden, welche
       \textit{DataRocket} mit den Adressdaten der Geschäftsobjekte vergleicht
-      und diese hiermit \ggf{} ergänzt oder korrigiert.
+			und diese hiermit \ggf{} ergänzt oder korrigiert. Die Datenänderungen
+			werden von \textit{DataRocket} automatisiert in das
+			Informationsquellsystem zurück geschrieben.
 
     \item \textit{DataRocket} überwacht alle angebundenen Datenquellen
       kontinuierlich und bietet in der Benutzerschnittstelle eine
       Berichterstattungskomponente, welche dem User sowohl den aktuellen Status
       quo der Datenqualität im Unternehmen, als auch die Entwicklung im
-      Zeitverlauf präsentiert.
+      Zeitverlauf anzeigt.
 	\end{enumerate}
 
-    Der sequentielle Prozess (Schritt 5--7) wird in der
-    Benutzeroberfläche durch die \textit{DataPipeline}
-    abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es
-    dem Nutzer verschiedene Prozessschritte wie Bausteine aneinander zu reihen,
-    welche jeweils auf den Ergebnissen ihrer Vorgänger aufbauen. Im bisherigen
-    Beispielszenario wird zunächst das Geschäftsobjekt \textit{Kunde} mit Hilfe
-    der zuvor definierten Qualitätskennzahlen im \textit{Calculation} Baustein
-    analysiert. Die Ergebnisse der Analyse werden weiter an den
-    \textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
-    darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf die
-    Ergebnisse zu, in welchem der User die zuvor festgestellten
-    Datenqualitätsprobleme beheben kann.
+	Der sequentielle Prozess (Schritt 5--7) wird in der Benutzeroberfläche
+	durch das Modul \textit{DataPipeline} abgebildet\todo{Vielleicht Unix
+	pipeline zitieren}. Diese ermöglicht es dem Nutzer verschiedene
+	Prozessschritte wie Bausteine aneinander zu reihen, welche jeweils auf die
+	Ausgabewerte ihrer Vorgänger als eigene Eingabewerte aufbauen. Sie ist vergleichbar mit dem \textit{Pipeline}-Pattern des Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix ähnlichen Betriebssystemen~\cite[][]{spinellis2001notable}. Im
+	bisherigen Beispielszenario würde zunächst das Geschäftsobjekt
+	\textit{Kunde} mit Hilfe der zuvor definierten Qualitätskennzahlen im
+	\textit{Calculation} Baustein analysiert. Die Ergebnisse der Analyse werden
+	weiter an den \textit{Visualization-Baustein} gegeben, welcher diese in
+	Form von Graphen darstellt. Abschließend greift der
+	\textit{Cleaning-Baustein} auf die Ergebnisse zu, in welchem der User die
+	zuvor festgestellten Datenqualitätsprobleme beheben kann.
 
-  Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
-  prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
-  \textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
-  \textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
+	Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
+	prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
+	\textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
+	\textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
   \section{Anwendungsfall}
 
@@ -823,7 +849,7 @@
   \textit{DataRocket}-Software. Ein Geschäftsobjekt kann zum Beispiel das
   \textit{Produkt} aber auch die \textit{Umsatztransaktion} sein.  Das
   Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
-  Reporting}-Sprache verglichen werden. \todo{Wo liegen die Ähnlichkeiten?}
+  Reporting}-Sprache verglichen werden. \todo{Kann es das wirklich?}
 
   \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={geschaeftsobjekt}]
     \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
