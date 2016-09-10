@@ -108,15 +108,6 @@
 
   \todo[inline]{Einleitung ca.\ 1--2 Seiten}
 
-  \paragraph{Status quo und Problemstellung}
-  \begin{itemize}
-    \item Die Daten sind vorhanden
-    \item Auswertung bisher nur mit dem nötigen EDV-Wissen möglich
-    \item Für technischen Laien sind die Daten unbrauchbar
-    \item Daten enthalten wirtschaftlich relevante Fakten
-    \item Daten sind komplex
-  \end{itemize}
-
   Diese Bachelorarbeit beschäftigt sich mit der konzeptionellen Analyse von
   Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein im
   Jahre 2013 gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
@@ -152,29 +143,6 @@
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im folgenden den
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
-
-  \paragraph{Ziel}
-  \begin{itemize}
-    \item Spezifikation einer Datenanalysemethode zugeschnitten auf das
-      Unternehmen \textit{innoscale AG}
-      \begin{itemize}
-        \item Leicht verständlich
-        \item Modellierung von Datenstrukturen, Kennzahlen und die Kombination der
-          beiden als Fakten/Tabelle
-        \item Datenstruktur generiert aus einem SQL-Schema
-        \item Kennzahlen: Modellierung aller gängigen arithmetischen Operationen
-        \item Fakten/Tabelle: mit Zeilen und Spalten aus Datenstruktur und Kennzahl 
-      \end{itemize}
-    \item \textit{DataRocket}-Komponente zur Konzeption von Datenauswertungen
-      \begin{itemize}
-        \item \texthl{Screenshot vom Calculation-Step zeigen}
-        \item Spezifikation von Datenstrukturen, Kennzahlen und Tabellen
-        \item Leicht verständlich und grafisch ansprechend
-        \item Benutzbar für technischen Laien
-        \item leicht integrieren
-      \end{itemize}
-  \end{itemize}
-
   \paragraph{Aufbau der Arbeit}
 
 
@@ -204,17 +172,17 @@
 
 
 
-  \subsection{Multidimensionale Modellierung}\label{subsec:multidimensionale-modellierung}
-  Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
-  Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen.
+	\subsection{Multidimensionale
+	Modellierung}\label{subsec:multidimensionale-modellierung} Es gibt
+	verschiedene Ausprägungen der multidimensionalen Modellierung.  Zunächst wird
+	auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen. Im
+	Mittelpunkt der multidimensionalen Modellierung stehen die
+	betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
+	Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
+	42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
+	\glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
+	Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
 
-  Im Mittelpunkt der multidimensionalen Modellierung stehen die
-  betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
-  Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
-  42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
-  \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
-  Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
-  
   Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
   66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse, nach
@@ -679,18 +647,21 @@
       Zeitverlauf anzeigt.
 	\end{enumerate}
 
-	Der sequentielle Prozess (Schritt 5--7) wird in der Benutzeroberfläche
-	durch das Modul \textit{DataPipeline} abgebildet\todo{Vielleicht Unix
-	pipeline zitieren}. Diese ermöglicht es dem Nutzer verschiedene
-	Prozessschritte wie Bausteine aneinander zu reihen, welche jeweils auf die
-	Ausgabewerte ihrer Vorgänger als eigene Eingabewerte aufbauen. Sie ist vergleichbar mit dem \textit{Pipeline}-Pattern des Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix ähnlichen Betriebssystemen~\cite[][]{spinellis2001notable}. Im
-	bisherigen Beispielszenario würde zunächst das Geschäftsobjekt
-	\textit{Kunde} mit Hilfe der zuvor definierten Qualitätskennzahlen im
-	\textit{Calculation} Baustein analysiert. Die Ergebnisse der Analyse werden
-	weiter an den \textit{Visualization-Baustein} gegeben, welcher diese in
-	Form von Graphen darstellt. Abschließend greift der
-	\textit{Cleaning-Baustein} auf die Ergebnisse zu, in welchem der User die
-	zuvor festgestellten Datenqualitätsprobleme beheben kann.
+	Der sequentielle Prozess, beschrieben in Schritt fünf bis acht, wird in der
+	Benutzeroberfläche durch das Modul \textit{DataPipeline}
+	abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es dem
+	Nutzer verschiedene Prozessschritte wie Bausteine aneinander zu reihen,
+	welche jeweils auf die Ausgabewerte ihrer Vorgänger als eigene Eingabewerte
+	aufbauen. Sie ist vergleichbar mit dem \textit{Pipeline}-Pattern des
+	Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix ähnlichen
+	Betriebssystemen~\cite[][]{spinellis2001notable}. Im bisherigen
+	Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde} mit Hilfe
+	der zuvor definierten Qualitätskennzahlen im \textit{Calculation} Baustein
+	analysiert. Die Ergebnisse der Analyse werden weiter an den
+	\textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
+	darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf die
+	Ergebnisse zu, in welchem der User die zuvor festgestellten
+	Datenqualitätsprobleme beheben kann.
 
 	Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
 	prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
@@ -705,46 +676,50 @@
 
   \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
 
+
   \section{Motivation}
-  Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
-  Datenqualitätsverbesserung die Qualität von Unternehmensdaten zunächst untersuchen. Der
-  \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket} genau anweisen,
-  nach welchen Kriterien er Datenqualität definiert und wie die Daten anhand
-  der Datenqualitätskriterien analysiert werden sollen. Für die Kommunikation
-  zwischen \textit{DataRocket} und Nutzer ist folglich eine Sprache von Nöten,
-  welche es dem Nutzer ermöglicht \textit{DataRocket} die funktionale Struktur
-  der Daten zu erklären, Qualitätskriterien zu definieren und Analyseziele zu
-  spezifizieren. Gegenstandsbereich der Sprache ist der Einsatz in
-  \textit{DataRocket} im \textit{Calculation}-Baustein der
-  \textit{DataPipeline}.
+
+	Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
+	Datenqualitätsverbesserung die Qualität von Unternehmensdaten zunächst
+	untersuchen. Der \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket}
+	genau anweisen, nach welchen Kriterien er Datenqualität definiert und wie die
+	Daten anhand der Datenqualitätsdefinitionen analysiert werden sollen. Für die
+	Kommunikation zwischen \textit{DataRocket} und Nutzer ist folglich eine
+	Sprache von Nöten, welche es dem Nutzer ermöglicht \textit{DataRocket} die
+	funktionale Struktur der zu analysiereden Daten zu erklären,
+	Qualitätskriterien zu definieren und Analyseziele zu spezifizieren.
+	Gegenstandsbereich der Sprache ist der Einsatz in \textit{DataRocket} im
+	\textit{Calculation}-Baustein der \textit{DataPipeline}.
+
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:sprache/anforderungsanalyse}
-  Im Folgenden wird eine Anforderungsanalyse für die
-  \textit{DataFurnace}-Sprache durchgeführte um genauere Anforderungen an die
-  Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
-  Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
-  Anforderungsanalyse} zurück gegriffen, näher beschrieben von
-  \textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.
-  Ziele werden unterschieden in \textit{funktionale} und
-  \textit{nicht-funktionale} Ziele~\cite[][S.  36]{mylopoulos1999object}.
-  Erstere beschreiben die Leistungen der Sprache selbst, zweitere beschäftigen
-  sich mit der Art und Weise respektive mit der Qualität der Leistung~\cite[][S.
-  250]{van2001goal}. Die Ziele der \textit{DataFurnace}-Sprache werden in den
-  folgenden Aufzählungen benannt, näher beschrieben und begründet.
+
+	Im Folgenden wird eine Anforderungsanalyse für die
+	\textit{DataFurnace}-Sprache durchgeführte um genaue Anforderungen an die
+	Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
+	Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
+	Anforderungsanalyse} zurück gegriffen, näher beschrieben von
+	\textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.  Ziele werden
+	unterschieden in \textit{funktionale} und \textit{nicht-funktionale}
+	Ziele~\cite[][S.  36]{mylopoulos1999object}.  Erstere beschreiben die
+	Leistungen der Sprache selbst, zweitere beschäftigen sich mit der Art und
+	Weise respektive mit der Qualität der Leistung~\cite[][S.  250]{van2001goal}.
+	Die Ziele der \textit{DataFurnace}-Sprache werden in den folgenden
+	Aufzählungen benannt, näher beschrieben und begründet.
 
   \paragraph{Funktionale Ziele}
     \begin{enumerate}
       \item \textbf{Spezifikation der Unternehmensdatenstrukturen} 
         
-        Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
-        können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
-        und die Spezifikation der hierarchischen Strukturen innerhalb seiner
-        Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
-        die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
-        werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren in
-        seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
-        aufgeteilt werden können, wobei der Nutzer die Möglichkeit haben soll den Warenbereich der Warenlinie
-        funktional unterzuordnen.
+				Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
+				können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
+				und die Spezifikation der hierarchischen Strukturen innerhalb seiner
+				Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
+				die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
+				werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren
+				in seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
+				aufgeteilt werden können, wobei der Nutzer die Möglichkeit haben soll
+				den Warenbereich der Warenlinie funktional unterzuordnen.
 
       \item \textbf{Definition von Kennzahlen} 
 
@@ -765,8 +740,8 @@
         dienen, sondern auch allgemeine Beurteilungen erbringen können. Will
         sich ein Nutzer beispielsweise in einem großen Datenqualitätsprojekt
         zunächst nur auf die lukrativen Instanzen des Geschäftsobjekt
-        \textit{Produkt} konzentrieren, so soll er mit Hilfe der
-        betriebswirtschaftlichen Kennzahl \textit{Gewinn} diese gefiltert
+        \textit{Produkt} konzentrieren, so soll er, mit Hilfe der
+        betriebswirtschaftlichen Kennzahl \textit{Gewinn}, diese gefiltert
         analysieren können.
         
       \item \textbf{Kombination zu Berichten}
@@ -788,31 +763,36 @@
   \paragraph{Nicht-funktionale Ziele}
     \begin{enumerate}
       \item \textbf{Hohe Verständlichkeit}
-        
-        Die Sprache soll sehr leicht verständlich sein, um mit dem
-        Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
-        Datenqualitätsmanagement IT-Laien zu ermöglichen, kohärent zu bleiben.
-        Besonderer Fokus soll auf einer geringen Komplexität liegen, wodurch
-        der Nutzer die Sprache schnell verstehen und erlernen kann.
+
+				Die Sprache soll sehr leicht verständlich sein, um mit dem
+				Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
+				Datenqualitätsmanagement IT-Laien zu ermöglichen, kohärent zu bleiben.
+				Besonderer Fokus soll auf einer geringen Komplexität der Sprache
+				liegen, wodurch der Nutzer die Sprache schnell verstehen und erlernen
+				kann.
 
       \item \textbf{Verwendung des \textit{DataRocket}-Vokabulars}
-        
-        Die Software \textit{DataRocket} nutzt in ihrer Oberfläche die
-        Englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
-        die Software einige Begriffe des Datenqualitätsmanagement-Jargons und
-        führt in einigen wenigen fällenn ein eigenes Vokabular ein, welches
-        unikale Komponenten und Vorgänge der Software betitelt. Zwar soll die
-        \textit{DataFurnace}-Sprache und -Komponente alleinstehend entwickelt
-        werden, jedoch soll bei der Entwicklung auch die zukünftige Integration
-        der beiden in \textit{DataRocket} nicht unbeachtet bleiben. Folglich
-        sollte sich das Vokabular der \textit{DataFurnace}-Sprache an dem
-        Vokabular von \textit{DataRocket} orientieren und an den
-        Funktionsschnittstellen übereinstimmen.
+
+				Die Software \textit{DataRocket} nutzt in ihrer Oberfläche die
+				Englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
+				die Software einige Begriffe des Datenqualitätsmanagement-Jargons, wie
+				\zB{} Datenqualitätskennzahl, und führt in einigen wenigen fällenn ein
+				eigenes Vokabular ein, welches unikale Komponenten und Vorgänge der
+				Software betitelt, wie \zB{} das Geschäftsobjekt. Zwar soll die
+				\textit{DataFurnace}-Sprache und -Komponente alleinstehend entwickelt
+				werden, jedoch soll bei der Entwicklung auch die zukünftige Integration
+				der beiden in \textit{DataRocket} nicht unbeachtet bleiben. Folglich
+				sollte sich das Vokabular der \textit{DataFurnace}-Sprache an dem
+				Vokabular von \textit{DataRocket} orientieren und an den
+				Funktionsschnittstellen übereinstimmen.
+
     \end{enumerate}
 
-  \paragraph{Annahmen} Neben \textit{funktionalen} und \textit{nicht-funktionalen} Zielen müssen des
-  Weiteren Annahmen getroffen werden, welche von der \textit{innoscale AG}
-  vorrausgesetzt werden, und somit die Entwicklung der Sprache beeinflussen.
+	\paragraph{Annahmen} Neben \textit{funktionalen} und
+	\textit{nicht-funktionalen} Zielen müssen des Weiteren Annahmen getroffen
+	werden, welche von der \textit{innoscale AG} vorrausgesetzt werden, und somit
+	die Entwicklung der Sprache beeinflussen.
+
   \begin{enumerate}
     \item \textbf{Datentransformation durch \textit{DataRocket}}
       
@@ -832,7 +812,7 @@
   \section{Fachliches Konzept}
 
   Die \textit{DataFurnace}-Sprache wurde in enger Zusammenarbeit und ständiger
-  Absprache mit der \textit{innoscale AG} und mit der Einbeziehung des
+  Absprache mit der \textit{innoscale AG} und unter Einbeziehung des
   aktuellen Stand der Wissenschaft im Bereich des Datenqualitätsmanagements und
   der Unternehmensdatenanalyse entwickelt. Im Folgenden wird die Sprache,
   strukturiert anhand ihres Vokabulars, erklärt. Dieses unterteilt sich in die
@@ -846,17 +826,16 @@
   \end{figure}
 
   \subsection{Dimensionen}\label{subsec:dimension}
-  Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
-  Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
-  fundamental aufbaut. Der Begriff Geschäftsobjekt wird aus dem
-  \textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
-  innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
-  können sowohl der Klasse der Transaktionsdaten als auch der Stammdaten
-  angehören. Sie bilden den zentralen Baustein der
-  \textit{DataRocket}-Software. Ein Geschäftsobjekt kann zum Beispiel das
-  \textit{Produkt} aber auch die \textit{Umsatztransaktion} sein.  Das
-  Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
-  Reporting}-Sprache verglichen werden. \todo{Kann es das wirklich?}
+
+	Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
+	Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
+	fundamental aufbaut. Der Begriff Geschäftsobjekt wird aus dem
+	\textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
+	innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
+	bilden den zentralen Baustein der \textit{DataRocket}-Software. Ein
+	Geschäftsobjekt kann zum Beispiel das \textit{Produkt} sein.  Das
+	Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
+	Reporting}-Sprache verglichen werden.
 
   \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={geschaeftsobjekt}]
     \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
@@ -864,37 +843,41 @@
 
   Einem Geschäftsobjekt werden Attribute untergeordnet (Siehe
   Abbildung~\ref{geschaeftsobjekt}). Attribute spezifizieren Eigenschaften des
-  Objekts. Zum Beispiel hat das Objekt \textit{Produkt} die Attribute
+  Objekts. Zum Beispiel hat das Geschäftsobjekt \textit{Produkt} die Attribute
   \textit{Preis} und \textit{Farbe}. Attribute haben wiederum Ausprägungen.
   Diese verkörpern Instanzen eines Attributes. \textit{Blau} und \textit{Grün}
   sind beispielsweise Ausprägungen des Attributes \textit{Farbe} des
   Geschäftsobjekts \textit{Produkt}.
-  
-  Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
-  Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
-  Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern
-  auf eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
-  anzuwenden. Des Weiteren kann nach Untermengen der gesammten Geschäftsobjektmenge
-  gefiltert werden.  Eine Dimension bezieht sich nicht direkt auf ein
-  Geschäftsobjekt sondern auf ein Attribut eines Geschäftsobjekts. Die
-  Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
-  \textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
+
+	Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
+	Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
+	Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern
+	auf eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
+	anzuwenden. Des Weiteren kann nach Untermengen der gesammten
+	Geschäftsobjektmenge gefiltert werden.  Eine Dimension bezieht sich nicht
+	direkt auf ein Geschäftsobjekt sondern auf ein Attribut eines
+	Geschäftsobjekts, auf welches sie verschiedene Sichten ermöglicht. Die
+	Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
+	\textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
   \begin{figure}[caption={Teilsprache---Dimension}, label={dimension-erm}]
     \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
   \end{figure}
-  
-  Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
-  Informationen einer Attributinstanz in Teilinformationen unterteilen. Das
-  Attribut \textit{Verfallsdatum} kann zum Beispiel die Instanz '09.08.2016'
-  haben. Wird hierauf die Dimension \textit{Zeit} angewendet, kann die Instanz
-  in den Dimensionsleveln \textit{Jahr} '2016', \textit{Monat} '08' und
-  \textit{Tag} '09' unterschieden werden. Die Teilinformationen bilden die
-  Dimensionslevelausprägungen, im oben genannten Beispiel ist '2016' eine
-  Dimensionslevelausprägung des Dimensionslevels \textit{Jahr} der Dimension
-  \textit{Zeit}. In Abbildung~\ref{dimension-erm} wird dieses Konstrukt mit
-  Hilfe eines \acrshort{ERM}s verdeutlicht.
-  
+
+	Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
+	Informationen einer Attributinstanz in Teilinformationen einteilen. Die Tiefe
+	einer Dimensionslevelhierarchie ist beliebig. Das Attribut
+	\textit{Verfallsdatum} kann zum Beispiel die Instanz '09.08.2016' haben. Wird
+	hierauf die Dimension \textit{Zeit} angewendet, kann die Instanz in den
+	Dimensionsleveln \textit{Jahr} '2016', \textit{Monat} '08' und \textit{Tag}
+	'09' unterschieden werden. Das Dimensionslevel \textit{Monat} ist hier dem
+	Dimensionslevel \textit{Jahr} hierarchisch untergeordnet. Die
+	Teilinformationen bilden die Dimensionslevelausprägungen, im oben genannten
+	Beispiel ist '2016' eine Dimensionslevelausprägung des Dimensionslevels
+	\textit{Jahr} der Dimension \textit{Zeit} des Attributs
+	\textit{Verfallsdatum}. In Abbildung~\ref{dimension-erm} wird dieses
+	Konstrukt mit Hilfe eines \acrshort{ERM}s verdeutlicht.
+
   \subsection{Kennzahlen}
   \todo[inline]{Konstanten in Grafik, \textit{DataFurnace} und Text hinzufügen}
 
@@ -902,19 +885,20 @@
     \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
 
-  Eine Kennzahl bietet ein quantitatives oder auch qualitatives Maß,
-  welches die Informationen von einem oder mehreren Instanzen eines
-  Geschäftsobjekts weiterverarbeitet. Sie wird durch eine mathematische Formel
-  spezifiziert, und folgt der Grundrechenart mit den Operationen
-  \textit{Addition}, \textit{Substraktion}, \textit{Multiplikation} und
-  \textit{Division}, welche auf zwei oder mehr Operanden angewendet werden
-  (Siehe Abbildung~\ref{railroad-kennzahl} Gleis eins).  Statt dem Begriff des
-  \textit{Operanden} wird im weiteren Verlauf der Begriff \textit{Ausdruck}
-  verwendet.  Die Auswertungsreihenfolge der Ausdrücke kann mit Klammern
-  differenziert werden, erneut verdeutlicht durch
-  Abbildung~\ref{railroad-kennzahl} Gleis zwei. Ausdrücke können mit dem
-  Voranstellen eines Minuszeichens negiert werden (Siehe
-  Abbildung~\ref{railroad-kennzahl} Gleis drei).
+	Eine Kennzahl bietet ein quantitatives oder auch qualitatives Maß, welches
+	die Informationen von einem oder mehreren Instanzen eines Geschäftsobjekts
+	weiterverarbeitet. Sie wird durch eine mathematische Formel spezifiziert, und
+	folgt der Grundrechenart mit den Operationen \textit{Addition},
+	\textit{Substraktion}, \textit{Multiplikation} und \textit{Division}, welche
+	auf zwei oder mehr Operanden angewendet werden (Siehe
+	Abbildung~\ref{railroad-kennzahl} Gleis eins). Im weiteren Verlauf der
+	\textit{DataFurnace}-Sprachvorstellung wird der Begriff \textit{Ausdruck} als
+	Generalisierung von \textit{Operand} und \textit{Operator} genutzt.  Die
+	Auswertungsreihenfolge der Ausdrücke kann mit Klammern differenziert werden,
+	erneut verdeutlicht durch Abbildung~\ref{railroad-kennzahl} Gleis zwei.
+	Ausdrücke können mit dem Voranstellen eines Minuszeichens negiert werden
+	(Siehe Abbildung~\ref{railroad-kennzahl} Gleis drei). Des Weiteren können
+	Konstanten in die Formelgleichung mit aufgenommen werden.
 
   % Diagram(
   %   Choice(1,
@@ -935,6 +919,7 @@
   \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
   Compiler, Railroad-Diagram, horizontale Linien gleich Gleise, Stationen erklaeren}}
 
+	
   Um innerhalb der Formel einer Kennzahl auf die Informationen einer
   Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
   Geschäftsobjekts als Formelausdruck eingebracht werden, wie in
@@ -945,7 +930,7 @@
   Bezugsobjekt, verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen
   verhindert die generische Definition und Wiederverwendbarkeit von Kennzahlen,
   ermöglicht jedoch eine situationsnahe Konzeption und einen geringeren
-  Konfigurationsaufwand im späteren Gebrauch.
+  Konfigurationsaufwand im späteren Gebrauch der Kennzahl.
 
   Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
   bereit gestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
@@ -957,20 +942,23 @@
   Transformationsfunktion arbeitet lediglich mit den Attributen einer
   Geschäftsobjektinstanz wohingegen eine Aggregationsfunktion über mehrere
   Geschäftsobjektinstanzen hinaus aggiert.
-  
-  Ein \todo{Begriffe überprüfen: Transformationsfunktion und
-  Aggregationsfunktion} Beispiel für eine Transformationsfunktion mit Bezug auf
-  eine einzige Instanz ist die \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe
-  eine Zahl und gibt die Wurzel dieser zurück. Ein Beispiel für eine
-  Aggregationsfunktion, welche Attribute von mehreren Instanzen verarbeitet,
-  ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein Attribut eines
-  Geschäftsobjekts und summiert die Ausprägungen des Attributes über alle
-  Instanzen auf. Des weiteren werden datenqualitätsspezifische Funktionen zur
-  Verfügung gestellt. Beispiele sind die \textit{nicht-leer}-Funktion, welche
-  prüft ob ein Ausdruck Inhalt hat und die \textit{enthält}-Funktion, welche
-  zwei Ausdrücke als Parameter nimmt und kontrolliert ob der erste Audruck im
-  zweiten Ausdruck vorhanden ist. Mit der letzteren kann \zB{} geprüft werden,
-  ob das Attribut \textit{E-Mail-Adresse} ein At-Zeichen enthält.
+
+	Ein \todo{Begriffe überprüfen: Transformationsfunktion und
+	Aggregationsfunktion} Beispiel für eine Transformationsfunktion mit Bezug auf
+	eine einzige Instanz ist die \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe
+	eine Zahl und gibt die Wurzel dieser zurück. Ein Beispiel für eine
+	Aggregationsfunktion, welche Attribute von mehreren Instanzen verarbeitet,
+	ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein Attribute einer
+	Geschäftsobjektinstanzgruppe und summiert die Ausprägungen des Attributs über
+	alle Instanzen auf. Neben den mathematischen Funktionen wie der
+	\textit{Summen}-Funktion werden des Weiteren datenqualitätsspezifische
+	Funktionen zur Verfügung gestellt. Beispiele sind die
+	\textit{nicht-leer}-Funktion, welche prüft ob ein Ausdruck Inhalt hat und die
+	\textit{enthält}-Funktion, welche zwei Ausdrücke als Parameter nimmt und
+	kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit der
+	letzteren kann \zB{} geprüft werden, ob das Attribut \textit{E-Mail-Adresse}
+	ein At-Zeichen enthält.
+
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
@@ -1014,23 +1002,30 @@
   Attribut \textit{Verfallsdatum} als Filter hinzu. In diesem Filter fügt er
   die Dimensionslevelausprägung \textit{2016} in die Positivliste ein.
 
-  Alternativ zu der Filterung über Dimensionslevelausprägungen kann der Nutzer
-  auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Hierzu wählt
-  der Nutzer eine zuvor definierte Kennzahl aus und konkretisiert bei welchen
-  Ergebnissen der Kennzahl eine Instanz eines Geschäftsobjekts in die nähere
-  Auswahl aufgenommen oder ausgefiltert wird. Für diese Konkretisierung müssen
-  Kennzahlen zunächst anhand ihrer Ergebnistypen in zwei Gruppen unterteilt werden. Die
-  erste Gruppe gibt als Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer
-  Ober- und Untergrenzen benennen, in welchen der Ergebniszahlenwert der
-  Kennzahl einer Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu
-  werden. Ein Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt
-  ist der \textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen,
-  welche einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die
-  gesuchte Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen
-  muss oder nicht bestehen darf. Als Beispiel kann hier die
-  \textit{nicht-leer}-Kennzahl genannt werden, welche lediglich \textit{wahr},
-  das Attribut der Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder
-  \textit{falsch}, das Attribut ist nicht gefüllt, zurück gibt.
+	Alternativ zu der Filterung über Dimensionslevelausprägungen kann der Nutzer
+	auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Dies ist
+	jedoch nur mit Kennzahlen möglich, welche sich auf eine einzelne
+	Geschäftsobjektinstanz anwenden lassen. Enthält die Formel einer Kennzahl
+	eine Aggregationsfunktion ist sie für die Filterkomponente ungeeignet, da
+	hier jeweils eine einzelne Instanz betrachtet wird. Für die Filterung mit
+	einer Kennzahl mit Bezug auf eine einzelne Instanz wählt ein Nutzer eine
+	zuvor definierte Kennzahl aus und konkretisiert bei welchen Ergebnissen der
+	Kennzahl eine Instanz eines Geschäftsobjekts in die nähere Auswahl
+	aufgenommen oder ausgefiltert wird.
+
+	Für diese Konkretisierung müssen Kennzahlen zunächst anhand ihrer
+	Ergebnistypen in zwei Gruppen unterteilt werden. Die erste Gruppe gibt als
+	Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober- und Untergrenzen
+	benennen, in welchen der Ergebniszahlenwert der Kennzahl einer
+	Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden. Ein
+	Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt ist der
+	\textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen, welche
+	einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die gesuchte
+	Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen muss oder
+	nicht bestehen darf. Als Beispiel kann hier die \textit{nicht-leer}-Kennzahl
+	genannt werden, welche lediglich \textit{wahr}, das Attribut der
+	Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder \textit{falsch}, das
+	Attribut ist nicht gefüllt, zurück gibt.
 
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
@@ -1048,7 +1043,7 @@
   Fragestellungen werden in der Sprache, wie auch in \textit{H2 for Reporting},
   in Form einer Tabelle aus dem multidimensionalen Raum ins Zweidimensionale
   projeziert~\cite[][S.  23]{becker2007h2}. Diese Tabelle bildet die
-  Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeile und Kopfspalte
+  Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeilen und Kopfspalten
   konfiguriert.
 
   Die Tabellenkopfzeilen spezifizieren welche Unternehmensdaten in der Analyse
