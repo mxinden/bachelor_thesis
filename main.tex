@@ -1046,17 +1046,17 @@
   Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeilen und Kopfspalten
   konfiguriert.
 
-  Die Tabellenkopfzeilen spezifizieren welche Unternehmensdaten in der Analyse
+  Die Tabellenkopfzeilen spezifizieren, welche Unternehmensdaten in der Analyse
   betrachtet werden und nach welchen in der Auswertung wie gruppiert wird. Dies
   geschieht mit Hilfe der zuvor spezifizierten Dimensionen und Dimensionslevel,
   welche die Unternehmensdatengesamtheit gruppieren. Eine Tabellenkopfzeile
   repräsentiert jeweils genau ein Dimensionslevel. Eine Dimension kann mehrfach
-  mit verschiedenen Dimensionsleveln in den Tabellelkopfzeilen vorkommen, die
+  mit verschiedenen Dimensionsleveln in den Tabellelkopfzeilen vorkommen, die gesamten
   Kopfzeilen können jedoch ein bestimmtes Dimensionslevel nur einmal enthalten.
   Innerhalb einer Tabellenkopfzeile wird bestimmt, welche Ausprägungen des
   zugeordneten Dimensionslevels betrachtet und welche außer Acht gelassen
-  werden. Ein Nutzer fragt sich zum Beispiel wie viele Instanzen des
-  Geschäftsobjekts \textit{Produkt} einen validen \textit{Preis} haben bezogen
+  werden. Ein Nutzer fragt sich zum Beispiel, wie viele Instanzen des
+  Geschäftsobjekts \textit{Produkt} einen validen \textit{Preis} haben, bezogen
   auf die Dimensionslevelausprägungen \textit{2015} und \textit{2016} des
   Dimensionslevels \textit{Jahr} der Dimension \textit{Zeit} hinsichtlich des
   Attributs \textit{Verfallsdatum}. Für diese Fragestellung fügt er den
@@ -1104,19 +1104,19 @@
 
   Die Tabellenkopfspalten legen fest mit welchen Kennzahlen die zuvor
   ausgewählten Geschäftsobjektinstanzen analysiert werden sollen. Ein Nutzer
-  kann beliebig viele Kennzahlen der Tabelle hinzufügen. Da die
-  Kennzahlen bereits geschäftsobjektspezifisch definiert wurden sind keine
-  weiteren Eingaben nötig. Die Sprache weist somit an die
-  Geschäftsobjektinstanzen nach Gruppen gebündelt mit den Kennzahlen zu
-  analysieren und das Ergebnis in der Zelle mit der Zeilenkoordinate der
-  Kennzahl under der Spaltenkoordinate der Dimensionsgruppe einzutragen. Fügt
-  der Nutzer im bisherigen Szenario die Kennzahl \textit{Preisvalidation} der
-  Tabelle hinzu, dann wäre die \textit{DataFurnace}-Sprache angewiesen,
-  die Geschäftsobjektinstanzgruppen mit den Dimensionslevelausprägungen
-  \textit{2015} \textit{NRW}, \textit{2015} \textit{HH}, \textit{2016}
-  \textit{NRW} und \textit{2016} \textit{HH} mit der Kennzahl zu analysieren
-  und das Ergebnis in der Zeile der Kennzahl mit einer Zelle pro Gruppe
-  einzutragen.
+  kann beliebig viele unterschiedliche Kennzahlen der Tabelle hinzufügen. Eine
+  Kennzahl kann in der Tabelle nur einmal vorkommen. Da die Kennzahlen bereits
+  geschäftsobjektspezifisch definiert wurden sind keine weiteren Eingaben
+  nötig. Die Sprache weist somit an die Geschäftsobjektinstanzen nach Gruppen
+  gebündelt mit den Kennzahlen zu analysieren und das Ergebnis in der Zelle mit
+  der Zeilenkoordinate der Kennzahl under der Spaltenkoordinate der
+  Dimensionsgruppe einzutragen. Fügt der Nutzer im bisherigen Szenario die
+  Kennzahl \textit{Preisvalidation} der Tabelle hinzu, dann wäre die
+  \textit{DataFurnace}-Sprache angewiesen, die Geschäftsobjektinstanzgruppen
+  mit den Dimensionslevelausprägungen \textit{2015} \textit{NRW}, \textit{2015}
+  \textit{HH}, \textit{2016} \textit{NRW} und \textit{2016} \textit{HH} mit der
+  Kennzahl zu analysieren und das Ergebnis in der Zeile der Kennzahl mit einer
+  Zelle pro Gruppe einzutragen.
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
@@ -1135,7 +1135,7 @@
   Eine rudimentäre Implementierung des \textit{Calculation}-Bausteins ist
   bereits in \textit{DataRocket} integriert, jedoch mangelt es dieser an
   Konsistenz und Funktionsumfang, weshalb die \textit{innnoscale AG}
-  beabsichtigt diese zu ersetzen.
+  beabsichtigt diese Implementierung zu ersetzen.
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:software/anforderungsanalyse}
 
@@ -1268,7 +1268,7 @@
   \begin{enumerate}
     \item \textbf{Nutzer- und Gruppenmanagement}
 
-		Die Implementierung einen Nutzer- und Gruppenmanagement in der
+		Die Implementierung eines Nutzer- und Gruppenmanagement in der
 		\textit{DataFurnace}-Software ist nicht von Nöten, da die Software, im
 		Falle einer Integration in \textit{DataRocket}, das vorhandene Management
 		mit nutzen kann.
@@ -1279,7 +1279,8 @@
       Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
       die Implementierung der dafür nötigen Analyselogik kann bereits von
       \textit{DataRocket} selbst gestellt werden und muss folglich nicht erneut
-      im Rahmen der \textit{DataFurnace}-Software entwickelt werden.
+      im Rahmen der \textit{DataFurnace}-Software entwickelt werden. Sie soll
+      sich lediglich auf die Modellierung der Analysen konzentrieren.
 
     \item \textbf{\acrshort{ETL}-Prozess durch \textit{DataRocket}}
 
@@ -1315,7 +1316,7 @@
   Nutzer zunächst seine Geschäftsobjekte mit den zugehörigen Dimensionen,
   spezifiziert Kennzahlen, mit Bezug auf die Attribute der Geschäftsobjekte,
   und kombiniert beide zu Berichten. Im folgenden wird das fachliche Konzept
-  der Software anhand dieser drei Ansichten respektive Schritte erklärt. 
+  der Software anhand dieser drei Ansichten respektive Prozessschritte erklärt. 
 
   Der Wechsel zwischen der Dimensions-, Kennzahl- und Berichtsansicht gelingt
   über die Kopfleiste der \textit{DataFurnace}-Software, in welcher zu jeder
@@ -1323,7 +1324,7 @@
   individuelles Symbol abgebildet, welches in jeder Ansicht bei Referenzen auf
   den jeweiligen Typ Dimension, Kennzahl oder Bericht, wieder verwendet wird.
   Diese konsistente Nutzung der Symbole durch die gesamte Oberfläche hindurch
-  basiert auf der vierten \textit{Usability-Heuristic} von
+  stützt sich auf die vierte \textit{Usability-Heuristic} von
   \textsc{\citeauthor{nielsen1994heuristic}} für Konsistenz und Standards und
   reduziert die nötige Denkleistung eines Nutzers bei der Bedienung der
   Software durch die bessere Wiedererkennbarkeit der
@@ -1532,7 +1533,7 @@
 
   Macht ein Nutzer während der Konfiguration eines Ausdrucks einen Fehler oder
   möchte im Nachhinein etwas an dem Ausdruck ändern, so kann der
-  Konfigurationsprozess auf den gleichen Weg erneut gestartet werden.  Will ein
+  Konfigurationsprozess auf den gleichen Weg jeder Zeit erneut gestartet werden.  Will ein
   Nutzer an spezifischen Positionen der Formel weitere Ausdrücke hinzufügen
   oder löschen klickt er an die gewünschte Position und erstellt über den
   Funktionsbaukasten weitere Ausdrücke oder löscht den Ausdruck links vom Cursor
@@ -1575,13 +1576,13 @@
   \paragraph{Filterkomponente}
   
   Wie in Abschnitt~\ref{paragraph:filternde-komponente}
-  beschrieben kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
+  beschrieben, kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
   Kennzahl, basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
   und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
   Filterkomponente der Ansicht. Sobald er das Dimensionslevel in der Komponente
-  ablegt wird ein neuer Filter erstellt. In dem Filter werden alle
+  ablegt, wird ein neuer Filter erstellt. In dem Filter werden alle
   Dimensionslevelausprägungen aufgelistet, welche im ersten Schritt der
   \textit{DataFurnace}-Modellierungsmethode für das Dimensionslevel
   spezifiziert wurden. Nun kann der Nutzer, anhand einer Positivliste,
@@ -1667,14 +1668,14 @@
 
   In Abschnitt~\ref{paragraph:tabellenkomponente} wurde festgestellt, dass die
   Auftrittsreihenfolge der Tabellenkopfzeilen für die Übersichtlichtkeit der
-  Tabelle relevant sein, weswegen es die \textit{DataFurnace}-Software
+  Tabelle relevant sind, weswegen es die \textit{DataFurnace}-Software
   ermöglicht, diese anpassen zu können. Hierzu zieht ein Nutzer die zu
   verschiebende Zeile an ihre neue Position. Die
   Dimensionslevelausprägungskombinationen werden automatisch ensprechend
   angepasst. Soll eine Tabellenkopfzeile nicht verschoben sondern gänzlich aus
   der Tabelle entfernt werden, kann dies über einen Klick auf das
   \textit{Löschen}-Symbol rechts neben dem Dimensionslevelnamen in der ersten
-  Zelle realisiert werden.
+  Zelle der Zeile realisiert werden.
 
   Die Spezifikation von Kennzahlen in der Berichtstabelle wird in der
   Tabellenkopfspalte realisiert. Analog zu den Tabellenkopfzeilen kann eine
@@ -1695,10 +1696,10 @@
   Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
   innovativer Technologien aus dem neuesten Stand der Informationstechnik
   bedient. Eine nähere Erläuterung jeder Technologie und deren
-  Implementierung in der Software würde über den Rahmen dieser Arbeit hinaus
+  Integration in dem Softwaresystem würde über den Rahmen dieser Arbeit hinaus
   gehen, jedoch soll im folgenden auf die Systemarchitektur, inklusive
   einzelner Entscheidungserläuterungen, und den Entwicklungsprozess kurz
-  eingegangen werden.
+  eingegangen werden.\todo{Entwicklungsprozess streichen?}
 
 
   \paragraph{Systemarchitektur}
