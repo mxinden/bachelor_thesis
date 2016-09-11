@@ -409,11 +409,6 @@
   %   \item MERM
   % \end{itemize}
 
-  % \paragraph{Beispielszenario}
-  % Für den weiteren Verlauf dieser Arbeit wird ein Beispielszenario aufgestellt. Im
-  % Fokus steht eine fiktive Firma namens SmartSell. SmartSell setzt seine
-  % Produkte sowohl klassisch über ihr lokales Geschäft, als auch über einen
-  % eigenen Online-Shop ab.
 
   % Beispiel Dimensionen
   % \begin{itemize}
@@ -668,7 +663,45 @@
 	\textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
 	\textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
-  \section{Anwendungsfall}
+  \section{Anwendungsfallbeispiel}
+
+  Für den weiteren Verlauf dieser Arbeit wird ein Anwendungsbeispiel
+  aufgestellt, auf welches in Erklärungen der \textit{DataFurnace}-Sprache und
+  -Software zurück gegriffen wird. Im Fokus steht ein fiktives
+  Einzelhandelsgeschäft, welches auf den Verkauf von Lebensmitteln
+  spezialisiert ist. 
+
+  \paragraph{Problemstellung} Die Handelsware des Unternehmens sind
+  hauptsächlich Lebensmittel. Diese haben ein Mindesthaltbarkeitsdatum und
+  dürfen bei dessen Überschreitung nicht verkauft werden. Um zu verhindern,
+  dass abgelaufene Handelware nicht verkauft werden darf, sollen möglichst
+  alle Lebensmittel vor ihrem Mindesthaltbarkeitsdatum verkauft werden. Eine
+  kontinuierliche Marketingkampagne soll Anreize zum Kauf von Lebensmitteln
+  setzen, welche innnerhalb des kommenden Monats ablaufen. Diese Anreize sollen
+  in Form von Rabatten auf diese Produkte realisiert werden. Um Aufmerksamkeit
+  für die Kampagne zu erhalten, sollen die Rabatte einmal im Monat per E-Mail
+  oder Post beworben werden. Bevor die Marketingkampagne geplant und ausgeführt
+  werden kann, muss zunächst ihre Durchführbarkeit geprüft werden. Sie beruht
+  maßgeblich auf der Datenqualität der Produktdaten im Warenwirtschaftssystems
+  und den Kundendaten im \acrlong{CRM}-Systems. Im folgenden
+  werden Fragestellungen aufgelistet, welche für die Durchführbarkeitsanalyse der
+  Marketingkampagne beantwortet werden müssen.
+
+  \begin{itemize}
+    \item
+  \end{itemize}
+
+
+  Alle Produkte die bis zum Ende des Jahres verfallen
+    Wie viele haben einen validen Preis? auf den der Rabatt gerechnet werden kann?
+    Gewinn über 1 Euro da es sich sonst nicht lohnt
+
+  Kundendatenbank (CRM)
+  Bei Kunden anwerben
+    Welche Kunden haben eine E-Mail Adresse
+    Welche Kunden, die keine E-Mail Adresse haben, haben eine valide Anschrift?
+    Kampagne per E-Mail und notfalls per Post
+
 
   % ################################################################################
   \chapter{Entwicklung der \textit{DataFurnace}-Sprache}
