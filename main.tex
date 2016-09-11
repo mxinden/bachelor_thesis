@@ -109,15 +109,15 @@
   \todo[inline]{Einleitung ca.\ 1--2 Seiten}
 
   Diese Bachelorarbeit beschäftigt sich mit der konzeptionellen Analyse von
-  Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein im
-  Jahre 2013 gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
+  Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013
+  gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
   Stammdatenmanagement ist es sowohl beratend als auch mit einem eigenen
-  Produkt, namens \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
+  Produkt namens \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
   \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur Verbesserung von
   Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung ist es
   nötig, die Qualität von zuvor strukturierten Daten anhand von Kennzahlen
   auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und
-  visualisieren?}.  Hierzu wird eine Sprache und eine Komponente, welche die
+  visualisieren?}.  Hierzu werden eine Sprache und eine Komponente, welche die
   Sprache in \textit{DataRocket} integriert, benötigt.
 
   Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
@@ -167,8 +167,8 @@
   Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es wird nun
   die multidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
   mit der Entity-Relationship-Modellierung verglichen. Des Weiteren wird
-  eine Erweiterung der multidimensionalen Modellierung---\textit{H2 for
-  Reporting}---vorgestellt.
+  eine Erweiterung der multidimensionalen Modellierung--\textit{H2 for
+  Reporting}--vorgestellt.
 
 
 
@@ -185,7 +185,7 @@
 
   Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
-  66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse, nach
+  66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
   hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
   kann die Sicht auf die Daten in ihrem Detailgrad angepasst werden~\cite[][S.
@@ -204,21 +204,21 @@
 	Die multidimensionale Modellierung unterteilt sich nun in verschiedene
 	Ausprägungen.  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
 	2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil
-	verwiesen?}. Der Name ist zurück zu führen auf den Aufbau eines
+	verwiesen?}. Der Name ist zurückzuführen auf den Aufbau eines
 	entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches die
 	Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des Sterns
 	befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese verweist
 	mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
 	komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
 	verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
-	(Siehe Abbildung~\ref{table:dimension-table}), durch Mangel an Normalisierung
+	(Siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
 	in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
 	durch ihre geringe Größe nicht in einer schlechteren Leistung des
 	Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
 	Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
 	Datenbanknormalisierung können in den Publikationen des
-	Erfinders\todo{Erfinder das richtige Wort?},
-	\textsc{\citeauthor{codd1970relational}}, gefunden
+	Begründers\todo{Erfinder oder Begründer das richtige Wort?}
+	\textsc{\citeauthor{codd1970relational}} gefunden
 	werden~\citeyearpar{codd1970relational,codd1972further}.
 
   \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
@@ -242,15 +242,15 @@
   Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und Snowflake-Modell
   unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
   vorherigen Absatz beschrieben verfolgt das Star-Schema einen denormalisierten
-  Ansatz, wohin gegen die Dimensionstabellen des Snowflak-Modells normalisiert
+  Ansatz, wohingegen die Dimensionstabellen des Snowflak-Modells normalisiert
   sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
-  visualisiert die strenge Normalisierung an der Dimension Ort,
+  visualisiert die strenge Normalisierung an der Dimension Ort.
   Abbildung~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten dieser
   Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt alternativ
   nicht den Ansatz der vollen Normalisierung im Snowflake-Modell vor, sondern eine
   geschwindigkeitsorientierte Teilnormalisierung~(\citeyear{Kemper2010}, S. 70).
   \textsc{\citeauthor{Kimball2013}} hingegen raten komplett vom Snowflake-Modell
-  ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
+  ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch gegebenenfalls die
   Geschwindigkeit negativ beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
 
   \begin{figure}[caption={Teilausschnitt eines Snowflake-Schemas}, label={fig:snowflake-schema}]
@@ -285,15 +285,18 @@
 
   \paragraph{Entity-Relationship-Modellierung} Als Kombination aus dem
   Network-Modell, dem Relational-Modell und dem Entity-Set-Modell stellt
-  \textsc{\citeauthor{chen1976entity}} \citeyear{chen1976entity} mit seiner Publikation
-  \glqq{}The entity-relationship model—toward a unified view of data\grqq{} das
-  Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S. 2]{chen1976entity}.  Genauer
-  auf \acrshort{ERM} einzugehen ist nicht Teil dieser Arbeit. Weitere Details
-  des Grundmodells werden in \textsc{\cite{chen1976entity}} beschrieben. Die
-  Erweiterungen der ER-Modellierung mit Kardinalitäten, Generalisierung und
-  Spezialisierung wird in \textsc{\cite{becker2004handelsinformationssysteme}}
-  Seite 89--91, \textsc{\cite{becker2012grundsatze}} Seite 4--9 und
-  \textsc{\cite{schutte2013grundsatze}} Seite 93--99 erklärt.
+  \textsc{\citeauthor{chen1976entity}} \citeyear{chen1976entity} mit seiner
+  Publikation \glqq{}The entity-relationship model—toward a unified view of
+  data\grqq{} das Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S.
+  2]{chen1976entity}.  Genauer auf \acrshort{ERM} einzugehen ist nicht Teil
+  dieser Arbeit. Weitere Details des Grundmodells werden in
+  \textsc{\cite{chen1976entity}} beschrieben. Die Erweiterungen der
+  ER-Modellierung mit Kardinalitäten, Generalisierung und Spezialisierung wird
+  in \textsc{\citeauthor{becker2004handelsinformationssysteme}}
+  (\citeyear{becker2004handelsinformationssysteme}, Seite 89--91),
+  \textsc{\citeauthor{becker2012grundsatze}} (\citeyear{becker2012grundsatze},
+  Seite 4--9) und \textsc{\citeauthor{schutte2013grundsatze}}
+  (\citeyear{schutte2013grundsatze}, Seite 93--99) erklärt.
   \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
   Datenbankmanagementsysteme von Gottfried Vossen}
 
@@ -304,8 +307,8 @@
   ER-Modellierung visualisiert werden~(\citeyear{ballard1998data}, S. 47). Zum
   Beispiel können die Fakten eines multidimensionalen Modells als Objekte eines
   ER-Modells mit Beziehungen zu den jeweiligen Dimensionen, wiederum als
-  Objekt, wie in Abbildung~\ref{vergleich-erm}, modelliert werden~\cite[][S.
-  48]{ballard1998data}. 
+  Objekt, modelliert werden~\cite[][S.  48]{ballard1998data}.Siehe
+  Abbildung~\ref{vergleich-erm}.
 
   \begin{figure}[caption={Vergleich multidimensionale Modellierung und ERM}, label={}]
     \centering
@@ -329,16 +332,15 @@
   Anwendungsbereiche der beiden Systeme sind disjunkt~\cite[][S.
   334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
   im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
-  zurück gegriffen, wo hingegen \acrshort{OLAP}-Systeme meist mit der
+  zurück gegriffen, wohingegen \acrshort{OLAP}-Systeme meist mit der
   multidimensionalen Modellierung konzipiert werden~(\citeyear{phipps2002automating}, S. 2). 
 
   Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
-  Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änder- und
+  Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änderungs- und
   Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen und
   komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
   52]{ballard2012dimensional}. Mit der multidimensionalen Modellierung können diese
-  Anfragen schneller verarbeitet werden,
-  unter anderem zurück zu führen auf die geringere Normalisierung, wodurch
+  Anfragen schneller verarbeitet werden, was unter anderem auf auf die geringere Normalisierung zurückzuführen ist, wodurch
   sich die multidimensionale Modellierung gegenüber der ER-Modellierung für
   \acrshort{OLAP}-Systeme besser eignet~\cite[][S.  52]{ballard2012dimensional}.
 
@@ -381,7 +383,7 @@
 	Für die Anwendung von \textit{H2 for Reporting} kann das
 	Metamodellierungswerkzeug \textit{H2-Toolset} verwendet werden~\cite[][S.
 	33]{fleischer2013konstruktion}, welches darüber hinaus Weiterentwicklungen
-	der Sprache \textit{H2 for Reporting}, sowie andere Sprachen
+	der Sprache \textit{H2 for Reporting} sowie andere Sprachen
 	unterstützt~\cite[][S. 86]{becker2012fachkonzeptionelle}. Das
 	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
 	entwickelt~\cite[][S.  34]{becker2007h2}.
