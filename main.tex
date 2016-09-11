@@ -253,7 +253,7 @@
   ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch \ggf{} die
   Geschwindigkeit negativ beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
 
-  \begin{figure}[caption={Teilausschnitt eines Snowflake-Schema}, label={fig:snowflake-schema}]
+  \begin{figure}[caption={Teilausschnitt eines Snowflake-Schemas}, label={fig:snowflake-schema}]
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
   \end{figure}
 
@@ -667,41 +667,56 @@
 
   Für den weiteren Verlauf dieser Arbeit wird ein Anwendungsbeispiel
   aufgestellt, auf welches in Erklärungen der \textit{DataFurnace}-Sprache und
-  -Software zurück gegriffen wird. Im Fokus steht ein fiktives
+  -Software zurückgegriffen wird. Im Fokus steht ein fiktives
   Einzelhandelsgeschäft, welches auf den Verkauf von Lebensmitteln
-  spezialisiert ist. 
+  spezialisiert ist, jedoch auch andere Produkte des täglichen Bedarfs verkauft. 
 
-  \paragraph{Problemstellung} Die Handelsware des Unternehmens sind
-  hauptsächlich Lebensmittel. Diese haben ein Mindesthaltbarkeitsdatum und
-  dürfen bei dessen Überschreitung nicht verkauft werden. Um zu verhindern,
-  dass abgelaufene Handelware nicht verkauft werden darf, sollen möglichst
-  alle Lebensmittel vor ihrem Mindesthaltbarkeitsdatum verkauft werden. Eine
-  kontinuierliche Marketingkampagne soll Anreize zum Kauf von Lebensmitteln
-  setzen, welche innnerhalb des kommenden Monats ablaufen. Diese Anreize sollen
-  in Form von Rabatten auf diese Produkte realisiert werden. Um Aufmerksamkeit
-  für die Kampagne zu erhalten, sollen die Rabatte einmal im Monat per E-Mail
-  oder Post beworben werden. Bevor die Marketingkampagne geplant und ausgeführt
-  werden kann, muss zunächst ihre Durchführbarkeit geprüft werden. Sie beruht
-  maßgeblich auf der Datenqualität der Produktdaten im Warenwirtschaftssystems
-  und den Kundendaten im \acrlong{CRM}-Systems. Im folgenden
-  werden Fragestellungen aufgelistet, welche für die Durchführbarkeitsanalyse der
-  Marketingkampagne beantwortet werden müssen.
+  Lebensmittel haben ein Mindesthaltbarkeitsdatum und dürfen bei dessen
+  Überschreitung nicht verkauft werden. Um zu verhindern, dass abgelaufene
+  Handelware nicht verkauft werden darf, sollen möglichst alle Lebensmittel vor
+  ihrem Mindesthaltbarkeitsdatum verkauft werden. Eine kontinuierliche
+  Marketingkampagne soll Anreize zum Kauf von Lebensmitteln setzen, welche
+  innnerhalb des kommenden Monats ablaufen. Diese Anreize sollen in Form von
+  Rabatten auf diese Produkte realisiert werden. Um Aufmerksamkeit für die
+  Kampagne zu erhalten, sollen die Rabatte einmal im Monat per E-Mail oder Post
+  beworben werden. 
+
+  Bevor die Marketingkampagne geplant und ausgeführt werden kann, muss zunächst
+  ihre Durchführbarkeit geprüft werden. Sie beruht maßgeblich auf der
+  Datenqualität der Produktdaten im \acrlong{WWS} (\acrshort{WWS}) und den
+  Kundendaten im \acrlong{CRM}-Systems (\acrshort{CRM}) des Unternehmens. Die
+  Datenstrukturen der Stammdatensätze werden in
+  Abbildung~\ref{example-use-case-data} durch ein UML-Klassendiagramm
+  beschrieben. Im folgenden werden Fragestellungen aufgelistet, welche für die
+  Durchführbarkeitsanalyse der Marketingkampagne beantwortet werden müssen.
+
+  \begin{figure}[caption={Datenstruktur des Produkt- und Kundenstammdatensatzes}, label={example-use-case-data}]
+    \resizebox{250pt}{!}{\input{content/figures/example-use-case-data.tex}}
+  \end{figure}
 
   \begin{itemize}
-    \item
+    \item Zunächst sollte die Frage gestellt werden, wie viele Produkte
+      überhaupt im kommenden Monat verfallen. Sind es nur wenige, würde der
+      Aufwand einer Kampagne nicht lohnen.
+    \item Der Rabatt soll nicht nur in relativen, sondern auch absoluten Zahlen
+      beworben werden. Folglich muss im Warenwirtschaftssystem ein valider
+      Preis für jedes zu bewerbende Produkt vorliegen.
+    \item Neben zu wenigen Produkten sollen auch nicht zu viele Produkte
+      beworben werden, um den potentiellen Käufer nicht zu überfordern. Es
+      sollen nur die Produkte betrachtet werden, welche mehr als einen Euro
+      Umsatz generieren.
+    \item Aus Kostengründen wird der elektronische Briefversand in der Kampagne
+      präferiert. Nun stellt sich die Frage, für wie viele Kunden im
+      \acrshort{CRM}-System eine valide E-Mail-Adresse hinterlegt ist.
+    \item Wenn keine valide E-Mail-Adresse hinterlegt ist, soll der klassische
+      Briefversand als Medium der Kampagne genutzt werden, folglich muss
+      beleutet werden, wie viele der Kundendatensätze, welche keine valide
+      E-Mail-Adresse haben, eine Anschriftsadresse haben.
   \end{itemize}
 
-
-  Alle Produkte die bis zum Ende des Jahres verfallen
-    Wie viele haben einen validen Preis? auf den der Rabatt gerechnet werden kann?
-    Gewinn über 1 Euro da es sich sonst nicht lohnt
-
-  Kundendatenbank (CRM)
-  Bei Kunden anwerben
-    Welche Kunden haben eine E-Mail Adresse
-    Welche Kunden, die keine E-Mail Adresse haben, haben eine valide Anschrift?
-    Kampagne per E-Mail und notfalls per Post
-
+  Um diese Fragestellungen beantworten zu können, müssen die Kunden- und
+  Produktstammdaten des Unternehmens analysiert werden. Der erste Schritt im
+  Rahmen dieser Auswertung ist die Modellierung der Analyse.
 
   % ################################################################################
   \chapter{Entwicklung der \textit{DataFurnace}-Sprache}
