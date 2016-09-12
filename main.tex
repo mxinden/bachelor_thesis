@@ -682,7 +682,9 @@
   aufgestellt, auf welches in Erklärungen der \textit{DataFurnace}-Sprache und
   -Software zurückgegriffen wird. Im Fokus steht ein fiktives
   Einzelhandelsgeschäft, welches auf den Verkauf von Lebensmitteln
-  spezialisiert ist, jedoch auch andere Produkte des täglichen Bedarfs verkauft. 
+  spezialisiert ist, jedoch auch andere Produkte des täglichen Bedarfs
+  verkauft. Das Unternehmen betreibt zwei Standorte, jeweils in den Städten
+  Münster und Bonn.
 
   Lebensmittel haben ein Mindesthaltbarkeitsdatum und dürfen bei dessen
   Überschreitung nicht verkauft werden. Um zu verhindern, dass abgelaufene
@@ -700,36 +702,41 @@
   Kundendaten im \acrlong{CRM}-Systems (\acrshort{CRM}) des Unternehmens. Die
   Datenstrukturen der Stammdatensätze werden in
   Abbildung~\ref{example-use-case-data} durch ein UML-Klassendiagramm
-  beschrieben. Im folgenden werden Fragestellungen aufgelistet, welche für die
-  Durchführbarkeitsanalyse der Marketingkampagne beantwortet werden müssen.
+  beschrieben. Im folgenden werden Fragestellungen, welche für die
+  Durchführbarkeitsanalyse der Marketingkampagne beantwortet werden müssen, und
+  deren Bedingungen aufgelistet.
 
   \begin{figure}[caption={Datenstruktur des Produkt- und Kundenstammdatensatzes}, label={example-use-case-data}]
     \resizebox{250pt}{!}{\input{content/figures/example-use-case-data.tex}}
   \end{figure}
 
   \begin{itemize}
-    \item Zunächst sollte die Frage gestellt werden, wie viele Produkte
-      überhaupt im kommenden Monat verfallen. Sind es nur wenige, würde der
-      Aufwand einer Kampagne nicht lohnen.
+
     \item Der Rabatt soll nicht nur in relativen, sondern auch absoluten Zahlen
       beworben werden. Folglich muss im Warenwirtschaftssystem ein valider
       Preis für jedes zu bewerbende Produkt vorliegen.
-    \item Neben zu wenigen Produkten sollen auch nicht zu viele Produkte
-      beworben werden, um den potentiellen Käufer nicht zu überfordern. Es
-      sollen nur die Produkte betrachtet werden, welche mehr als einen Euro
-      Umsatz generieren.
-    \item Aus Kostengründen wird der elektronische Briefversand in der Kampagne
-      präferiert. Nun stellt sich die Frage, für wie viele Kunden im
-      \acrshort{CRM}-System eine valide E-Mail-Adresse hinterlegt ist.
-    \item Wenn keine valide E-Mail-Adresse hinterlegt ist, soll der klassische
-      Briefversand als Medium der Kampagne genutzt werden, folglich muss
-      beleutet werden, wie viele der Kundendatensätze, welche keine valide
-      E-Mail-Adresse haben, eine Anschriftsadresse haben.
+
+    \item Es soll zunächst eine Pilotkampagne an einem der beiden Standorte im
+      nächsten oder übernächsten Monat gestartet werden. Für diese Kampagne
+      soll die Standort-Monat-Kombination gewählt werden, bei welcher ohne die
+      Kampagne der größte Umsatzverlust durch abgelaufene Produkte entstehen
+      würde.
+
+    \item Die Kampagne kann entweder per E-Mail oder per Post beworben werden.
+      Nun stellt sich die Frage, für wie viele Kunden im \acrshort{CRM}-System
+      eine E-Mail-Adresse und für wie viele eine Postanschrift hinterlegt ist.
+
+    \item Das \textit{CRM}-System des Unternehmens enthält viele Karteileichen.
+      Um die Ausschöpfungsquote hoch zu halten, sollen nur die Kunden
+      betrachtet werden, welche innerhalb dieses Jahres zuletzt eingekauft
+      haben.
+
   \end{itemize}
 
-  Um diese Fragestellungen beantworten zu können, müssen die Kunden- und
-  Produktstammdaten des Unternehmens analysiert werden. Der erste Schritt im
-  Rahmen dieser Auswertung ist die Modellierung der Analyse.
+  Um diese Fragestellungen unter der Beachtung der Bedingungen beantworten zu
+  können, müssen die Kunden- und Produktstammdaten des Unternehmens analysiert
+  werden. Der erste Schritt im Rahmen dieser Auswertung ist die Modellierung
+  der Analyse \zB{} mit der \textit{DataFurnace}-Sprache und -Software.
 
   % ################################################################################
   \chapter{Entwicklung der \textit{DataFurnace}-Sprache}
@@ -970,8 +977,7 @@
   %     Sequence('(', 'Ausdruck', ')'),
   %     Sequence('-', 'Ausdruck'),
   %     'Attribut',
-  %     Sequence('Transformationsfunktion', '(', 'Ausdruck', ')'),
-  %     Sequence('Aggregationsfunktion', '(', 'Ausdruck', ')'),
+  %     Sequence('Funktion', '(', 'Ausdruck', ')'),
   %     'Kennzahl'
   %   )
   % )
@@ -982,7 +988,6 @@
   \end{figure}
   \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
   Compiler, Railroad-Diagram, horizontale Linien gleich Gleise, Stationen erklaeren}}
-
 	
   Um innerhalb der Formel einer Kennzahl auf die Informationen einer
   Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
@@ -1001,28 +1006,20 @@
   (Siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
   Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
   zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
-  Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Funktionen werden
-  unterschieden in Transformationsfunktionen und Aggregationsfunktionen. Eine
-  Transformationsfunktion arbeitet lediglich mit den Attributen einer
-  Geschäftsobjektinstanz, wohingegen eine Aggregationsfunktion über mehrere
-  Geschäftsobjektinstanzen hinaus agiert.
+  Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Eine Funktion kann
+  sich immer nur auf Attribute einer Geschäftsobjektinstanz beziehen. Die
+  Aggregation von mehreren Geschäftsobjektinstanzen findet in den
+  Berichtsteilsprache statt, nicht in der Kennzahlteilsprache.
 
-	Ein \todo{Begriffe überprüfen: Transformationsfunktion und
-	Aggregationsfunktion} Beispiel für eine Transformationsfunktion mit Bezug auf
-	eine einzige Instanz ist die \textit{Wurzel}-Funktion.  Sie nimmt als Eingabe
-	eine Zahl und gibt die Wurzel dieser zurück. Ein Beispiel für eine
-	Aggregationsfunktion, welche Attribute von mehreren Instanzen verarbeitet,
-	ist die \textit{Summen}-Funktion. Sie nimmt als Eingabe ein Attribute einer
-	Geschäftsobjektinstanzgruppe und summiert die Ausprägungen des Attributs über
-	alle Instanzen auf. Neben den mathematischen Funktionen wie der
-	\textit{Summen}-Funktion werden des Weiteren datenqualitätsspezifische
-	Funktionen zur Verfügung gestellt. Beispiele sind die
-	\textit{nicht-leer}-Funktion, welche prüft ob ein Ausdruck Inhalt hat und die
-	\textit{enthält}-Funktion, welche zwei Ausdrücke als Parameter nimmt und
-  kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit
-  Letzterer kann \zB{} geprüft werden, ob das Attribut \textit{E-Mail-Adresse}
-	ein At-Zeichen enthält.
-
+  Ein Beispiel für eine Funktion ist die \textit{Wurzel}-Funktion.  Sie nimmt
+  als Eingabe eine Zahl und gibt die Wurzel dieser zurück. Neben den
+  mathematischen Funktionen wie der \textit{Wurzel}-Funktion werden des
+  Weiteren datenqualitätsspezifische Funktionen zur Verfügung gestellt.
+  Beispiele sind die \textit{nicht-leer}-Funktion, welche prüft ob ein Ausdruck
+  Inhalt hat und die \textit{enthält}-Funktion, welche zwei Ausdrücke als
+  Parameter nimmt und kontrolliert ob der erste Audruck im zweiten Ausdruck
+  vorhanden ist. Mit Letzterer kann \zB{} geprüft werden, ob das Attribut
+  \textit{E-Mail-Adresse} ein At-Zeichen enthält.
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
@@ -1154,12 +1151,14 @@
     \footnotesize
     \begin{tabular}{c c c c c}
       \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}
       \textbf{Budesland} & NRW & HH & NRW & HH \\
       \toprule
       \textbf{Anzahl} & 750 & 250 & 1000 & 500\\
     \end{tabular}
     \begin{tabular}{c c c c c}
       \textbf{Bundesland} & \multicolumn{2}{c}{NRW} & \multicolumn{2}{c}{HH} \\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}
       \textbf{Jahr} & 2015 & 2016 & 2015 & 2016 \\
       \toprule
       \textbf{Anzahl} & 750 & 1000 & 250 & 500 \\
@@ -1175,13 +1174,20 @@
   nötig. Die Sprache weist somit an, die Geschäftsobjektinstanzen nach Gruppen
   gebündelt mit den Kennzahlen zu analysieren und das Ergebnis in der Zelle mit
   der Zeilenkoordinate der Kennzahl under der Spaltenkoordinate der
-  Dimensionsgruppe einzutragen. Fügt der Nutzer im bisherigen Szenario die
+  Dimensionsgruppe einzutragen. Bei der Berechnung des Ergebnisses muss wieder
+  zwischen Kennzahlen mit boolschem Rückgabewert und Kennzahlen mit einem
+  Zahlenrückgabewert unterschieden werden. Bei Kennzahlen der ersten
+  Gruppe werden die positiven Ergebnisse gezählt, bei Kennzahlen der zweiten
+  Gruppe werden die Ergebniszahlenwerte aufsummiert.
+  
+  Fügt der Nutzer im bisherigen Szenario die
   Kennzahl \textit{Preisvalidation} der Tabelle hinzu, dann wäre die
   \textit{DataFurnace}-Sprache angewiesen, die Geschäftsobjektinstanzgruppen
   mit den Dimensionslevelausprägungen \textit{2015} \textit{NRW}, \textit{2015}
   \textit{HH}, \textit{2016} \textit{NRW} und \textit{2016} \textit{HH} mit der
   Kennzahl zu analysieren und das Ergebnis in der Zeile der Kennzahl mit einer
-  Zelle pro Gruppe einzutragen.
+  Zelle pro Gruppe einzutragen. Das Ergebnis würde aufzeigen, wie viele Instanzen der
+  jeweiligen Geschäftsobjektinstanzgruppe einen validen Preis haben.
 
   \texthl{(Ist es ok, wenn ich Fakten weg lasse)}
 
@@ -1377,11 +1383,16 @@
   drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
   Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
   Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
-  \textit{DataFurnace}-Software. In dem Prozess der Methode modelliert der
-  Nutzer zunächst seine Geschäftsobjekte mit den zugehörigen Dimensionen,
-  spezifiziert Kennzahlen, mit Bezug auf die Attribute der Geschäftsobjekte,
-  und kombiniert beide zu Berichten. Im folgenden wird das fachliche Konzept
-  der Software anhand dieser drei Ansichten respektive Prozessschritte erklärt. 
+  \textit{DataFurnace}-Software (Siehe Abbildung~\ref{datafurnace-prozess}). In dem
+  Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte mit
+  den zugehörigen Dimensionen, spezifiziert Kennzahlen, mit Bezug auf die
+  Attribute der Geschäftsobjekte, und kombiniert beide zu Berichten. Im
+  folgenden wird das fachliche Konzept der Software anhand dieser drei
+  Ansichten respektive Prozessschritte erklärt. 
+
+  \begin{figure}[caption={\textit{DataFurnace}-Prozess}, label={datafurnace-prozess}]
+    \includegraphics[scale=0.60]{content/figures/datafurnace-process}
+  \end{figure}
 
   Der Wechsel zwischen der Dimensions-, Kennzahl- und Berichtsansicht gelingt
   über die Kopfleiste der \textit{DataFurnace}-Software, in welcher zu jeder
@@ -1605,6 +1616,8 @@
   mit einem Klick auf das \textit{Löschen}-Symbol rechts vom Funktionsbaukasten
   in der unteren Leiste.
 
+  \todo[inline]{!!! Beispiel Kennzahlen aus Anwendungsfallbeispiel modellieren}
+
 
   \subsection{Berichtsansicht}
 
@@ -1715,7 +1728,9 @@
       \footnotesize
       \begin{tabular}{c c c c c c c c c}
         \textbf{Warenlinie} & \multicolumn{4}{c}{Bürobedarf} & \multicolumn{4}{c}{Lebensmittel} \\
+            \cmidrule(lr){2-5}\cmidrule(lr){6-9}
         \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015}\\
+            \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
         \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
       \end{tabular}
       \caption{Beispiel der Tabellenkopfzeilen mit den Ausprägungen \textit{2014} und \textit{2015}}\label{table:berichtstabellenkopf20142015}
@@ -1725,7 +1740,9 @@
       \footnotesize
       \begin{tabular}{c c c c c c c c c c c c c}
         \textbf{Warenlinie} & \multicolumn{6}{c}{Bürobedarf} & \multicolumn{6}{c}{Lebensmittel} \\
+            \cmidrule(lr){2-7}\cmidrule(lr){8-13}
         \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016}\\
+            \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}
         \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
       \end{tabular}
       \caption{Beispiel der Tabellenkopfzeilen mit den Ausprägungen \textit{2014}, \textit{2015} und \textit{2016}}\label{table:berichtstabellenkopf201420152016}
