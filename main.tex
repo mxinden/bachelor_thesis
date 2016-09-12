@@ -131,10 +131,14 @@
   kombinieren. Das Vokabular der Sprache soll mit dem von \textit{DataRocket}
   harmonisieren und an den jeweiligen Schnittpunkten übereinstimmen. Besonderer
   Wert wird auf die leichte Verständlichkeit der Sprache gesetzt, um IT-Laien
-  die Nutzung von \textit{DataRocket} weiterhin zu ermöglichen. Zur
-  einfacheren Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache
-  mit dem Begriff \textit{DataFurnace}-Sprache \todo{DataFurnace Begriff
-  erklären} verwiesen.
+  die Nutzung von \textit{DataRocket} weiterhin zu ermöglichen. Zur einfacheren
+  Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache mit dem
+  Begriff \textit{DataFurnace}-Sprache\footnote{Der fiktive Name
+  \textit{DataFurnace} ist im Deutschen zu übersetzen als
+  \textit{Datenschmelzofen}. Die \textit{DataFurnace}-Sprache und -Software
+  kombiniert im Rahmen der Unternehmensdatenanalyse verschiedene Daten zu neuen
+  Erkentnissen, ähnlich zum Schmelzofen, in welchem beispielsweise Metalle zu
+  neuen Formen verschmolzen werden.}\todo{Erklärung überarbeiten} verwiesen.
   
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
@@ -144,6 +148,7 @@
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
   \paragraph{Aufbau der Arbeit}
+  \todo[inline]{Grafik zum Aufbau der Arbeit}
 
 
 
@@ -160,16 +165,15 @@
   \section{Modellierung}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
-  Modelltypen, welche das Datenschema abstrahiert darstellen.
-  Die Modellierung der Daten ist essentiell für die Analyse:
-  \textsc{\citeauthor{phipps2002automating}} zählen diese
-  zu den fünf Hauptschritten der Datenanalyse im
-  Data-Warehouse-Kontext~\cite[][S. 1]{phipps2002automating}. Es wird nun
-  die multidimensionale Modellierung beleuchtet und im Kontext der Unternehmensdatenanalyse
-  mit der Entity-Relationship-Modellierung verglichen. Des Weiteren wird
-  eine Erweiterung der multidimensionalen Modellierung--\textit{H2 for
+  Modelltypen, welche das Datenschema abstrahiert darstellen.  Die Modellierung
+  der Daten ist essentiell für die Analyse:
+  \textsc{\citeauthor{phipps2002automating}} zählen diese zu den fünf
+  Hauptschritten der Datenanalyse im Data-Warehouse-Kontext~\cite[][S.
+  1]{phipps2002automating}. Es wird nun die multidimensionale Modellierung
+  beleuchtet und im Kontext der Unternehmensdatenanalyse mit der
+  Entity-Relationship-Modellierung verglichen. Des Weiteren wird eine
+  Erweiterung der multidimensionalen Modellierung--\textit{H2 for
   Reporting}--vorgestellt.
-
 
 
 	\subsection{Multidimensionale
@@ -388,17 +392,21 @@
 	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
 	entwickelt~\cite[][S.  34]{becker2007h2}.
 
-	Das \textit{Dimensional-Fact}-Modell (\textit{\acrshort{DFM}}), mit den Typen
-	\textit{Fakt}, \textit{Kennzahl}, \textit{Dimension} und
-	\textit{Hierarchie}~\cite[][]{golfarelli1998dimensional}, das
-	\textit{\acrlong{ME/R}}-Modell (\textit{\acrshort{ME/R}-Modell}), basierend
-	auf dem \textit{\acrlong{ERM}}, mit den Spezialisierung
-	\textit{Dimensions-Level} des \textit{Entity}-Typen und \textit{Fact} und
-	\textit{Roll-Up-To} des
-	\textit{Relationship}-Typen~\cite[][]{sapia1998extending}, sowie das
-	\textit{\acrlong{ADAPT}}-Modell (\textit{\acrshort{ADAPT}}), mit einer
-	Vielzahl eigener Modellierungstypen~\cite[][]{chamoni2013analytische}, sind
-	alternative Erweiterungen der multidimensionalen Modellierung.
+  Neben \textit{H2 for Reporting} existieren weitere alternative Erweiterungen der multidimensionalen Modellierung:
+
+  \begin{itemize}
+    \item das \textit{Dimensional-Fact}-Modell (\textit{\acrshort{DFM}}) mit den Typen
+      \textit{Fakt}, \textit{Kennzahl}, \textit{Dimension} und
+      \textit{Hierarchie}~\cite[][]{golfarelli1998dimensional}, 
+    \item das \textit{\acrlong{ME/R}}-Modell (\textit{\acrshort{ME/R}-Modell}), basierend
+      auf dem \textit{\acrlong{ERM}} mit den Spezialisierungen
+      \textit{Dimensions-Level} des \textit{Entity}-Typen und \textit{Fact} und
+      \textit{Roll-Up-To} des
+      \textit{Relationship}-Typen~\cite[][]{sapia1998extending}
+    \item sowie das
+      \textit{\acrlong{ADAPT}}-Modell (\textit{\acrshort{ADAPT}}) mit einer
+      Vielzahl eigener Modellierungstypen~\cite[][]{chamoni2013analytische}.
+  \end{itemize}
 
   % \begin{itemize}
   %   \item H2 for Reporting
@@ -438,9 +446,10 @@
   Wissenschaft als auch in der Praxis in seiner
   Relevanz~(\citeyear{otto2012design}, S. 1). Diese steigende Aufmerksamkeit
   lässt sich auf hohe Kosten durch schlechte Stammdatenqualitätsprobleme in
-  Unternehmen zurück führen, wie zum Beispiel laut
+  Unternehmen zurückführen, wie zum Beispiel laut
   \textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
-  US-Dollar im Jahr~(\cite{eckerson2002data}, S. 3).
+  US-Dollar Kosten im Jahr entstanden durch
+  Datenqualitätsprobleme~(\cite{eckerson2002data}, S. 3).
   \textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
   des Stammdatenmanagements die notwendige Datenstandardisierung über
   Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
@@ -479,7 +488,7 @@
 	f.). Die \acrlong{DGIQ} (\acrshort{DGIQ}) teilt Datenqualitätsdimensionen in
 	die vier Kategorien \textit{Nutzung}, \textit{System}, \textit{Darstellung}
 	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat}, welche jeweils den Betrachtungsraum der Dimensionen
-	abbilden, siehe Abbildung~\ref{15-dimensions}.
+  abbilden (Siehe Abbildung~\ref{15-dimensions}).
 
   \begin{figure}[caption={Datenqualitätsdimensionen angeleht an~\cite{rohweder2015informationsqualitat} S. 30}, label={15-dimensions}]
     \includegraphics[scale=0.60]{content/figures/15-dimensions}
@@ -493,11 +502,11 @@
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
 	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{} ob ein bestimmtes Feld
 	eines Stammdatums gefüllt ist. Angewandt auf die Datenqualitätsdimension
-	\textit{Vollständigkeit} der Dimensionskategorie \textit{Nutzung}, kann sie
+	\textit{Vollständigkeit} der Dimensionskategorie \textit{Nutzung} kann sie
 	angeben, wie vollständig ein bestimmtes Datum ist. Die Überwachung der
 	Stammdatenqualität eines Unternehmens kann nach der Spezifikation von
-	Datenqualitätskennzahlen von einer Stammdatenmanagement-Software wie \zB{}
-	\textit{DataRocket} kontinuierlich auf die gesamten Stammdaten eines
+	Datenqualitätskennzahlen von einer Stammdatenmanagement-Software, wie \zB{}
+	\textit{DataRocket}, kontinuierlich auf die gesamten Stammdaten eines
 	Unternehmens angewandt werden, womit nach
 	\textsc{\citeauthor{baghi2013controlling}} das Fundament für die
 	Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S.
@@ -529,21 +538,22 @@
 	verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
 	erläutert werden.
 
-	Im Ansatz der \textit{Leading-System}-Architektur wird für jede
-	Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
-	Klasse der Kundendaten, welches die Hauptverwaltung dieser Klasse übernimmt,
-	andere Systeme erhalten ihre Informationen über die Stammdatenklasse vom
-	Hauptsystem~\cite[][S. 3829]{baghi2014toward}. Der Architekturansatz
-	\textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
-	beschreibt ein zentrales System, welches verschiedenste andere Systeme und
-	Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
-	Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe
-	hierzu auch \textsc{\citeauthor{loshin2010master}}, wessen Definition von
-	Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
-	gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen
-	wird im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre
-	Erklärungen auch nicht Teil dieser Arbeit sind, hier wird lediglich auf die
-	Erklärungen von~\cite{baghi2014toward} verwiesen.
+  Im Ansatz der \textit{Leading-System}-Architektur wird für jede
+  Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
+  Klasse der Kundendaten, welches die Hauptverwaltung dieser Klasse übernimmt,
+  andere Systeme erhalten ihre Informationen über die Stammdatenklasse vom
+  Hauptsystem~\cite[][S. 3829]{baghi2014toward}. Der Architekturansatz
+  \textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
+  beschreibt ein zentrales System, welches verschiedenste andere Systeme und
+  Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
+  Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe
+  hierzu auch \textsc{\citeauthor{loshin2010master}}, wessen Definition von
+  Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
+  gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen
+  wird im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre
+  Erklärungen auch nicht Teil dieser Arbeit sind. Hier wird lediglich auf die
+  Erklärungen von~\textsc{\citeauthor{baghi2014toward}}
+  \citeyearpar{baghi2014toward} verwiesen.
 
 
   \subsection{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
@@ -551,13 +561,13 @@
 	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
 	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
 	Architektonisch verfolgt sie den Ansatz des
-	\textit{Consolidation-Hubs}\footnote{Siehe~\cite{baghi2014toward}}, indem es
+  \textit{Consolidation-Hubs}~\cite[][]{baghi2014toward}, indem es
 	verschiedenste Informationssysteme eines Unternehmens anbindet, deren Daten
 	strukturiert extrahiert und diese analysiert und in ihrer Qualität überwacht
 	und verbessert. \textit{DataRocket} kann auch mit
-	\textit{Leading-Systems}\footnote{Siehe~\cite{baghi2014toward}}
+  \textit{Leading-Systems}~\cite[][]{baghi2014toward}
 	kollaborieren, da es Änderungen an Attributen eines Stammdatums an diese
-	weiter geben kann, \bzw{} die Änderungen zurück schreiben kann.
+	weiter geben kann, \bzw{} die Änderungen zurückschreiben kann.
 	Alleinstellungsmerkmale der Software sind: Domänenunabhängigkeit, einfache
 	Bedienung und hoher Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch
 	ersetzen}. \textit{DataRocket} fällt in die Gruppe der
@@ -585,7 +595,7 @@
 			Software übernommen werden. Ein Beispiel für ein solches
 			Informationssystem ist eine \textit{SQL}-Datenbank. \textit{DataRocket}
 			kann das Schema der Datenbank auslesen und automatisiert ein passendes
-			\textit{\acrshort{ER}} ähnliches Modell erstellen.
+			\textit{\acrshort{ER}}-ähnliches Modell erstellen.
 
 		\item Die Aggregations-Modellierung wird der Ist-Modellierung zugeordnet,
 		indem Geschäftsobjekte beider Welten miteinander verbunden werden. Im
@@ -600,8 +610,8 @@
 
 		\item Qualitätskennzahlen werden für Attribute von Geschäftsobjekten
 		definiert, indem entweder auf einen bereitgestellten Katalog von
-		Auswertungsfunktionen zurück gegriffen wird, oder eigene, durch die
-		Formulierung von regulären Ausdrücken, erstellt werden. Ein Beispiel einer
+		Auswertungsfunktionen zurückgegriffen wird, oder eigene Attribute durch die
+		Formulierung von regulären Ausdrücken erstellt werden. Ein Beispiel einer
 		Qualitätskennzahl für das Geschäftsobjekt \textit{Kunde} ist eine Kennzahl,
 		welche überprüft, ob das Attribut \textit{E-Mail-Adresse} des
 		Geschäftsobjekts ein At-Zeichen enthält.
@@ -620,22 +630,23 @@
 		\textit{E-Mail-Adresse} das At-Zeichen fehlt.
 
     \item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
-      verschiedensten Graphen im \textit{Visualization}-Baustein visualisiert
-      werden. Diese können in der Berichterstattungskomponente, welche im
-      nachfolgenden genauer beschrieben wird, aufgegriffen werden.
+      verschiedenen Diagrammen, wie \zB{} einem Linien- oder Säulendiagramm, im
+      \textit{Visualization}-Baustein optisch aufbereitet werden. Diese können
+      in der Berichterstattungskomponente aufgegriffen werden, welche im
+      nachfolgenden genauer beschrieben wird.
 
     \item Datenqualitätsprobleme können manuell oder automatisiert im
       \textit{Cleaning}-Baustein behoben werden. Für die manuelle Behebung
-      werden einem User nacheinander Geschäftsobjekte mit
+      werden dem Nutzer nacheinander Geschäftsobjekte mit
       Datenqualitätsproblemen angezeigt, welche er direkt in der Software
-      bereinigen kann. Für de automatisierte Behebung bietet
-      \textit{DataRocket} verschieden Module. Ein Beispielmodul dient der
+      bereinigen kann. Für die automatisierte Behebung bietet
+      \textit{DataRocket} verschieden Module. Ein Beispiel\-modul dient der
       Bereinigung von Adressdaten. Hierzu werden externe
       Geo-Datenbanken \todo{Beispiel für eine Datenbank} angebunden, welche
       \textit{DataRocket} mit den Adressdaten der Geschäftsobjekte vergleicht
 			und diese hiermit \ggf{} ergänzt oder korrigiert. Die Datenänderungen
 			werden von \textit{DataRocket} automatisiert in das
-			Informationsquellsystem zurück geschrieben.
+			Informationsquellsystem zurückgeschrieben.
 
     \item \textit{DataRocket} überwacht alle angebundenen Datenquellen
       kontinuierlich und bietet in der Benutzerschnittstelle eine
@@ -644,13 +655,13 @@
       Zeitverlauf anzeigt.
 	\end{enumerate}
 
-	Der sequentielle Prozess, beschrieben in Schritt fünf bis acht, wird in der
+	Der sequentielle Prozess, beschrieben in den Schritten fünf bis acht, wird in der
 	Benutzeroberfläche durch das Modul \textit{DataPipeline}
 	abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es dem
-	Nutzer verschiedene Prozessschritte wie Bausteine aneinander zu reihen,
+	Nutzer verschiedene Prozessschritte wie Bausteine aneinanderzureihen,
 	welche jeweils auf die Ausgabewerte ihrer Vorgänger als eigene Eingabewerte
 	aufbauen. Sie ist vergleichbar mit dem \textit{Pipeline}-Pattern des
-	Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix ähnlichen
+	Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix-ähnlichen
 	Betriebssystemen~\cite[][]{spinellis2001notable}. Im bisherigen
 	Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde} mit Hilfe
 	der zuvor definierten Qualitätskennzahlen im \textit{Calculation} Baustein
@@ -735,7 +746,7 @@
 	genau anweisen, nach welchen Kriterien er Datenqualität definiert und wie die
 	Daten anhand der Datenqualitätsdefinitionen analysiert werden sollen. Für die
 	Kommunikation zwischen \textit{DataRocket} und Nutzer ist folglich eine
-	Sprache von Nöten, welche es dem Nutzer ermöglicht \textit{DataRocket} die
+	Sprache von Nöten, welche es dem Nutzer ermöglicht, \textit{DataRocket} die
 	funktionale Struktur der zu analysiereden Daten zu erklären,
 	Qualitätskriterien zu definieren und Analyseziele zu spezifizieren.
 	Gegenstandsbereich der Sprache ist der Einsatz in \textit{DataRocket} im
@@ -745,10 +756,10 @@
   \section{Anforderungsanalyse und Annahmen}\label{sec:sprache/anforderungsanalyse}
 
 	Im Folgenden wird eine Anforderungsanalyse für die
-	\textit{DataFurnace}-Sprache durchgeführte um genaue Anforderungen an die
+	\textit{DataFurnace}-Sprache durchgeführt, um genaue Anforderungen an die
 	Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
 	Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
-	Anforderungsanalyse} zurück gegriffen, näher beschrieben von
+	Anforderungsanalyse} zurückgegriffen, näher beschrieben von
 	\textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.  Ziele werden
 	unterschieden in \textit{funktionale} und \textit{nicht-funktionale}
 	Ziele~\cite[][S.  36]{mylopoulos1999object}.  Erstere beschreiben die
@@ -760,24 +771,24 @@
   \paragraph{Funktionale Ziele}
     \begin{enumerate}
       \item \textbf{Spezifikation der Unternehmensdatenstrukturen} 
-        
-				Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
-				können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
-				und die Spezifikation der hierarchischen Strukturen innerhalb seiner
-				Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
-				die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
-				werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren
-				in seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
-				aufgeteilt werden können, wobei der Nutzer die Möglichkeit haben soll
-				den Warenbereich der Warenlinie funktional unterzuordnen.
+
+        Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
+        können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
+        und die Spezifikation der hierarchischen Strukturen innerhalb seiner
+        Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
+        die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
+        werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren
+        in seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
+        aufgeteilt werden können, wobei der Nutzer die Möglichkeit haben soll,
+        den Warenbereich der Warenlinie funktional unterzuordnen.
 
       \item \textbf{Definition von Kennzahlen} 
 
         \textit{DataRocket} misst Datenqualität anhand von
-        Datenqualtitätskennzahlen. Ziel ist es diese mit Hilfe der
+        Datenqualtitätskennzahlen. Ziel ist es, diese mit Hilfe der
         \textit{DataFurnace}-Sprache definieren zu können.
         Datenqualitätskennzahlen beziehen sich auf Attribute von
-        Unternehmensdatentypen. Die Sprache soll es dem Nutzer ermöglichen
+        Unternehmensdatentypen. Die Sprache soll es dem Nutzer ermöglichen,
         komplizierte Qualitätskennzahlberechnungen zu spezifizieren, welche
         sowohl qualitativem als auch quantitativem Ursprungs sein können. Es
         soll zum Beispiel eine Qualtitätskennzahl definiert werden können,
@@ -790,8 +801,8 @@
         dienen, sondern auch allgemeine Beurteilungen erbringen können. Will
         sich ein Nutzer beispielsweise in einem großen Datenqualitätsprojekt
         zunächst nur auf die lukrativen Instanzen des Geschäftsobjekt
-        \textit{Produkt} konzentrieren, so soll er, mit Hilfe der
-        betriebswirtschaftlichen Kennzahl \textit{Gewinn}, diese gefiltert
+        \textit{Produkt} konzentrieren, so soll er mit Hilfe der
+        betriebswirtschaftlichen Kennzahl \textit{Gewinn} diese gefiltert
         analysieren können.
         
       \item \textbf{Kombination zu Berichten}
@@ -799,7 +810,7 @@
         Ein Nutzer soll die Kombination von zuvor spezifizierten
         Unternehmensdaten mit den definierten Datenqualtiätskennzahlen zu
         verschiedensten Auswertungsszenarien mit Hilfe der Sprache beschreiben
-        können. Somit soll es die Sprache ermöglichen Fragestellungen zu
+        können. Somit soll es die Sprache ermöglichen, Fragestellungen zu
         entwickeln, welche die Qualtität von bestimmten Datensätzen hinterfragen.
         Zusätzlich soll sie den Nutzer befähigen, innerhalb einer
         Fragestellung, mit Hilfe von Attributen, Datensätze gefiltert zu
@@ -826,7 +837,7 @@
 				Die Software \textit{DataRocket} nutzt in ihrer Oberfläche die
 				Englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
 				die Software einige Begriffe des Datenqualitätsmanagement-Jargons, wie
-				\zB{} Datenqualitätskennzahl, und führt in einigen wenigen fällenn ein
+				\zB{} Datenqualitätskennzahl, und führt in einigen wenigen Fällen ein
 				eigenes Vokabular ein, welches unikale Komponenten und Vorgänge der
 				Software betitelt, wie \zB{} das Geschäftsobjekt. Zwar soll die
 				\textit{DataFurnace}-Sprache und -Komponente alleinstehend entwickelt
@@ -845,17 +856,20 @@
 
   \begin{enumerate}
     \item \textbf{Datentransformation durch \textit{DataRocket}}
-      
-      \textit{DataRocket} bringt in seinem Funktionsumfang den so genannten
-      \textit{Mapper} mit, welcher es dem Nutzer ermöglicht, Daten in
+
+      Im Funktionsumfang von \textit{DataRocket} ist der so genannten
+      \textit{Mapper} enthalten, welcher es dem Nutzer ermöglicht, Daten in
       verschiedenste gewünschte Strukturen zu transformieren. Folglich kann für
       die Entwicklung der \textit{DataFurnace}-Sprache die Möglichkeit der
       Beschreibung einer Transformation von Datenstrukturen außer Acht gelassen
-      werden mit der Annahme, dass die \textit{DataFurnace}-Software auf die
-      zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann, indem es
-      direkt mit Geschäftsobjekten\footnote{Der \textit{DataRocket}-Begriff
+      werden, mit der Annahme, dass die \textit{DataFurnace}-Software auf die
+      zuvor von \textit{DataRocket} strukturierten Daten aufbauen kann, indem
+      es direkt mit Geschäftsobjekten\footnote{Der \textit{DataRocket}-Begriff
       Geschäftsobjekt wird in Abschnitt~\ref{subsec:dimension} erläutert.}
       arbeitet.
+
+      \todo[inline]{Weitere Annahme hinzufügen}
+
   \end{enumerate}
 
 
@@ -879,7 +893,7 @@
 
 	Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
 	Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
-	fundamental aufbaut. Der Begriff Geschäftsobjekt wird aus dem
+	essentiell aufbaut. Der Begriff Geschäftsobjekt wird aus dem
 	\textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
 	innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
 	bilden den zentralen Baustein der \textit{DataRocket}-Software. Ein
@@ -900,7 +914,7 @@
   Geschäftsobjekts \textit{Produkt}.
 
 	Instanzen eines Geschäftsobjekts können mit der Hilfe von Dimensionen in
-	Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es die spätere
+	Teilmengen gruppiert werden. Diese Unterteilung ermöglicht es, die spätere
 	Analyse von Geschäftsobjekten nicht nur auf eine einzelne Instanz, sondern
 	auf eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
 	anzuwenden. Des Weiteren kann nach Untermengen der gesammten
@@ -941,13 +955,13 @@
 	folgt der Grundrechenart mit den Operationen \textit{Addition},
 	\textit{Substraktion}, \textit{Multiplikation} und \textit{Division}, welche
 	auf zwei oder mehr Operanden angewendet werden (Siehe
-	Abbildung~\ref{railroad-kennzahl} Gleis eins). Im weiteren Verlauf der
+	Abbildung~\ref{railroad-kennzahl}, Gleis eins). Im weiteren Verlauf der
 	\textit{DataFurnace}-Sprachvorstellung wird der Begriff \textit{Ausdruck} als
 	Generalisierung von \textit{Operand} und \textit{Operator} genutzt.  Die
 	Auswertungsreihenfolge der Ausdrücke kann mit Klammern differenziert werden,
-	erneut verdeutlicht durch Abbildung~\ref{railroad-kennzahl} Gleis zwei.
+	erneut verdeutlicht durch Abbildung~\ref{railroad-kennzahl}, Gleis zwei.
 	Ausdrücke können mit dem Voranstellen eines Minuszeichens negiert werden
-	(Siehe Abbildung~\ref{railroad-kennzahl} Gleis drei). Des Weiteren können
+	(Siehe Abbildung~\ref{railroad-kennzahl}, Gleis drei). Des Weiteren können
 	Konstanten in die Formelgleichung mit aufgenommen werden.
 
   % Diagram(
@@ -983,15 +997,15 @@
   Konfigurationsaufwand im späteren Gebrauch der Kennzahl.
 
   Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
-  bereit gestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
+  bereitgestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
   (Siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
   Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
   zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
   Inneren, und ermöglicht den Fokus auf das Ergebnis selbst. Funktionen werden
   unterschieden in Transformationsfunktionen und Aggregationsfunktionen. Eine
   Transformationsfunktion arbeitet lediglich mit den Attributen einer
-  Geschäftsobjektinstanz wohingegen eine Aggregationsfunktion über mehrere
-  Geschäftsobjektinstanzen hinaus aggiert.
+  Geschäftsobjektinstanz, wohingegen eine Aggregationsfunktion über mehrere
+  Geschäftsobjektinstanzen hinaus agiert.
 
 	Ein \todo{Begriffe überprüfen: Transformationsfunktion und
 	Aggregationsfunktion} Beispiel für eine Transformationsfunktion mit Bezug auf
@@ -1005,14 +1019,14 @@
 	Funktionen zur Verfügung gestellt. Beispiele sind die
 	\textit{nicht-leer}-Funktion, welche prüft ob ein Ausdruck Inhalt hat und die
 	\textit{enthält}-Funktion, welche zwei Ausdrücke als Parameter nimmt und
-	kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit der
-	letzteren kann \zB{} geprüft werden, ob das Attribut \textit{E-Mail-Adresse}
+  kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit
+  Letzterer kann \zB{} geprüft werden, ob das Attribut \textit{E-Mail-Adresse}
 	ein At-Zeichen enthält.
 
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
-  Kennzahl zurück greifen, verdeutlicht durch das letzte Gleis des
+  Kennzahl zurückgreifen, verdeutlicht durch das letzte Gleis des
   Syntaxdiagramms (Abbildung~\ref{railroad-kennzahl}). Wird zum Beispiel die
   Kennzahl \textit{Gewinn} betrachtet, so kann diese aus der Subtraktion der
   Kennzahl \textit{Umsatz} als Minuend mit der Kennzahl \textit{Kosten} als
@@ -1048,8 +1062,8 @@
   möchte. Will ein Nutzer der \textit{DataFurnace}-Sprache beispielsweise in
   seiner Fragestellung lediglich die Instanzen des Geschäftsobjekts
   \textit{Produkt} betrachten, welche in diesem Jahr ablaufen, fügt er das
-  Dimensionslevel \textit{Jahr} der Dimension \textit{Zeit} bezogen auf das
-  Attribut \textit{Verfallsdatum} als Filter hinzu. In diesem Filter fügt er
+  Dimensionslevel \textit{Jahr} der Dimension \textit{Zeit}, bezogen auf das
+  Attribut \textit{Verfallsdatum}, als Filter hinzu. In diesem Filter fügt er
   die Dimensionslevelausprägung \textit{2016} in die Positivliste ein.
 
 	Alternativ zu der Filterung über Dimensionslevelausprägungen kann der Nutzer
@@ -1059,23 +1073,24 @@
 	eine Aggregationsfunktion ist sie für die Filterkomponente ungeeignet, da
 	hier jeweils eine einzelne Instanz betrachtet wird. Für die Filterung mit
 	einer Kennzahl mit Bezug auf eine einzelne Instanz wählt ein Nutzer eine
-	zuvor definierte Kennzahl aus und konkretisiert bei welchen Ergebnissen der
+	zuvor definierte Kennzahl aus und konkretisiert, bei welchen Ergebnissen der
 	Kennzahl eine Instanz eines Geschäftsobjekts in die nähere Auswahl
 	aufgenommen oder ausgefiltert wird.
 
-	Für diese Konkretisierung müssen Kennzahlen zunächst anhand ihrer
-	Ergebnistypen in zwei Gruppen unterteilt werden. Die erste Gruppe gibt als
-	Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober- und Untergrenzen
-	benennen, in welchen der Ergebniszahlenwert der Kennzahl einer
-	Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden. Ein
-	Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt ist der
-	\textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen, welche
-	einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die gesuchte
-	Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen muss oder
-	nicht bestehen darf. Als Beispiel kann hier die \textit{nicht-leer}-Kennzahl
-	genannt werden, welche lediglich \textit{wahr}, das Attribut der
-	Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder \textit{falsch}, das
-	Attribut ist nicht gefüllt, zurück gibt.
+  Für diese Konkretisierung müssen Kennzahlen zunächst anhand ihrer
+  Ergebnistypen in zwei Gruppen unterteilt werden. Die erste Gruppe gibt als
+  Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober- und Untergrenzen
+  benennen, in welchen der Ergebniszahlenwert der Kennzahl einer
+  Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden. Ein
+  Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt, ist der
+  \textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen, welche
+  einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die gesuchte
+  Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen muss oder
+  nicht bestehen darf. Als Beispiel kann hier die \textit{nicht-leer}-Kennzahl
+  genannt werden, welche lediglich \textit{wahr}, das Attribut der
+  Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder \textit{falsch}, das
+  Attribut ist nicht gefüllt\todo{Erklärungen jeweils in Klammern, statt mit
+  Komma abgetrennt?}, zurück gibt.
 
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
@@ -1083,7 +1098,7 @@
   \textit{Preisvalidation}, welche prüft ob die Ausprägung des Attributes
   \textit{Preis} keine Buchstaben enthält, als Filter dem Bericht hinzu. In dem
   Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
-  die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen oder
+  die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen, oder
   anders gesagt, bei denen das Ergebnis der Kennzahl der boolesche Wert
   \textit{wahr} ist.
 
@@ -1097,7 +1112,7 @@
   konfiguriert.
 
   Die Tabellenkopfzeilen spezifizieren, welche Unternehmensdaten in der Analyse
-  betrachtet werden und nach welchen in der Auswertung wie gruppiert wird. Dies
+  betrachtet werden und nach welchen Daten in der Auswertung wie gruppiert wird. Dies
   geschieht mit Hilfe der zuvor spezifizierten Dimensionen und Dimensionslevel,
   welche die Unternehmensdatengesamtheit gruppieren. Eine Tabellenkopfzeile
   repräsentiert jeweils genau ein Dimensionslevel. Eine Dimension kann mehrfach
@@ -1115,23 +1130,23 @@
 
   Wird die Tabelle mit mehr als einem Dimensionslevel bestückt, zeigt die
   Tabelle pro möglicher Dimensionslevelausprägungskombination eine Spalte an.
-  Im Szenario von zwei Dimensionsleveln mit jeweils zwei selektierten
-  Dimensionslevelausprägungen resultiert dies in vier Spalten, exklusive der
+  Aus einem Szenario von zwei Dimensionsleveln mit jeweils zwei selektierten
+  Dimensionslevelausprägungen resultieren vier Spalten, exklusive der
   Tabellenkopfspalte auf der linken Seite\footnote{Siehe hierzu Tabellen in
   Abbildung~\ref{table:auftrittsreihenfolge}}. Bei mehreren Dimensionsleveln
   kann die Auftrittsreihenfolge der Tabellenkopfzeilen bestimmt werden. Die
-  Auftrittsreihenfolge ist in sofern relevant, da die Ergebniswerte eines
+  Auftrittsreihenfolge ist insofern relevant, als dass die Ergebniswerte eines
   Dimensionslevels in der Tabelle in Abhängigkeit des Dimensionslevels darüber
   berechnet und positioniert werden. Nachfolgend wird das vorhergegangene
   Beispiel erweitert. Fügt der Nutzer neben dem Dimensionslevel \textit{Jahr}
   das Dimensionslevel \textit{Bundesland} der Dimension \textit{Ort} des
-  Attributes \textit{Herstellungsort} hinzu kann er dies entweder oberhalb oder
+  Attributes \textit{Herstellungsort} hinzu, so kann er dies entweder oberhalb oder
   unterhalb des \textit{Jahres} machen, abhängig davon, ob er in seiner
   Fragestellung zunächst \textit{2015} und \textit{2016} und dann \textit{NRW}
-  und \textit{HH} vergleichen möchte, oder anders herum. Die Wahl der
+  und \textit{HH} vergleichen möchte, oder andersherum. Die Wahl der
   Auftrittsreihenfolge dient lediglich der Übersichtlichkeit, die eigentlichen
-  Aussagen der Tabelle werden hierdurch nur verschieden in dieser positioniert,
-  die Menge der Permutationen zwischen oberem und unterem Dimensionslevel
+  Aussagen der Tabelle werden hierdurch nur verschieden innnerhalb dieser positioniert.
+  Die Menge der Permutationen zwischen oberem und unterem Dimensionslevel
   bleibt gleich, nachvollziehbar an den Tabellen in
   Abbildung~\ref{table:auftrittsreihenfolge}.
   
@@ -1152,12 +1167,12 @@
     \caption{Auswertung des Geschäftsobjets \textit{Produkt}}\label{table:auftrittsreihenfolge}
   \end{table}
 
-  Die Tabellenkopfspalten legen fest mit welchen Kennzahlen die zuvor
+  Die Tabellenkopfspalten legen fest, mit welchen Kennzahlen die zuvor
   ausgewählten Geschäftsobjektinstanzen analysiert werden sollen. Ein Nutzer
   kann beliebig viele unterschiedliche Kennzahlen der Tabelle hinzufügen. Eine
   Kennzahl kann in der Tabelle nur einmal vorkommen. Da die Kennzahlen bereits
-  geschäftsobjektspezifisch definiert wurden sind keine weiteren Eingaben
-  nötig. Die Sprache weist somit an die Geschäftsobjektinstanzen nach Gruppen
+  geschäftsobjektspezifisch definiert wurden, sind keine weiteren Eingaben
+  nötig. Die Sprache weist somit an, die Geschäftsobjektinstanzen nach Gruppen
   gebündelt mit den Kennzahlen zu analysieren und das Ergebnis in der Zelle mit
   der Zeilenkoordinate der Kennzahl under der Spaltenkoordinate der
   Dimensionsgruppe einzutragen. Fügt der Nutzer im bisherigen Szenario die
@@ -1185,14 +1200,14 @@
   Eine rudimentäre Implementierung des \textit{Calculation}-Bausteins ist
   bereits in \textit{DataRocket} integriert, jedoch mangelt es dieser an
   Konsistenz und Funktionsumfang, weshalb die \textit{innnoscale AG}
-  beabsichtigt diese Implementierung zu ersetzen.
+  beabsichtigt, diese Implementierung zu ersetzen.
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:software/anforderungsanalyse}
 
-	Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache eine
-	Softwarekomponente, \textit{DataFurnace}-Software, konzipiert und
+	Im Rahmen dieser Arbeit soll neben der \textit{DataFurnace}-Sprache die
+	Softwarekomponente \textit{DataFurnace}-Software konzipiert und
 	prototypisch entwickelt werden, welche es ermöglicht,
-	Unternehmensdatenanalysen, mit besonderem Fokus auf Datenqualitätsanalysen,
+	Unternehmensdatenanalysen mit besonderem Fokus auf Datenqualitätsanalysen
 	in der \textit{DataFurnace}-Sprache zu modellieren. Die Implementierung der
 	eigentlichen Analyselogik ist nicht Teil dieser Arbeit.  Die
 	\textit{DataFurnace}-Software soll zunächst als eigenständiges Produkt
@@ -1216,7 +1231,7 @@
       ermöglichen, die Geschäftsobjekte eines Unternehmens abzubilden und ihnen
       Attribute unterzuordnen. Sowohl Geschäftsobjekten als auch Attributen
       ist ein Name zur Identifikation hinzuzufügen. Des Weiteren soll die
-      Möglichkeit bestehen ein Attribut mit möglichen Attributausprägungen zu
+      Möglichkeit bestehen, ein Attribut mit möglichen Attributausprägungen zu
       ergänzen.
 
       Um Geschäftsobjektinstanzen gruppieren und filtern zu können, muss es
@@ -1237,7 +1252,7 @@
       Spezifikation von komplexen Kennzahlen schaffen. Die Komplexität der
       Kennzahlen soll sich sowohl über mathematische Formeln als auch
       über programmatische Funktionen abbilden lassen. Der Bezug dieser soll auf
-      eine einzelne Geschäftsobjektinstanz, ebenso wie auf mehrere Instanzen
+      eine einzelne Geschäftsobjektinstanz ebenso wie auf mehrere Instanzen
       liegen können.
 
     \item \textbf{Kombination zu Berichten}
@@ -1278,10 +1293,10 @@
 
       Bei der Konzeption und Entwicklung der \textit{DataFurnace}-Software soll
       besonderer Wert auf die Benutzerfreundlichkeit der Oberfläche gesetzt
-      werden, um jedem Nutzer, obgleich seiner bisherigen Kenntnisse,  einen
+      werden, um jedem Nutzer, obgleich seines bisherigen Kenntnisstandes,  einen
       leichten Zugang zu der \textit{DataFurnace}-Sprache über die Software zu
       eröffnen. Orientierung sollen hier die \glqq{}Ten usability heuristics of
-      user interface and design\grqq{} von
+      user interface and design\grqq{}\todo{Lieber ins Deutsche übersetzen?} von
       \textsc{\citeauthor{nielsen1994heuristic}}
       bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
       Heuristiken eingegangen wurde}.
@@ -1319,14 +1334,14 @@
     \item \textbf{Nutzer- und Gruppenmanagement}
 
 		Die Implementierung eines Nutzer- und Gruppenmanagement in der
-		\textit{DataFurnace}-Software ist nicht von Nöten, da die Software, im
-		Falle einer Integration in \textit{DataRocket}, das vorhandene Management
-		mit nutzen kann.
+		\textit{DataFurnace}-Software ist nicht von Nöten, da die Software im
+		Falle einer Integration in \textit{DataRocket} das vorhandene Management
+		mitnutzen kann.
 
     \item \textbf{Keine Datenanalyselogik}
 
       Die \textit{DataFurnace}-Software soll lediglich die Modellierung von
-      Unternehmensdatenanalysen unterstützen. Die darauf folgende Analyse und
+      Unternehmensdatenanalysen unterstützen. Die darauffolgende Analyse und
       die Implementierung der dafür nötigen Analyselogik kann bereits von
       \textit{DataRocket} selbst gestellt werden und muss folglich nicht erneut
       im Rahmen der \textit{DataFurnace}-Software entwickelt werden. Sie soll
@@ -1335,9 +1350,9 @@
     \item \textbf{\acrshort{ETL}-Prozess durch \textit{DataRocket}}
 
 			Es kann angenommen werden, dass die oben beschriebenen Eingabedaten der
-			\textit{DataFurnace}-Software in denormalisierter Form, wie im
+			\textit{DataFurnace}-Software in denormalisierter Form wie im
 			Star-Modell\footnote{Für nähere Erläuterungen zum Star-Modell siehe
-			Abschnitt~\ref{subsec:multidimensionale-modellierung}}, vorliegen.
+			Abschnitt~\ref{subsec:multidimensionale-modellierung}} vorliegen.
 			\textit{DataRocket} bietet die volle Funktionalität für einen
 			\textit{Extract}-\textit{Transform}-\textit{Load}-Prozess\footnote{Für
 			Definitionen des ETL-Prozesses
