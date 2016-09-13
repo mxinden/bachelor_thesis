@@ -20,6 +20,7 @@
 % See: https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
 \usepackage{tikz}
 \usetikzlibrary{fit}
+\usepackage{textcomp}
 \usepackage{caption}
 \usepackage{forest}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
@@ -144,7 +145,7 @@
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
   eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
-  \textit{DataRocket} kombinierbar sein. Die Komponente wird im folgenden den
+  \textit{DataRocket} kombinierbar sein. Die Komponente wird im Folgenden den
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
   \paragraph{Aufbau der Arbeit}
@@ -573,7 +574,7 @@
 	\textit{\acrlong{ETL}}-Prozess.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehmens wird eine Methode vorgegeben, welche im folgenden anhand ihrer
+	Unternehmens wird eine Methode vorgegeben, welche im Folgenden anhand ihrer
 	Schritte näher erläutert wird:
 
 	\begin{enumerate}
@@ -674,7 +675,7 @@
 	\textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
 	\textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
-  \section{Anwendungsfallbeispiel}
+  \section{Anwendungsfallbeispiel}\label{sec:anwendungsfallbeispiel}
 
   Für den weiteren Verlauf dieser Arbeit wird ein Anwendungsbeispiel
   aufgestellt, auf welches in Erklärungen der \textit{DataFurnace}-Sprache und
@@ -700,7 +701,7 @@
   Kundendaten im \acrlong{CRM}-Systems (\acrshort{CRM}) des Unternehmens. Die
   Datenstrukturen der Stammdatensätze werden in
   Abbildung~\ref{example-use-case-data} durch ein UML-Klassendiagramm
-  beschrieben. Im folgenden werden Fragestellungen, welche für die
+  beschrieben. Im Folgenden werden Fragestellungen, welche für die
   Durchführbarkeitsanalyse der Marketingkampagne beantwortet werden müssen, und
   deren Bedingungen aufgelistet.
 
@@ -712,12 +713,14 @@
 
     \item Der Rabatt soll nicht nur in relativen, sondern auch absoluten Zahlen
       beworben werden. Folglich muss im Warenwirtschaftssystem ein valider
-      Preis für jedes zu bewerbende Produkt vorliegen.
+      Preis für jedes zu bewerbende Produkt vorliegen. Es wird angenommen, dass
+      die Attribute \textit{Verkaufspreis} und \textit{Einkaufspreis} in
+      Eurocent angegeben werden.
 
     \item Es soll zunächst eine Pilotkampagne an einem der beiden Standorte im
       nächsten oder übernächsten Monat gestartet werden. Für diese Kampagne
       soll die Standort-Monat-Kombination gewählt werden, bei welcher ohne die
-      Kampagne der größte Umsatzverlust durch abgelaufene Produkte entstehen
+      Kampagne der größte Gewinnverlust durch abgelaufene Produkte entstehen
       würde.
 
     \item Die Kampagne kann entweder per E-Mail oder per Post beworben werden.
@@ -1035,7 +1038,7 @@
   Abbildung~\ref{language_spec-erm-bericht} gezeigt, kombiniert. Ein Bericht
   bildet eine Fragestellung des Nutzers mit Bezug auf die Datenqualität seiner
   Geschäftsobjekte ab. Der Bericht wird unterteilt in eine Filterkomponente und
-  eine Tabellenkomponente. Anhand dieser Zweiteilung wird im folgenden die
+  eine Tabellenkomponente. Anhand dieser Zweiteilung wird im Folgenden die
   Teilsprache Bericht näher erläutert.
 
   \begin{figure}[caption={Bericht-Teilsprache}, label={language_spec-erm-bericht}]
@@ -1164,7 +1167,7 @@
     \caption{Auswertung des Geschäftsobjets \textit{Produkt}}\label{table:auftrittsreihenfolge}
   \end{table}
 
-  Die Tabellenkopfspalten legen fest, mit welchen Kennzahlen die zuvor
+  Die Tabellenkopfspalte legt fest, mit welchen Kennzahlen die zuvor
   ausgewählten Geschäftsobjektinstanzen analysiert werden sollen. Ein Nutzer
   kann beliebig viele unterschiedliche Kennzahlen der Tabelle hinzufügen. Eine
   Kennzahl kann in der Tabelle nur einmal vorkommen. Da die Kennzahlen bereits
@@ -1381,12 +1384,14 @@
   drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
   Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
   Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
-  \textit{DataFurnace}-Software (Siehe Abbildung~\ref{datafurnace-prozess}). In dem
-  Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte mit
-  den zugehörigen Dimensionen, spezifiziert Kennzahlen mit Bezug auf die
+  \textit{DataFurnace}-Software (Siehe Abbildung~\ref{datafurnace-prozess}). In
+  dem Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte
+  mit den zugehörigen Dimensionen, spezifiziert Kennzahlen mit Bezug auf die
   Attribute der Geschäftsobjekte, und kombiniert beide zu Berichten. Im
-  folgenden wird das fachliche Konzept der Software anhand der drei
-  Ansichten respektive Prozessschritten erklärt. 
+  folgenden wird das fachliche Konzept der Software anhand der drei Ansichten
+  respektive Prozessschritten erklärt und für jeden Schritt im Rahmen des
+  Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
+  exemplarisch eingesetzt.
 
   \begin{figure}[caption={\textit{DataFurnace}-Prozess}, label={datafurnace-prozess}]
     \includegraphics[scale=0.60]{content/figures/datafurnace-process}
@@ -1512,6 +1517,22 @@
   werden und die gesamte Ausprägung kann über das
   \textit{Löschen}-Symbol entfernt werden.
 
+  Ihm Rahmen des Anwendungsfallbeispiels aus
+  Abschnitt~\ref{sec:anwendungsfallbeispiel} würde ein Nutzer in der
+  Dimensionsansicht die Geschäftsobjekte \textit{Produkt} und \textit{Kunde}
+  mit ihren jeweiligen Attributen, Dimensionen, Dimensionsleveln und
+  Dimensionslevelausprägungen modellieren. Besondere Beachtung bei der
+  Modellierung des Geschäftsobjekts \textit{Produkt} sollten die Dimensionen
+  der Attribute \textit{Warenlinie}, \textit{Verfallsdatum} und
+  \textit{Standort} erhalten, um in der nachfolgenden Analyse nach der
+  Dimensionslevelausprägung \textit{Lebensmittel} filtern und nach den
+  Dimensionslevelausprägungen \textit{Oktober}, \textit{November} und
+  \textit{Münster}, \textit{Bonn} gruppieren zu können. Für die Modellierung
+  des Geschäftsobjekts \textit{Kunde} ist die Dimension \textit{Zeit} mit dem
+  Dimensionslevel \textit{Jahr} für das Attribut \textit{ZuletztEingekauft}
+  wichtig, um diejenigen Kunden ausfiltern zu können, welche in diesem Jahr
+  noch nicht beim Unternehmen eingekauft haben.
+
 
   \subsection{Kennzahlansicht}
 
@@ -1613,7 +1634,28 @@
   mit einem Klick auf das \textit{Löschen}-Symbol rechts vom Funktionsbaukasten
   in der unteren Leiste.
 
-  \todo[inline]{!!! Beispiel Kennzahlen aus Anwendungsfallbeispiel modellieren}
+  Führt der Nutzer im Zuge des Anwendungsfallbeispiels aus
+  Abschnitt~\ref{sec:anwendungsfallbeispiel} in der Kennzahlansicht die
+  Modellierung fort, würde er zunächst mit der Spezifikation einer Kennzahl
+  beginnen, welche die Validität des Attributes \textit{Verkaufspreis} des
+  Geschäftsobjekts \textit{Produkt} überprüft. Es ist anzunehmen, dass eine
+  Ausprägung des Attributs \textit{Verkaufspreis} dann valide ist, wenn sie
+  sowohl nicht leer, als auch nur Zahlen enthält. Der Nutzer erstellt zunächst
+  eine neue Kennzahl. Im Formeleditor der Kennzahl fügt er die Formel
+  \texttt{AND (NOT (ISEMPTY (Verkaufspreis)), CONTAINS (Verkaufspreis,
+  [0--9]))} ein, welche nur den boolschen Wert \textit{wahr} zurück gibt, wenn
+  der \textit{Verkaufspreis} nicht leer und nur Zahlen enthält. Analog zu
+  dieser Kennzahl erstellt er ebenfalls Kennzahlenn für die Prüfung der Attribute
+  \textit{E-Mail-Adresse} und \textit{Anschrift} des Geschäftsobjekts
+  \textit{Kunde}.
+
+  Neben den drei soeben beschriebenen Datenqualitätskennzahlen der Attribute
+  \textit{Verkaufspreis}, \textit{E-Mail-Adresse} und \textit{Anschrift} wird
+  noch die betriebswirtschaftliche Kennzahl \textit{Gewinn} benötigt, um in der
+  späteren Analyse den Gewinnverlust durch abgelaufene Lebensmittel zwischen
+  den Standort-Monat-Kombinationen vergleichen zu können. Hierzu erstellt der
+  Nutzer wiederum eine neue Kennzahl mit der Formel \texttt{Verkaufspreis \textminus{}
+  Einkaufspreis}.
 
 
   \subsection{Berichtsansicht}
@@ -1630,8 +1672,9 @@
 
   Sowohl die Geschäftsobjektkomponente auf der linken, als auch die
   Kennzahlkomponente auf der rechten Seite der Berichtsansicht sind übernommen
-  aus den jeweils linken Seiten der Dimensions- und Kennzahlansicht, jedoch lediglich als anzeigende Komponente ohne Funktionalität zur Erstellung, Bearbeitung oder Löschung ihrer
-  Elemente. Sie dienen, wie der
+  aus den jeweils linken Seiten der Dimensions- und Kennzahlansicht, jedoch
+  lediglich als anzeigende Komponente ohne Funktionalität zur Erstellung,
+  Bearbeitung oder Löschung ihrer Elemente. Sie dienen, wie der
   Funktionsbaukasten in der Kennzahlansicht, als Quelle für Dimensionslevel,
   Attribute und Kennzahlen in der Modellierung von Berichten. Wie auch in der
   Dimensionsansicht können die Geschäftsobjektbaumstrukturen auf der linken
@@ -1687,7 +1730,7 @@
   ermöglicht es, Berichtstabellen der \textit{DataFurnace}-Sprache zu
   modellieren. Die Modellierung lässt sich in zwei Gruppen unterteilen: in die
   Modellierung der Tabellenkopfzeilen mit Dimensionsleveln und in die
-  Modellierung der Tabellenkopfspalten mit Kennzahlen.
+  Modellierung der Tabellenkopfspalte mit Kennzahlen.
 
   Wie in Abschnitt~\ref{paragraph:tabellenkomponente} beschrieben,
   spezifizieren die Tabellenkopfzeilen mit Hilfe von Dimensionsleveln, welche
@@ -1715,7 +1758,7 @@
   Ausprägungskombinationen der darunterliegenden Tabellenkopfzeilen in
   Abhängigkeit der Änderungen entsprechend korrigiert. Als Beispiel dienen hier
   Tabelle~\ref{table:berichtstabellenkopf20142015}
-  und~\ref{table:berichtstabellenkopf201420152016}, welche die Tabellenkopfspalten
+  und~\ref{table:berichtstabellenkopf201420152016}, welche die Tabellenkopfspalte
   ohne und mit der Dimensionslevelausprägung \textit{2016} des Dimensionslevels
   \textit{Jahr} abbilden. Hier gilt es die Änderungen in der Zeile
   \textit{Bundesland} zu betrachten.
@@ -1765,6 +1808,39 @@
   Berichtstabelle nicht weiter benötigt kann sie über das
   \textit{Löschen}-Symbol entfernt werden.
 
+  Die Modellierung im Rahmen des Anwendungsfallbeispiels aus
+  Abschnitt~\ref{sec:anwendungsfallbeispiel} wird in der Berichtsansicht
+  abgeschlossen. Zunächst erstellt ein Nutzer für die Analyse des
+  Geschäftsobjekts \textit{Produkt} einen neuen Bericht. Die Marketingkampagne
+  ist auf Lebensmittel fokussiert. Folglich wird dem Bericht ein Filter auf
+  Basis des Dimensionslevels \textit{Warenlinie} hinzugefügt und in der
+  Positivliste lediglich die Dimensionslevelausprägung \textit{Lebensmittel}
+  ausgewählt. Des Weiteren fügt der Nutzer auf Basis der
+  Preisvalidationskennzahl des Attributes \textit{Verkaufspreis} einen weiteren
+  Filter hinzu. Dieser hat zur Folge, dass in der Tabelle nur die
+  \textit{Produkt}-Geschäftsobjektinstanzen betrachtet werden, welche einen
+  validen Preis haben. Nun soll im Anwendungsfallbeispiel der Gewinnverlust der
+  Standorte \textit{Münster} und \textit{Bonn} in den Monaten \textit{Oktober}
+  und \textit{November} verglichen werden. Um dies zu realisieren fügt der
+  Nutzer die Dimensionslevel \textit{Ort} und \textit{Monat} den
+  Tabellenkopfzeilen hinzu und wählt die Dimensionslevelausprägungen
+  \textit{Münster} und \textit{Bonn} und \textit{Oktober} und \textit{November}
+  aus. Abschließend fügt er die Kennzahl zur Berechnung des \textit{Gewinns}
+  der Tabellenkopfspalte hinzu.  \todo[inline]{Beispielberichtstabelle}
+
+  Für die Analyse des Geschäftsobjekts \textit{Kunde} fügt der Nutzer einen
+  weiteren Bericht hinzu. In diesem Bericht erstellt er einen Filter auf Basis
+  des Dimensionslevels Jahr des Attributes \textit{ZuletztEingekauft} und fügt
+  die Dimensionslevelausprägung \textit{2016} der Positivliste des Filters
+  hinzu. Somit werden alle Kunden in der weiteren Analyse ausgefiltert, welche
+  in diesem Jahr noch nicht beim Unternehmen eingekauft haben. Um die Anzahl
+  hinterlegter \textit{E-Mail-Adressen} mit der Anzahl hinterlegter
+  \textit{Postanschriften} zu vergleichen, werden die zuvor erstellten
+  Kennzahlen der Attribute \textit{E-Mail-Adresse} und \textit{Anschrift} der
+  Tabellenkopfspalte hinzugefügt. Zuletzt wird der Bericht durch ein beliebiges
+  Dimensionslevel als Platzhalter für das Geschäftsobjekt \textit{Kunde} in den
+  Tabellenkopfzeilen erweitert.
+
 
   \section{Technische Umsetzung}
 
@@ -1775,12 +1851,12 @@
   innovativer Technologien des neuesten Standes der Informationstechnik
   bedient. Eine nähere Erläuterung jeder Technologie und deren
   Integration in dem Softwaresystem würde über den Rahmen dieser Arbeit hinaus
-  gehen, jedoch soll im folgenden auf die Systemarchitektur inklusive
+  gehen, jedoch soll im Folgenden auf die Systemarchitektur inklusive
   einzelner Entscheidungserläuterungen und den Entwicklungsprozess kurz
   eingegangen werden.\todo{Entwicklungsprozess streichen?}
 
 
-  \subsubsection{Systemarchitektur}
+  \paragraph{Systemarchitektur}
   Die \textit{DataFurnace}-Software ist eine eigenständige  Webanwendung,
   welche auf dem hierfür klassischem Client-Sever-Modell aufbaut. Die
   Serverarchitektur setzt sich aus einem Webserver und einem Datenbankserver
