@@ -158,9 +158,7 @@
   % ################################################################################
   
   \todo[inline]{Grundlagen ca.\ 10 Seiten}
-
-  \todo[inline]{Grundlagen \ggf{} aufteilen in Grundlagen für die Sprache und
-  Grundlagen für die Komponente}
+  \todo[inline]{Soll hier noch eine Einleitung zu dem Grundlagenkapitel hin?}
 
   \section{Modellierung}
 
@@ -1385,10 +1383,10 @@
   Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
   \textit{DataFurnace}-Software (Siehe Abbildung~\ref{datafurnace-prozess}). In dem
   Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte mit
-  den zugehörigen Dimensionen, spezifiziert Kennzahlen, mit Bezug auf die
+  den zugehörigen Dimensionen, spezifiziert Kennzahlen mit Bezug auf die
   Attribute der Geschäftsobjekte, und kombiniert beide zu Berichten. Im
-  folgenden wird das fachliche Konzept der Software anhand dieser drei
-  Ansichten respektive Prozessschritte erklärt. 
+  folgenden wird das fachliche Konzept der Software anhand der drei
+  Ansichten respektive Prozessschritten erklärt. 
 
   \begin{figure}[caption={\textit{DataFurnace}-Prozess}, label={datafurnace-prozess}]
     \includegraphics[scale=0.60]{content/figures/datafurnace-process}
@@ -1398,7 +1396,7 @@
   über die Kopfleiste der \textit{DataFurnace}-Software, in welcher zu jeder
   Ansicht ein Link abgebildet ist. Neben dem Link ist des Weiteren jeweils ein
   individuelles Symbol abgebildet, welches in jeder Ansicht bei Referenzen auf
-  den jeweiligen Typ Dimension, Kennzahl oder Bericht, wieder verwendet wird.
+  den jeweiligen Typ Dimension, Kennzahl oder Bericht wieder verwendet wird.
   Diese konsistente Nutzung der Symbole durch die gesamte Oberfläche hindurch
   stützt sich auf die vierte \textit{Usability-Heuristic} von
   \textsc{\citeauthor{nielsen1994heuristic}} für Konsistenz und Standards und
@@ -1414,13 +1412,12 @@
   \subsection{Dimensionsansicht}
 
   Die Modellierungsmethode beginnt in der Dimensionsansicht, welche sich aus
-  Baumstrukturen auf der linken Seite, zur Representation von
-  Geschäftsobjekten mit ihren Attributen und Dimensionen, und einer
-  Detailansicht auf der rechten Seite, zur näheren Beschreibung einzelner
-  Elemente, aufbaut. 
+  Baumstrukturen zur Representation von Geschäftsobjekten mit ihren Attributen
+  und Dimensionenauf der linken Seite und einer Detailansicht zur näheren
+  Beschreibung einzelner Elemente auf der rechten Seite aufbaut. 
 
   Auf der linken Seite der Benutzeroberfläche fügt der Nutzer zunächst alle
-  Geschäftsobjekte, zu welchen er eine Analyse modellieren möchte, hinzu. Im
+  Geschäftsobjekte, zu denen er eine Analyse modellieren möchte, hinzu. Im
   oberen Teil des Geschäftsobjektkastens, welcher für jedes neues Geschäftsobjekt erscheint, kann
   der Name eines Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht
   werden. Zum löschen des Geschäftsobjekts klickt ein Nutzer zunächst auf das
@@ -1480,7 +1477,7 @@
 
   Wird einer Dimension ein Dimensionslevel, einem Dimensionslevel ein weiteres
   Dimensionslevel oder einem Dimensionslevel ein Attribut untergeordnet, so
-  erscheint dieses unterhalb des Elternelements, eingerückt, wie in einer
+  erscheint dieses unterhalb des Elternelements, eingerückt wie in einer
   klassischen Ordnerbaumstruktur. Die Kindelemente eines Elternelements können
   auf- und zugeklappt, \bzw{} ein- und ausgeblendet werden, was es dem Nutzer
   ohne viel Aufwand ermöglicht, Teilausschnitte des Modells übersichtlich
@@ -1498,20 +1495,20 @@
   angezeigt wird. Im oberen Teil der Detailansicht ist zunächst der Name des
   Elements inklusive der Namen seiner Elternelemente als sogenannte
   \textit{Breadcrumb}-Navigation~\cite[][S. 1316]{maldonado2002common}
-  angezeigt.  Der Name des Elements kann auch hier, durch einen Klick auf das
-  Wort, an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
-  bearbeitet werden, genügt ein Klick auf den Namen des Elternelements in der
+  angezeigt.  Der Name des Elements kann auch hier durch einen Klick auf das
+  Wort an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
+  bearbeitet werden genügt ein Klick auf den Namen des Elternelements in der
   \textit{Breadcrump}-Navigation, um zur Detailansicht des geforderten Elements
   zu wechseln. 
 
-  Unterhalb dieser Hierarchienavigation findet sich der Typ des Elements,
+  Unterhalb dieser Hierarchienavigation findet sich der Typ des Elements.
   Möglichkeiten sind, zur Erinnerung: Dimension, Dimensionslevel und Attribut.
   Reicht der Name selbst nicht zur Beschreibung des Elements aus, kann
   unterhalb des Typ-Feldes eine Beschreibung in einem Freitextfeld spezifiziert
   werden. Für die spätere Modellierung von Filtern und Gruppen in Berichten
   können Dimensionsleveln und Attributen unterhalb der Beschreibung mögliche
   Ausprägungen hinzugefügt werden, welche in einer Liste erscheinen. Der Name
-  einer Ausprägung kann durch einen Klick auf eben diesen erneut verändert
+  einer Ausprägung kann durch einen Klick auf ebendiesen erneut verändert
   werden und die gesamte Ausprägung kann über das
   \textit{Löschen}-Symbol entfernt werden.
 
@@ -1521,29 +1518,29 @@
   Der zweite Schritt der \textit{DataFurnace}-Modellierungsmethode ist die
   Definition von Kennzahlen für die spätere Auswertung der
   Geschäftsobjektinstanzen, welche in der Kennzahlansicht vorgenommen werden
-  kann. Wie auch die Dimensionsansicht, teilt sie sich in zwei Spalten auf. Auf
+  kann. Wie auch die Dimensionsansicht teilt sie sich in zwei Spalten auf. Auf
   der linken Seite befindet sich eine Auflistung aller erstellten Kennzahlen.
   Durch einen Klick auf das Plus-Symbol in der oberen rechten Ecke können
-  beliebig viele weitere Kennzahlen hinzugefügt werden, welche in eben dieser
+  beliebig viele weitere Kennzahlen hinzugefügt werden, welche in ebendieser
   Liste neu erscheinen.
 
   Klickt ein Nutzer auf eine Kennzahl in der Liste auf der linken Seite der
   Ansicht, erscheint auf der rechten Seite der Kennzahleditor für die
   ausgewählte Kennzahl. Zunächst kann ein Nutzer den Namen der Kennzahl über
-  einen Klick auf diesen in der oberen Leiste setzen, außerdem kann er über das
+  einen Klick auf diesen in der oberen Leiste setzen. Außerdem kann er über das
   \textit{Löschen}-Symbol die Kennzahl aus dem System entfernen. In der unteren
   Leiste wird der Ausdruckkasten angezeigt. Mögliche Ausdrücke sind der
-  Attribut-, Konstanten-, Kennzahl-, Operator-, Funktions- und Klammerausdruck.
-  Des Weiteren ist rechts neben dem Funktionsbaukasten die Funktion zur
-  Löschung eines Ausdrucks gegeben.
+  \mbox{Attribut-,} \mbox{Konstanten-,} \mbox{Kennzahl-,} \mbox{Operator-,}
+  Funktions- und Klammerausdruck.  Des Weiteren ist rechts neben dem
+  Funktionsbaukasten die Funktion zur Löschung eines Ausdrucks gegeben.
 
   In der Mitte des Kennzahleditors wird die Formel zu Berechnung der Kennzahl
   angezeigt. Bei einer just erstellten Kennzahl wird hier lediglich der
-  Kennzahlname, gefolgt von einem Gleichheitszeichen, visualisiert. Das
-  Gleichheitszeichen hält hier die Funktion einer Zuweisung, wie im Gebrauch
-  der Informatik, nicht eines Vergleichs wie in der Mathematik, inne,
-  alternativ könnte die Zuweisung an dieser Stelle auch durch das Zeichen
-  \glqq{}:=\grqq{} verdeutlicht werden. 
+  Kennzahlname visualisiert, gefolgt von einem Gleichheitszeichen. Das
+  Gleichheitszeichen hält hier die Funktion einer Zuweisung wie im Gebrauch
+  der Informatik, nicht eines Vergleichs wie in der Mathematik, inne.
+  Alternativ könnte die Zuweisung an dieser Stelle auch durch das Zeichen
+  \mbox{:=} verdeutlicht werden. 
   
   Eine Kennzahlformel in der \textit{DataFurnace}-Sprache besteht aus
   Ausdrücken, welche ein Nutzer über den Funktionsbaukasten in der unteren
@@ -1555,7 +1552,7 @@
   das Gleichheitszeichen um den Cursor zu positionieren.  Daraufhin wählt er
   aus dem Funktionsbaukasten beliebig viele Ausdrücke aus, welche in der
   gleichen Reihenfolge hinter dem gesetzten Cursor erscheinen.  Dieser springt
-  nach dem erscheinen eines Ausdrucks eine Stelle weiter nach rechts hinter den
+  nach dem Erscheinen eines Ausdrucks eine Stelle weiter nach rechts hinter den
   neu erstellten Ausdruck. 
 
   Um Fehler in der Kennzahlformel zu verhindern, werden dem Nutzer im
@@ -1586,14 +1583,14 @@
       
     \item  \textbf{Konstantenausdrücke} können in der Formel über ein
       Textfeld, welches durch einen Klick auf den Ausdruck erscheint,
-      spezifiziert werden. Hier können sowohl konkrete Zahlenwerte, wie auch
+      spezifiziert werden. Hier können sowohl konkrete Zahlenwerte wie auch
       Namen als Synonym genannt werden.
 
-    \item Durch einen Klick auf einen \textbf{Kennzahlausdruck} wird, wie
-      auch beim Attributausdruck, ein Auswahldialog angezeigt, welcher alle
-      erstellten Kennzahlen im System, bis auf die aktuelle, zur Auswahl
-      stellt. Ein Nutzer kann hiervon eine auswählen, wessen Namen als
-      ebenfalls als Platzhalter in der Formel erscheint.  
+    \item Durch einen Klick auf einen \textbf{Kennzahlausdruck} wird ein
+      Auswahldialog angezeigt wie auch beim Attributausdruck, welcher alle
+      erstellten Kennzahlen im System bis auf die aktuelle zur Auswahl stellt.
+      Ein Nutzer kann hiervon eine auswählen, dessen Namen als ebenfalls als
+      Platzhalter in der Formel erscheint.  
 
     \item Wird ein \textbf{Operatorausdruck} zur Konfiguration ausgewählt,
       kann der Nutzer zwischen den Operatoren für die mathematischen
@@ -1603,7 +1600,7 @@
 
     \item Zur Konfiguration eines \textbf{Funktionsausdrucks} werden dem Nutzer
       vordefinierte Funktionen, wie \zB{} die \textit{nicht-leer}-Funktion oder
-      die \textit{enthält}-Funktion, angezeigt und die Möglichkeit gegeben,
+      die \textit{enthält}-Funktion angezeigt und die Möglichkeit gegeben,
       eigene Funktionen zu benennen.
   \end{itemize}
 
@@ -1611,7 +1608,7 @@
   möchte im Nachhinein etwas an dem Ausdruck ändern, so kann der
   Konfigurationsprozess auf den gleichen Weg jeder Zeit erneut gestartet werden.  Will ein
   Nutzer an spezifischen Positionen der Formel weitere Ausdrücke hinzufügen
-  oder löschen klickt er an die gewünschte Position und erstellt über den
+  oder löschen, klickt er an die gewünschte Position und erstellt über den
   Funktionsbaukasten weitere Ausdrücke oder löscht den Ausdruck links vom Cursor
   mit einem Klick auf das \textit{Löschen}-Symbol rechts vom Funktionsbaukasten
   in der unteren Leiste.
@@ -1625,17 +1622,16 @@
   Dimensionsspezifikationen und Kennzahldefinitionen zu Berichtsmodellen in der
   Berichtsansicht kombiniert. Die Struktur der Berichtsansicht teilt sich in
   drei Komponenten auf. Auf der linken Seite werden alle Geschäftsobjekte mit
-  ihren zugehörigen Dimensionen, Dimensionsleveln und Attributen, in der
-  bereits bekannten Baumstruktur, in der Geschäftsobjektkomponente abgebildet.
+  ihren zugehörigen Dimensionen, Dimensionsleveln und Attributen in der
+  bereits bekannten Baumstruktur in der Geschäftsobjektkomponente abgebildet.
   Auf der rechten Seite werden alle Kennzahlen in der Kennzahlkomponente
   aufgelistet. In der Mitte befindet sich die Berichtskomponente, unterteilt in
   einen Abschnitt zur Filterung und der finalen Berichtstabelle.
 
   Sowohl die Geschäftsobjektkomponente auf der linken, als auch die
   Kennzahlkomponente auf der rechten Seite der Berichtsansicht sind übernommen
-  aus den jeweils linken Seiten der Dimensions- und Kennzahlansicht, jedoch
-  ohne der Funktionalität zur Erstellung, Bearbeitung oder Löschung ihrer
-  Elemente, lediglich als anzeigende Komponenten. Sie dienen, wie der
+  aus den jeweils linken Seiten der Dimensions- und Kennzahlansicht, jedoch lediglich als anzeigende Komponente ohne Funktionalität zur Erstellung, Bearbeitung oder Löschung ihrer
+  Elemente. Sie dienen, wie der
   Funktionsbaukasten in der Kennzahlansicht, als Quelle für Dimensionslevel,
   Attribute und Kennzahlen in der Modellierung von Berichten. Wie auch in der
   Dimensionsansicht können die Geschäftsobjektbaumstrukturen auf der linken
@@ -1654,8 +1650,8 @@
   \paragraph{Filterkomponente}
   
   Wie in Abschnitt~\ref{paragraph:filternde-komponente}
-  beschrieben, kann ein Filter sowohl auf ein Dimensionslevel, als auch eine
-  Kennzahl, basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
+  beschrieben, kann ein Filter sowohl auf einem Dimensionslevel als auch einer
+  Kennzahl basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
   und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
@@ -1663,21 +1659,21 @@
   ablegt, wird ein neuer Filter erstellt. In dem Filter werden alle
   Dimensionslevelausprägungen aufgelistet, welche im ersten Schritt der
   \textit{DataFurnace}-Modellierungsmethode für das Dimensionslevel
-  spezifiziert wurden. Nun kann der Nutzer, anhand einer Positivliste,
+  spezifiziert wurden. Nun kann der Nutzer anhand einer Positivliste
   diejenigen Ausprägungen auswählen, nach welchen er die gesamte
   Geschäftsobjektinstanzmenge filtern möchte.
 
-  Möchte der Nutzer auf Basis einer Kennzahl filtern, zieht er, analog zur
+  Möchte der Nutzer auf Basis einer Kennzahl filtern, zieht er analog zur
   Basis auf ein Dimensionslevel, eine Kennzahl aus der rechten
   Kennzahlkomponente und legt diese in der Filterkomponente ab. Sobald die
   Kennzahl über der Filterkomponente los gelassen wird, wird ein Filter auf
   Basis der Kennzahl erstellt. Nun kann der Nutzer im Filter spezifizieren, bei
-  welchen Ergebnissen der Kennzahl er ausfiltern möchte, und bei welchen
+  welchen Ergebnissen der Kennzahl er ausfiltern möchte und bei welchen
   Ergebnissen eine Geschäftsobjektinstanz in die nähere Auswahl weiter kommt,
-  indem er \zB{} Ober- und Untergrenzen, bei Kennzahlen mit
-  Zahlenwertergebnissen, definiert, oder bei Kennzahlen mit booleschen
+  indem er \zB{} Ober- und Untergrenzen bei Kennzahlen mit
+  Zahlenwertergebnissen definiert, oder bei Kennzahlen mit booleschen
   Rückgabewerten entscheidet, ob Geschäftsobjektinstanzen die Prüfung der
-  Kennzahl bestehen müssen, oder nicht bestehen dürfen.
+  Kennzahl bestehen müssen oder nicht bestehen dürfen.
 
   Wird ein Filter nicht mehr benötigt, kann dieser über das
   \textit{Löschen}-Symbol am rechten Rand des Filters gelöscht werden. Die
@@ -1688,13 +1684,13 @@
   \paragraph{Tabellenkomponente}
 
   Die Tabellenkomponente der Berichtsansicht der \textit{DataFurnace}-Software
-  ermöglicht es Berichtstabellen der \textit{DataFurnace}-Sprache zu
-  modellieren. Die Modellierung lässt sich in zwei Gruppen unterteilen, in die
+  ermöglicht es, Berichtstabellen der \textit{DataFurnace}-Sprache zu
+  modellieren. Die Modellierung lässt sich in zwei Gruppen unterteilen: in die
   Modellierung der Tabellenkopfzeilen mit Dimensionsleveln und in die
   Modellierung der Tabellenkopfspalten mit Kennzahlen.
 
   Wie in Abschnitt~\ref{paragraph:tabellenkomponente} beschrieben,
-  spezifizieren die Tabellenkopfzeilen, mit Hilfe von Dimensionsleveln, welche
+  spezifizieren die Tabellenkopfzeilen mit Hilfe von Dimensionsleveln, welche
   Unternehmensdaten in der Analyse betrachtet werden und wie die Daten
   gruppiert werden. Hierzu wählt ein Nutzer zunächst die Dimensionslevel für
   die Tabelle aus, indem er sie in den Geschäftsobjektbaumstrukturen auf der
@@ -1704,7 +1700,7 @@
   Vorgang kann mit beliebig vielen Dimensionsleveln wiederholt werden, jedoch
   kann ein Dimensionslevel nicht mehrfach einer Tabelle hinzugefügt werden. Die
   erste Zelle einer neu erstellten Tabellenkopfzeile enthält den Namen des
-  Dimensionslevels, auf wessen Basis die Zeile beruht. Des Weiteren wird der
+  Dimensionslevels, auf dessen Basis die Zeile beruht. Des Weiteren wird der
   Tabellenkopfzeile pro verfügbarer Ausprägung des Dimensionslevels eine Zelle
   mit dem Namen des Dimensionslevels hinzugefügt.
 
@@ -1712,7 +1708,7 @@
   Berichts betrachtet werden, können einzelne Ausprägungen abgewählt werden.
   Hierzu wird zunächst der Ausprägungsauswahldialog über das
   \textit{Filter}-Symbol links neben dem Namen des Dimensionslevels geöffnet.
-  In diesem können ausgewählte Dimensionslevelausprägungen ab- und abgewählte
+  In diesem können ausgewählte Dimensionslevelausprägungen abgewählt und abgewählte
   Dimensionslevel ausgewählt werden. Die Tabelle passt sich in Echtzeit an die
   vorgenommenen Änderungen an, indem sie die Anzahl der Zellen der aktuellen
   Tabellenkopfspalte um die Ausprägung erweitert respektive kürzt und alle
@@ -1750,11 +1746,11 @@
 
   In Abschnitt~\ref{paragraph:tabellenkomponente} wurde festgestellt, dass die
   Auftrittsreihenfolge der Tabellenkopfzeilen für die Übersichtlichtkeit der
-  Tabelle relevant sind, weswegen es die \textit{DataFurnace}-Software
-  ermöglicht, diese anpassen zu können. Hierzu zieht ein Nutzer die zu
+  Tabelle relevant sind, weswegen die \textit{DataFurnace}-Software eine Anpassung
+  dieser ermöglicht. Hierzu zieht ein Nutzer die zu
   verschiebende Zeile an ihre neue Position. Die
   Dimensionslevelausprägungskombinationen werden automatisch ensprechend
-  angepasst. Soll eine Tabellenkopfzeile nicht verschoben sondern gänzlich aus
+  angepasst. Soll eine Tabellenkopfzeile nicht verschoben, sondern gänzlich aus
   der Tabelle entfernt werden, kann dies über einen Klick auf das
   \textit{Löschen}-Symbol rechts neben dem Dimensionslevelnamen in der ersten
   Zelle der Zeile realisiert werden.
@@ -1763,7 +1759,7 @@
   Tabellenkopfspalte realisiert. Analog zu den Tabellenkopfzeilen kann eine
   Kennzahl der Tabellenkopfspalte hinzugefügt werden, indem sie aus der rechten
   Kennzahlkomponente auf die Berichtstabelle herüber gezogen wird. Wird die
-  Kennzahl über der Berichtstabelle los gelassen, erstellt die
+  Kennzahl über der Berichtstabelle losgelassen, erstellt die
   \textit{DataFurnace}-Software in der Spalte eine neue Zelle mit dem Namen der
   Kennzahl. Wurde eine Kennzahl versehentlich hinzugefügt oder in der
   Berichtstabelle nicht weiter benötigt kann sie über das
@@ -1776,27 +1772,26 @@
   \todo[inline]{Sollen alle Technologien mit einer Fußnote mit der Website ausgestattet werden?}
 
   Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
-  innovativer Technologien aus dem neuesten Stand der Informationstechnik
+  innovativer Technologien des neuesten Standes der Informationstechnik
   bedient. Eine nähere Erläuterung jeder Technologie und deren
   Integration in dem Softwaresystem würde über den Rahmen dieser Arbeit hinaus
-  gehen, jedoch soll im folgenden auf die Systemarchitektur, inklusive
-  einzelner Entscheidungserläuterungen, und den Entwicklungsprozess kurz
+  gehen, jedoch soll im folgenden auf die Systemarchitektur inklusive
+  einzelner Entscheidungserläuterungen und den Entwicklungsprozess kurz
   eingegangen werden.\todo{Entwicklungsprozess streichen?}
 
 
-  \paragraph{Systemarchitektur}
-
+  \subsubsection{Systemarchitektur}
   Die \textit{DataFurnace}-Software ist eine eigenständige  Webanwendung,
   welche auf dem hierfür klassischem Client-Sever-Modell aufbaut. Die
   Serverarchitektur setzt sich aus einem Webserver und einem Datenbankserver
   zusammen. Der Webserver ist eine \textit{NodeJS}-Anwendung unter Verwendung
-  des \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll, für
-  Anzeige- und Anwendungslogik, und das \textit{DDP}-Protokoll, für
-  Anwendungsdaten, kommuniziert er mit dem Client. Neben der Verbindung zum
+  des \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll für
+  Anzeige- und Anwendungslogik und das \textit{DDP}-Protokoll für
+  Anwendungsdaten kommuniziert er mit dem Client. Neben der Verbindung zum
   Client hat der Anwendungsserver direkten Zugriff auf den Datenbankserver.
   Bedingt durch die Einschränkung, dass \textit{MeteorJS} seine volle
   Funktionalität nur in Verbindung mit einem \textit{MongoDB}-Datenbankservers
-  bieten kann, wird eben diese Technologie für den Datenbankserver der
+  bieten kann, wird ebendiese Technologie für den Datenbankserver der
   \textit{DataFurnace}-Software eingesetzt. Sowohl Webserver als auch
   Datenbankserver werden mit der Virtualisierungssoftware \textit{Docker}
   isoliert in Containern betrieben.  Der Client der
@@ -1844,7 +1839,7 @@
       \node[fill=white, right=10pt] at (webbrowser.north west) {Web browser};
     \end{tikzpicture}
 	\end{figure}
-  
+
   Mit dieser Systemarchitektur kann die \textit{DataFurnace}-Software losgelöst
   von \textit{DataRocket} eigenständig betrieben und genutzt werden. Neben der
   Eigenständigkeit der Software ist auch die Integrierbarkeit in
@@ -1854,9 +1849,9 @@
   das \textit{MeteorJS}-Framework, womit die Integration der serverseitigen
   Funktionalität leicht umzusetzen ist. Clientseitig setzt \textit{DataRocket}
   auf die Oberflächenbibliothek \textit{Blaze}, \textit{DataFurnace} setzt den
-  Konkurrenten \textit{ReactJS} ein, beide sind jedoch in sofern kompatibel, da
-  einzelne \textit{ReactJS}-Komponenten mit Hilfe einer kleinen Hilfsbibliothek
-  in \textit{Blaze}-Komponenten integriert werden können.
+  Konkurrenten \textit{ReactJS} ein. Beide sind jedoch insofern kompatibel, als
+  dass einzelne \textit{ReactJS}-Komponenten mit Hilfe einer kleinen
+  Hilfsbibliothek in \textit{Blaze}-Komponenten integriert werden können.
 
 
   % \paragraph{Publish und Subscribe}
@@ -1866,12 +1861,12 @@
   \paragraph{Echtzeitkollaboration}
 
   Wie in der Anforderungsanalyse der \textit{DataFurnace}-Software,
-  Abschnitt~\ref{sec:software/anforderungsanalyse}, beschrieben, soll die
+  Abschnitt~\ref{sec:software/anforderungsanalyse} beschrieben, soll die
   Software von mehreren Personen gleichzeitig genutzt werden können. Um diese
   Kollaboration über mehrere Clients hinweg so benutzerfreundlich wie möglich
   zu gestalten, müssen Änderungen eines Nutzers in Echtzeit nicht nur im
   eigenen Client, sondern allen Clients sichtbar sein. Um diese Reaktivität
-  technisch umsetzen zu können, wird das Webserver-Framework \textit{MeteorJS},
+  technisch umsetzen zu können, werden das Webserver-Framework \textit{MeteorJS},
   die Datenbank \textit{MongoDB}, sowie die \textit{JavaScript}-Bibliothek
   \textit{ReactJS} verwendet. Anhand eines konkreten Beispiels soll im
   Folgenden das Zusammenspiel dieser Technologien erläutert werden. 
