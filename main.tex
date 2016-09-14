@@ -686,9 +686,9 @@
   Münster und Bonn.
 
   Lebensmittel haben ein Mindesthaltbarkeitsdatum und dürfen bei dessen
-  Überschreitung nicht verkauft werden. Um zu verhindern, dass abgelaufene
-  Handelware nicht verkauft werden darf, sollen möglichst alle Lebensmittel vor
-  ihrem Mindesthaltbarkeitsdatum verkauft werden. Eine kontinuierliche
+  Überschreitung nicht verkauft werden. Um zu verhindern, dass Handelsware
+  abläuft, sollen möglichst alle Lebensmittel vor ihrem
+  Mindesthaltbarkeitsdatum verkauft werden. Eine kontinuierliche
   Marketingkampagne soll Anreize zum Kauf von Lebensmitteln setzen, welche
   innnerhalb des kommenden Monats ablaufen. Diese Anreize sollen in Form von
   Rabatten auf diese Produkte realisiert werden. Um Aufmerksamkeit für die
@@ -718,10 +718,10 @@
       Eurocent angegeben werden.
 
     \item Es soll zunächst eine Pilotkampagne an einem der beiden Standorte im
-      nächsten oder übernächsten Monat gestartet werden. Für diese Kampagne
-      soll die Standort-Monat-Kombination gewählt werden, bei welcher ohne die
-      Kampagne der größte Gewinnverlust durch abgelaufene Produkte entstehen
-      würde.
+      nächsten (Oktober) oder übernächsten (November) Monat gestartet werden.
+      Für diese Kampagne soll die Standort-Monat-Kombination gewählt werden,
+      bei welcher ohne die Kampagne der größte Gewinnverlust durch abgelaufene
+      Produkte entstehen würde.
 
     \item Die Kampagne kann entweder per E-Mail oder per Post beworben werden.
       Nun stellt sich die Frage, für wie viele Kunden im \acrshort{CRM}-System
@@ -944,7 +944,7 @@
 	Dimensionsleveln \textit{Jahr} '2016', \textit{Monat} '08' und \textit{Tag}
 	'09' unterschieden werden. Das Dimensionslevel \textit{Monat} ist hier dem
 	Dimensionslevel \textit{Jahr} hierarchisch untergeordnet. Die
-	Teilinformationen bilden die Dimensionslevelausprägungen, im oben genannten
+	Teilinformationen bilden die Dimensionslevelausprägungen. Im oben genannten
 	Beispiel ist '2016' eine Dimensionslevelausprägung des Dimensionslevels
 	\textit{Jahr} der Dimension \textit{Zeit} des Attributs
 	\textit{Verfallsdatum}. In Abbildung~\ref{dimension-erm} wird dieses
@@ -1640,14 +1640,14 @@
   beginnen, welche die Validität des Attributes \textit{Verkaufspreis} des
   Geschäftsobjekts \textit{Produkt} überprüft. Es ist anzunehmen, dass eine
   Ausprägung des Attributs \textit{Verkaufspreis} dann valide ist, wenn sie
-  sowohl nicht leer, als auch nur Zahlen enthält. Der Nutzer erstellt zunächst
-  eine neue Kennzahl. Im Formeleditor der Kennzahl fügt er die Formel
-  \texttt{AND (NOT (ISEMPTY (Verkaufspreis)), CONTAINS (Verkaufspreis,
-  [0--9]))} ein, welche nur den boolschen Wert \textit{wahr} zurück gibt, wenn
-  der \textit{Verkaufspreis} nicht leer und nur Zahlen enthält. Analog zu
-  dieser Kennzahl erstellt er ebenfalls Kennzahlenn für die Prüfung der Attribute
-  \textit{E-Mail-Adresse} und \textit{Anschrift} des Geschäftsobjekts
-  \textit{Kunde}.
+  sowohl nicht leer, als auch keine Buchstaben enthält. Der Nutzer erstellt
+  zunächst eine neue Kennzahl. Im Formeleditor der Kennzahl fügt er die Formel
+  \texttt{AND (NOT (ISEMPTY (Verkaufspreis)), NOT (CONTAINS (Verkaufspreis,
+  [A\textminus{}Za\textminus{}z])))} ein, welche nur den boolschen Wert
+  \textit{wahr} zurück gibt, wenn der \textit{Verkaufspreis} nicht leer ist und
+  keine Buchstaben enthält. Analog zu dieser Kennzahl erstellt er ebenfalls
+  Kennzahlenn für die Prüfung der Attribute \textit{E-Mail-Adresse} und
+  \textit{Anschrift} des Geschäftsobjekts \textit{Kunde}.
 
   Neben den drei soeben beschriebenen Datenqualitätskennzahlen der Attribute
   \textit{Verkaufspreis}, \textit{E-Mail-Adresse} und \textit{Anschrift} wird
