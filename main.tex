@@ -200,7 +200,7 @@
   Abbildung~\ref{hierarchie-level-struktur}).\todo{Noch ein wenig holprig,
   bzw.\ ist das überhaupt relevant?}
 
-  \begin{figure}[caption={Dimensionslevelstrukturbeispiel---Zeit}, label={hierarchie-level-struktur}]
+  \begin{figure}[caption={Dimensionslevelstruktur der Beispieldimension Zeit}, label={hierarchie-level-struktur}]
     \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
   \end{figure}
 
@@ -740,7 +740,7 @@
   der Analyse \zB{} mit der \textit{DataFurnace}-Sprache und -Software.
 
   % ################################################################################
-  \chapter{Entwicklung der \textit{DataFurnace}-Sprache}
+  \chapter{Entwicklung der \textit{DataFurnace}-Sprache}\label{chapter:entwicklung-datafurnace-sprache}
   % ################################################################################
 
   \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
@@ -909,7 +909,7 @@
 	Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
 	Reporting}-Sprache verglichen werden.
 
-  \begin{figure}[caption={Teilsprache---Geschäftsobjekt}, label={geschaeftsobjekt}]
+  \begin{figure}[caption={\acrshort{ERM} der Geschäftsobjektteilsprache}, label={geschaeftsobjekt}]
     \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
   \end{figure}
 
@@ -932,7 +932,7 @@
 	Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
 	\textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
-  \begin{figure}[caption={Teilsprache---Dimension}, label={dimension-erm}]
+  \begin{figure}[caption={\acrshort{ERM} der Dimensionteilsprache}, label={dimension-erm}]
     \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
   \end{figure}
 
@@ -953,7 +953,7 @@
   \subsection{Kennzahlen}
   \todo[inline]{Konstanten in Grafik, \textit{DataFurnace} und Text hinzufügen}
 
-  \begin{figure}[caption={Teilsprache---Kennzahl}, label={kennzahl}]
+  \begin{figure}[caption={\acrshort{ERM} der Kennzahlteilsprache}, label={kennzahl}]
     \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
   \end{figure}
 
@@ -1012,15 +1012,18 @@
   Aggregation von mehreren Geschäftsobjektinstanzen findet in den
   Berichtsteilsprache statt, nicht in der Kennzahlteilsprache.
 
-  Ein Beispiel für eine Funktion ist die \textit{Wurzel}-Funktion.  Sie nimmt
+  Ein Beispiel für eine Funktion ist die \texttt{Wurzel}-Funktion.  Sie nimmt
   als Eingabe eine Zahl und gibt die Wurzel dieser zurück. Neben den
-  mathematischen Funktionen wie der \textit{Wurzel}-Funktion werden des
+  mathematischen Funktionen wie der \texttt{Wurzel}-Funktion werden des
   Weiteren datenqualitätsspezifische Funktionen zur Verfügung gestellt.
-  Beispiele sind die \textit{nicht-leer}-Funktion, welche prüft ob ein Ausdruck
-  Inhalt hat und die \textit{enthält}-Funktion, welche zwei Ausdrücke als
+  Beispiele sind die \texttt{isEmpty}-Funktion, welche prüft ob ein Ausdruck
+  Inhalt hat und die \texttt{contains}-Funktion, welche zwei Ausdrücke als
   Parameter nimmt und kontrolliert ob der erste Audruck im zweiten Ausdruck
   vorhanden ist. Mit Letzterer kann \zB{} geprüft werden, ob das Attribut
-  \textit{E-Mail-Adresse} ein At-Zeichen enthält.
+  \textit{E-Mail-Adresse} ein At-Zeichen enthält. Neben diesen beiden
+  Qualitätskennzahlfunktionen kann der Nutzer außerdem Zeichenkettenlängen,
+  Zahlen- und Datumsbereiche oder reguläre Ausdrücke für die Spezifikation
+  von Qualitätskennzahlen nutzen.
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
@@ -1988,6 +1991,31 @@
 
 % ################################################################################
 \chapter{Evaluation}
+
+Um die Verständlichkeit und Anwendbarkeit der \textit{DataFurnace}-Sprache und
+-Software zu prüfen, wurden 15 Kandidaten darum gebeten, die Datenanalyse des
+Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel} in der
+\textit{DataFurnace}-Software zu modellieren. Hierzu bekahmen sie eine kurze
+Einweisung in die mutlidimensionale Modellierung
+(Abschnitt~\ref{subsec:multidimensionale-modellierung}), \textit{DataRocket}
+(Abschnitt~\ref{sec:Vorstellung-DataRocket}) und die
+\textit{DataFurnace}-Sprache
+(Abschnitt~\ref{chapter:entwicklung-datafurnace-sprache}). Erklärungen zu der
+\textit{DataFurnace}-Software wurden nicht im vorhinein gegeben.  In
+Tabelle~\ref{table:befragungsgruppe} werden die ausgewählten Befragten näher
+beschrieben.
+
+  \begin{table}[]
+    \footnotesize
+    \begin{tabular}{c c c c}
+      Beschäftigung & Technische Kentnisse & Geschlecht & Alter \\
+      \toprule
+      WI-Studentin & Intermediate & weiblich & 25 \\
+      WI-Student & Intermediate & männlich & 23 \\
+    \end{tabular}
+    \caption{Befragungsgruppe}\label{table:befragungsgruppe}
+  \end{table}
+
 \todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
 \texthl{Wie finden andere das Tool, Feedback dokumentieren, gegebenenfalls mit Fragebogen}
  \paragraph{Integration in \textit{Datarocket}}
