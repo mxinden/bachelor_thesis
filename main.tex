@@ -109,38 +109,50 @@
 
   \todo[inline]{Einleitung ca.\ 1--2 Seiten}
 
-  Diese Bachelorarbeit beschäftigt sich mit der konzeptionellen Analyse von
+  Im Rahmen der Digitalisierung spielen im Unternehmensumfeld Daten eine immer
+  wichtigere Rolle. Die Qualität dieser Daten hat einen hohen positiven
+  Einfluss auf deren Einsetzbarkeit und Nutzen. Somit liegt es im Interesse
+  eines Unternehmens eine hohe Datenqualität anzustreben. Qualitätsverbesserung
+  und Qualitätssicherung ist nur möglich, wenn Daten kontinuierlich anhand von
+  Qualitätskriterien analyiert werden können, um Schwachstellen zu erkennen
+  (\cite{baghi2013controlling}, S. 2).
+
+  Diese Arbeit beschäftigt sich mit der konzeptionellen Analyse von
   Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013
   gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
   Stammdatenmanagement ist es sowohl beratend als auch mit einem eigenen
   Produkt namens \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
   \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur Verbesserung von
-  Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung ist es
-  nötig, die Qualität von zuvor strukturierten Daten anhand von Kennzahlen
-  auszuwerten und zu visualisieren\todo{warum muss man sie auswerten und
-  visualisieren?}.  Hierzu werden eine Sprache und eine Komponente, welche die
-  Sprache in \textit{DataRocket} integriert, benötigt.
+  Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung und
+  -sicherung durch \textit{DataRocket} ist es nötig, die Qualität von zuvor
+  strukturierten Daten anhand von Qualitätskennzahlen auszuwerten und zu
+  visualisieren. Um diese Datenanalyse mit ihren Qualitätskennzahlen
+  modellieren und spezifizieren zu können, werden eine Modellierungssprache und
+  eine unterstützende Softwarekomponente benötigt.
 
-  Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation einer
+  Die Bachelorarbeit verfolgt zwei Ziele: Zum einen die Spezifikation der
   Modellierungssprache zur Konzeption von Unternehmensdatenanalysen und zum
-  anderen die Implementierung einer Komponente zur
-  Integration der neuen Sprache in \textit{DataRocket}.
+  anderen die Implementierung der Softwarekomponente zur Integration der neuen
+  Sprache in \textit{DataRocket}.
 
-  Die Modellierungssprache soll die Möglichkeit bieten, bestehende
-  Datenstrukturen zu modellieren und zu gliedern, Kennzahlen zur Anwendung auf
-  diesen Daten zu spezifizieren und Daten und Kennzahlen zu Berichten zu
-  kombinieren. Das Vokabular der Sprache soll mit dem von \textit{DataRocket}
-  harmonisieren und an den jeweiligen Schnittpunkten übereinstimmen. Besonderer
-  Wert wird auf die leichte Verständlichkeit der Sprache gesetzt, um IT-Laien
-  die Nutzung von \textit{DataRocket} weiterhin zu ermöglichen. Zur einfacheren
-  Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache mit dem
-  Begriff \textit{DataFurnace}-Sprache\footnote{Der fiktive Name
+  Die Modellierungssprache soll die Möglichkeit bieten, bestehende Daten zu
+  gliedern, Kennzahlen zur Anwendung auf diesen Daten zu spezifizieren und
+  Daten und Kennzahlen zu Analysen zu kombinieren. Das Vokabular der Sprache
+  soll mit dem von \textit{DataRocket} harmonisieren und an den jeweiligen
+  Schnittpunkten übereinstimmen.  Die Sprache soll wie \textit{DataRocket} ein
+  einfaches und innovatives Konzept aufweisen. Das Stammdatenmanagement ist
+  nicht mehr allein Aufgabe der IT-Abteilung eines Unternehmens\todo{Tobias: Zitieren},
+  sondern erstreckt sich auch über die Fachabteilungen, welche ohne eine
+  dedizierte Ausbildung im Stammdatenmanagement mit Hilfe der Sprache die
+  Datenqualität im Unternehmen analysieren und überwachen können sollen. Zur
+  einfacheren Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache
+  mit dem Begriff \textit{DataFurnace}-Sprache\footnote{Der fiktive Name
   \textit{DataFurnace} ist im Deutschen zu übersetzen als
   \textit{Datenschmelzofen}. Die \textit{DataFurnace}-Sprache und -Software
   kombiniert im Rahmen der Unternehmensdatenanalyse verschiedene Daten zu neuen
   Erkentnissen, ähnlich zum Schmelzofen, in welchem beispielsweise Metalle zu
   neuen Formen verschmolzen werden.}\todo{Erklärung überarbeiten} verwiesen.
-  
+
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
   eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
@@ -175,16 +187,17 @@
   Reporting}--vorgestellt.
 
 
-	\subsection{Multidimensionale
-	Modellierung}\label{subsec:multidimensionale-modellierung} Es gibt
-	verschiedene Ausprägungen der multidimensionalen Modellierung.  Zunächst wird
-	auf allgemeine Eigenschaften der Modellierungsgruppe eingegangen. Im
-	Mittelpunkt der multidimensionalen Modellierung stehen die
-	betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
-	Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
-	42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
-	\glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
-	Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
+  \subsection{Multidimensionale
+  Modellierung}\label{subsec:multidimensionale-modellierung} 
+
+  Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
+  Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe
+  eingegangen. Im Mittelpunkt der multidimensionalen Modellierung stehen die
+  betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
+  Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
+  42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
+  \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
+  Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
 
   Um verschiedene Sichten auf diese Fakten zu erlangen, gruppiert man diese in
   Dimensionen \bzw{} weist ihnen Dimensionsausprägungen zu~\cite[][S.
@@ -496,7 +509,7 @@
 	\subsection{Messung und Verbesserung von Stammdatenqualität}
 	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
 	nur verbessert werden kann, wenn diese dauerhaft gemessen und überwacht
-	wird~(\cite{baghi2013controlling}, S. 2). Diese Messung kann anhand von
+	wird~(\citeyear{baghi2013controlling}, S. 2). Diese Messung kann anhand von
 	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
 	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{} ob ein bestimmtes Feld
