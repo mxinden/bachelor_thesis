@@ -440,7 +440,7 @@
 }{%
     \ifthenelse{\isundefined{\figure@toc}}{%
         % Without dedicated TOC caption
-        \caption{\figure@caption\label{\figure@label}}%
+        % \caption{\figure@caption\label{\figure@label}}%
     }{%
         % With dedicated TOC caption
         \caption[\figure@toc]{\figure@caption\label{\figure@label}}%

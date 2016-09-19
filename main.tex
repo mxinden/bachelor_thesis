@@ -109,6 +109,17 @@
 
   \todo[inline]{Einleitung ca.\ 1--2 Seiten}
 
+  Digitalisierung wird wichtiger. Dafür wichtig sind Daten
+
+  Digitale Agenda der Bundesregierung
+
+  IOT Industrie 4.0
+
+  Die Arbeit muss garnicht erst erwähnt werden (Metasprache)
+  Gegenstand dieser Arbeit
+
+  Erst nochmal allgemein auf Stammdatenmanagement organisatorisch und auf Software eingehen, dann erst auf innoscale und DR
+
   Im Rahmen der Digitalisierung spielen im Unternehmensumfeld Daten eine immer
   wichtigere Rolle. Die Qualität dieser Daten hat einen hohen positiven
   Einfluss auf deren Einsetzbarkeit und Nutzen. Somit liegt es im Interesse
@@ -140,18 +151,19 @@
   Daten und Kennzahlen zu Analysen zu kombinieren. Das Vokabular der Sprache
   soll mit dem von \textit{DataRocket} harmonisieren und an den jeweiligen
   Schnittpunkten übereinstimmen.  Die Sprache soll wie \textit{DataRocket} ein
-  einfaches und innovatives Konzept aufweisen. Das Stammdatenmanagement ist
-  nicht mehr allein Aufgabe der IT-Abteilung eines Unternehmens\todo{Tobias: Zitieren},
-  sondern erstreckt sich auch über die Fachabteilungen, welche ohne eine
-  dedizierte Ausbildung im Stammdatenmanagement mit Hilfe der Sprache die
-  Datenqualität im Unternehmen analysieren und überwachen können sollen. Zur
-  einfacheren Referenz wird im weiteren Verlauf dieser Arbeit auf die Sprache
-  mit dem Begriff \textit{DataFurnace}-Sprache\footnote{Der fiktive Name
-  \textit{DataFurnace} ist im Deutschen zu übersetzen als
-  \textit{Datenschmelzofen}. Die \textit{DataFurnace}-Sprache und -Software
-  kombiniert im Rahmen der Unternehmensdatenanalyse verschiedene Daten zu neuen
-  Erkentnissen, ähnlich zum Schmelzofen, in welchem beispielsweise Metalle zu
-  neuen Formen verschmolzen werden.}\todo{Erklärung überarbeiten} verwiesen.
+  einfach zu bedienendes und innovatives Konzept aufweisen. Das
+  Stammdatenmanagement ist nicht mehr allein Aufgabe der IT-Abteilung eines
+  Unternehmens\todo{Tobias: Zitieren}, sondern erstreckt sich auch über die
+  Fachabteilungen, welche ohne eine dedizierte Ausbildung im
+  Stammdatenmanagement mit Hilfe der Sprache die Datenqualität im Unternehmen
+  analysieren und überwachen können sollen. Zur einfacheren Referenz wird im
+  weiteren Verlauf dieser Arbeit auf die Sprache mit dem Begriff
+  \textit{DataFurnace}-Sprache~\footnote{Der fiktive Name \textit{DataFurnace}
+  ist im Deutschen zu übersetzen als \textit{Datenschmelzofen}. Die
+  \textit{DataFurnace}-Sprache und -Software kombiniert im Rahmen der
+  Unternehmensdatenanalyse verschiedene Daten zu neuen Erkentnissen, ähnlich
+  zum Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
+  verschmolzen werden.}\todo{Erklärung überarbeiten} verwiesen.
 
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
@@ -213,8 +225,9 @@
   Abbildung~\ref{hierarchie-level-struktur}).\todo{Noch ein wenig holprig,
   bzw.\ ist das überhaupt relevant?}
 
-  \begin{figure}[caption={Dimensionslevelstruktur der Beispieldimension Zeit}, label={hierarchie-level-struktur}]
+  \begin{figure}
     \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
+    \caption{Dimensionslevelstruktur der Beispieldimension Zeit}\label{hierarchie-level-struktur}
   \end{figure}
 
 	Die multidimensionale Modellierung unterteilt sich nun in verschiedene
@@ -237,8 +250,9 @@
 	\textsc{\citeauthor{codd1970relational}} gefunden
 	werden~\citeyearpar{codd1970relational,codd1972further}.
 
-  \begin{figure}[caption={Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}, label={fig:star-schema}]
+  \begin{figure}
     \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
+    \caption[Star-Schema Beispielmodell]{Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}\label{fig:star-schema}
   \end{figure}
 
   \begin{table}[]
@@ -269,8 +283,9 @@
   ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch gegebenenfalls die
   Geschwindigkeit negativ beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
 
-  \begin{figure}[caption={Teilausschnitt eines Snowflake-Schemas}, label={fig:snowflake-schema}]
+  \begin{figure}
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
+    \caption{Teilausschnitt eines Snowflake-Schemas}\label{fig:snowflake-schema}
   \end{figure}
 
   \begin{table}
@@ -326,7 +341,7 @@
   Objekt, modelliert werden~\cite[][S.  48]{ballard1998data}.Siehe
   Abbildung~\ref{vergleich-erm}.
 
-  \begin{figure}[caption={Vergleich multidimensionale Modellierung und ERM}, label={}]
+  \begin{figure}
     \centering
     \begin{subfigure}{.49\textwidth}
       \centering
@@ -338,6 +353,7 @@
       \resizebox{\linewidth}{!}{\input{content/figures/star-schema-erm.tex}}
       \caption{Entity-Relationship-Modell}\label{vergleich-erm}
     \end{subfigure}
+    \caption{Vergleich multidimensionale Modellierung und ERM}\label={}
   \end{figure}
 
   \acrlong{OLTP}-Systeme (\acrshort{OLTP}) sind operative Echtzeitsysteme mit dem
@@ -502,8 +518,9 @@
 	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat}, welche jeweils den Betrachtungsraum der Dimensionen
   abbilden (Siehe Abbildung~\ref{15-dimensions}).
 
-  \begin{figure}[caption={Datenqualitätsdimensionen angeleht an~\cite{rohweder2015informationsqualitat} S. 30}, label={15-dimensions}]
+  \begin{figure}
     \includegraphics[scale=0.60]{content/figures/15-dimensions}
+    \caption[Datenqualitätsdimensionen]{Datenqualitätsdimensionen angeleht an~\cite{rohweder2015informationsqualitat} S. 30}\label={15-dimensions}
   \end{figure}
 
 	\subsection{Messung und Verbesserung von Stammdatenqualität}
@@ -718,8 +735,9 @@
   Durchführbarkeitsanalyse der Marketingkampagne beantwortet werden müssen, und
   deren Bedingungen aufgelistet.
 
-  \begin{figure}[caption={Datenstruktur des Produkt- und Kundenstammdatensatzes}, label={example-use-case-data}]
+  \begin{figure}
     \resizebox{250pt}{!}{\input{content/figures/example-use-case-data.tex}}
+    \caption{Datenstruktur des Produkt- und Kundenstammdatensatzes}\label{example-use-case-data}
   \end{figure}
 
   \begin{itemize}
@@ -906,8 +924,9 @@
   Abbildung~\ref{fig:language_spec-erm} gezeigt, welche für jede
   Vokabulargruppe in Ausschnitten betrachtet wird.
 
-  \begin{figure}[caption={Metamodell der \textit{DataFurnace}-Sprache}, label={fig:language_spec-erm}]
+  \begin{figure}
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
+    \caption{Metamodell der \textit{DataFurnace}-Sprache}\label{fig:language_spec-erm}
   \end{figure}
 
   \subsection{Dimensionen}\label{subsec:dimension}
@@ -922,8 +941,9 @@
 	Geschäftsobjekt kann mit dem Bezugsobjekt der \textit{H2 for
 	Reporting}-Sprache verglichen werden.
 
-  \begin{figure}[caption={\acrshort{ERM} der Geschäftsobjektteilsprache}, label={geschaeftsobjekt}]
+  \begin{figure}
     \resizebox{200px}{!}{\input{content/figures/language_spec-erm-geschaeftsobjekt.tex}}
+    \caption{\acrshort{ERM} der Geschäftsobjektteilsprache}\label{geschaeftsobjekt}
   \end{figure}
 
   Einem Geschäftsobjekt werden Attribute untergeordnet (Siehe
@@ -945,8 +965,9 @@
 	Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
 	\textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
-  \begin{figure}[caption={\acrshort{ERM} der Dimensionteilsprache}, label={dimension-erm}]
+  \begin{figure}
     \resizebox{350px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
+    \caption{\acrshort{ERM} der Dimensionteilsprache}\label{dimension-erm}
   \end{figure}
 
 	Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
@@ -966,8 +987,9 @@
   \subsection{Kennzahlen}
   \todo[inline]{Konstanten in Grafik, \textit{DataFurnace} und Text hinzufügen}
 
-  \begin{figure}[caption={\acrshort{ERM} der Kennzahlteilsprache}, label={kennzahl}]
+  \begin{figure}
     \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
+    \caption{\acrshort{ERM} der Kennzahlteilsprache}\label{kennzahl}
   \end{figure}
 
 	Eine Kennzahl bietet ein quantitatives oder auch qualitatives Maß, welches
@@ -997,8 +1019,9 @@
   % )
 
   \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
-  \begin{figure}[caption={Ausdruck Syntaxdiagramm \protect\footnotemark}, label={railroad-kennzahl}]
+  \begin{figure}
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
+    \caption[Ausdruck Syntaxdiagramm]{Ausdruck Syntaxdiagramm \protect\footnotemark}\label{railroad-kennzahl}
   \end{figure}
   \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
   Compiler, Railroad-Diagram, horizontale Linien gleich Gleise, Stationen erklaeren}}
@@ -1057,8 +1080,9 @@
   eine Tabellenkomponente. Anhand dieser Zweiteilung wird im Folgenden die
   Teilsprache Bericht näher erläutert.
 
-  \begin{figure}[caption={Bericht-Teilsprache}, label={language_spec-erm-bericht}]
+  \begin{figure}
     \resizebox{120px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
+    \caption{Bericht-Teilsprache}\label{language_spec-erm-bericht}
   \end{figure}
   
   \paragraph{Filterkomponente}\label{paragraph:filternde-komponente} Um
@@ -1409,8 +1433,9 @@
   Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
   exemplarisch eingesetzt.
 
-  \begin{figure}[caption={\textit{DataFurnace}-Prozess}, label={datafurnace-prozess}]
+  \begin{figure}
     \includegraphics[scale=0.60]{content/figures/datafurnace-process}
+    \caption{\textit{DataFurnace}-Prozess}\label{datafurnace-prozess}
   \end{figure}
 
   Der Wechsel zwischen der Dimensions-, Kennzahl- und Berichtsansicht gelingt
@@ -1462,7 +1487,7 @@
   können keine weiteren Elemente folgen. Ein Beispiel ist in
   Abbildung~\ref{fig:baumstruktur-produkt} zu sehen.
 
-	\begin{figure}[caption={Baumstruktur des Geschäftsobjekts \textit{Produkt}}, label={fig:baumstruktur-produkt}]
+	\begin{figure}
 		\footnotesize
 
 		\begin{forest}
@@ -1494,6 +1519,7 @@
 			]
 		]
 		\end{forest}
+    \caption{Baumstruktur des Geschäftsobjekts \textit{Produkt}}\label{fig:baumstruktur-produkt}
 	\end{figure}
 
   Wird einer Dimension ein Dimensionslevel, einem Dimensionslevel ein weiteres
@@ -1895,7 +1921,7 @@
   gesamte Aufbau der Architektur wird durch
   Abbildung~\ref{fig:systemarchitektur} erneut verdeutlicht.
 
-  \begin{figure}[caption={Systemarchitektur der \textit{DataFurnace}-Software}, label={fig:systemarchitektur}]
+  \begin{figure}
 		\footnotesize
     \begin{tikzpicture}[]
       \tikzstyle{container} =  [dashed, draw, minimum width=\textwidth - 70pt, inner sep=12pt]
@@ -1930,6 +1956,7 @@
       \node (webbrowser) [container, fit= (subscribe) (businessLogicClient) (reactJS) (router)]{};
       \node[fill=white, right=10pt] at (webbrowser.north west) {Web browser};
     \end{tikzpicture}
+    \caption{Systemarchitektur der \textit{DataFurnace}-Software}\label{fig:systemarchitektur}
 	\end{figure}
 
   Mit dieser Systemarchitektur kann die \textit{DataFurnace}-Software losgelöst
@@ -2037,8 +2064,9 @@ beschrieben.
  unterschiedlichen Attributen festgehalten sind, so kann dies im Dimensionsbaum
  spezifiziert werden, indem ihm mehrere Attribute hinzugefügt werden.
 
-  \begin{figure}[caption={\textit{DataRockets} \textit{Datapipeline}-Bausteine}, label={}]
+  \begin{figure}
     \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
+    \caption{\textit{DataRockets} \textit{Datapipeline}-Bausteine}\label{}
   \end{figure}
 
 	Ideen für die Zukunft
