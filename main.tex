@@ -23,6 +23,7 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{forest}
+\usepackage{cleveref}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
@@ -115,24 +116,23 @@
 
   IOT Industrie 4.0
 
-  Die Arbeit muss garnicht erst erwähnt werden (Metasprache)
-  Gegenstand dieser Arbeit
-
   Erst nochmal allgemein auf Stammdatenmanagement organisatorisch und auf Software eingehen, dann erst auf innoscale und DR
 
-  Im Rahmen der Digitalisierung spielen im Unternehmensumfeld Daten eine immer
-  wichtigere Rolle. Die Qualität dieser Daten hat einen hohen positiven
+  Im Rahmen der zunehmenden Digitalisierung nehmen Daten im Unternehmensumfeld  eine immer
+  wichtigere Rolle ein. Die Qualität dieser Daten hat einen hohen positiven
   Einfluss auf deren Einsetzbarkeit und Nutzen. Somit liegt es im Interesse
-  eines Unternehmens eine hohe Datenqualität anzustreben. Qualitätsverbesserung
-  und Qualitätssicherung ist nur möglich, wenn Daten kontinuierlich anhand von
-  Qualitätskriterien analyiert werden können, um Schwachstellen zu erkennen
-  (\cite{baghi2013controlling}, S. 2).
+  eines Unternehmens eine hohe Datenqualität anzustreben. Innerhalb eines
+  Unternehmens ist dies Aufgabe des Stammdatenmanagements.
+  Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
+  ist nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
+  analyiert werden können, um Schwachstellen zu erkennen
+  (\cite{baghi2013controlling}, S. 2).\todo{Mehr Quellen}
 
-  Diese Arbeit beschäftigt sich mit der konzeptionellen Analyse von
-  Unternehmensdaten in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013
-  gegründetes Unternehmen aus Berlin.  Spezialisiert auf das
-  Stammdatenmanagement ist es sowohl beratend als auch mit einem eigenen
-  Produkt namens \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
+  Gegenstand dieser Arbeit ist die konzeptionelle Analyse von Unternehmensdaten
+  in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013 gegründetes
+  Unternehmen aus Berlin.  Spezialisiert auf das Stammdatenmanagement ist es
+  sowohl beratend als auch mit einem eigenen Produkt namens
+  \textit{DataRocket}\footnote{Siehe Abschnitt: Vorstellung
   \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur Verbesserung von
   Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung und
   -sicherung durch \textit{DataRocket} ist es nötig, die Qualität von zuvor
@@ -153,17 +153,17 @@
   Schnittpunkten übereinstimmen.  Die Sprache soll wie \textit{DataRocket} ein
   einfach zu bedienendes und innovatives Konzept aufweisen. Das
   Stammdatenmanagement ist nicht mehr allein Aufgabe der IT-Abteilung eines
-  Unternehmens\todo{Tobias: Zitieren}, sondern erstreckt sich auch über die
+  Unternehmens\todo{Zitieren}, sondern erstreckt sich auch über die
   Fachabteilungen, welche ohne eine dedizierte Ausbildung im
   Stammdatenmanagement mit Hilfe der Sprache die Datenqualität im Unternehmen
   analysieren und überwachen können sollen. Zur einfacheren Referenz wird im
   weiteren Verlauf dieser Arbeit auf die Sprache mit dem Begriff
-  \textit{DataFurnace}-Sprache~\footnote{Der fiktive Name \textit{DataFurnace}
+  \textit{DataFurnace}-Sprache\footnote{Der fiktive Name \textit{DataFurnace}
   ist im Deutschen zu übersetzen als \textit{Datenschmelzofen}. Die
   \textit{DataFurnace}-Sprache und -Software kombiniert im Rahmen der
   Unternehmensdatenanalyse verschiedene Daten zu neuen Erkentnissen, ähnlich
   zum Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
-  verschmolzen werden.}\todo{Erklärung überarbeiten} verwiesen.
+  verschmolzen werden.} \todo{Erklärung überarbeiten} verwiesen.
 
   Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
@@ -172,14 +172,25 @@
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im Folgenden den
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
-  \paragraph{Aufbau der Arbeit}
-  \todo[inline]{Grafik zum Aufbau der Arbeit}
-
-
-
-
+  \todo[inline]{Grafik zum Aufbau der Arbeit} Der Aufbau der Arbeit gestatet
+  sich wie folgt: Zunächst werden in \cref{ch:grundlagen} Grundlagen erläutert,
+  auf welche die Entwicklung der Sprache und die Implementierung der Software
+  aufbauen. Die Unterteilung des Grundlagenkapitels leitet sich von der
+  Thematik der Arbeit ab. In der Arbeit wird die konzeptionelle Analyse von
+  Unternehmensdaten im Stammdatenmanagement behandelt. Folglich wird zunächst
+  auf verschiedene Datenmodellierungstypen eingegangen, welche anhand ihrer
+  Einsetzbarkeit für konzeptionelle Datenanalysen bewertet werden. Daraufhin
+  wird eine Übersicht zum Stammdatenmanagement im Allgemeinen, sowie eine
+  Erläuterung der Stammdatenmanagementsoftware \textit{DataRocket} im
+  Speziellen gegeben. Das Grundlagenkapitel wird mit der Vorstellung eines
+  Anwendungsfallbeispiels abgeschlossen, auf welches Erläuterungen im weiteren
+  Verlauf der Arbeit exemplarisch angewendet werden.
+  
+  
+  
+  
   % ################################################################################
-  \chapter{Grundlagen}
+  \chapter{Grundlagen}\label{ch:grundlagen}
   % ################################################################################
   
   \todo[inline]{Grundlagen ca.\ 10 Seiten}
@@ -338,8 +349,8 @@
   ER-Modellierung visualisiert werden~(\citeyear{ballard1998data}, S. 47). Zum
   Beispiel können die Fakten eines multidimensionalen Modells als Objekte eines
   ER-Modells mit Beziehungen zu den jeweiligen Dimensionen, wiederum als
-  Objekt, modelliert werden~\cite[][S.  48]{ballard1998data}.Siehe
-  Abbildung~\ref{vergleich-erm}.
+  Objekt, modelliert werden~\cite[][S.  48]{ballard1998data} (Siehe
+  Abbildung~\ref{vergleich-erm}).
 
   \begin{figure}
     \centering
@@ -551,21 +562,25 @@
 	dieser Fehler in der Zukunft für weitere Datensätze verhindert, womit auch
 	Schritt zwei erfüllt ist.
 
-	\subsection{Stammdatenmanagement-Software}
-	\textsc{\citeauthor{baghi2014toward}} definieren
-	Stammdatenmanagement-Software allgemein als eine Applikation, welche
-  Attribute von Stammdaten erstellen, speichern und verändern kann~(\citeyear{baghi2014toward}, S. 3828). \todo{Direkt übersetzt! Anführungszeichen?} Sie
-	ermöglicht es dem Endnutzer, die Daten in einer qualitativ hochwertigen
-	konsolidierten Form zu konsumieren~\cite[][Abschnitt
-	1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
-	unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
-	\textit{Central-System}, \textit{Leading-System},
-	\textit{Service-Oriented-Architecture}, \textit{Registry},
-  \textit{Consolidation-Hub} und \textit{Peer-to-Peer}~(\citeyear{baghi2014toward}, S. 3829), siehe hierzu auch~\cite[][Abschnitt
-	5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
-	die Architektur \textit{Leading-System} und \textit{Consolidation-Hub}
-	verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
-	erläutert werden.
+
+  \subsection{Stammdatenmanagement-Software}
+
+  \textsc{\citeauthor{baghi2014toward}} definieren
+  Stammdatenmanagement-Software allgemein als eine Applikation, welche
+  Attribute von Stammdaten erstellen, speichern und verändern
+  kann~(\citeyear{baghi2014toward}, S. 3828). \todo{Direkt übersetzt!
+  Anführungszeichen?} Sie ermöglicht es dem Endnutzer, die Daten in einer
+  qualitativ hochwertigen konsolidierten Form zu konsumieren~\cite[][Abschnitt
+  1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
+  unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
+  \textit{Central-System}, \textit{Leading-System},
+  \textit{Service-Oriented-Architecture}, \textit{Registry},
+  \textit{Consolidation-Hub} und
+  \textit{Peer-to-Peer}~(\citeyear{baghi2014toward}, S. 3829)~\cite[][Abschnitt
+  5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
+  die Architektur \textit{Leading-System} und \textit{Consolidation-Hub}
+  verwiesen, weshalb diese Architekturen in dem nächsten Abschnitt näher
+  erläutert werden.
 
   Im Ansatz der \textit{Leading-System}-Architektur wird für jede
   Stammdatenklasse ein System ausgewählt, \zB{} das \acrshort{CRM} für die
@@ -575,13 +590,13 @@
   \textit{Consolidation-Hub} nach \textsc{\citeauthor{baghi2014toward}}
   beschreibt ein zentrales System, welches verschiedenste andere Systeme und
   Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
-  Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829). Siehe
-  hierzu auch \textsc{\citeauthor{loshin2010master}}, wessen Definition von
-  Stammdatenmanagement-Software der des \textit{Consolidation-Hubs}
-  gleicht~(\citeyear{loshin2010master}, S. 8). Auf die übrigen Architekturen
-  wird im weiteren Verlauf der Arbeit nicht eingegangen, weshalb ihre
-  Erklärungen auch nicht Teil dieser Arbeit sind. Hier wird lediglich auf die
-  Erklärungen von~\textsc{\citeauthor{baghi2014toward}}
+  Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829).
+  \textsc{\citeauthor{loshin2010master}} definiert Stammdatenmanagementsoftware
+  im Allgemeinen ähnlich zum
+  \textit{Consolidation-Hub}~(\citeyear{loshin2010master}, S. 8). Auf die
+  übrigen Architekturen wird im weiteren Verlauf der Arbeit nicht eingegangen,
+  weshalb ihre Erklärungen auch nicht Teil dieser Arbeit sind. Hier wird
+  lediglich auf die Erklärungen von~\textsc{\citeauthor{baghi2014toward}}
   \citeyearpar{baghi2014toward} verwiesen.
 
 
