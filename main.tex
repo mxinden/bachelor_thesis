@@ -466,7 +466,8 @@
 	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
 	entwickelt~\cite[][S.  34]{becker2007h2}.
 
-  Neben \textit{H2 for Reporting} existieren weitere alternative Erweiterungen der multidimensionalen Modellierung:
+	Neben \textit{H2 for Reporting} existieren weitere alternative Erweiterungen
+	der multidimensionalen Modellierung. Bekannte Beispiele sind:
 
   \begin{itemize}
     \item das \textit{Dimensional-Fact}-Modell (\textit{\acrshort{DFM}}) mit den Typen
@@ -506,7 +507,15 @@
   %   \item Wertansatz (Soll, Ist, Plan)
   % \end{itemize}
 
-  \section{Stammdatenmanagement}
+	\section{Stammdatenmanagement}
+
+	Wie in der Einleitung der Arbeit festgehalten ist die Qualitätsanalyse von
+	Unternehmensdaten Teil des Stammdatenmanagements. Die Entwicklung der
+	\textit{DataFurnace}-Sprache und die Implementierung der
+	\textit{DataFurnace}-Software baut folglich auf der Unternehmensfunktion
+	Stammdatenmanagement auf, weshalb diese im folgenden Abschnitt näher erläutert
+	wird.
+
 	Das Stammdatenmanagement ist eine Funktion eines Unternehmens, welches eine
 	langfristig hohe Datenqualität der Stammdaten anstrebt und sowohl den
 	organisatorischen als auch technischen Umgang in einem Unternehmen
@@ -523,29 +532,37 @@
 	Unternehmen zurückführen, wie zum Beispiel laut
 	\textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
 	US-Dollar Kosten im Jahr entstanden durch
-	Datenqualitätsprobleme~(\cite{eckerson2002data}, S. 3).
+	Datenqualitätsprobleme~(\citeyear{eckerson2002data}, S. 3).
 	\textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
-	des Stammdatenmanagements die notwendige Datenstandardisierung über
-	Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
-	360-Grad-Blick\footnote{Für weitere Details zum Begriff
-	siehe~\cite{kotorov2003customer},~\cite{otto2016datenqualitat}
+	und Herausforderungen des Stammdatenmanagements die notwendige
+	Datenstandardisierung über Unternehmensgrenzen hinaus, behördliche und
+	gesetzliche Auflagen, den 360-Grad-Blick\footnote{Für weitere Details zum
+	Begriff siehe~\cite{kotorov2003customer},~\cite{otto2016datenqualitat}
 	und~\cite{otto2016master}} auf einen Kunden und den Einsatz von Stammdaten in
 	der Unternehmensdatenanalyse auf, welche alle eine hohe Stammdatenqualität
 	voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
+	
+	% 600 Milliarden im vorherigen Abschnitt eher umstritten
 
-	\subsection{Stammdatenqualität} \textsc{\citeauthor{otto2012design}}
-	definiert Stammdaten als die zentralen Datensätze eines Unternehmens, welche
-	über mehrere Abteilungen hinaus genutzt werden~(\citeyear{otto2012design}, S.
-	1 f.).  Neben ihrer zentralen Nutzung zeichnen sie sich durch ihre
-	Beständigkeit im Unternehmen aus~\cite[][S.  1]{knolmayer2006quality}.
-	\textsc{\citeauthor{knolmayer2006quality}} nennen als Beispiele
-	\textit{Kunden}, \textit{Lieferanten} und
+	\subsection{Stammdatenqualität}\label{subsec:stammdatenqualität}
+	
+	\textsc{\citeauthor{otto2012design}} definiert Stammdaten als die zentralen
+	Datensätze eines Unternehmens, welche über mehrere Abteilungen hinaus genutzt
+	werden~(\citeyear{otto2012design}, S.  1 f.).  Neben ihrer zentralen Nutzung
+	zeichnen sie sich durch ihre Beständigkeit im Unternehmen aus~\cite[][S.
+	1]{knolmayer2006quality}.  \textsc{\citeauthor{knolmayer2006quality}} nennen
+	als Beispiele \textit{Kunden}, \textit{Lieferanten} und
 	\textit{Produkte}~(\citeyear{knolmayer2006quality}, S. 1). Die Qualität der
 	Stammdaten gibt an, wie gut sich die Daten für einen bestimmten Einsatz
 	verwenden lassen können~(\citeauthor{otto2011stammdatenmanagement}
 	\citeyear{otto2011stammdatenmanagement} S.
 	8;~\citeauthor{hinrichs2002datenqualitatsmanagement}
 	\citeyear{hinrichs2002datenqualitatsmanagement} S. 26).
+
+  \begin{figure}
+    \includegraphics[scale=0.60]{content/figures/15-dimensions}
+    \caption[Datenqualitätsdimensionen]{Datenqualitätsdimensionen angelehnt an~\textsc{\citeauthor{rohweder2015informationsqualitat}} (\citeyear{rohweder2015informationsqualitat}, S. 30)}\label{15-dimensions}
+  \end{figure}
 
 	Die Stammdatenqualität lässt sich anhand von verschiedenen
 	Qualitätsdimensionen genauer spezifizieren.
@@ -557,17 +574,13 @@
 	f.). \textsc{\citeauthor{baghi2013controlling}} hingegen nutzen für ihre
 	Fallstudie lediglich die Datenqualitätsdimensionen \textit{Genauigkeit} und
 	\textit{Vollständigkeit}~(\citeyear{baghi2013controlling}, S. 4), basierend
-	auf der Sammlung von
-	\textsc{\citeauthor{wand1996anchoring}}~(\citeyear{wand1996anchoring}, S. 8
+	auf der Erhebung von
+	\textsc{\citeauthor{wand1996anchoring}} (\citeyear{wand1996anchoring}, S. 8
 	f.). Die \acrlong{DGIQ} (\acrshort{DGIQ}) teilt Datenqualitätsdimensionen in
 	die vier Kategorien \textit{Nutzung}, \textit{System}, \textit{Darstellung}
-	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat}, welche jeweils den Betrachtungsraum der Dimensionen
-  abbilden (Siehe Abbildung~\ref{15-dimensions}).
-
-  \begin{figure}
-    \includegraphics[scale=0.60]{content/figures/15-dimensions}
-    \caption[Datenqualitätsdimensionen]{Datenqualitätsdimensionen angeleht an~\cite{rohweder2015informationsqualitat} S. 30}\label={15-dimensions}
-  \end{figure}
+	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat},
+	welche jeweils den Betrachtungsraum der Dimensionen abbilden (Siehe
+	Abbildung~\ref{15-dimensions}).
 
 	\subsection{Messung und Verbesserung von Stammdatenqualität}
 	\textsc{\citeauthor{baghi2013controlling}} halten fest, dass Datenqualität
@@ -698,36 +711,40 @@
 		Geschäftsobjekts ein At-Zeichen enthält.
 
 		\item Aggregierte Instanzen eines zuvor modellierten Geschäftsobjekts
-		werden geladen. Hierzu spezifiziert der Nutzer das gewünschte
-		Geschäftsobjekt, welches er im weiteren Verlauf analysieren möchte, und die
-		angebunden Datenquellen, aus welchen er die Instanzen laden möchte.
+		werden im \textit{DataRocket} \textit{Instance-Loader}-Baustein geladen.
+		Hierzu spezifiziert der Nutzer das gewünschte Geschäftsobjekt, welches er
+		im weiteren Verlauf analysieren möchte, und die angebunden Datenquellen,
+		aus welchen er die Instanzen laden möchte.
 
-		\item Die Instanzen der Geschäftsobjekten werden mit Hilfe der zuvor
-		spezifizierten Qualitätskennzahlen im \textit{Calculation}-Baustein
-		analysiert. Die Auswertungsergebnisse einzelner Instanzen werden anhand von
-		Geschäftsobjektinstanzaggregationen gruppiert. Ein mögliches
-		Auswertungsergebnis für das gesamte Geschäftsobjekt Kunde über alle
-		Instanzen ist, dass vier Prozent aller Kundenstammdaten in dem Attribut
-		\textit{E-Mail-Adresse} das At-Zeichen fehlt.
+		\item Die Instanzen der Geschäftsobjekte werden mit Hilfe der zuvor
+		spezifizierten Qualitätskennzahlen im sogenannten
+		\textit{Calculation}-Baustein analysiert. In diesem Baustein wählt der
+		Nutzer zunächst die Kennzahlen aus, welche im folgenden Schritt auf die
+		Geschäftsobjektinstanzen angewendet werden. Die Auswertungsergebnisse
+		einzelner Instanzen werden anhand von Geschäftsobjektinstanzaggregationen
+		gruppiert. Ein mögliches Auswertungsergebnis für das gesamte
+		Geschäftsobjekt Kunde über alle Instanzen ist, dass vier Prozent aller
+		Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das At-Zeichen
+		fehlt.
 
-    \item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
-      verschiedenen Diagrammen, wie \zB{} einem Linien- oder Säulendiagramm, im
-      \textit{Visualization}-Baustein optisch aufbereitet werden. Diese können
-      in der Berichterstattungskomponente aufgegriffen werden, welche im
-      nachfolgenden genauer beschrieben wird.
+		\item Die Ergebnisse der Geschäftsobjektanalyse können mit Hilfe von
+		verschiedenen Diagrammen, wie \zB{} einem Linien- oder Säulendiagramm, im
+		\textit{Visualization}-Baustein optisch aufbereitet werden. Diese können in
+		der Berichterstattungskomponente aufgegriffen werden, welche nachfolgend
+		genauer beschrieben wird.
 
-    \item Datenqualitätsprobleme können manuell oder automatisiert im
-      \textit{Cleaning}-Baustein behoben werden. Für die manuelle Behebung
-      werden dem Nutzer nacheinander Geschäftsobjekte mit
-      Datenqualitätsproblemen angezeigt, welche er direkt in der Software
-      bereinigen kann. Für die automatisierte Behebung bietet
-      \textit{DataRocket} verschieden Module. Ein Beispiel\-modul dient der
-      Bereinigung von Adressdaten. Hierzu werden externe
-      Geo-Datenbanken \todo{Beispiel für eine Datenbank} angebunden, welche
-      \textit{DataRocket} mit den Adressdaten der Geschäftsobjekte vergleicht
-			und diese hiermit \ggf{} ergänzt oder korrigiert. Die Datenänderungen
-			werden von \textit{DataRocket} automatisiert in das
-			Informationsquellsystem zurückgeschrieben.
+		\item Datenqualitätsprobleme können manuell oder automatisiert im
+		\textit{Cleaning}-Baustein behoben werden. Für die manuelle Behebung werden
+		dem Nutzer nacheinander Geschäftsobjekte mit Datenqualitätsproblemen
+		angezeigt, welche er direkt in der Software bereinigen kann. Für die
+		automatisierte Behebung bietet \textit{DataRocket} verschieden Module. Ein
+		Beispiel\-modul dient der Bereinigung von Adressdaten. Hierzu werden
+		externe Geo- und Adressdatenbanken wie \zB{} \textit{Google Maps},
+		\textit{Melissa Data} oder \textit{Kreditreform} angebunden, welche
+		\textit{DataRocket} mit den Adressdaten der Geschäftsobjektinstanzen
+		vergleicht und diese hiermit \ggf{} ergänzt oder korrigiert. Die
+		Datenänderungen können von \textit{DataRocket} automatisiert in das
+		Informationsquellsystem zurückgeschrieben werden.
 
     \item \textit{DataRocket} überwacht alle angebundenen Datenquellen
       kontinuierlich und bietet in der Benutzerschnittstelle eine
@@ -736,21 +753,28 @@
       Zeitverlauf anzeigt.
 	\end{enumerate}
 
-	Der sequentielle Prozess, beschrieben in den Schritten fünf bis acht, wird in der
-	Benutzeroberfläche durch das Modul \textit{DataPipeline}
-	abgebildet\todo{Vielleicht Unix pipeline zitieren}. Diese ermöglicht es dem
-	Nutzer verschiedene Prozessschritte wie Bausteine aneinanderzureihen,
-	welche jeweils auf die Ausgabewerte ihrer Vorgänger als eigene Eingabewerte
-	aufbauen. Sie ist vergleichbar mit dem \textit{Pipeline}-Pattern des
-	Software-Engineerings, wie \zB{} der \textit{Pipeline} in Unix-ähnlichen
+	Der sequentielle Prozess, beschrieben in den Schritten fünf bis acht und in Abbildung~\ref{fig:datapipeline}, wird in
+	der Benutzeroberfläche durch das Modul \textit{DataPipeline} abgebildet.
+	Diese ermöglicht es dem Nutzer verschiedene Prozessschritte wie Bausteine
+	aneinanderzureihen, welche jeweils auf die Ausgabewerte ihrer Vorgänger als
+	eigene Eingabewerte aufbauen. Sie ist vergleichbar mit dem
+	\textit{Pipeline}-Pattern des Software-Engineerings, wie \zB{} der
+	\textit{Pipeline} in Unix-ähnlichen
 	Betriebssystemen~\cite[][]{spinellis2001notable}. Im bisherigen
-	Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde} mit Hilfe
-	der zuvor definierten Qualitätskennzahlen im \textit{Calculation} Baustein
-	analysiert. Die Ergebnisse der Analyse werden weiter an den
-	\textit{Visualization-Baustein} gegeben, welcher diese in Form von Graphen
-	darstellt. Abschließend greift der \textit{Cleaning-Baustein} auf die
+	Beispielszenario würde zunächst das Geschäftsobjekt \textit{Kunde} im
+	\textit{Instance-Loader}-Baustein geladen werden und mit Hilfe der zuvor
+	definierten Qualitätskennzahlen im \textit{Calculation}-Baustein analysiert
+	werden. Die Ergebnisse der Analyse werden weiter an den
+	\textit{Visualization}-Baustein gegeben, welcher diese in Form von Graphen
+	darstellt. Abschließend greift der \textit{Cleaning}-Baustein auf die
 	Ergebnisse zu, in welchem der User die zuvor festgestellten
 	Datenqualitätsprobleme beheben kann.
+
+  \begin{figure}
+    \includegraphics[scale=0.9]{content/figures/datapipeline}
+    \caption{\textit{DataRocket} \textit{DataPipeline}}\label{fig:datapipeline}
+  \end{figure}
+
 
 	Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
 	prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
@@ -826,13 +850,13 @@
   \chapter{Entwicklung der \textit{DataFurnace}-Sprache}\label{ch:entwicklung-datafurnace-sprache}
   % ################################################################################
 
-  \todo[inline]{Ein Subset von H2ForReporting? F\"ur DQM statt f\"ur Business Intelligence?}
+  \todo[inline]{Theorie / Vorgehensmodell für die Entwicklung von Sprachen?}
 
 
   \section{Motivation}
 
 	Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
-	Datenqualitätsverbesserung die Qualität von Unternehmensdaten zunächst
+	Datenqualitätsver\-besserung die Qualität von Unternehmensdaten zunächst
 	untersuchen. Der \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket}
 	genau anweisen, nach welchen Kriterien er Datenqualität definiert und wie die
 	Daten anhand der Datenqualitätsdefinitionen analysiert werden sollen. Für die
@@ -840,8 +864,9 @@
 	Sprache von Nöten, welche es dem Nutzer ermöglicht, \textit{DataRocket} die
 	funktionale Struktur der zu analysiereden Daten zu erklären,
 	Qualitätskriterien zu definieren und Analyseziele zu spezifizieren.
-	Gegenstandsbereich der Sprache ist der Einsatz in \textit{DataRocket} im
-	\textit{Calculation}-Baustein der \textit{DataPipeline}.
+	Gegenstandsbe\-reich der Sprache ist der Einsatz in \textit{DataRocket} im
+	\textit{Calculation}-Baustein der \textit{DataPipeline} aus
+	Abschnitt~\ref{sec:Vorstellung-DataRocket}.
 
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:sprache/anforderungsanalyse}
@@ -880,8 +905,7 @@
         \textit{DataFurnace}-Sprache definieren zu können.
         Datenqualitätskennzahlen beziehen sich auf Attribute von
         Unternehmensdatentypen. Die Sprache soll es dem Nutzer ermöglichen,
-        komplizierte Qualitätskennzahlberechnungen zu spezifizieren, welche
-        sowohl qualitativem als auch quantitativem Ursprungs sein können. Es
+        komplizierte Qualitätskennzahlberechnungen zu spezifizieren. Es
         soll zum Beispiel eine Qualtitätskennzahl definiert werden können,
         welche kontrolliert, dass im oben genannten Szenario der \textit{Preis}
         des Unternehmensdatentypus \textit{Produkt} keine Buchstaben enthält.
@@ -1044,19 +1068,19 @@
     \caption{\acrshort{ERM} der Kennzahlteilsprache}\label{kennzahl}
   \end{figure}
 
-	Eine Kennzahl bietet ein quantitatives oder auch qualitatives Maß, welches
-	die Informationen von einem oder mehreren Instanzen eines Geschäftsobjekts
-	weiterverarbeitet. Sie wird durch eine mathematische Formel spezifiziert, und
-	folgt der Grundrechenart mit den Operationen \textit{Addition},
-	\textit{Substraktion}, \textit{Multiplikation} und \textit{Division}, welche
-	auf zwei oder mehr Operanden angewendet werden (Siehe
-	Abbildung~\ref{railroad-kennzahl}, Gleis eins). Im weiteren Verlauf der
-	\textit{DataFurnace}-Sprachvorstellung wird der Begriff \textit{Ausdruck} als
-	Generalisierung von \textit{Operand} und \textit{Operator} genutzt.  Die
-	Auswertungsreihenfolge der Ausdrücke kann mit Klammern differenziert werden,
-	erneut verdeutlicht durch Abbildung~\ref{railroad-kennzahl}, Gleis zwei.
-	Ausdrücke können mit dem Voranstellen eines Minuszeichens negiert werden
-	(Siehe Abbildung~\ref{railroad-kennzahl}, Gleis drei). Des Weiteren können
+	Eine Kennzahl bietet ein quantitatives Maß, welches die Informationen von
+	einer Instanz eines Geschäftsobjekts weiterverarbeitet. Sie
+	wird durch eine mathematische Formel spezifiziert, und folgt der
+	Grundrechenart mit den Operationen \textit{Addition}, \textit{Substraktion},
+	\textit{Multiplikation} und \textit{Division}, welche auf zwei oder mehr
+	Operanden angewendet werden (Siehe Abbildung~\ref{railroad-kennzahl}, Gleis
+	eins). Im weiteren Verlauf der \textit{DataFurnace}-Sprachvorstellung wird
+	der Begriff \textit{Ausdruck} als Generalisierung von \textit{Operand} und
+	\textit{Operator} genutzt.  Die Auswertungsreihenfolge der Ausdrücke kann mit
+	Klammern differenziert werden, erneut verdeutlicht durch
+	Abbildung~\ref{railroad-kennzahl}, Gleis zwei.  Ausdrücke können mit dem
+	Voranstellen eines Minuszeichens negiert werden (Siehe
+	Abbildung~\ref{railroad-kennzahl}, Gleis drei). Des Weiteren können
 	Konstanten in die Formelgleichung mit aufgenommen werden.
 
   % Diagram(
@@ -1100,18 +1124,21 @@
   Aggregation von mehreren Geschäftsobjektinstanzen findet in den
   Berichtsteilsprache statt, nicht in der Kennzahlteilsprache.
 
-  Ein Beispiel für eine Funktion ist die \texttt{Wurzel}-Funktion.  Sie nimmt
-  als Eingabe eine Zahl und gibt die Wurzel dieser zurück. Neben den
-  mathematischen Funktionen wie der \texttt{Wurzel}-Funktion werden des
-  Weiteren datenqualitätsspezifische Funktionen zur Verfügung gestellt.
-  Beispiele sind die \texttt{isEmpty}-Funktion, welche prüft ob ein Ausdruck
-  Inhalt hat und die \texttt{contains}-Funktion, welche zwei Ausdrücke als
-  Parameter nimmt und kontrolliert ob der erste Audruck im zweiten Ausdruck
-  vorhanden ist. Mit Letzterer kann \zB{} geprüft werden, ob das Attribut
-  \textit{E-Mail-Adresse} ein At-Zeichen enthält. Neben diesen beiden
-  Qualitätskennzahlfunktionen kann der Nutzer außerdem Zeichenkettenlängen,
-  Zahlen- und Datumsbereiche oder reguläre Ausdrücke für die Spezifikation
-  von Qualitätskennzahlen nutzen.
+	Ein Beispiel für eine Funktion ist die \texttt{Wurzel}-Funktion.  Sie nimmt
+	als Eingabe eine Zahl und gibt die Wurzel dieser zurück. Neben den
+	mathematischen Funktionen wie der \texttt{Wurzel}-Funktion werden des
+	Weiteren datenqualitätsspezifische Funktionen zur Verfügung gestellt, um
+	Datensätze auf Datenqualitätsdimensionen zu lokalisieren, wie in
+	Abschnitt~\ref{subsec:stammdatenqualität} vorgestellt.  Beispiele sind die
+	\texttt{isEmpty}-Funktion, welche prüft ob ein Ausdruck Inhalt hat, und die
+	\texttt{contains}-Funktion, welche zwei Ausdrücke als Parameter nimmt und
+	kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit
+	letzterer Funktion kann \zB{} geprüft werden, ob das Attribut
+	\textit{E-Mail-Adresse} ein At-Zeichen enthält. Dies kann beispielsweise für
+	eine Überprüfung der Datenqualitätsdimension \textit{einheitliche
+	Darstellung} genutzt werden. Neben diesen beiden Qualitätskennzahlfunktionen
+	kann der Nutzer außerdem Zeichenkettenlängen, Zahlen- und Datumsbereiche oder
+	reguläre Ausdrücke für die Spezifikation von Qualitätskennzahlen nutzen.
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
