@@ -112,23 +112,18 @@
 
   \todo[inline]{Einleitung ca.\ 1--2 Seiten}
 
-  Digitalisierung wird wichtiger. Dafür wichtig sind Daten
-
-  Digitale Agenda der Bundesregierung
-
-  IOT Industrie 4.0
-
-  Erst nochmal allgemein auf Stammdatenmanagement organisatorisch und auf Software eingehen, dann erst auf innoscale und DR
-
-  Im Rahmen der zunehmenden Digitalisierung nehmen Daten im Unternehmensumfeld  eine immer
-  wichtigere Rolle ein. Die Qualität dieser Daten hat einen hohen positiven
-  Einfluss auf deren Einsetzbarkeit und Nutzen. Somit liegt es im Interesse
-  eines Unternehmens eine hohe Datenqualität anzustreben. Innerhalb eines
-  Unternehmens ist dies Aufgabe des Stammdatenmanagements.
-  Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
-  ist nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
-  analyiert werden können, um Schwachstellen zu erkennen
-  (\cite{baghi2013controlling}, S. 2).\todo{Mehr Quellen}
+	Im Rahmen der zunehmenden Digitalisierung nehmen Daten im Unternehmensumfeld
+	eine immer wichtigere Rolle ein~\cite[][]{otto2016datenqualitat}. Die
+	Qualität dieser Daten hat einen hohen positiven Einfluss auf deren
+	Einsetzbarkeit und Nutzen~\cite[][]{naumann2007datenqualitat,
+	helfert2000massnahmen}. Somit liegt es im Interesse eines Unternehmens eine
+	hohe Datenqualität anzustreben. Innerhalb eines Unternehmens ist dies Aufgabe
+	des Stammdatenmanagements~\cite[][]{legner2007stammdaten}.
+	Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
+	ist nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
+	softwareunterstützt analyiert werden können, um Schwachstellen zu erkennen
+	(\cite{baghi2013controlling}, S. 2).\todo{Mehr Quellen}
+  \todo{Digitale Agenda der Bundesregierung}
 
   Gegenstand dieser Arbeit ist die konzeptionelle Analyse von Unternehmensdaten
   in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013 gegründetes
@@ -167,7 +162,7 @@
   zum Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
   verschmolzen werden.} \todo{Erklärung überarbeiten} verwiesen.
 
-  Die \textit{DataRocket}-Komponente soll es ermöglichen, die zuvor
+  Die \textit{DataRocket}-Softwarekomponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
   eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
@@ -287,7 +282,7 @@
 	Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
 	Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
 	Datenbanknormalisierung können in den Publikationen des
-	Begründers\todo{Erfinder oder Begründer das richtige Wort?}
+	Begründers \todo{Erfinder oder Begründer das richtige Wort?}
 	\textsc{\citeauthor{codd1970relational}} gefunden
 	werden~\citeyearpar{codd1970relational,codd1972further}.
 
@@ -331,20 +326,22 @@
 
   \begin{table}
     \footnotesize
-    \begin{tabular}{c c c }
+    \begin{tabular}[t]{c c c }
       Straße Id & Name & Ort Id \\
       \toprule
       0 & Corrensstraße & 0 \\
       1 & Rudolf-Harbig-Weg & 0 \\
       2 & Hauptstraße & 1 \\
     \end{tabular}
-    \begin{tabular}{c c c}
-      Ort Id & Name & Land \\
+		\hfill
+    \begin{tabular}[t]{c c c}
+      Ort Id & Name & LandId \\
       \toprule
       0 & Münster & 0 \\
       1 & Bonn & 0 \\
     \end{tabular}
-    \begin{tabular}{c c c }
+		\hfill
+    \begin{tabular}[t]{c c c }
       Land Id & Name \\
       \toprule
       0 & Deutschland \\
@@ -355,25 +352,25 @@
 
   \subsection{Vergleich \acrshort{ER}-Modellierung und multidimensionale Modellierung}
 
-  \paragraph{Entity-Relationship-Modellierung} Als Kombination aus dem
-  Network-Modell, dem Relational-Modell und dem Entity-Set-Modell stellt
-  \textsc{\citeauthor{chen1976entity}} \citeyear{chen1976entity} mit seiner
-  Publikation \glqq{}The entity-relationship model—toward a unified view of
-  data\grqq{} das Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S.
-  2]{chen1976entity}.  Genauer auf \acrshort{ERM} einzugehen ist nicht Teil
-  dieser Arbeit. Weitere Details des Grundmodells werden in
-  \textsc{\cite{chen1976entity}} beschrieben. Die Erweiterungen der
-  ER-Modellierung mit Kardinalitäten, Generalisierung und Spezialisierung wird
-  in \textsc{\citeauthor{becker2004handelsinformationssysteme}}
-  (\citeyear{becker2004handelsinformationssysteme}, Seite 89--91),
-  \textsc{\citeauthor{becker2012grundsatze}} (\citeyear{becker2012grundsatze},
-  Seite 4--9) und \textsc{\citeauthor{schutte2013grundsatze}}
-  (\citeyear{schutte2013grundsatze}, Seite 93--99) erklärt.
-  \todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
-  Datenbankmanagementsysteme von Gottfried Vossen}
+	Als Kombination aus dem Network-Modell, dem Relational-Modell und dem
+	Entity-Set-Modell stellt \textsc{\citeauthor{chen1976entity}}
+	\citeyear{chen1976entity} mit seiner Publikation \textit{\glqq{}The
+	entity-relationship model—toward a unified view of data\grqq{}} das
+	Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S.
+	2]{chen1976entity}.  Genauer auf \acrshort{ER}-Modellierung einzugehen ist
+	nicht Teil dieser Arbeit. Weitere Details des Grundmodells werden in
+	\textsc{\cite{chen1976entity}} beschrieben. Die Erweiterungen der
+	ER-Modellierung mit Kardinalitäten, Generalisierung und Spezialisierung wird
+	in \textsc{\citeauthor{becker2004handelsinformationssysteme}}
+	(\citeyear{becker2004handelsinformationssysteme}, Seite 89--91),
+	\textsc{\citeauthor{becker2012grundsatze}} (\citeyear{becker2012grundsatze},
+	Seite 4--9) und \textsc{\citeauthor{schutte2013grundsatze}}
+	(\citeyear{schutte2013grundsatze}, Seite 93--99) erklärt.
+	\todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
+	Datenbankmanagementsysteme von Gottfried Vossen}
 
   \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale
-  Modellierung eine Obermenge der ER-Modellierung~(\citeyear{ballard1998data},
+  Modellierung eine Obermenge der ER-Modellierung (\citeyear{ballard1998data},
   S. 47). Die multidimensionale Modellierung kann laut
   \textsc{\citeauthor{ballard1998data}} mittels der Notation der
   ER-Modellierung visualisiert werden~(\citeyear{ballard1998data}, S. 47). Zum
@@ -397,25 +394,33 @@
     \caption{Vergleich multidimensionale Modellierung und ERM}\label={}
   \end{figure}
 
-  \acrlong{OLTP}-Systeme (\acrshort{OLTP}) sind operative Echtzeitsysteme mit dem
-  spezifischen Fokus auf Transaktionsdaten des Tagesgeschäfts~\cite[][S.
-  11]{gabriel2009data}. \acrlong{OLAP}-Systeme (\acrshort{OLAP}) sind analytische Systeme,
-  welche mit aufbereiteten, historischen Daten in Entscheidungsprozessen der
-  Unternehmensführung helfen sollen~\cite[][S. 1]{chaudhuri1997overview}. Die
-  Anwendungsbereiche der beiden Systeme sind disjunkt~\cite[][S.
-  334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
-  im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
-  zurück gegriffen, wohingegen \acrshort{OLAP}-Systeme meist mit der
-  multidimensionalen Modellierung konzipiert werden~(\citeyear{phipps2002automating}, S. 2). 
+	Für den weiteren Vergleich der \acrshort{ER}-Modellierung mit der
+	multidimensionalen Modellierung müssen zunächst die Systemtypen
+	\acrshort{OLTP} und \acrshort{OLAP} erläutert werden.  \acrlong{OLTP}-Systeme
+	(\acrshort{OLTP}) sind operative Echtzeitsysteme mit dem spezifischen Fokus
+	auf Transaktionsdaten des Tagesgeschäfts~\cite[][S.  11]{gabriel2009data}.
+	\acrlong{OLAP}-Systeme (\acrshort{OLAP}) sind analytische Systeme, welche mit
+	aufbereiteten, historischen Daten in Entscheidungsprozessen der
+	Unternehmensführung helfen sollen~\cite[][S. 1]{chaudhuri1997overview}. Die
+	Anwendungsbereiche der beiden Systeme sind disjunkt~\cite[][S.
+	334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
+	im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
+	zurück gegriffen, wohingegen \acrshort{OLAP}-Systeme meist mit der
+	multidimensionalen Modellierung konzipiert
+	werden~(\citeyear{phipps2002automating}, S. 2). 
 
-  Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
-  Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änderungs- und
-  Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen und
-  komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
-  52]{ballard2012dimensional}. Mit der multidimensionalen Modellierung können diese
-  Anfragen schneller verarbeitet werden, was unter anderem auf auf die geringere Normalisierung zurückzuführen ist, wodurch
-  sich die multidimensionale Modellierung gegenüber der ER-Modellierung für
-  \acrshort{OLAP}-Systeme besser eignet~\cite[][S.  52]{ballard2012dimensional}.
+	Systeme, welche nach der ER-Modellierung entwickelt wurden und einer strengen
+	Normalisierung folgen, können zwar vergleichbar schnelle Einfüge-, Änderungs-
+	und Löschoperationen durchführen, jedoch weisen sie bei großen Datensätzen
+	und komplizierten Anfragen eine langsame Verarbeitung auf~\cite[][S.
+	52]{ballard2012dimensional}. Mit der multidimensionalen Modellierung können
+	diese Anfragen schneller verarbeitet werden, was unter anderem auf die
+	geringere Normalisierung zurückzuführen ist, wodurch sich die
+	multidimensionale Modellierung gegenüber der ER-Modellierung für
+	\acrshort{OLAP}-Systeme besser eignet~\cite[][S.
+	52]{ballard2012dimensional}. Diese Feststellung ist von Relevanz da
+	Stammdatenmanagementsoftware im Allgemeinen und \textit{DataRocket} im
+	Speziellen dem \acrlong{OLAP}-Systemtyp angehören.
 
 
 	\subsection{Erweiterung der multidimensionalen Modellierung}
@@ -511,22 +516,22 @@
 	wie \textit{DataRocket} zum technischen Stammdatenmanagement gezählt werden
 	kann.  
 
-  Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
-  Wissenschaft als auch in der Praxis in seiner
-  Relevanz~(\citeyear{otto2012design}, S. 1). Diese steigende Aufmerksamkeit
-  lässt sich auf hohe Kosten durch schlechte Stammdatenqualitätsprobleme in
-  Unternehmen zurückführen, wie zum Beispiel laut
-  \textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
-  US-Dollar Kosten im Jahr entstanden durch
-  Datenqualitätsprobleme~(\cite{eckerson2002data}, S. 3).
-  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
-  des Stammdatenmanagements die notwendige Datenstandardisierung über
-  Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
-  360-Grad-Blick\footnote{Für weitere Details zum Begriff
-  siehe~\cite{kotorov2003customer} und~\cite{otto2016master}} auf einen Kunden
-  und den Einsatz von Stammdaten in der Unternehmensdatenanalyse auf, welche
-  alle eine hohe Stammdatenqualität
-  voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
+	Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
+	Wissenschaft als auch in der Praxis in seiner
+	Relevanz~(\citeyear{otto2012design}, S. 1). Diese steigende Aufmerksamkeit
+	lässt sich auf hohe Kosten durch schlechte Stammdatenqualitätsprobleme in
+	Unternehmen zurückführen, wie zum Beispiel laut
+	\textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
+	US-Dollar Kosten im Jahr entstanden durch
+	Datenqualitätsprobleme~(\cite{eckerson2002data}, S. 3).
+	\textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
+	des Stammdatenmanagements die notwendige Datenstandardisierung über
+	Unternehmensgrenzen hinaus, behördliche und gesetzliche Auflagen, den
+	360-Grad-Blick\footnote{Für weitere Details zum Begriff
+	siehe~\cite{kotorov2003customer},~\cite{otto2016datenqualitat}
+	und~\cite{otto2016master}} auf einen Kunden und den Einsatz von Stammdaten in
+	der Unternehmensdatenanalyse auf, welche alle eine hohe Stammdatenqualität
+	voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
 
 	\subsection{Stammdatenqualität} \textsc{\citeauthor{otto2012design}}
 	definiert Stammdaten als die zentralen Datensätze eines Unternehmens, welche
@@ -635,18 +640,20 @@
 	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
 	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
 	Architektonisch verfolgt sie den Ansatz des
-  \textit{Consolidation-Hubs}~\cite[][]{baghi2014toward}, indem es
+	\textit{Consolidation-Hubs}~\cite[][]{baghi2014toward}, indem es
 	verschiedenste Informationssysteme eines Unternehmens anbindet, deren Daten
 	strukturiert extrahiert und diese analysiert und in ihrer Qualität überwacht
 	und verbessert. \textit{DataRocket} kann auch mit
-  \textit{Leading-Systems}~\cite[][]{baghi2014toward}
-	kollaborieren, da es Änderungen an Attributen eines Stammdatums an diese
-	weiter geben kann, \bzw{} die Änderungen zurückschreiben kann.
-	Alleinstellungsmerkmale der Software sind: Domänenunabhängigkeit, einfache
-	Bedienung und hoher Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch
-	ersetzen}. \textit{DataRocket} fällt in die Gruppe der
-	\acrshort{OLAP}-Systeme und implementiert einen
-	\textit{\acrlong{ETL}}-Prozess.
+	\textit{Leading-Systems}~\cite[][]{baghi2014toward} kollaborieren, da es
+	Änderungen an Attributen eines Stammdatums an diese weiter geben kann, \bzw{}
+	die Änderungen zurückschreiben kann.  Alleinstellungsmerkmale der Software
+	sind: Domänenunabhängigkeit, einfache Bedienung und hoher
+	Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch ersetzen}.
+	\textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme und
+	implementiert einen \textit{\acrlong{ETL}}-Prozess\footnote{Für Definitionen
+	des ETL-Prozesses siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
+	\citeyearpar{vassiliadis2002conceptual}
+	und~\textsc{\citeauthor{trujillo2003uml}}}.
 
 	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
 	Unternehmens wird eine Methode vorgegeben, welche im Folgenden anhand ihrer
