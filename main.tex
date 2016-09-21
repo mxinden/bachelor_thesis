@@ -13,7 +13,8 @@
 %
 \documentclass[
   language=german, % set to english or german
-  type=bachelor% set to bachelor, master or seminar
+  type=bachelor,% set to bachelor, master or seminar
+  ngerman
 ]{isthesis}
 
 % Graphics rendering using TikZ
@@ -23,13 +24,14 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{forest}
-\usepackage{cleveref}
+\usepackage{babel}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{er}
+\usepackage{cleveref}
 
 
 % Import acronyms
@@ -172,45 +174,48 @@
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im Folgenden den
   Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
 
-   Der Aufbau der Arbeit gestatet
-  sich wie folgt: Zunächst werden in \cref{ch:grundlagen} Grundlagen erläutert,
-  auf welche die Entwicklung der Sprache und die Implementierung der Software
-  aufbauen. Die Unterteilung des Grundlagenkapitels leitet sich von der
-  Thematik der Arbeit ab. In der Arbeit wird die konzeptionelle Analyse von
-  Unternehmensdaten im Stammdatenmanagement behandelt. Folglich wird zunächst
-  auf verschiedene Datenmodellierungstypen eingegangen, welche anhand ihrer
-  Einsetzbarkeit für konzeptionelle Datenanalysen bewertet werden. Daraufhin
-  wird eine Übersicht zum Stammdatenmanagement im Allgemeinen, sowie eine
-  Erläuterung der Stammdatenmanagementsoftware \textit{DataRocket} im
-  Speziellen gegeben. Das Grundlagenkapitel wird mit der Vorstellung eines
-  Anwendungsfallbeispiels abgeschlossen, auf welches Erläuterungen im weiteren
-  Verlauf der Arbeit exemplarisch angewendet werden.
+   Der Aufbau der Arbeit gestaltet sich wie folgt: Zunächst werden in Kapitel
+   zwei Grundlagen erläutert, auf welche die Entwicklung der Sprache und die
+   Implementierung der Software aufbauen. Die Unterteilung des
+   Grundlagenkapitels leitet sich von der Thematik der Arbeit ab. In der Arbeit
+   wird die konzeptionelle Analyse von Unternehmensdaten im
+   Stammdatenmanagement behandelt. Folglich wird zunächst auf verschiedene
+   Datenmodellierungstypen eingegangen, welche anhand ihrer Einsetzbarkeit für
+   konzeptionelle Datenanalysen bewertet werden. Daraufhin wird eine Übersicht
+   zum Stammdatenmanagement im Allgemeinen, sowie eine Erläuterung der
+   Stammdatenmanagementsoftware \textit{DataRocket} im Speziellen gegeben. Das
+   Grundlagenkapitel wird mit der Vorstellung eines Anwendungsfallbeispiels
+   abgeschlossen, auf welches Erläuterungen im weiteren Verlauf der Arbeit
+   exemplarisch angewendet werden.
+
+  \begin{figure}
+    \includegraphics[scale=0.60]{content/figures/thesis-structure}
+    \caption{Aufbau der Arbeit}\label{fig:thesis-structure}
+  \end{figure}
 
   Der Hauptteil der Arbeit ist in zwei Abschnitte unterteilt, die Spezifikation
-  der \textit{DataFurnace}-Sprache in \cref{ch:entwicklung-datafurnace-sprache}
-  und die Implementierung der \textit{DataFurnace}-Software in
-  \cref{ch:implementierung-datafurnace}. Zunächst werden in
-  \cref{ch:entwicklung-datafurnace-sprache} Anforderungen und Annahmen
-  gesammelt, auf Basis dessen die Sprache entwickelt werden soll. Darauffolgend
-  wird die Sprache anhand ihrer drei Grundpfeiler spezifiziert und erläutert
-  mit jeweiliger Übertragung auf das Anwendungsfallbeispiel aus
-  \cref{sec:anwendungsfallbeispiel}.  Der Aufbau des
-  Kapitels~\ref{ch:implementierung-datafurnace} ist stark an den des
-  vorhergegangenen Kapitels~\ref{ch:entwicklung-datafurnace-sprache} zur
+  der \textit{DataFurnace}-Sprache in Kapitel drei und die Implementierung der
+  \textit{DataFurnace}-Software in Kapitel vier. Zunächst werden in Kapitel
+  drei Anforderungen und Annahmen gesammelt, auf Basis dessen die Sprache
+  entwickelt werden soll. Darauffolgend wird die Sprache anhand ihrer drei
+  Grundpfeiler spezifiziert und erläutert mit jeweiliger Übertragung auf das
+  Anwendungsfallbeispiel aus \cref{sec:anwendungsfallbeispiel}.  Der Aufbau des
+  Kapitels vier ist stark an den des vorhergegangenen Kapitels drei zur
   \textit{DataFurnace}-Sprache angelehnt. Zunächst wird auf Anforderungen und
   Annahmen eingegangen, welche einen Rahmen für die Implementierung der
   \textit{DataFurnace}-Software geben sollen. Daraufhin wird die Software
   anhand ihrer drei Ansichten vorgestellt, welche jeweils auf die drei
-  Grundpfeiler der Sprache zurück zu führen sind. Zuletzt wird im Kapitel die
-  Architektur der Software sowie einzelne technische Aspekte für die Erfüllung
-  der Anforderungen thematisiert.
+  Grundpfeiler der Sprache zurück zu führen sind. Des Weiteren wird die
+  Software im Zusammenhang des Anwendungsbeispiels exemplarisch eingesetzt.
+  Zuletzt wird im Kapitel die Architektur der Software sowie einzelne
+  technische Aspekte für die Erfüllung der Anforderungen thematisiert.
 
-  Kapitel~\ref{ch:evaluation}\todo{Kapitel Zahlen lieber ausschreiben?}
-  und~\ref{ch:fazit} schließen die Arbeit mit einer Evaluation und einem Fazit ab. Ersteres beurteilt die neue
-  \textit{DataFurnace}-Sprache und -Software mit Hilfe von Nutzerbefragungen
-  \todo{Wort ersetzen}, letzteres fasst die gewonnen Erkentnisse der Arbeit zusammen.
-  Der gesamte Aufbau der Arbeit wird erneut durch Abbildung
-  visualisiert.\todo{Grafik zum Aufbau der Arbeit}
+  Kapitel vier und Kapitel fünf schließen die Arbeit mit einer Evaluation und
+  einem Fazit ab. Ersteres beurteilt die neue \textit{DataFurnace}-Sprache und
+  -Software mit Hilfe von Nutzerbefragungen \todo{Wort ersetzen}, letzteres
+  fasst die gewonnen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
+  Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure} visualisiert.\todo{Grafik zum Aufbau der
+  Arbeit}
 
 
 
