@@ -257,7 +257,7 @@
   einzelner Pfad linear, sondern auch als Struktur. Ein Beispiel ist die
   Dimension \textit{Zeit}.  Diese kann zum einen durch die
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
-  Woche, Tag} strukturiert werden (Siehe
+  Woche, Tag} strukturiert werden (siehe
   Abbildung~\ref{hierarchie-level-struktur}).\todo{Noch ein wenig holprig,
   bzw.\ ist das überhaupt relevant?}
 
@@ -270,13 +270,13 @@
 	Ausprägungen.  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
 	2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil
 	verwiesen?}. Der Name ist zurückzuführen auf den Aufbau eines
-	entsprechenden Modells (Siehe Abbildung~\ref{fig:star-schema}), welches die
+	entsprechenden Modells (siehe Abbildung~\ref{fig:star-schema}), welches die
 	Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des Sterns
 	befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese verweist
 	mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
 	komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
 	verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
-	(Siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
+	(siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
 	in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
 	durch ihre geringe Größe nicht in einer schlechteren Leistung des
 	Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
@@ -376,7 +376,7 @@
   ER-Modellierung visualisiert werden~(\citeyear{ballard1998data}, S. 47). Zum
   Beispiel können die Fakten eines multidimensionalen Modells als Objekte eines
   ER-Modells mit Beziehungen zu den jeweiligen Dimensionen, wiederum als
-  Objekt, modelliert werden~\cite[][S.  48]{ballard1998data} (Siehe
+  Objekt, modelliert werden~\cite[][S.  48]{ballard1998data} (siehe
   Abbildung~\ref{vergleich-erm}).
 
   \begin{figure}
@@ -579,7 +579,7 @@
 	f.). Die \acrlong{DGIQ} (\acrshort{DGIQ}) teilt Datenqualitätsdimensionen in
 	die vier Kategorien \textit{Nutzung}, \textit{System}, \textit{Darstellung}
 	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat},
-	welche jeweils den Betrachtungsraum der Dimensionen abbilden (Siehe
+	welche jeweils den Betrachtungsraum der Dimensionen abbilden (siehe
 	Abbildung~\ref{15-dimensions}).
 
 	\subsection{Messung und Verbesserung von Stammdatenqualität}
@@ -1040,7 +1040,7 @@
     \caption{\acrshort{ERM} der Geschäftsobjektteilsprache}\label{geschaeftsobjekt}
   \end{figure}
 
-  Einem Geschäftsobjekt werden Attribute untergeordnet (Siehe
+  Einem Geschäftsobjekt werden Attribute untergeordnet (siehe
   Abbildung~\ref{geschaeftsobjekt}). Attribute spezifizieren Eigenschaften des
   Objekts. Zum Beispiel hat das Geschäftsobjekt \textit{Produkt} die Attribute
   \textit{Preis} und \textit{Farbe}. Attribute haben wiederum Ausprägungen.
@@ -1091,13 +1091,13 @@
 	wird durch eine mathematische Formel spezifiziert und folgt der
 	Grundrechenart mit den Operationen \textit{Addition}, \textit{Substraktion},
 	\textit{Multiplikation} und \textit{Division}, welche auf zwei oder mehr
-	Operanden angewendet werden (Siehe Abbildung~\ref{railroad-kennzahl}, Gleis
+	Operanden angewendet werden (siehe Abbildung~\ref{railroad-kennzahl}, Gleis
 	eins). Im weiteren Verlauf der \textit{DataFurnace}-Sprachvorstellung wird
 	der Begriff \textit{Ausdruck} als Generalisierung von \textit{Operand} und
 	\textit{Operator} genutzt.  Die Auswertungsreihenfolge der Ausdrücke kann mit
 	Klammern differenziert werden, erneut verdeutlicht durch
 	Abbildung~\ref{railroad-kennzahl}, Gleis zwei.  Ausdrücke können mit dem
-	Voranstellen eines Minuszeichens negiert werden (Siehe
+	Voranstellen eines Minuszeichens negiert werden (siehe
 	Abbildung~\ref{railroad-kennzahl}, Gleis drei). Des Weiteren können
 	Konstanten in die Formelgleichung mit aufgenommen werden.
 
@@ -1134,7 +1134,7 @@
 
 	Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
 	bereitgestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
-	(Siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
+	(siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
 	Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
 	zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
 	Inneren, und ermöglicht den Fokus auf das Ergebnis selbst, womit sie die
@@ -1533,7 +1533,7 @@
   drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
   Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
   Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
-  \textit{DataFurnace}-Software (Siehe Abbildung~\ref{datafurnace-prozess}). In
+  \textit{DataFurnace}-Software (siehe Abbildung~\ref{datafurnace-prozess}). In
   dem Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte
   mit den zugehörigen Dimensionen, spezifiziert Kennzahlen mit Bezug auf die
   Attribute der Geschäftsobjekte, und kombiniert beide zu Berichten. Im
@@ -2001,12 +2001,11 @@
 
   Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
   innovativer Technologien des neuesten Standes der Informationstechnik
-  bedient. Eine nähere Erläuterung jeder Technologie und deren
-  Integration in dem Softwaresystem würde über den Rahmen dieser Arbeit hinaus
-  gehen, jedoch soll im Folgenden auf die Systemarchitektur inklusive
-  einzelner Entscheidungserläuterungen und den Entwicklungsprozess kurz
-  eingegangen werden.\todo{Entwicklungsprozess streichen?}
-
+  bedient. Eine nähere Erläuterung jeder Technologie und deren Integration im
+  Softwaresystem würde über den Rahmen dieser Arbeit hinaus gehen, jedoch soll
+  im Folgenden auf die Systemarchitektur und die Möglichkeit der
+  Echtzeitkollaboration, aufgegriffen aus der Anforderungsanalyse aus
+  Abschnitt~\ref{sec:software/anforderungsanalyse}, eingegangen werden.
 
   \paragraph{Systemarchitektur}
   Die \textit{DataFurnace}-Software ist eine eigenständige  Webanwendung,
