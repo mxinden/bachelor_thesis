@@ -220,7 +220,16 @@
   % ################################################################################
   
   \todo[inline]{Grundlagen ca.\ 10 Seiten}
-  \todo[inline]{Soll hier noch eine Einleitung zu dem Grundlagenkapitel hin?}
+
+  Die Analyse von Unternehmendaten im Datenqualitätskontext kombiniert die
+  beiden Welten \textit{Datenanalyse} und \textit{Datenqualität} miteinander.
+  Im Folgenden Kapitel wird auf Grundlagen der beiden Welten mit einem
+  jeweiligen Abschnitt eingegangen: die Modellierung von Daten für die
+  Datenanalyse und das Stammdatenmanagement als verantwortliche Funktion eines
+  Unternehmens für die Datenqualität. Des Weiteren wir im letzten Abschnitt des
+  Kapitels ein Anwendungsfallbeispiel beschrieben, auf welches in späteren
+  Erklärungen der \textit{DataFurnace}-Sprache und -Software im Rahmen
+  exemplarischer Umsetzungen zurück gegriffen wird.
 
   \section{Modellierung}
 
@@ -431,11 +440,11 @@
 	Die multidimensionale Modellierung wird durch verschiedene
 	Modellierungssprachen erweitert. Zu diesen Erweiterungen zählt \textit{H2 for
 	Reporting}, entwickelt vom Institut für Wirtschaftsinformatik an der
-	\acrlong{WWU} (WWU) Münster\todo{Stimmt das und wenn ja belegen!}. \textit{H2
-	for Reporting} ergänzt die multidimensionale Modellierung unter anderem um
-	die Modelltypen Bezugsobjekte, Kennzahlen und Berichte:
-  \todo{H2fR erweitert nicht um Bezugsobjekte und Kennzahlen, diese sind von
-  Anfang an schon mit dabei}
+	\acrlong{WWU} (\acrshort{WWU}) Münster~\cite[][S. 59 -
+	78]{janiesch2007contextual}. \textit{H2 for Reporting} ergänzt die
+	multidimensionale Modellierung unter anderem um die Modelltypen
+	Bezugsobjekte, Kennzahlen und Berichte: \todo{H2fR erweitert nicht um
+	Bezugsobjekte und Kennzahlen, diese sind von Anfang an schon mit dabei}
 
 	\begin{itemize}
 
@@ -583,7 +592,7 @@
 	\textsc{\citeauthor{wand1996anchoring}} (\citeyear{wand1996anchoring}, S. 8
 	f.). Die \acrlong{DGIQ} (\acrshort{DGIQ}) teilt Datenqualitätsdimensionen in
 	die vier Kategorien \textit{Nutzung}, \textit{System}, \textit{Darstellung}
-	und \textit{Inhalt} ein~\cite[][S. 29 ff.]{rohweder2015informationsqualitat},
+	und \textit{Inhalt} ein~\cite[][S. 29 - 31]{rohweder2015informationsqualitat},
 	welche jeweils den Betrachtungsraum der Dimensionen abbilden (siehe
 	Abbildung~\ref{15-dimensions}).
 
@@ -856,6 +865,7 @@
   % ################################################################################
 
   \todo[inline]{Theorie / Vorgehensmodell für die Entwicklung von Sprachen?}
+  \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
 
 
   \section{Motivation}
@@ -980,6 +990,8 @@
 	\textit{nicht-funktionalen} Zielen müssen des Weiteren Annahmen getroffen
 	werden, welche von der \textit{innoscale AG} vorrausgesetzt werden und somit
 	die Entwicklung der Sprache beeinflussen.
+  \todo[inline]{Inkonsistent, \textit{Funktionale und nicht funktionale Ziele}
+  haben keine nähere Beschreibung}
 
   \begin{enumerate}
     \item \textbf{Datentransformation durch \textit{DataRocket}}
@@ -1022,6 +1034,8 @@
   die \textit{DataFurnace}-Sprache ausmachen. Die gesamte Sprache ist in
   Abbildung~\ref{fig:language_spec-erm} gezeigt, welche für jede
   Vokabulargruppe in Ausschnitten betrachtet wird.
+
+  \todo[inline]{ERM dringend überarbeiten}
 
   \begin{figure}
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
@@ -1350,6 +1364,7 @@
   % ################################################################################
   \chapter{Implementierung der \textit{DataFurnace}-Software}\label{ch:implementierung-datafurnace}
   % ################################################################################
+  \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
 
   \section{Motivation}
   In Abschnitt~\ref{sec:Vorstellung-DataRocket} wurde die \textit{DataPipeline}
