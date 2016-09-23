@@ -231,7 +231,7 @@
   Erklärungen der \textit{DataFurnace}-Sprache und -Software im Rahmen
   exemplarischer Umsetzungen zurück gegriffen wird.
 
-  \section{Modellierung}
+  \section{Modellierung}\label{sec:modellierung}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Datenschema abstrahiert darstellen.  Die Modellierung
@@ -521,7 +521,7 @@
   %   \item Wertansatz (Soll, Ist, Plan)
   % \end{itemize}
 
-	\section{Stammdatenmanagement}
+  \section{Stammdatenmanagement}\label{sec:stammdatenmanagement}
 
 	Wie in der Einleitung der Arbeit festgehalten ist die Qualitätsanalyse von
 	Unternehmensdaten Teil des Stammdatenmanagements. Die Entwicklung der
@@ -1545,7 +1545,7 @@
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.}
 
 
-  \section{Fachliches Konzept}
+  \section{Fachliches Konzept}\label{sec:sprache/fachliches-konzept}
   \todo[inline]{Hier auch auf die Methode eingehen: Dimensionen modellieren ->
   Kennzahlen spezifizieren -> zu Berichten kombinieren}
 
@@ -2160,45 +2160,132 @@
 
 % ################################################################################
 \chapter{Evaluation}\label{ch:evaluation}
+\todo[inline]{Präsens oder Präteritum?}
 
-Um die Verständlichkeit und Anwendbarkeit der \textit{DataFurnace}-Sprache und
--Software zu prüfen, wurden 15 Kandidaten darum gebeten, die Datenanalyse des
-Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel} in der
-\textit{DataFurnace}-Software zu modellieren. Hierzu bekamen sie eine kurze
-Einweisung in die mutlidimensionale Modellierung
-(Abschnitt~\ref{subsec:multidimensionale-modellierung}), \textit{DataRocket}
-(Abschnitt~\ref{sec:Vorstellung-DataRocket}) und die
-\textit{DataFurnace}-Sprache
-(Abschnitt~\ref{ch:entwicklung-datafurnace-sprache}). Erklärungen zu der
-\textit{DataFurnace}-Software wurden nicht im vorhinein gegeben.  In
-Tabelle~\ref{table:befragungsgruppe} werden die ausgewählten Befragten näher
-beschrieben.
+Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
+-Software sollen im Folgenden diese Ergebnisse evaluiert werden. Um zu
+überprüfen inwiefern die getroffenen Anforderungen erfüllt wurden, wurden elf
+Personen (siehe Tabelle~\ref{table:testgruppe}) gebeten die Datenanalyse
+beschrieben im Anwendungsfallbeispiel
+Abschnitt~\ref{sec:anwendungsfallbeispiel} konzeptionell mit der
+\textit{DataFurnace}-Sprache und -Software umzusetzten. Es wird das Verfahren
+der formativen Evaluation verwendet, welches hier das Ziel verfolgt, mögliche
+Probleme der Sprache und Software erkennen zu können~\cite[][S. 9]{hegner2003methoden}.
 
   \begin{table}[]
     \footnotesize
-    \begin{tabular}{c c c c}
-      Beschäftigung & Technische Kentnisse & Geschlecht & Alter \\
+    \begin{tabular}{l l l l}
+      Tätigkeit & Computerkentnisse & Geschlecht & Alter \\
       \toprule
-      WI-Studentin & Intermediate & weiblich & 25 \\
-      WI-Student & Intermediate & männlich & 23 \\
+      Berater für Stammdatenmanagement & gut & männlich & 34 \\
+      \acrshort{BWL}-Student & gut & männlich & 26 \\
+      \acrshort{BWL}-Studentin & ausreichend & weiblich & 21 \\
+      Datenanalyst & sehr gut & männlich & 28 \\
+      Projektmanagerin für Informationssysteme & befriedigend & weiblich & 61\\
+      Softwareentwickler & sehr gut & männlich & 31 \\
+      Softwareentwickler & sehr gut & männlich & 32 \\
+      \acrshort{WI}-Doktorant & sehr gut & männlich & 27 \\
+      \acrshort{WI}-Student & gut & männlich & 22 \\
+      \acrshort{WI}-Student & sehr gut & männlich & 23 \\
+      \acrshort{WI}-Studentin & gut & weiblich & 25 \\
     \end{tabular}
-    \caption{Befragungsgruppe}\label{table:befragungsgruppe}
+    \caption{Soziodemografische Eigenschaften der Testgruppe}\label{table:testgruppe}
   \end{table}
 
-\todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
-\texthl{Wie finden andere das Tool, Feedback dokumentieren, gegebenenfalls mit Fragebogen}
+\paragraph{Vorbereitung und Ablauf} Zwar versucht die
+\textit{DataFurnace}-Sprache und -Software einem Nutzer durch intuitive
+Konzepte einen leichten Einstieg in die konzeptionelle Datenqualitätsanalyse zu
+ermöglichen, jedoch ist eine kurze Einweisung gerade in die Thematik der
+Sprache zur Nutzung nötig. Den Testpersonen wurde vor der Nutzung des Produkts
+eine kurze Einführung in die Datenmodellierung, das Stammdatenmanagement und
+die \textit{DataFurnace}-Sprache gegeben. Der Umfang der Einführung kann mit
+den jeweiligen Abschnitten und Kapiteln
+(\ref{sec:modellierung},~\ref{sec:stammdatenmanagement},~\ref{ch:entwicklung-datafurnace-sprache})
+dieser Arbeit verglichen werden.  Nach der Einführung wurden die Probanden mit
+dem Anwendungsfallbeispiel aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
+vertraut gemacht und wurden daraufhin aufgefordert die gegebenen
+Fragestellungen aus dem Anwendungsfallbeispiel konzeptionell mit Hilfe der
+\textit{DataFurnace}-Sprache und -Software in Form einer Datenanalyse
+abzubilden. Probanten wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
+(\cite{holzinger2005usability}, S.  73;~\cite{nielsen1994usability}, S. 195)
+ihre Eindrücke und Gedanken während der Nutzung der Sprache und Software
+mitzuteilen. Neben dieser Form der Rückmeldung wurden die Schritte des
+Testnutzers am Computer beobachtet.
 
-  \begin{figure}
-    \resizebox{\columnwidth}{!}{\includegraphics{content/figures/pipeline-bricks.png}}
-    \caption{\textit{DataRockets} \textit{Datapipeline}-Bausteine}\label{}
-  \end{figure}
+\paragraph{Erkenntnisse} Nachfolgend wird von den Erkentnisse aus der
+durchgeführten formativen Evaluation strukturiert anhand der zuvor
+spezifizierten Anforderungen in Abschnitt~\ref{sec:sprache/anforderungsanalyse}
+und~\ref{sec:software/anforderungsanalyse} und den
+\textit{DataFurnace}-Prozessschritten (siehe
+Abschnitt~\ref{sec:sprache/fachliches-konzept}) berichtet. Auf Erkentnisse
+aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen
+übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich eine ausgewählte
+Menge von Erkenntnissen behandelt wird, welche aus der Gesamtmenge mit ihrer
+Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
+
+\begin{itemize}
+  \item \textbf{Spezifikation von Unternehmensdatenstrukturen} \& \textbf{hohe Verständlichkeit}\todo{Verweise auf die Stellen}
+
+    Der erste Schritt im Rahmen der Datenalyse aus dem Anwendungsbeispiels ist
+    die Spezifikation von Unternehmensdatenstrukturen in der Dimensionsansicht
+    der \textit{DataFurnace}-Software. Die Identifizierung von
+    Geschäftsobjekten und deren Attribute aus der
+    Anwendungsfallbeispielbeschreibung stellte sich als problemloser Schritt
+    für die die gesamte Probandengruppe heraus. Für die Testpersonen mit
+    Hintergrund aus der Wirtschaftsinformatik war es des Weiteren kein Problem
+    die gegebenen Datenstrukturen in Form von Geschäftsobjekten, Dimensionen,
+    Dimensionsleveln und Attributen abzubilden. Die Testpersonen ohne
+    Hintergrund aus der Wirtschaftsinformatik taten sich jedoch mit diesem
+    Schritt schwer. Häufigstes Problem war die sinvolle Benennung von Elementen
+    und das Verständnis über die Beziehungen und Kardinalitäten zwischen
+    Dimensionen, Dimensionsleveln und Attributen. Des Weiteren wurde häufig der
+    Fehler gemacht, Dimensionslevel nicht hierarchisch, sondern auf einer
+    Hierarchiestufe zu modellieren. So wurde in vier von elf Fällen
+    der \textit{Monat} nicht dem \textit{Jahr} sondern lediglich der Dimension
+    \textit{Zeit} untergeordnet. 
+    
+    Mögliche Lösungen sind strengere Restriktionen durch die
+    Software und Hinweise, welche den Nutzer besser durch die Prozessschritte
+    leiten. Außerdem sollte die Darstellung von Attributen unter Dimensionen
+    überdacht werden, da häufig die Modellierung der Attribute vor der
+    Modellierung der Dimensionen vom Nutzer angestrebt wurden.\todo{Auch
+    mögliche Lösungen erläutern?}
+
+  \item \textbf{Definition von Kennzahlen} \& \textbf{hohe Benutzerfreundlichkeit}
+
+    Die Definition von Kennzahlen ist der zweite Schritt im
+    \textit{DataFurnace}-Prozess (siehe
+    Abschnitt~\ref{sec:sprache/fachliches-konzept}). Zunächst mussten die
+    Probanden die benötigten Kennzahlen aus dem Anwendungsfallbeispiel
+    identifizieren und diese daraufhin in der Software modellieren. Für sieben
+    von elf Personen stellt dies kein Problem dar.  Für die restlichen vier
+    Personen (Softwareentwickler 31, Projektmanagerin 61, BWL-Student 26,
+    Berater 34) war vorallem die Identifikation von Qualitätskennzahlen, nicht
+    die Identifikation von der betriebswirtschaftlichen Kennzahl
+    \textit{Gewinn}, eine Hürde. Des Weiteren wurde die Schachtelung von
+    Funktionen im Formeleditor nicht intuitiv und erst nach einem Hinweis
+    verwendet. Alle Probanden erwarteten die nicht gegebene Möglichkeit der
+    Navigation per Tastatur beispielsweise durch die Pfeiltasten im
+    Formeleditor.
+
+    Beispiellösungen für die erkannten Defizite sind das Anzeigen einer
+    Beispielkennzahl mit verschachtelten Funktionen bei der ersten Benutzung
+    der Software und die Unterstützung intuitiver Eingabekonzepte wie die
+    Navigation innerhalb einer Kennzahlformel durch die Pfeiltasten oder
+    das löschen eines Funktionsausdrucks durch die Rücktaste.
+
+  \item \textbf{Kombination zu Berichten} & \textbf{Strukturierte Methode}
+
+
+  \item \textbf{UI} Tastaturunterstützung im Formeleditor (Nielsen Nummer 7 `Flexibility
+    and efficiency of use') und Support Undo redo (Nielsen Nummer 3 `user control and freedom')
+
+\end{itemize}
+
+\todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
+
 
 	Ideen für die Zukunft
-	\begin{itemize}
-    \item Tastaturunterstützung im Formeleditor (Nielsen Nummer 7 `Flexibility
-      and efficiency of use')
-    \item Support Undo redo (Nielsen Nummer 3 `user control and freedom')
-	\end{itemize}
 % ################################################################################
 
 % ################################################################################
