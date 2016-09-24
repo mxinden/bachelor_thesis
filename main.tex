@@ -107,11 +107,11 @@
 
 
   % ################################################################################
-  \chapter{Einleitung}
+  \chapter{Einleitung}\label{ch:einleitung}
   % ################################################################################
 
-  \todo[inline]{Einleitung ca.\ 1--2 Seiten}
-  \todo[inline]{\texthl{Einleitung nicht \textit{Einleitung} nennen}}
+  % \todo[inline]{Einleitung ca.\ 1--2 Seiten}
+  \todo[inline]{Einleitung nicht Einleitung nennen, vielleicht Motivation, Einführung und Aufbau?}
 
 	Im Rahmen der zunehmenden Digitalisierung nehmen Daten im Unternehmensumfeld
 	eine immer wichtigere Rolle ein~\cite[][]{otto2016datenqualitat}. Die
@@ -201,7 +201,7 @@
   Annahmen eingegangen, welche einen Rahmen für die Implementierung der
   \textit{DataFurnace}-Software geben sollen. Daraufhin wird die Software
   anhand ihrer drei Ansichten vorgestellt, welche jeweils auf die drei
-  Grundpfeiler der Sprache zurück zu führen sind. Des Weiteren wird die
+  Grundpfeiler der Sprache zurückzuführen sind. Des Weiteren wird die
   Software im Zusammenhang des Anwendungsbeispiels exemplarisch eingesetzt.
   Zuletzt wird im Kapitel die Architektur der Software sowie einzelne
   technische Aspekte für die Erfüllung der Anforderungen thematisiert.
@@ -210,8 +210,8 @@
   einem Fazit ab. Ersteres beurteilt die neue \textit{DataFurnace}-Sprache und
   -Software mit Hilfe von Nutzerbefragungen \todo{Wort ersetzen}, letzteres
   fasst die gewonnen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
-  Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure} visualisiert.\todo{Grafik zum Aufbau der
-  Arbeit}
+  Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure}
+  visualisiert.
 
 
 
@@ -2161,6 +2161,7 @@
 % ################################################################################
 \chapter{Evaluation}\label{ch:evaluation}
 \todo[inline]{Präsens oder Präteritum?}
+\todo[inline]{Alternativ der Begriff Beurteilung oder Diskussion als Kapiteltitel}
 
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
 -Software sollen im Folgenden diese Ergebnisse evaluiert werden. Um zu
@@ -2274,7 +2275,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Navigation innerhalb einer Kennzahlformel durch die Pfeiltasten oder
     das löschen eines Funktionsausdrucks durch die Rücktaste.
 
-  \item \textbf{Kombination zu Berichten} \& \textbf{Strukturierte Methode}
+  \item \textbf{Kombination zu Berichten} \& \textbf{strukturierte Methode}
 
     Dritter und letzter Schritt des \textit{DataFurnace}-Prozess (siehe
     Abschnitt~\ref{sec:sprache/fachliches-konzept}) ist die Kombination von
@@ -2296,23 +2297,72 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     eines Berichts in konkrete Subschritte aufgeteilt werden um den Nutzer
     besser zu leiten.
 
-    
-
-
   % \item \textbf{UI} Tastaturunterstützung im Formeleditor (Nielsen Nummer 7 `Flexibility
   %   and efficiency of use') und Support Undo redo (Nielsen Nummer 3 `user control and freedom')
 
 \end{itemize}
 
-\todo[inline]{Alternativ der Begriff Beurteilung als Kapiteltitel}
+Alle Probanden kamen zu einem erfolgreichen Ergebnis, jedoch nur zwei Probanden
+(WI-Student 23, WI-Studentin 25) ohne jegliche Hilfe oder Hinweise. Häufig
+musste bei der Überführung des Anwendungsfallbeispiels in konkrete
+Anforderungen geholfen werden. Die Anforderung der Filterung nach
+\textit{Lebensmitteln} wurde am häufigsten vergessen.
+
 
 
 % ################################################################################
 
 % ################################################################################
-\chapter{Fazit}\label{ch:fazit}
+\chapter{Fazit}\label{ch:fazit}\todo{Und Ausblick?}
 % ################################################################################
 \todo[inline]{Fazit ca.\ 1--2 Seiten}
+
+Wie in Kapitel~\ref{ch:einleitung} eingeleitet wurde, verfolgt diese Arbeit
+zwei Ziele: die Entwicklung einer Sprache zur Modellierung von
+Qualitätskennzahlen für die Unternehmensdatenanalyse und die prototypische
+Implementierung einer Komponente für die softwaregestütze Nutzung dieser
+Sprache in \textit{DataRocket}. Ergebnis der vorliegenden Arbeit ist die
+\textit{DataFurnace}-Sprache für die Erfüllung des ersten und die
+\textit{DataFurnace}-Software für die Erfüllung des zweiten Ziels.
+
+Das Ergebnis der Entwicklung der \textit{DataFurnace}-Sprache ist eine leicht
+verständliche Modellierungssprache angelehnt an die multidimensionale
+Modellierung. Sie besteht aus den Sprachelementen: Geschäftsobjekt, Dimension,
+Dimensionslevel, Attribut, Ausprägung, Kennzahl und Bericht mit welchen
+Unternehmensdaten konzeptionell hinsichtlich ihrer Datenqualität analysiert
+werden können. Sie verfolgt ein einfaches Konzept um Nutzern jeglicher
+Fachabteilungen den Zugang zum Datenqualitätsmanagement zu ermöglichen. Wie
+durch Kapitel~\ref{ch:evaluation} aufgezeigt, kann die Sprache bereits nach
+einer kurzen Einführung und mit wenig Hilfe produktiv eingesetzt werden,
+unabhängig von dem jeweiligen Haupttätigkeitsfeld der Person. Das einfache
+Konzept der Sprache hindert einen erfahrenen Nutzer nicht daran komplexe
+Analysen zu konzipieren, durch die Möglichkeit der Definition eigener
+Kennzahlfunktionen und die Möglichkeit der Komposition von Kennzahlen. Das
+Vokabular der Sprache übernimmt Sprachbegriffe und Konzepte aus der
+\textit{DataRocket}-Sprache, wie \zB{} den Begriff Geschäftsobjekt, Attribut
+und Kennzahl und ermöglicht somit eine leichte spätere Integration der Sprache
+in das Produkt \textit{DataRocket}.
+
+Entwicklungsbedarf 
+
+Aus der prototypischen Implementierung der \textit{DataFurnace}-Software
+resultiert eine alleinstehende moderne Webapplikation, welche einen Nutzer bei
+der Konzeption von Datenqualitätsanalysen unterstützt. Sie deckt den gesamten
+Sprachraum der \textit{DataFurnace}-Sprache mit einem dreistufigen Prozess, der
+Modellierung von Dimensionen, Spezifikation von Kennzahlen und der Kombination
+zu Berichten, ab. Die Technologien der \textit{DataFurnace}-Software gleichen
+in den meisten Fällen denen der \textit{DataRocket}-Software \bzw{} sind
+zumindest mit diesen kompatibel. Dies erlaubt eine leichte spätere Integration
+der \textit{DataFurnace}-Software in \textit{DataRocket}. Der Nutzer verwendet
+in der Software intuitive Bedienkonzepte, resultierend in einer hohen
+Benutzerfreundlichkeit. Die Software kann simultan von mehreren Nutzern
+verwendet werden, ermöglicht durch ein Zusammenspiel innovativer Technologien.
+Jegliche Änderungen eines Nutzers in der Software werden in Echtzeit an alle
+Nutzer übertragen.
+
+
+Es fehlt der Software noch an Reife.
+
 
 
 
