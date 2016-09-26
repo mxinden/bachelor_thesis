@@ -107,11 +107,10 @@
 
 
   % ################################################################################
-  \chapter{Einleitung}\label{ch:einleitung}
+  \chapter{Motivation, Einführung und Aufbau}\label{ch:einleitung}
   % ################################################################################
 
-  % \todo[inline]{Einleitung ca.\ 1--2 Seiten}
-  \todo[inline]{Einleitung nicht Einleitung nennen, vielleicht Motivation, Einführung und Aufbau?}
+  % Einleitung ca.\ 1--2 Seiten
 
 	Im Rahmen der zunehmenden Digitalisierung nehmen Daten im Unternehmensumfeld
 	eine immer wichtigere Rolle ein~\cite[][]{otto2016datenqualitat}. Die
@@ -147,7 +146,7 @@
   Die Modellierungssprache soll die Möglichkeit bieten, bestehende Daten zu
   gliedern, Kennzahlen zur Anwendung auf diesen Daten zu spezifizieren und
   Daten und Kennzahlen zu Analysen zu kombinieren. Das Vokabular der Sprache
-  soll mit dem von \textit{DataRocket} harmonisieren und an den jeweiligen
+  soll mit dem von \textit{DataRocket} harmonieren und an den jeweiligen
   Schnittpunkten übereinstimmen.  Die Sprache soll wie \textit{DataRocket} ein
   einfach zu bedienendes und innovatives Konzept aufweisen. Das
   Stammdatenmanagement ist nicht mehr allein Aufgabe der IT-Abteilung eines
@@ -168,7 +167,8 @@
   eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im Folgenden den
-  Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung kontrollieren} tragen.
+  Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung
+  kontrollieren} tragen.
 
    Der Aufbau der Arbeit gestaltet sich wie folgt: Zunächst werden in Kapitel
    zwei Grundlagen erläutert, auf welche die Entwicklung der Sprache und die
@@ -184,12 +184,7 @@
    abgeschlossen, auf welches Erläuterungen im weiteren Verlauf der Arbeit
    exemplarisch angewendet werden.
 
-  \begin{figure}
-    \includegraphics[scale=0.60]{content/figures/thesis-structure}
-    \caption{Aufbau der Arbeit}\label{fig:thesis-structure}
-  \end{figure}
-
-  Der Hauptteil der Arbeit ist in zwei Abschnitte unterteilt, die Spezifikation
+  Der Hauptteil der Arbeit ist in zwei Kapitel unterteilt, die Spezifikation
   der \textit{DataFurnace}-Sprache in Kapitel drei und die Implementierung der
   \textit{DataFurnace}-Software in Kapitel vier. Zunächst werden in Kapitel
   drei Anforderungen und Annahmen gesammelt, auf Basis dessen die Sprache
@@ -213,47 +208,57 @@
   Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure}
   visualisiert.
 
+  \begin{figure}
+    \includegraphics[scale=0.60]{content/figures/thesis-structure}
+    \caption{Aufbau der Arbeit}\label{fig:thesis-structure}
+  \end{figure}
+
 
 
   % ################################################################################
-  \chapter{Grundlagen}\label{ch:grundlagen}
+  \chapter{Grundlagen für Qualitätskennzahlen im Stammdatenmanagement}\label{ch:grundlagen}
   % ################################################################################
   
-  \todo[inline]{Grundlagen ca.\ 10 Seiten}
+  % Grundlagen ca. 10 Seiten
 
-  Die Analyse von Unternehmendaten im Datenqualitätskontext kombiniert die
+  Qualitätskennzahlen im Stammdatenmanagement kombinieren die
   beiden Welten \textit{Datenanalyse} und \textit{Datenqualität} miteinander.
   Im Folgenden Kapitel wird auf Grundlagen der beiden Welten mit einem
   jeweiligen Abschnitt eingegangen: die Modellierung von Daten für die
   Datenanalyse und das Stammdatenmanagement als verantwortliche Funktion eines
-  Unternehmens für die Datenqualität. Des Weiteren wir im letzten Abschnitt des
+  Unternehmens für die Datenqualität. Des Weiteren wird im letzten Abschnitt des
   Kapitels ein Anwendungsfallbeispiel beschrieben, auf welches in späteren
   Erklärungen der \textit{DataFurnace}-Sprache und -Software im Rahmen
   exemplarischer Umsetzungen zurück gegriffen wird.
 
-  \section{Modellierung}\label{sec:modellierung}
+  \section{Modellierung von Unternehmensdatenanalysen}\label{sec:modellierung}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Datenschema abstrahiert darstellen.  Die Modellierung
   der Daten ist essentiell für die Analyse:
   \textsc{\citeauthor{phipps2002automating}} zählen diese zu den fünf
   Hauptschritten der Datenanalyse im Data-Warehouse-Kontext~\cite[][S.
-  1]{phipps2002automating}. Es wird nun die multidimensionale Modellierung
+  1]{phipps2002automating}. Die beiden gängisten Methoden sind die
+  mutlidimensionale Modellierung und die \acrlong{ER}-Modellierung\cite[][S.
+  36]{ballard1998data}. Es wird nun die multidimensionale Modellierung
   beleuchtet und im Kontext der Unternehmensdatenanalyse mit der
-  Entity-Relationship-Modellierung verglichen. Des Weiteren wird eine
-  Erweiterung der multidimensionalen Modellierung--\textit{H2 for
-  Reporting}--vorgestellt.
+  Entity-Relationship-Modellierung verglichen. Des Weiteren wird die Sprache
+  \textit{H2 for Reporting} für die multidimensionale Modellierung vorgestellt.
 
 
   \subsection{Multidimensionale
   Modellierung}\label{subsec:multidimensionale-modellierung} 
 
-  Es gibt verschiedene Ausprägungen der multidimensionalen Modellierung.
-  Zunächst wird auf allgemeine Eigenschaften der Modellierungsgruppe
-  eingegangen. Im Mittelpunkt der multidimensionalen Modellierung stehen die
+  Das Resultat der multidimensionalen Modellierung sind Modelle, welche die
+  dimensionalen Beziehungen von Daten abbilden. Mögliche Ergebnisse sind das
+  Star- und das Snowflake-Modell, auf welche im weiteren Verlauf näher
+  eingegangen wird. Zunächst sollen jedoch allgemeine Eigenschaften der
+  multidimensionalen Modellierung behandelt werden.
+
+  Im Mittelpunkt der multidimensionalen Modellierung stehen die
   betriebswirtschaftlichen Fakten~\cite[][S.  2]{phipps2002automating}. Ein
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
-  42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennt als Beispiele:
+  42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennen als Beispiele:
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
   Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
 
@@ -433,18 +438,16 @@
 	Speziellen dem \acrlong{OLAP}-Systemtyp angehören.
 
 
-	\subsection{Erweiterung der multidimensionalen Modellierung}
-  \todo[inline]{H2fR erweitert nicht die multidimensionale Modellierung. Durch
-  H2fR kann man die multidimensionale Modellierung anwenden}
+  \subsection{\textit{H2 for Reporting}~--~eine Sprache für die multidimensionale Modellierung}
 
-	Die multidimensionale Modellierung wird durch verschiedene
-	Modellierungssprachen erweitert. Zu diesen Erweiterungen zählt \textit{H2 for
-	Reporting}, entwickelt vom Institut für Wirtschaftsinformatik an der
-	\acrlong{WWU} (\acrshort{WWU}) Münster~\cite[][S. 59 -
-	78]{janiesch2007contextual}. \textit{H2 for Reporting} ergänzt die
-	multidimensionale Modellierung unter anderem um die Modelltypen
-	Bezugsobjekte, Kennzahlen und Berichte: \todo{H2fR erweitert nicht um
-	Bezugsobjekte und Kennzahlen, diese sind von Anfang an schon mit dabei}
+  \textit{H2 for Reporting} ist eine Modellierungssprache für die
+  konzeptionelle Analyse mutlidimensionaler Unternehmensdaten~\cite[][S. 5, S.
+  23]{becker2007h2}, entwickelt vom Institut für Wirtschaftsinformatik an der
+  \acrlong{WWU} (\acrshort{WWU}) Münster~\cite[][S. 59 -
+  78]{janiesch2007contextual}. Neben den oben beschriebenen Eigenschaften der
+  multidimensionalen Modellierung setzt sich die Sprache \textit{H2 for
+  Reporting} unter anderem aus den Modellelementtypen Bezugsobjekte, Kennzahlen
+  und Berichte zusammnen. 
 
 	\begin{itemize}
 
@@ -479,6 +482,8 @@
 	unterstützt~\cite[][S. 86]{becker2012fachkonzeptionelle}. Das
 	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
 	entwickelt~\cite[][S.  34]{becker2007h2}.
+
+  \todo[inline]{H2fR Beispiel Grafik}
 
 	Neben \textit{H2 for Reporting} existieren weitere alternative Erweiterungen
 	der multidimensionalen Modellierung. Bekannte Beispiele sind:
@@ -625,7 +630,7 @@
 	Schritt zwei erfüllt ist.
 
 
-  \subsection{Stammdatenmanagement-Software}
+  \subsection{Stammdatenmanagement-Software am Beispiel \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
 
   \textsc{\citeauthor{baghi2014toward}} definieren
   Stammdatenmanagement-Software allgemein als eine Applikation, welche
@@ -636,7 +641,7 @@
   1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
   unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
   \textit{Central-System}, \textit{Leading-System},
-  \textit{Service-Oriented-Architecture}, \textit{Registry},
+  \textit{Service-Oriented-Architecture}\todo{gefährliche}, \textit{Registry},
   \textit{Consolidation-Hub} und
   \textit{Peer-to-Peer}~(\citeyear{baghi2014toward}, S. 3829)~\cite[][Abschnitt
   5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
@@ -661,9 +666,6 @@
   lediglich auf die Erklärungen von~\textsc{\citeauthor{baghi2014toward}}
   \citeyearpar{baghi2014toward} verwiesen.
 
-
-  \subsection{Vorstellung \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
-
 	Das Unternehmen \textit{innoscale AG} entwickelt seit dem Jahr 2013
 	\textit{DataRocket}, eine innovative Stammdatenmanagement-Software.
 	Architektonisch verfolgt sie den Ansatz des
@@ -675,16 +677,16 @@
 	Änderungen an Attributen eines Stammdatums an diese weiter geben kann, \bzw{}
 	die Änderungen zurückschreiben kann.  Alleinstellungsmerkmale der Software
 	sind: Domänenunabhängigkeit, einfache Bedienung und hoher
-	Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch ersetzen}.
+	Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch ersetzen, für Leute aus der IT und den Fachabteilungen}.
 	\textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme und
 	implementiert einen \textit{\acrlong{ETL}}-Prozess\footnote{Für Definitionen
 	des ETL-Prozesses siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
 	\citeyearpar{vassiliadis2002conceptual}
 	und~\textsc{\citeauthor{trujillo2003uml}}}.
 
-	Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
-	Unternehmens wird eine Methode vorgegeben, welche im Folgenden anhand ihrer
-	Schritte näher erläutert wird:
+  Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
+  Unternehmens ist ein Vorgehen von Nöten, welches im Folgenden anhand
+  einzelner Schritte näher erläutert wird:
 
 	\begin{enumerate}
 		\item Eine Aggregations-Modellierung wird durchgeführt, indem so genannte
@@ -868,20 +870,18 @@
   \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
 
 
-  \section{Motivation}
-
-	Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
-	Datenqualitätsver\-besserung die Qualität von Unternehmensdaten zunächst
-	untersuchen. Der \textit{DataRocket}-Nutzer muss hierzu \textit{DataRocket}
-	genau anweisen, nach welchen Kriterien er Datenqualität definiert und wie die
-	Daten anhand der Datenqualitätsdefinitionen analysiert werden sollen. Für die
-	Kommunikation zwischen \textit{DataRocket} und Nutzer ist folglich eine
-	Sprache von Nöten, welche es dem Nutzer ermöglicht, \textit{DataRocket} die
-	funktionale Struktur der zu analysiereden Daten zu erklären,
-	Qualitätskriterien zu definieren und Analyseziele zu spezifizieren.
-	Gegenstandsbe\-reich der Sprache ist der Einsatz in \textit{DataRocket} im
-	\textit{Calculation}-Baustein der \textit{DataPipeline} aus
-	Abschnitt~\ref{sec:Vorstellung-DataRocket}.
+  Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
+  Datenqualitätsver\-besserung die Qualität von multidimensionalen
+  Unternehmensdaten zunächst untersuchen. Der \textit{DataRocket}-Nutzer muss
+  hierzu \textit{DataRocket} genau anweisen, nach welchen Kriterien er
+  Datenqualität definiert und wie die Daten anhand der
+  Datenqualitätsdefinitionen analysiert werden sollen. Für die Kommunikation
+  zwischen \textit{DataRocket} und Nutzer ist folglich eine Sprache von Nöten,
+  welche es dem Nutzer ermöglicht, \textit{DataRocket} die funktionale Struktur
+  der zu analysiereden Daten zu erklären, Qualitätskriterien zu definieren und
+  Analyseziele zu spezifizieren.  Gegenstandsbe\-reich der Sprache ist der
+  Einsatz in \textit{DataRocket} im \textit{Calculation}-Baustein der
+  \textit{DataPipeline} aus Abschnitt~\ref{sec:Vorstellung-DataRocket}.
 
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:sprache/anforderungsanalyse}
@@ -901,7 +901,7 @@
 
   \paragraph{Funktionale Ziele}
     \begin{enumerate}
-      \item \textbf{Spezifikation der Unternehmensdatenstrukturen} 
+      \item \textbf{Spezifikation von Unternehmensdatenstrukturen}\label{item:spezifikation-von-unternehmensdatenstrukturen}
 
         Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
         können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
@@ -953,7 +953,7 @@
 
   \paragraph{Nicht-funktionale Ziele}
     \begin{enumerate}
-      \item \textbf{Hohe Verständlichkeit}
+      \item \textbf{Hohe Verständlichkeit}\label{item:hohe-verstaendlichkeit}
 
 				Die Sprache soll sehr leicht verständlich sein, um mit dem
 				Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
@@ -1023,7 +1023,7 @@
   \end{enumerate}
 
 
-  \section{Fachliches Konzept}
+  \section{Fachliches Konzept}\label{sec:sprache/fachliches-konzept}
 
   Die \textit{DataFurnace}-Sprache wurde in enger Zusammenarbeit und ständiger
   Absprache mit der \textit{innoscale AG} und unter Einbeziehung des
@@ -1366,7 +1366,6 @@
   % ################################################################################
   \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
 
-  \section{Motivation}
   In Abschnitt~\ref{sec:Vorstellung-DataRocket} wurde die \textit{DataPipeline}
   vorgestellt. Sie bildet das Kernstück der Unternehmensdatenanalyse in
   \textit{DataRocket}. Eine Komponente der \textit{DataPipeline} ist der
@@ -1375,7 +1374,7 @@
   Geschäftsobjektinstanzen, Ausgabewerte sind Berichte in tabellarischer Form.
   Eine rudimentäre Implementierung des \textit{Calculation}-Bausteins ist
   bereits in \textit{DataRocket} integriert, jedoch mangelt es dieser an
-  Konsistenz und Funktionsumfang, weshalb die \textit{innnoscale AG}
+  Konsistenz und Funktionsumfang, weshalb die \textit{innoscale AG}
   beabsichtigt, diese Implementierung zu ersetzen.
 
   \section{Anforderungsanalyse und Annahmen}\label{sec:software/anforderungsanalyse}
@@ -1477,15 +1476,15 @@
 			bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
 			Heuristiken eingegangen wurde}.
 
-    \item \textbf{Strukturierte Methode}\todo{Prozess oder Methode?}
+    \item \textbf{Strukturiertes Vorgehen}
 
-			Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
-			\textit{DataRocket} für die Datenqualitätsverbesserung einer Methode mit
-			genau definierten Prozessschritten. Die \textit{DataFurnace}-Software
-			soll dies \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer
-			ohne viel Einarbeitungszeit durch das Datenanalyseverfahren zu leiten.
-			Diese Methode soll mit ihrem Prozess tief in der Struktur der Oberfläche
-			verankert sein.
+      Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
+      \textit{DataRocket} für die Datenqualitätsverbesserung einem Vorgehen mit
+      genau definierten Schritten. Die \textit{DataFurnace}-Software soll dies
+      \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer ohne viel
+      Einarbeitungszeit durch das Datenanalyseverfahren zu leiten.  Dieses
+      Vorgehen soll mit seinen Schritten tief in der Struktur der Oberfläche
+      verankert sein.
 
     \item \textbf{Echtzeitkollaboration}
 
@@ -1545,18 +1544,16 @@
       Zellen angezeigt werden, welche die oben stehenden Zellen summieren.}
 
 
-  \section{Fachliches Konzept}\label{sec:sprache/fachliches-konzept}
-  \todo[inline]{Hier auch auf die Methode eingehen: Dimensionen modellieren ->
-  Kennzahlen spezifizieren -> zu Berichten kombinieren}
+  \section{Fachliches Konzept}\label{sec:software/fachliches-konzept}
 
   Die Struktur der \textit{DataFurnace}-Software unterteilt sich anhand ihrer
   drei Ansichten: die Dimensionsansicht, die Kennzahlansicht und die
   Berichtsansicht. Diese Unterteilung bildet zugleich auch die drei
-  Hauptschritte der Modellierungsmethode zur Unternehmensdatenanalyse mit der
-  \textit{DataFurnace}-Software (siehe Abbildung~\ref{datafurnace-prozess}). In
-  dem Prozess der Methode modelliert der Nutzer zunächst seine Geschäftsobjekte
-  mit den zugehörigen Dimensionen, spezifiziert Kennzahlen mit Bezug auf die
-  Attribute der Geschäftsobjekte, und kombiniert beide zu Berichten. Im
+  Hauptschritte des Modellierungsvorgehens zur Unternehmensdatenanalyse mit der
+  \textit{DataFurnace}-Software (siehe Abbildung~\ref{datafurnace-prozess}).
+  Ein Nutzer modelliert zunächst seine Geschäftsobjekte mit den zugehörigen
+  Dimensionen, spezifiziert dann Kennzahlen mit Bezug auf die Attribute der
+  Geschäftsobjekte, und kombiniert abschließend beide zu Berichten. Im
   folgenden wird das fachliche Konzept der Software anhand der drei Ansichten
   respektive Prozessschritten erklärt und für jeden Schritt im Rahmen des
   Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
@@ -1584,9 +1581,9 @@
   werden, welches direkt auf dem zu löschenden Objekt abgebildet ist.
 
 
-  \subsection{Dimensionsansicht}
+  \subsection{Dimensionsansicht}\label{subsec:dimensionsansicht}
 
-  Die Modellierungsmethode beginnt in der Dimensionsansicht, welche sich aus
+  Das Modellierungsvorgehen beginnt in der Dimensionsansicht, welche sich aus
   Baumstrukturen zur Representation von Geschäftsobjekten mit ihren Attributen
   und Dimensionenauf der linken Seite und einer Detailansicht zur näheren
   Beschreibung einzelner Elemente auf der rechten Seite aufbaut. 
@@ -1705,9 +1702,9 @@
   noch nicht beim Unternehmen eingekauft haben.
 
 
-  \subsection{Kennzahlansicht}
+  \subsection{Kennzahlansicht}\label{subsec:kennzahlansicht}
 
-  Der zweite Schritt der \textit{DataFurnace}-Modellierungsmethode ist die
+  Der zweite Schritt des \textit{DataFurnace}-Modellierungsvorgehens ist die
   Definition von Kennzahlen für die spätere Auswertung der
   Geschäftsobjektinstanzen, welche in der Kennzahlansicht vorgenommen werden
   kann. Wie auch die Dimensionsansicht teilt sie sich in zwei Spalten auf. Auf
@@ -1798,12 +1795,12 @@
 
   Macht ein Nutzer während der Konfiguration eines Ausdrucks einen Fehler oder
   möchte im Nachhinein etwas an dem Ausdruck ändern, so kann der
-  Konfigurationsprozess auf den gleichen Weg jeder Zeit erneut gestartet werden.  Will ein
-  Nutzer an spezifischen Positionen der Formel weitere Ausdrücke hinzufügen
-  oder löschen, klickt er an die gewünschte Position und erstellt über den
-  Funktionsbaukasten weitere Ausdrücke oder löscht den Ausdruck links vom Cursor
-  mit einem Klick auf das \textit{Löschen}-Symbol rechts vom Funktionsbaukasten
-  in der unteren Leiste.
+  Konfigurationsprozess auf den gleichen Weg jeder Zeit erneut gestartet
+  werden.  Will ein Nutzer an spezifischen Positionen der Formel weitere
+  Ausdrücke hinzufügen oder löschen, klickt er an die gewünschte Position und
+  erstellt über den Funktionsbaukasten weitere Ausdrücke oder löscht den
+  Ausdruck links vom Cursor mit einem Klick auf das \textit{Löschen}-Symbol
+  rechts vom Funktionsbaukasten in der unteren Leiste.
 
   Führt der Nutzer im Zuge des Anwendungsfallbeispiels aus
   Abschnitt~\ref{sec:anwendungsfallbeispiel} in der Kennzahlansicht die
@@ -1829,9 +1826,9 @@
   Einkaufspreis}.
 
 
-  \subsection{Berichtsansicht}
+  \subsection{Berichtsansicht}\label{subsec:berichtsansicht}
 
-  Im letzten Schritt der \textit{DataFurnace}-Modellierungsmethode werden
+  Im letzten Schritt des \textit{DataFurnace}-Modellierungsvorgehens werden
   Dimensionsspezifikationen und Kennzahldefinitionen zu Berichtsmodellen in der
   Berichtsansicht kombiniert. Die Struktur der Berichtsansicht teilt sich in
   drei Komponenten auf. Auf der linken Seite werden alle Geschäftsobjekte mit
@@ -1871,8 +1868,8 @@
   und zieht es mit der Maus aus der Geschäftsobjektkomponente in die
   Filterkomponente der Ansicht. Sobald er das Dimensionslevel in der Komponente
   ablegt, wird ein neuer Filter erstellt. In dem Filter werden alle
-  Dimensionslevelausprägungen aufgelistet, welche im ersten Schritt der
-  \textit{DataFurnace}-Modellierungsmethode für das Dimensionslevel
+  Dimensionslevelausprägungen aufgelistet, welche im ersten Schritt des
+  \textit{DataFurnace}-Modellierungsvorgehens für das Dimensionslevel
   spezifiziert wurden. Nun kann der Nutzer anhand einer Positivliste
   diejenigen Ausprägungen auswählen, nach welchen er die gesamte
   Geschäftsobjektinstanzmenge filtern möchte.
@@ -2160,7 +2157,6 @@
 
 % ################################################################################
 \chapter{Evaluation}\label{ch:evaluation}
-\todo[inline]{Präsens oder Präteritum?}
 \todo[inline]{Alternativ der Begriff Beurteilung oder Diskussion als Kapiteltitel}
 
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
@@ -2207,7 +2203,12 @@ dem Anwendungsfallbeispiel aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
 vertraut gemacht und wurden daraufhin aufgefordert die gegebenen
 Fragestellungen aus dem Anwendungsfallbeispiel konzeptionell mit Hilfe der
 \textit{DataFurnace}-Sprache und -Software in Form einer Datenanalyse
-abzubilden. Probanten wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
+abzubilden. Die Musterlösung der Aufgabenschritte kann pro Ansicht der
+\textit{DataFurnace}-Software am jeweiligen Ende der
+Abschnitte~\ref{subsec:dimensionsansicht},~\ref{subsec:kennzahlansicht}
+und~\ref{subsec:berichtsansicht} gefunden werden. Hier werden die Erläuterungen
+der \textit{DataFurnace}-Software auf das Anwendungsfallbeispiel übertragen.
+Probanten wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
 (\cite{holzinger2005usability}, S.  73;~\cite{nielsen1994usability}, S. 195)
 ihre Eindrücke und Gedanken während der Nutzung der Sprache und Software
 mitzuteilen. Neben dieser Form der Rückmeldung wurden die Schritte des
@@ -2215,17 +2216,17 @@ Testnutzers am Computer beobachtet.
 
 \paragraph{Erkenntnisse}\todo{Wirklich so nennen?} Nachfolgend wird von den Erkentnisse aus der
 durchgeführten formativen Evaluation strukturiert anhand der zuvor
-spezifizierten Anforderungen in Abschnitt~\ref{sec:sprache/anforderungsanalyse}
-und~\ref{sec:software/anforderungsanalyse} und den
-\textit{DataFurnace}-Prozessschritten (siehe
-Abschnitt~\ref{sec:sprache/fachliches-konzept}) berichtet. Auf Erkentnisse
+spezifizierten Anforderungen (siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}
+und~\ref{sec:software/anforderungsanalyse}) und dem
+\textit{DataFurnace}-Vorgehen (siehe
+Abschnitt~\ref{sec:software/fachliches-konzept}) berichtet. Auf Erkentnisse
 aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen
 übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich eine ausgewählte
 Menge von Erkenntnissen behandelt wird, welche aus der Gesamtmenge mit ihrer
 Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
 
 \begin{itemize}
-  \item \textbf{Spezifikation von Unternehmensdatenstrukturen} \& \textbf{hohe Verständlichkeit}\todo{Verweise auf die Stellen}
+  \item \textbf{Spezifikation von Unternehmensdatenstrukturen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Verständlichkeit} (\ref{sec:sprache/anforderungsanalyse})
 
     Der erste Schritt im Rahmen der Datenalyse aus dem Anwendungsbeispiels ist
     die Spezifikation von Unternehmensdatenstrukturen in der Dimensionsansicht
@@ -2252,7 +2253,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Modellierung der Dimensionen vom Nutzer angestrebt wurden.\todo{Auch
     mögliche Lösungen erläutern?}
 
-  \item \textbf{Definition von Kennzahlen} \& \textbf{hohe Benutzerfreundlichkeit}
+  \item \textbf{Definition von Kennzahlen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Benutzerfreundlichkeit} (\ref{sec:software/anforderungsanalyse})
 
     Die Definition von Kennzahlen ist der zweite Schritt im
     \textit{DataFurnace}-Prozess (siehe
@@ -2275,7 +2276,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Navigation innerhalb einer Kennzahlformel durch die Pfeiltasten oder
     das löschen eines Funktionsausdrucks durch die Rücktaste.
 
-  \item \textbf{Kombination zu Berichten} \& \textbf{strukturierte Methode}
+  \item \textbf{Kombination zu Berichten} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{strukturiertes Vorgehen} (\ref{sec:software/anforderungsanalyse})
 
     Dritter und letzter Schritt des \textit{DataFurnace}-Prozess (siehe
     Abschnitt~\ref{sec:sprache/fachliches-konzept}) ist die Kombination von
@@ -2302,11 +2303,12 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
 
 \end{itemize}
 
-Alle Probanden kamen zu einem erfolgreichen Ergebnis, jedoch nur zwei Probanden
-(WI-Student 23, WI-Studentin 25) ohne jegliche Hilfe oder Hinweise. Häufig
-musste bei der Überführung des Anwendungsfallbeispiels in konkrete
-Anforderungen geholfen werden. Die Anforderung der Filterung nach
-\textit{Lebensmitteln} wurde am häufigsten vergessen.
+Alle Probanden kamen zu einem erfolgreichen Ergebnis jeweils vergleichbar mit
+der Musterlösung, jedoch nur zwei Probanden (WI-Student 23, WI-Studentin 25)
+ohne jegliche Hilfe oder Hinweise. Häufig musste bei der Überführung des
+Anwendungsfallbeispiels in konkrete Anforderungen geholfen werden. Die
+Anforderung der Filterung nach \textit{Lebensmitteln} wurde am häufigsten
+vergessen.
 
 
 
