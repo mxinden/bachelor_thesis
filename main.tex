@@ -812,8 +812,8 @@
   -Software zurückgegriffen wird. Im Fokus steht ein fiktives
   Einzelhandelsgeschäft, welches auf den Verkauf von Lebensmitteln
   spezialisiert ist, jedoch auch andere Produkte des täglichen Bedarfs
-  verkauft. Das Unternehmen betreibt zwei Standorte, jeweils in den Städten
-  Münster und Bonn.
+  verkauft. Das Unternehmen betreibt Filialen in zwei Städten jeweils eine an
+  den Standorten Münster und Bonn.
 
   Lebensmittel haben ein Mindesthaltbarkeitsdatum und dürfen bei dessen
   Überschreitung nicht verkauft werden. Um zu verhindern, dass Handelsware
@@ -902,7 +902,7 @@
   \textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.  Ziele werden
   unterschieden in \textit{funktionale} und \textit{nicht-funktionale}
   Ziele~\cite[][S.  36]{mylopoulos1999object}.  Erstere beschreiben die
-  Leistungen der Sprache selbst, zweitere beschäftigen sich mit der Art und
+  Leistungen der Sprache selbst, letztere beschäftigen sich mit der Art und
   Weise respektive mit der Qualität der Leistung~\cite[][S.  250]{van2001goal}.
   Die Anforderungen der \textit{DataFurnace}-Sprache werden in den folgenden
   Aufzählungen benannt, näher beschrieben und begründet. Ursprung der
@@ -935,8 +935,8 @@
         \textit{DataFurnace}-Sprache definieren zu können.
         Datenqualitätskennzahlen beziehen sich auf Attribute von
         Unternehmensdatentypen. Die Sprache soll es dem Nutzer ermöglichen,
-        komplizierte Qualitätskennzahlberechnungen zu spezifizieren. Es
-        soll zum Beispiel eine Qualtitätskennzahl definiert werden können,
+        komplizierte Qualitätskennzahlberechnungen zu spezifizieren. Beispielsweise
+        soll eine Qualtitätskennzahl definiert werden können,
         welche kontrolliert, dass im oben genannten Szenario der \textit{Preis}
         des Unternehmensdatentypus \textit{Produkt} keine Buchstaben enthält.
 
@@ -973,7 +973,7 @@
 				Die Sprache soll sehr leicht verständlich sein, um mit dem
 				Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
 				Datenqualitätsmanagement IT-Laien zu ermöglichen, kohärent zu bleiben.
-				Besonderer Fokus soll auf einer geringen Komplexität der Sprache
+				Ein besonderer Fokus soll auf einer geringen Komplexität der Sprache
 				liegen, wodurch der Nutzer die Sprache schnell verstehen und erlernen
 				kann.
 
@@ -1054,8 +1054,8 @@
 
   \subsection{Dimensionen}\label{subsec:dimension}
 
-	Um den Sprachbegriff Dimension erklären zu können muss zunächst der Begriff
-	Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
+	Um den Sprachbegriff Dimension erklären zu können, muss zunächst der Begriff
+  Geschäftsobjekt erläutert werden, auf welchen \todo{welchen oder welchem?} der Begriff der Dimension
 	essentiell aufbaut. Der Begriff Geschäftsobjekt wird aus dem
 	\textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
 	innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
@@ -1299,11 +1299,11 @@
   Dimensionslevels in der Tabelle in Abhängigkeit des Dimensionslevels darüber
   berechnet und positioniert werden. Nachfolgend wird das vorhergegangene
   Beispiel erweitert. Fügt der Nutzer neben dem Dimensionslevel \textit{Jahr}
-  das Dimensionslevel \textit{Bundesland} der Dimension \textit{Ort} des
-  Attributes \textit{Herstellungsort} hinzu, so kann er dies entweder oberhalb oder
+  das Dimensionslevel \textit{Stadt} der Dimension \textit{Ort} des
+  Attributes \textit{Standort} hinzu, so kann er dies entweder oberhalb oder
   unterhalb des \textit{Jahres} machen, abhängig davon, ob er in seiner
-  Fragestellung zunächst \textit{2015} und \textit{2016} und dann \textit{NRW}
-  und \textit{HH} vergleichen möchte, oder andersherum. Die Wahl der
+  Fragestellung zunächst \textit{2015} und \textit{2016} und dann \textit{Münster}
+  und \textit{Bonn} vergleichen möchte, oder andersherum. Die Wahl der
   Auftrittsreihenfolge dient lediglich der Übersichtlichkeit, die eigentlichen
   Aussagen der Tabelle werden hierdurch nur verschieden innnerhalb dieser positioniert.
   Die Menge der Permutationen zwischen oberem und unterem Dimensionslevel
@@ -1315,18 +1315,19 @@
     \begin{tabular}{c c c c c}
       \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-      \textbf{Budesland} & NRW & HH & NRW & HH \\
+      \textbf{Stadt} & Münster & Bonn & Münster & Bonn \\
       \toprule
       \textbf{Anzahl} & 750 & 250 & 1000 & 500\\
     \end{tabular}
+    \hfill
     \begin{tabular}{c c c c c}
-      \textbf{Bundesland} & \multicolumn{2}{c}{NRW} & \multicolumn{2}{c}{HH} \\
+      \textbf{Stadt} & \multicolumn{2}{c}{Münster} & \multicolumn{2}{c}{Bonn} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
       \textbf{Jahr} & 2015 & 2016 & 2015 & 2016 \\
       \toprule
       \textbf{Anzahl} & 750 & 1000 & 250 & 500 \\
     \end{tabular}
-    \caption{Auswertung des Geschäftsobjets \textit{Produkt}}\label{table:auftrittsreihenfolge}
+    \caption{Auswertung des Geschäftsobjekts \textit{Produkt}}\label{table:auftrittsreihenfolge}
   \end{table}
 
   Die Tabellenkopfspalte legt fest, mit welchen Kennzahlen die zuvor
@@ -1346,8 +1347,8 @@
 	Fügt der Nutzer im bisherigen Szenario die Kennzahl \textit{Preisvalidation}
 	der Tabelle hinzu, dann wäre die \textit{DataFurnace}-Sprache angewiesen, die
 	Geschäftsobjektinstanzgruppen mit den Dimensionslevelausprägungen
-	\textit{2015} \textit{NRW}, \textit{2015} \textit{HH}, \textit{2016}
-	\textit{NRW} und \textit{2016} \textit{HH} mit der Kennzahl zu analysieren
+	\textit{2015} \textit{Münster}, \textit{2015} \textit{Bonn}, \textit{2016}
+	\textit{Münster} und \textit{2016} \textit{Bonn} mit der Kennzahl zu analysieren
 	und das Ergebnis in der Zeile der Kennzahl mit einer Zelle pro Gruppe
 	einzutragen, wie in Tabelle~\ref{table:preisvalidation} gezeigt. Das Ergebnis
 	zeigt auf, wie viele Instanzen der jeweiligen Geschäftsobjektinstanzgruppe
@@ -1358,7 +1359,7 @@
     \begin{tabular}{c c c c c}
       \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-      \textbf{Budesland} & NRW & HH & NRW & HH \\
+      \textbf{Budesland} & Münster & Bonn & Münster & Bonn \\
       \toprule
       \textbf{Preisvalidation} & 679 & 242 & 891 & 433 \\
     \end{tabular}
@@ -1465,8 +1466,8 @@
       \textit{DataRocket} zu befassen.
 
       Um die mögliche spätere Integration der \textit{DataFurnace}-Sprache und
-      -Software in \textit{DataRocket} nicht zu behindern, sollen, trotz dem
-      Ziel einer eigenständigen Software, die verwendeten Konventionen und
+      -Software in \textit{DataRocket} nicht zu behindern, sollen, trotz des
+      Ziels einer eigenständigen Software, die verwendeten Konventionen und
       Technologien mit denen von \textit{DataRocket} abgestimmt sein.  Des
       Weiteren sollen die Ein- und Ausgabewerte der Software mit denen des
       \textit{DataRocket} \textit{Calculation}-Bausteins übereinstimmen.
@@ -1667,8 +1668,8 @@
   ohne viel Aufwand ermöglicht, Teilausschnitte des Modells übersichtlich
   betrachten zu können, ohne diese in seperate Modelle exportieren zu
   müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. \todo{Zitat nochmal
-  überprüfen. Ordentlich umschrieben?} Elemente können, durch einen klick auf
-  das \textit{Löschen}-Symbol, gelöscht und, durch einen Klick auf den Namen, an
+  überprüfen. Ordentlich umschrieben?} Elemente können durch einen Klick auf
+  das \textit{Löschen}-Symbol gelöscht und durch einen Klick auf den Namen an
   der Stelle umbenannt werden.
 
   Neben der einfachen Charakterisierung von Elementen durch einen Namen,
@@ -1883,7 +1884,7 @@
   \paragraph{Filterkomponente}
   
   Wie in Abschnitt~\ref{paragraph:filternde-komponente}
-  beschrieben, kann ein Filter sowohl auf einem Dimensionslevel als auch einer
+  beschrieben, kann ein Filter sowohl auf einem Dimensionslevel als auch auf einer
   Kennzahl basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
@@ -1951,7 +1952,7 @@
   und~\ref{table:berichtstabellenkopf201420152016}, welche die Tabellenkopfspalte
   ohne und mit der Dimensionslevelausprägung \textit{2016} des Dimensionslevels
   \textit{Jahr} abbilden. Hier gilt es die Änderungen in der Zeile
-  \textit{Bundesland} zu betrachten.
+  \textit{Stadt} zu betrachten.
 
     \begin{table}[]
       \footnotesize
@@ -1960,7 +1961,7 @@
             \cmidrule(lr){2-5}\cmidrule(lr){6-9}
         \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015}\\
             \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
-        \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
+        \textbf{Stadt} & Münster & Bonn & Münster & Bonn & Münster & Bonn & Münster & Bonn \\
       \end{tabular}
       \caption{Tabellenkopfzeilen mit den Ausprägungen \textit{2014} und \textit{2015}}\label{table:berichtstabellenkopf20142015}
     \end{table}
@@ -1972,7 +1973,7 @@
             \cmidrule(lr){2-7}\cmidrule(lr){8-13}
         \textbf{Jahr} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} & \multicolumn{2}{c}{2014} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016}\\
             \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}
-        \textbf{Bundesland} & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH & NRW & HH \\
+        \textbf{Stadt} & Münster & Bonn & Münster & Bonn & Münster & Bonn & Münster & Bonn & Münster & Bonn & Münster & Bonn \\
       \end{tabular}
       \caption{Tabellenkopfzeilen mit den Ausprägungen \textit{2014}, \textit{2015} und \textit{2016}}\label{table:berichtstabellenkopf201420152016}
     \end{table}
@@ -1995,7 +1996,7 @@
   Kennzahl über der Berichtstabelle losgelassen, erstellt die
   \textit{DataFurnace}-Software in der Spalte eine neue Zelle mit dem Namen der
   Kennzahl. Wurde eine Kennzahl versehentlich hinzugefügt oder in der
-  Berichtstabelle nicht weiter benötigt kann sie über das
+  Berichtstabelle nicht weiter benötigt, kann sie über das
   \textit{Löschen}-Symbol entfernt werden.
 
   Die Modellierung im Rahmen des Anwendungsfallbeispiels aus
