@@ -1114,14 +1114,14 @@
 	wird durch eine mathematische Formel spezifiziert und folgt der
 	Grundrechenart mit den Operationen \textit{Addition}, \textit{Substraktion},
 	\textit{Multiplikation} und \textit{Division}, welche auf zwei oder mehr
-	Operanden angewendet werden (siehe Abbildung~\ref{railroad-kennzahl}, Gleis
-	eins). Im weiteren Verlauf der \textit{DataFurnace}-Sprachvorstellung wird
+	Operanden angewendet werden (siehe Abbildung~\ref{railroad-kennzahl} Gleis
+	1). Im weiteren Verlauf der \textit{DataFurnace}-Sprachvorstellung wird
 	der Begriff \textit{Ausdruck} als Generalisierung von \textit{Operand} und
 	\textit{Operator} genutzt.  Die Auswertungsreihenfolge der Ausdrücke kann mit
 	Klammern differenziert werden, erneut verdeutlicht durch
-	Abbildung~\ref{railroad-kennzahl}, Gleis zwei.  Ausdrücke können mit dem
+	Abbildung~\ref{railroad-kennzahl} Gleis 2.  Ausdrücke können mit dem
 	Voranstellen eines Minuszeichens negiert werden (siehe
-	Abbildung~\ref{railroad-kennzahl}, Gleis drei). Des Weiteren können
+	Abbildung~\ref{railroad-kennzahl} Gleis 3). Des Weiteren können
 	Konstanten in die Formelgleichung mit aufgenommen werden.
 
 	
@@ -1139,7 +1139,7 @@
 
 	Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
 	bereitgestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
-	(siehe Abbildung~\ref{railroad-kennzahl} Gleis fünf). Eine Funktion nimmt als
+	(siehe Abbildung~\ref{railroad-kennzahl} Gleis 5). Eine Funktion nimmt als
 	Eingabe einen oder mehrere Ausdrücke und gibt im Gegenzug einen solchen
 	zurück. Sie abstrahiert bei diesem Vorgang von der eigentlichen Umsetzung im
 	Inneren, und ermöglicht den Fokus auf das Ergebnis selbst, womit sie die
@@ -1162,10 +1162,8 @@
   \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
   \begin{figure}
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
-    \caption[Ausdruck Syntaxdiagramm]{Ausdruck Syntaxdiagramm \protect\footnotemark}\label{railroad-kennzahl}
+    \caption[Syntaxdiagramm des Kennzahlbausteins Ausdruck]{Syntaxdiagramm des Kennzahlbausteins Ausdruck\protect\footnotemark}\label{railroad-kennzahl}
   \end{figure}
-  \footnotetext{\texthl{Informatik, Beschreibung von Programmiersprachen,
-  Compiler, Railroad-Diagram, horizontale Linien gleich Gleise, Stationen erklaeren}}
 
 	Ein Beispiel für eine Funktion ist die \texttt{Wurzel}-Funktion.  Sie nimmt
 	als Eingabe eine Zahl und gibt die Wurzel dieser zurück. Neben den
@@ -1182,6 +1180,17 @@
 	Darstellung} genutzt werden. Neben diesen beiden Qualitätskennzahlfunktionen
 	kann der Nutzer außerdem Zeichenkettenlängen, Zahlen- und Datumsbereiche oder
 	reguläre Ausdrücke für die Spezifikation von Qualitätskennzahlen nutzen.
+
+	\footnotetext{Ein Syntaxdiagramm (im Englischen auch
+\textit{Railroad}-Diagramm genannt) ist eine Alternative zur
+Backus-Naur-Form für die graphische Darstellung einer Grammatik einer Sprache.
+Es wird häufig für die Beschreibung von Programmiersprachen und deren Compiler
+genutzt (siehe beispielsweise~\cite{wirth1971programming}). In den folgenden
+Erklärungen wird der Begriff \textit{Gleis} synonym für die horizontalen Linien
+des Syntaxdiagramms genutzt.
+% todo ggf noch Zitat zu BNF einfügen
+}
+
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
