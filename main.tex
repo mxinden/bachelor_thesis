@@ -24,7 +24,7 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{forest}
-\usepackage{babel}
+\usepackage[ngerman]{babel}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
@@ -32,6 +32,9 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{er}
 \usepackage{cleveref}
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\hyphenation{Ge-schäfts-ob-jekten}
+\sloppy
 
 
 % Import acronyms
@@ -157,7 +160,7 @@
   Arbeit auf die Sprache mit dem Begriff
   \textit{DataFurnace}-Sprache\footnote{Der fiktive Name \textit{DataFurnace}
   ist im Deutschen zu übersetzen als \textit{Datenschmelzofen}. Die
-  \textit{DataFurnace}-Sprache und -Software kombiniert im Rahmen der
+  \textit{DataFurnace}-Sprache und -Software kombinieren im Rahmen der
   Unternehmensdatenanalyse verschiedene Daten zu neuen Erkentnissen, ähnlich
   zum Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
   verschmolzen werden.} \todo{Erklärung überarbeiten} verwiesen.
@@ -167,8 +170,7 @@
   eigenständiges Softwareprodukt konzipiert und entwickelt, soll jedoch zur
   späteren Integration mit den bestehenden Konventionen und Technologien in
   \textit{DataRocket} kombinierbar sein. Die Komponente wird im Folgenden den
-  Namen \textit{DataFurnace}-Software \todo{Konsistente Benennung
-  kontrollieren} tragen.
+  Namen \textit{DataFurnace}-Software tragen.
 
    Der Aufbau der Arbeit gestaltet sich wie folgt: Zunächst werden Grundlagen
    erläutert, auf welche die Entwicklung der Sprache und die Implementierung
@@ -212,7 +214,7 @@
 
   Kapitel vier und Kapitel fünf schließen die Arbeit mit einer Evaluation und
   einem Fazit ab. Ersteres beurteilt die neue \textit{DataFurnace}-Sprache und
-  -Software mit Hilfe von Nutzerbefragungen\todo{Wort ersetzen}, letzteres
+  -Software mit Hilfe von Nutzerbefragungen, letzteres
   fasst die gewonnen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
   Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure}
   visualisiert.
@@ -289,25 +291,23 @@
     \caption{Dimensionslevelstruktur der Beispieldimension Zeit}\label{hierarchie-level-struktur}
   \end{figure}
 
-	Die multidimensionale Modellierung unterteilt sich nun in verschiedene
-	Ausprägungen.  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
-	2]{phipps2002automating}\todo{Wird auf das Star-Modell im Hauptteil
-	verwiesen?}. Der Name ist zurückzuführen auf den Aufbau eines
-	entsprechenden Modells (siehe Abbildung~\ref{fig:star-schema}), welches die
-	Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des Sterns
-	befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese verweist
-	mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
-	komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
-	verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
-	(siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
-	in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
-	durch ihre geringe Größe nicht in einer schlechteren Leistung des
-	Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
-	Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
-	Datenbanknormalisierung können in den Publikationen des
-	Begründers \todo{Erfinder oder Begründer das richtige Wort?}
-	\textsc{\citeauthor{codd1970relational}} gefunden
-	werden~\citeyearpar{codd1970relational,codd1972further}.
+  Die multidimensionale Modellierung unterteilt sich nun in verschiedene
+  Ausprägungen.  Die bekannteste Ausprägung ist das Star-Modell~\cite[][S.
+  2]{phipps2002automating}. Der Name ist zurückzuführen auf den Aufbau eines
+  entsprechenden Modells (siehe Abbildung~\ref{fig:star-schema}), welches die
+  Form eines Sterns hat~\cite[][S.  44]{Kimball2013}. In der Mitte des Sterns
+  befindet sich die Faktentabelle~\cite[][S. 67]{Kemper2010}. Diese verweist
+  mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
+  komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
+  verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
+  (siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
+  in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
+  durch ihre geringe Größe nicht in einer schlechteren Leistung des
+  Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
+  Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
+  Datenbanknormalisierung können in den Publikationen des Begründers
+  \textsc{\citeauthor{codd1970relational}} gefunden
+  werden~\citeyearpar{codd1970relational,codd1972further}.
 
   \begin{figure}
     \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
@@ -389,8 +389,6 @@
 	\textsc{\citeauthor{becker2012grundsatze}} (\citeyear{becker2012grundsatze},
 	Seite 4--9) und \textsc{\citeauthor{schutte2013grundsatze}}
 	(\citeyear{schutte2013grundsatze}, Seite 93--99) erklärt.
-	\todo[inline]{ggf.~zitieren: Datenmodelle, Datenbanksprachen und
-	Datenbankmanagementsysteme von Gottfried Vossen}
 
   \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale
   Modellierung eine Obermenge der ER-Modellierung (\citeyear{ballard1998data},
@@ -801,7 +799,7 @@
 
 
 	Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
-	prototypische Entwicklung einer Komponente, \textit{DataFurnace}, für
+	prototypische Entwicklung einer Komponente für
 	\textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
 	\textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
@@ -874,9 +872,7 @@
   \chapter{Entwicklung der \textit{DataFurnace}-Sprache}\label{ch:entwicklung-datafurnace-sprache}
   % ################################################################################
 
-  \todo[inline]{Theorie / Vorgehensmodell für die Entwicklung von Sprachen?}
-  \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
-
+  % todo Theorie / Vorgehensmodell für die Entwicklung von Sprachen?}
 
   Die Stammdatenmanagement-Software \textit{DataRocket} muss im Rahmen der
   Datenqualitätsver\-besserung die Qualität von multidimensionalen
@@ -1045,8 +1041,6 @@
   Abbildung~\ref{fig:language_spec-erm} gezeigt, welche für jede
   Vokabulargruppe in Ausschnitten betrachtet wird.
 
-  \todo[inline]{ERM dringend überarbeiten}
-
   \begin{figure}
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
     \caption{Metamodell der \textit{DataFurnace}-Sprache}\label{fig:language_spec-erm}
@@ -1083,59 +1077,56 @@
 	\textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
   \begin{figure}
-    \resizebox{200px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
+    \resizebox{175px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
     \caption{\acrshort{ERM} der Dimensionteilsprache}\label{dimension-erm}
   \end{figure}
 
 	Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
 	Informationen einer Attributinstanz in Teilinformationen einteilen. Die Tiefe
-	einer Dimensionslevelhierarchie ist beliebig. Das Attribut
+	einer Dimensions\-level\-hierarchie ist beliebig. Das Attribut
 	\textit{Verfallsdatum} kann zum Beispiel die Instanz '09.08.2016' haben. Wird
 	hierauf die Dimension \textit{Zeit} angewendet, kann die Instanz in den
-	Dimensionsleveln \textit{Jahr} '2016', \textit{Monat} '08' und \textit{Tag}
-	'09' unterschieden werden. Das Dimensionslevel \textit{Monat} ist hier dem
-	Dimensionslevel \textit{Jahr} hierarchisch untergeordnet. Die
-	Teilinformationen bilden die Dimensionslevelausprägungen. Im oben genannten
-	Beispiel ist '2016' eine Dimensionslevelausprägung des Dimensionslevels
+	Dimensions\-leveln \textit{Jahr} '2016', \textit{Monat} '08' und \textit{Tag}
+	'09' unterschieden werden. Das Dimensions\-level \textit{Monat} ist hier dem
+	Dimensions\-level \textit{Jahr} hierarchisch untergeordnet. Die
+	Teilinformationen bilden die Dimensions\-levelausprägungen. Im oben genannten
+	Beispiel ist '2016' eine Dimensions\-levelausprägung des Dimensions\-levels
 	\textit{Jahr} der Dimension \textit{Zeit} des Attributs
 	\textit{Verfallsdatum}. In Abbildung~\ref{dimension-erm} wird dieses
 	Konstrukt mit Hilfe eines \acrshort{ERM}s verdeutlicht.
 
   \subsection{Kennzahlen}
-  \todo[inline]{Konstanten in Grafik, \textit{DataFurnace} und Text hinzufügen}
 
   \begin{figure}
-    \resizebox{300px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
+    \resizebox{250px}{!}{\input{content/figures/language_spec-erm-kennzahl.tex}}
     \caption{\acrshort{ERM} der Kennzahlteilsprache}\label{kennzahl}
   \end{figure}
 
-	Eine Kennzahl bietet ein quantitatives Maß, welches die Informationen von
-	einer Instanz eines Geschäftsobjekts weiterverarbeitet. Sie
-	wird durch eine mathematische Formel spezifiziert und folgt der
-	Grundrechenart mit den Operationen \textit{Addition}, \textit{Substraktion},
-	\textit{Multiplikation} und \textit{Division}, welche auf zwei oder mehr
-	Operanden angewendet werden (siehe Abbildung~\ref{railroad-kennzahl} Gleis
-	1). Im weiteren Verlauf der \textit{DataFurnace}-Sprachvorstellung wird
-	der Begriff \textit{Ausdruck} als Generalisierung von \textit{Operand} und
-	\textit{Operator} genutzt.  Die Auswertungsreihenfolge der Ausdrücke kann mit
-	Klammern differenziert werden, erneut verdeutlicht durch
-	Abbildung~\ref{railroad-kennzahl} Gleis 2.  Ausdrücke können mit dem
-	Voranstellen eines Minuszeichens negiert werden (siehe
-	Abbildung~\ref{railroad-kennzahl} Gleis 3). Des Weiteren können
-	Konstanten in die Formelgleichung mit aufgenommen werden.
+  Eine Kennzahl bietet ein quantitatives Maß, welches die Informationen von
+  einer Instanz eines Geschäftsobjekts weiterverarbeitet. Sie wird durch eine
+  mathematische Formel spezifiziert und folgt der Grundrechenart mit den
+  Operationen \textit{Addition}, \textit{Substraktion}, \textit{Multiplikation}
+  und \textit{Division}, welche auf zwei oder mehr Operanden angewendet werden
+  (siehe Abbildung~\ref{railroad-kennzahl} Gleis 1). Im weiteren Verlauf der
+  \textit{DataFurnace}-Sprachvorstellung wird der Begriff \textit{Ausdruck} als
+  Generalisierung von \textit{Operand} und \textit{Operator} genutzt.  Die
+  Auswertungsreihenfolge der Ausdrücke kann mit Klammern differenziert werden
+  (siehe Abbildung~\ref{railroad-kennzahl} Gleis 2).  Ausdrücke können mit dem
+  Voranstellen eines Minuszeichens negiert werden (siehe
+  Abbildung~\ref{railroad-kennzahl} Gleis 3). Des Weiteren können Konstanten in
+  die Formelgleichung mit aufgenommen werden.
 
 	
   Um innerhalb der Formel einer Kennzahl auf die Informationen einer
   Geschäftsobjektinstanz zugreifen zu können, können die Attribute des
-  Geschäftsobjekts als Formelausdruck eingebracht werden, wie in
-  Abbildung~\ref{railroad-kennzahl} durch die Station \textit{Attribut}
-  verdeutlicht. Hierzu wird innerhalb der Formel auf das konkrete Attribut
-  eines bestimmten Geschäftsobjekts, und nicht, wie in der Sprache \textit{H2
-  for Reporting}, auf ein variables Attribut ohne Referenz zu einem
-  Bezugsobjekt, verwiesen~\cite[][S.  20]{becker2007h2}. Dieses Vorgehen
-  verhindert die generische Definition und Wiederverwendbarkeit von Kennzahlen,
-  ermöglicht jedoch eine situationsnahe Konzeption und einen geringeren
-  Konfigurationsaufwand im späteren Gebrauch der Kennzahl.
+  Geschäftsobjekts als Formelausdruck eingebracht werden (siehe
+  Abbildung~\ref{railroad-kennzahl} Gleis 4). Hierzu wird innerhalb der Formel
+  auf das konkrete Attribut eines bestimmten Geschäftsobjekts und nicht, wie
+  in der Sprache \textit{H2 for Reporting}, auf ein variables Attribut ohne
+  Referenz zu einem Bezugsobjekt, verwiesen~\cite[][S.  20]{becker2007h2}.
+  Dieses Vorgehen verhindert die generische Definition und Wiederverwendbarkeit
+  von Kennzahlen, ermöglicht jedoch eine situationsnahe Konzeption und einen
+  geringeren Konfigurationsaufwand im späteren Gebrauch der Kennzahl.
 
 	Neben den mathematischen Grundlagen sollen weitere Verarbeitungsmöglichkeiten
 	bereitgestellt werden. Hierzu dient die Ausdruckskategorie \textit{Funktion}
@@ -1159,7 +1150,6 @@
   %   )
   % )
 
-  \todo[inline]{Verweise auf die Gleis-Nummern im Text überprüfen}
   \begin{figure}
     \includegraphics[scale=0.25]{content/figures/railroad-kennzahl.png}
     \caption[Syntaxdiagramm des Kennzahlbausteins Ausdruck]{Syntaxdiagramm des Kennzahlbausteins Ausdruck\protect\footnotemark}\label{railroad-kennzahl}
@@ -1181,16 +1171,15 @@
 	kann der Nutzer außerdem Zeichenkettenlängen, Zahlen- und Datumsbereiche oder
 	reguläre Ausdrücke für die Spezifikation von Qualitätskennzahlen nutzen.
 
-	\footnotetext{Ein Syntaxdiagramm (im Englischen auch
-\textit{Railroad}-Diagramm genannt) ist eine Alternative zur
-Backus-Naur-Form für die graphische Darstellung einer Grammatik einer Sprache.
-Es wird häufig für die Beschreibung von Programmiersprachen und deren Compiler
-genutzt (siehe beispielsweise~\cite{wirth1971programming}). In den folgenden
-Erklärungen wird der Begriff \textit{Gleis} synonym für die horizontalen Linien
-des Syntaxdiagramms genutzt.
-% todo ggf noch Zitat zu BNF einfügen
+  \footnotetext{Ein Syntaxdiagramm (im Englischen auch
+  \textit{Railroad}-Diagramm genannt) ist eine Alternative zur
+  Backus-Naur-Form~\cite[][]{knuth1964backus} für die graphische Darstellung
+  einer Grammatik einer Sprache.  Es wird häufig für die Beschreibung von
+  Programmiersprachen und deren Compiler genutzt (siehe
+  beispielsweise~\cite{wirth1971programming}). In den folgenden Erklärungen
+  wird der Begriff \textit{Gleis} synonym für die horizontalen Linien des
+  Syntaxdiagramms genutzt.
 }
-
 
   Um komplexe Ausdrücke strukturiert und abstrahiert beschreiben zu können,
   kann ein Ausdruck einer Kennzahl auch auf die Ergebnisse einer anderen
@@ -1212,7 +1201,7 @@ des Syntaxdiagramms genutzt.
   Teilsprache Bericht näher erläutert.
 
   \begin{figure}
-    \resizebox{250px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
+    \resizebox{200px}{!}{\input{content/figures/language_spec-erm-bericht.tex}}
     \caption{\acrshort{ERM} der Berichtsteilsprache}\label{language_spec-erm-bericht}
   \end{figure}
   
@@ -1221,21 +1210,21 @@ des Syntaxdiagramms genutzt.
   \textit{DataFurnace}-Sprache dem Nutzer zunächst die Möglichkeit seine
   Fragestellung auf eine Untermenge der gesamten Geschäftsobjektdaten zu
   beziehen, indem er verschiedene Filter auf die Gesamtdatenmenge anwendet.
-  Filter können sowohl auf Dimensionslevelausprägungen, als auch auf die
+  Filter können sowohl auf Dimensions\-level\-ausprägungen, als auch auf die
   Ergebnisse von Kennzahlen zurückgreifen. 
   
-  Für die Filterung über Dimensionslevelausprägungen benennt der Nutzer
-  zunächst die Dimensionslevel nach denen er filtern möchte. Daraufhin erstellt
-  er für jedes zuvor spezifizierte Dimensionslevel eine Positivliste, welche
-  alle die Ausprägungen des Dimensionslevels enthält, nach denen er filtern
+  Für die Filterung über Dimensions\-levelausprägungen benennt der Nutzer
+  zunächst die Dimensions\-level nach denen er filtern möchte. Daraufhin erstellt
+  er für jedes zuvor spezifizierte Dimensions\-level eine Positivliste, welche
+  alle die Ausprägungen des Dimensions\-levels enthält, nach denen er filtern
   möchte. Will ein Nutzer der \textit{DataFurnace}-Sprache beispielsweise in
   seiner Fragestellung lediglich die Instanzen des Geschäftsobjekts
   \textit{Produkt} betrachten, welche in diesem Jahr ablaufen, fügt er das
-  Dimensionslevel \textit{Jahr} der Dimension \textit{Zeit}, bezogen auf das
+  Dimensions\-level \textit{Jahr} der Dimension \textit{Zeit}, bezogen auf das
   Attribut \textit{Verfallsdatum}, als Filter hinzu. In diesem Filter fügt er
-  die Dimensionslevelausprägung \textit{2016} in die Positivliste ein.
+  die Dimensions\-level\-ausprägung \textit{2016} in die Positivliste ein.
 
-	Alternativ zu der Filterung über Dimensionslevelausprägungen kann der Nutzer
+	Alternativ zu der Filterung über Dimensions\-levelausprägungen kann der Nutzer
 	auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Dies ist
 	jedoch nur mit Kennzahlen möglich, welche sich auf eine einzelne
 	Geschäftsobjektinstanz anwenden lassen. Enthält die Formel einer Kennzahl
@@ -1277,7 +1266,7 @@ des Syntaxdiagramms genutzt.
   Fragestellungen werden in der Sprache, wie auch in \textit{H2 for Reporting},
   in Form einer Tabelle aus dem multidimensionalen Raum ins Zweidimensionale
   projeziert~\cite[][S.  23]{becker2007h2}. Diese Tabelle bildet die
-  Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeilen und Kopfspalten
+  Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeilen und Kopfspalte
   konfiguriert.
 
   Die Tabellenkopfzeilen spezifizieren, welche Unternehmensdaten in der Analyse
@@ -1285,7 +1274,7 @@ des Syntaxdiagramms genutzt.
   geschieht mit Hilfe der zuvor spezifizierten Dimensionen und Dimensionslevel,
   welche die Unternehmensdatengesamtheit gruppieren. Eine Tabellenkopfzeile
   repräsentiert jeweils genau ein Dimensionslevel. Eine Dimension kann mehrfach
-  mit verschiedenen Dimensionsleveln in den Tabellelkopfzeilen vorkommen, die gesamten
+  mit verschiedenen Dimensionsleveln in den Tabellenkopfzeilen vorkommen, die gesamten
   Kopfzeilen können jedoch ein bestimmtes Dimensionslevel nur einmal enthalten.
   Innerhalb einer Tabellenkopfzeile wird bestimmt, welche Ausprägungen des
   zugeordneten Dimensionslevels betrachtet und welche außer Acht gelassen
@@ -1379,7 +1368,6 @@ des Syntaxdiagramms genutzt.
   % ################################################################################
   \chapter{Implementierung der \textit{DataFurnace}-Software}\label{ch:implementierung-datafurnace}
   % ################################################################################
-  \todo[inline]{Eigentlich sollte auf allen Überschriftsebenen Text sein}
 
   In Abschnitt~\ref{sec:Vorstellung-DataRocket} wurde die \textit{DataPipeline}
   vorgestellt. Sie bildet das Kernstück der Unternehmensdatenanalyse in
@@ -1414,9 +1402,6 @@ des Syntaxdiagramms genutzt.
   aufgelistet, welche in Zusammenarbeit mit der \textit{innoscale AG} getroffen
   wurden.
 
-
-  \todo[inline]{Kontrollieren: Habe ich alle Ziele im späteren Text adressiert?}
-
   \paragraph{Funktionale Ziele}
   \begin{enumerate}
     \item \textbf{Modellierung von Dimensionen}
@@ -1430,7 +1415,7 @@ des Syntaxdiagramms genutzt.
 
       Um Geschäftsobjektinstanzen gruppieren und filtern zu können, muss es
       möglich sein, Dimensionen zu modellieren, welche jeweils auf ein Attribut
-      eines Geschäftsobjekts aufsetzten. In der Software soll der Nutzer
+      eines Geschäftsobjekts aufsetzen. In der Software soll der Nutzer
       Dimensionen erstellen und mit Dimensionsleveln hierarchisch strukturieren
       können. Wie Attribute, sollen auch Dimensionslevel mit möglichen
       Ausprägungen näher spezifiziert werden können. Einer Dimension und einem
@@ -1492,8 +1477,7 @@ des Syntaxdiagramms genutzt.
 			Software zu eröffnen. Orientierung sollen hier die \glqq{}Ten usability
 			heuristics of user interface and design\grqq{} von
 			\textsc{\citeauthor{nielsen1994heuristic}}
-			bieten~(\citeyear{nielsen1994heuristic}, S. 30)\todo{Kontrollieren ob auf
-			Heuristiken eingegangen wurde}.
+			bieten~(\citeyear{nielsen1994heuristic}, S. 30).
 
     \item \textbf{Strukturiertes Vorgehen}
 
@@ -1555,8 +1539,6 @@ des Syntaxdiagramms genutzt.
 
   \end{enumerate}
 
-    \todo[inline]{In der Report-View könnten unter den Standardspalten auch kumulierte
-      Zellen angezeigt werden, welche die oben stehenden Zellen summieren.}
 
 
   \section{Fachliches Konzept}\label{sec:software/fachliches-konzept}
@@ -1718,7 +1700,7 @@ des Syntaxdiagramms genutzt.
   Dimensionslevelausprägungen \textit{Oktober}, \textit{November} und
   \textit{Münster}, \textit{Bonn} gruppieren zu können. Für die Modellierung
   des Geschäftsobjekts \textit{Kunde} ist die Dimension \textit{Zeit} mit dem
-  Dimensionslevel \textit{Jahr} für das Attribut \textit{ZuletztEingekauft}
+  Dimensionslevel \textit{Jahr} für das Attribut \textit{Zuletzt\-Eingekauft}
   wichtig, um diejenigen Kunden ausfiltern zu können, welche in diesem Jahr
   noch nicht beim Unternehmen eingekauft haben.
 
@@ -1964,7 +1946,7 @@ des Syntaxdiagramms genutzt.
   \textit{Stadt} zu betrachten.
 
     \begin{table}[]
-      \footnotesize
+      \scriptsize
       \begin{tabular}{c c c c c c c c c}
         \textbf{Warenlinie} & \multicolumn{4}{c}{Bürobedarf} & \multicolumn{4}{c}{Lebensmittel} \\
             \cmidrule(lr){2-5}\cmidrule(lr){6-9}
@@ -1976,7 +1958,7 @@ des Syntaxdiagramms genutzt.
     \end{table}
 
     \begin{table}
-      \footnotesize
+      \scriptsize
       \begin{tabular}{c c c c c c c c c c c c c}
         \textbf{Warenlinie} & \multicolumn{6}{c}{Bürobedarf} & \multicolumn{6}{c}{Lebensmittel} \\
             \cmidrule(lr){2-7}\cmidrule(lr){8-13}
@@ -2009,7 +1991,7 @@ des Syntaxdiagramms genutzt.
   \textit{Löschen}-Symbol entfernt werden.
 
   Die Modellierung im Rahmen des Anwendungsfallbeispiels aus
-  Abschnitt~\ref{sec:anwendungsfallbeispiel} wird in der Berichtsansicht
+  Abschnitt~\ref{sec:anwendungsfallbeispiel} wird in der Berichts\-ansicht
   abgeschlossen. Zunächst erstellt ein Nutzer für die Analyse des
   Geschäftsobjekts \textit{Produkt} einen neuen Bericht. Die Marketingkampagne
   ist auf Lebensmittel fokussiert. Folglich wird dem Bericht ein Filter auf
@@ -2030,7 +2012,7 @@ des Syntaxdiagramms genutzt.
 
   Für die Analyse des Geschäftsobjekts \textit{Kunde} fügt der Nutzer einen
   weiteren Bericht hinzu. In diesem Bericht erstellt er einen Filter auf Basis
-  des Dimensionslevels Jahr des Attributes \textit{ZuletztEingekauft} und fügt
+  des Dimensionslevels Jahr des Attributes \textit{Zuletzt\-Eingekauft} und fügt
   die Dimensionslevelausprägung \textit{2016} der Positivliste des Filters
   hinzu. Somit werden alle Kunden in der weiteren Analyse ausgefiltert, welche
   in diesem Jahr noch nicht beim Unternehmen eingekauft haben. Um die Anzahl
@@ -2347,7 +2329,7 @@ vergessen.
 % ################################################################################
 
 % ################################################################################
-\chapter{Fazit}\label{ch:fazit}\todo{Und Ausblick?}
+\chapter{Fazit}\label{ch:fazit}
 % ################################################################################
 % \todo[inline]{Fazit ca.\ 1--2 Seiten}
 
