@@ -208,7 +208,7 @@
    konzeptionelle Datenanalysen bewertet werden
    (Abschnitt~\ref{sec:modellierung}). Daraufhin wird eine Übersicht zum
    Stammdatenmanagement im Allgemeinen, sowie eine Erläuterung der
-   Stammdatenmanagementsoftware \textit{DataRocket} im Speziellen gegeben
+   Stammdatenmanagement-Software \textit{DataRocket} im Speziellen gegeben
    (Abschnitt~\ref{sec:stammdatenmanagement}). Das Grundlagenkapitel wird mit
    der Vorstellung eines Anwendungsfallbeispiels abgeschlossen, auf welches
    Erläuterungen im weiteren Verlauf der Arbeit exemplarisch angewendet werden
@@ -260,7 +260,7 @@
 
   Qualitätskennzahlen im Stammdatenmanagement kombinieren die
   beiden Welten \textit{Datenanalyse} und \textit{Datenqualität} miteinander.
-  Im Folgenden Kapitel wird auf Grundlagen der beiden Welten mit einem
+  Im folgenden Kapitel wird auf Grundlagen der beiden Welten mit einem
   jeweiligen Abschnitt eingegangen: die Modellierung von Unternehmensdaten für die
   Datenanalyse und das Stammdatenmanagement als verantwortliche Funktion eines
   Unternehmens für die Datenqualität. Des Weiteren wird im letzten Abschnitt des
@@ -268,7 +268,7 @@
   Erklärungen der \textit{DataFurnace}-Sprache und -Software im Rahmen
   exemplarischer Umsetzungen zurück gegriffen wird.
 
-  \section{Modellierung von Unternehmensdatenanalysen}\label{sec:modellierung}
+  \section{Modellierung von Unternehmenskennzahlen}\label{sec:modellierung}
 
   Für den konzeptionellen Umgang mit Unternehmensdaten existieren verschiedene
   Modelltypen, welche das Datenschema abstrahiert darstellen.  Die Modellierung
@@ -276,7 +276,7 @@
   \textsc{\citeauthor{phipps2002automating}} zählen diese zu den fünf
   Hauptschritten der Datenanalyse im Data-Warehouse-Kontext~\cite[][S.
   1]{phipps2002automating}. Die beiden gängisten Typen sind die
-  mutlidimensionale Modellierung und die \acrlong{ER}-Modellierung~\cite[][S.
+  multidimensionale Modellierung und die \acrlong{ER}-Modellierung~\cite[][S.
   36]{ballard1998data}. Es wird nun die multidimensionale Modellierung
   beleuchtet und im Kontext der Unternehmensdatenanalyse mit der
   Entity-Relationship-Modellierung verglichen. Des Weiteren wird die Sprache
@@ -466,7 +466,7 @@
 	multidimensionale Modellierung gegenüber der ER-Modellierung für
 	\acrshort{OLAP}-Systeme besser eignet~\cite[][S.
 	52]{ballard2012dimensional}. Diese Feststellung ist von Relevanz, da
-	Stammdatenmanagementsoftware im Allgemeinen und \textit{DataRocket} im
+	Stammdatenmanagement-Software im Allgemeinen und \textit{DataRocket} im
 	Speziellen dem \acrlong{OLAP}-Systemtyp angehören.
 
 
@@ -690,7 +690,7 @@
   beschreibt ein zentrales System, welches verschiedenste andere Systeme und
   Datenbanken anbindet, die Daten aus diesen verarbeitet und eine konsolidierte
   Version zur Verfügung stellt~(\citeyear{baghi2014toward}, S. 3829).
-  \textsc{\citeauthor{loshin2010master}} definiert Stammdatenmanagementsoftware
+  \textsc{\citeauthor{loshin2010master}} definiert Stammdatenmanagement-Software
   im Allgemeinen ähnlich zum
   \textit{Consolidation-Hub}~(\citeyear{loshin2010master}, S. 8). Auf die
   übrigen Architekturen wird im weiteren Verlauf der Arbeit nicht eingegangen,
@@ -929,7 +929,7 @@
   Die Anforderungen der \textit{DataFurnace}-Sprache werden in den folgenden
   Aufzählungen benannt, näher beschrieben und begründet. Ursprung der
   Anforderungen sind zwei Treffen im Rahmen dieser Arbeit mit dem
-  \textit{Product-Owner} der Stammdatenmanagementsoftware \textit{DataRocket}
+  \textit{Product-Owner} der Stammdatenmanagement-Software \textit{DataRocket}
   und außerdem direkten Kundenanforderungen aus verschiedenen
   Präsentationsterminen.  Neben Anforderungen müssen des Weiteren Annahmen
   getroffen werden, welche von der \textit{innoscale AG} vorausgesetzt werden
@@ -2051,8 +2051,7 @@
 
   \section{Technische Umsetzung}\label{sec:technische-umsetzung}
 
-  \todo[inline]{Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten}
-  \todo[inline]{Sollen alle Technologien mit einer Fußnote mit der Website ausgestattet werden?}
+  % Technische Umsetzung ca.\ 1--2 Seiten, \ggf{} bis zu fünf Seiten
 
   Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
   innovativer Technologien des neuesten Standes der Informationstechnik
@@ -2194,7 +2193,7 @@
 
 
 % ################################################################################
-\chapter{Evaluation}\label{ch:evaluation}
+\chapter{Evaluation der \textit{DataFurnace}-Sprache und -Software}\label{ch:evaluation}
 \todo[inline]{Alternativ der Begriff Beurteilung oder Diskussion als Kapiteltitel}
 
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
@@ -2357,7 +2356,7 @@ vergessen.
 % ################################################################################
 % \todo[inline]{Fazit ca.\ 1--2 Seiten}
 
-Diese Arbeit verfolgte \todo{Vergangenheit} zwei Ziele: die Entwicklung einer Sprache zur
+Diese Arbeit verfolgte zwei Ziele: die Entwicklung einer Sprache zur
 Modellierung von Qualitätskennzahlen für die Unternehmensdatenanalyse und die
 prototypische Implementierung einer Komponente für die softwaregestütze Nutzung
 dieser Sprache in \textit{DataRocket}. Ergebnis der vorliegenden Arbeit ist die
@@ -2368,44 +2367,47 @@ Das Ergebnis der Entwicklung der \textit{DataFurnace}-Sprache ist eine leicht
 verständliche Modellierungssprache. Mit ihr lassen sich Qualitätsanalysen
 multidimensionaler Unternehmensdaten modellieren. Sie besteht aus den
 Sprachelementen: Geschäftsobjekt, Dimension, Dimensionslevel, Attribut,
-Ausprägung, Kennzahl und Bericht. Sie verfolgt ein
-einfaches Konzept um Nutzern jeglicher Fachabteilungen den Zugang zum
-Datenqualitätsmanagement zu ermöglichen. Wie durch Kapitel~\ref{ch:evaluation}
+Ausprägung, Kennzahl und Bericht. Sie verfolgt ein einfaches Konzept um Nutzern
+jeglicher Fachabteilungen den Zugang zum Datenqualitätsmanagement zu
+ermöglichen. Wie in der Evaluation (siehe Kapitel~\ref{ch:evaluation})
 aufgezeigt, kann die Sprache bereits nach einer kurzen Einführung und mit wenig
 Hilfe produktiv eingesetzt werden, unabhängig von dem jeweiligen
-Haupttätigkeitsfeld des Anwenders. Das einfache Konzept der Sprache hindert einen
-erfahrenen Nutzer nicht daran, komplexe Analysen zu konzipieren durch die
+Haupttätigkeitsfeld des Anwenders. Das einfache Konzept der Sprache hindert
+einen erfahrenen Nutzer nicht daran, komplexe Analysen zu konzipieren durch die
 Möglichkeit der Definition eigener Kennzahlfunktionen und die Möglichkeit der
-Komposition von Kennzahlen. Das Vokabular der Sprache übernimmt Sprachbegriffe
-und Konzepte aus der \textit{DataRocket}-Sprache, wie \zB{} den Begriff
+Komposition von Kennzahlen. Die Sprache übernimmt Begriffe
+und Konzepte aus dem \textit{DataRocket}-Vokabular, wie \zB{} den Begriff
 Geschäftsobjekt, Attribut und Kennzahl und ermöglicht somit eine leichte
 spätere Integration der Sprache in das Produkt \textit{DataRocket}.
 
 Aus der prototypischen Implementierung der \textit{DataFurnace}-Software
 resultiert eine alleinstehende moderne Webapplikation, welche einen Nutzer bei
 der Konzeption von Datenqualitätsanalysen unterstützt. Sie deckt den gesamten
-Sprachraum der \textit{DataFurnace}-Sprache mit einem dreistufigen Prozess, der
-Modellierung von Dimensionen, Spezifikation von Kennzahlen und der Kombination
-zu Berichten, ab. Die Technologien der \textit{DataFurnace}-Software gleichen
-in den meisten Fällen denen der \textit{DataRocket}-Software \bzw{} sind
-zumindest mit diesen kompatibel. Dies erlaubt eine leichte spätere Integration
-der \textit{DataFurnace}-Software in \textit{DataRocket}. Der Nutzer verwendet
-in der Software intuitive Bedienkonzepte, resultierend in einer hohen
-Benutzerfreundlichkeit. Die Software kann simultan von mehreren Nutzern
-verwendet werden, ermöglicht durch ein Zusammenspiel innovativer Technologien.
-Jegliche Änderungen eines Nutzers in der Software werden in Echtzeit an alle
-Nutzer übertragen.
+Sprachraum der \textit{DataFurnace}-Sprache mit einem dreistufigen Vorgehen,
+der Modellierung von Dimensionen, Spezifikation von Kennzahlen und der
+Kombination zu Berichten, ab. Die Technologien der
+\textit{DataFurnace}-Software gleichen in den meisten Fällen denen der
+\textit{DataRocket}-Software \bzw{} sind zumindest mit diesen kompatibel. Dies
+erlaubt eine leichte spätere Integration der \textit{DataFurnace}-Software in
+\textit{DataRocket}. Der Nutzer verwendet in der Software intuitive
+Bedienkonzepte, resultierend in einer hohen Benutzerfreundlichkeit. Das
+Stammdatenmanagement ist nicht Aufgabe eines einzelnen Mitarbeiters, sondern
+erfordert die Kollaboration mehrerer Abteilungen eines Unternehmens. Hierfür
+kann die \textit{DataFurnace}-Software simultan von mehreren Nutzern verwendet
+werden, ermöglicht durch ein Zusammenspiel innovativer Technologien.  Jegliche
+Änderungen eines Nutzers in der Software werden in Echtzeit an alle Nutzer
+übertragen.
 
-Dem aktuellen Implementierungsstand der \textit{DataFurnace}-Software mangelt
-es noch an Reife, wie aus Kapitel~\ref{ch:evaluation} hervorgeht. Es sollte
-beispielsweise die Tastatur als Navigationsmöglichkeit innerhalb einer
-Kennzahlformel unterstützt werden oder der Nutzer mit mehr Hinweisen durch die
-Konzeption der Analyse geleitet werden. Nach einer Umsetzung der
-vorgeschlagenen Lösungen (siehe Kapitel~\ref{ch:evaluation}) für die
-angesprochenen Probleme steht der Integration der \textit{DataFurnace}-Sprache
-und -Software in \textit{DataRocket} nichts mehr im Weg.
+Neben den guten Rückmeldungen im Rahmen der Nutzerbefragung sind die Ergebnisse
+dieser Arbeit auch von der \textit{innoscale AG} sehr positiv aufgenommen
+worden.  Die Sprache hat sich außerdem bereits bei einem Kundentermin als
+leicht verständlich und anwendungsbezogen bewährt. Nach einer Umsetzung der
+vorgeschlagenen Lösungen für die im Evaluationskapitel angesprochenen Probleme
+steht der Integration der \textit{DataFurnace}-Sprache und -Software in
+\textit{DataRocket} nichts mehr im Weg.
+
  % ################################################################################
-  \input{content/notes}
+  %\input{content/notes}
   % ################################################################################
 
 \end{content}
@@ -2416,7 +2418,55 @@ und -Software in \textit{DataRocket} nichts mehr im Weg.
 % Appendix
 % ################################################################################
 %\begin{appendix}
-%  \input{content/appendix}
+%  \section{Aufzeichnungen der Nutzerbefragung}\label{sec:appendix01}
+%
+%  \begin{table}[]
+%    \footnotesize
+%    \begin{tabular}{l l l l l}
+%      Tätigkeit & Computerkenntnisse & Geschlecht & Alter & Datum \\
+%      \toprule
+%      Berater für Stammdatenmanagement & gut & männlich & 34 \\
+%      \acrshort{BWL}-Student & gut & männlich & 26 \\
+%      \acrshort{BWL}-Studentin & ausreichend & weiblich & 21 \\
+%      Datenanalyst & sehr gut & männlich & 28 \\
+%      Projektmanagerin für Informationssysteme & befriedigend & weiblich & 61\\
+%      Softwareentwickler & sehr gut & männlich & 31 \\
+%      Softwareentwickler & sehr gut & männlich & 32 \\
+%      \acrshort{WI}-Doktorant & sehr gut & männlich & 27 \\
+%      \acrshort{WI}-Student & gut & männlich & 22 \\
+%      \acrshort{WI}-Student & sehr gut & männlich & 23 \\
+%      \acrshort{WI}-Studentin & gut & weiblich & 25 \\
+%    \end{tabular}
+%    \caption{Soziodemografische Eigenschaften der Testgruppe}
+%  \end{table}
+%
+%  \begin{table}[]
+%    \footnotesize
+%    \begin{tabularx}{\textwidth}{l l X }
+%      Tätigkeit & Alter & Ansicht \\
+%      \toprule
+%      Berater & 34 \\
+%      \acrshort{BWL}-Student & 26 \\
+%      \acrshort{BWL}-Studentin & 21 \\
+%      Datenanalyst & 28 \\
+%      Projektmanagerin & 61\\
+%      Softwareentwickler & 31 \\
+%      Softwareentwickler & 32 \\
+%      \acrshort{WI}-Doktorant & 27 \\
+%
+%      \acrshort{WI}-Student & 22 & \textbf{Dimensionsansicht: }Buttons in
+%      Geschäftsobjektbaumstruktur zu nah aneinander;\\
+%      && \textbf{Kennzahlansicht: } wendet Datenqualitätsfunktionen intuitiv an;\\
+%      && \textbf{Berichtsansicht: } \\
+%
+%      \acrshort{WI}-Student & 23 & Bäume öffnen sich nicht von allein; baut
+%      normalisierte Datenstrukturen; ordnet Dimensionslevel nicht hierarchisch
+%      an & versteht Funktionsschachtelung direkt \\
+%      \acrshort{WI}-Studentin & 25 & Baumstruktur öffnet sich nicht automatisch; verwechselt Dimensionsausprägungen mit Dimensionsleveln; ordnet Dimensionslevel \textit{Tag} nicht dem \textit{Monat} unter; Löschen-Button in Geschäftsobjektbaumstruktur zu nah am Hinzufügen-Button & versteht Funktionsschachtelung nicht \\
+%    \end{tabularx}
+%  \end{table}
+%
+%
 %\end{appendix}
 
 
