@@ -178,7 +178,7 @@
 	 % ENGLISH
 	 
 	 % English hyphenation rules
-	 \RequirePackage[ngerman, english]{babel}
+	 \RequirePackage[ngerman]{babel}
 	 
 	  % Use nice quotation marks with \enquote
 	 \RequirePackage[style=american]{csquotes}
@@ -215,7 +215,7 @@
 	% GERMAN
 	
 	 % English hyphenation rules
-	 \RequirePackage[english, ngerman]{babel}
+	 \RequirePackage[ngerman]{babel}
 	 
 	 % Use nice quotation marks with \enquote
 	 \RequirePackage[style=ngerman]{csquotes}
