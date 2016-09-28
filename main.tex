@@ -19,12 +19,12 @@
 
 % Graphics rendering using TikZ
 % See: https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
+\usepackage[ngerman]{babel}
 \usepackage{tikz}
 \usetikzlibrary{fit}
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{forest}
-\usepackage[ngerman]{babel}
 % Include required TikZ libraries here, some exemplary libraries are pre-included
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
@@ -32,8 +32,30 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{er}
 \usepackage{cleveref}
-\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+% \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
 \hyphenation{Ge-schäfts-ob-jekten}
+\hyphenation{kon-zi-piert}
+\hyphenation{kon-fi-gu-riert}
+\hyphenation{Ge-schäfts-ob-jekts}
+\hyphenation{Di-men-si-ons-le-vel}
+\hyphenation{wei-te-ren}
+\hyphenation{Ge-schäfts-ob-jekt}
+\hyphenation{zu-sätz-lich}
+\hyphenation{Ver-gleich}
+\hyphenation{Vo-ka-bu-lar-grup-pen}
+\hyphenation{bie-ten}
+\hyphenation{Ge-schäfts-ob-jekt}
+\hyphenation{Be-zugs-ob-jek-ten}
+\hyphenation{Mo-del-lie-rung}
+\hyphenation{Hier-ar-chie}
+\hyphenation{Stamm-da-ten-ma-nage-ment}
+\hyphenation{Da-ten-qua-li-täts-kenn-zah-len}
+\hyphenation{be-stimm-tes}
+\hyphenation{Qua-li-täts-kenn-zah-len}
+\hyphenation{Qua-li-tät}
+\hyphenation{hier-ar-chi-schen}
+\hyphenation{Wa-ren-be-reich}
+\hyphenation{be-zie-hen}
 \sloppy
 
 
@@ -119,7 +141,7 @@
   eine immer wichtigere Rolle ein~\cite[][]{otto2016datenqualitat}. Die
   Qualität dieser Daten hat einen hohen positiven Einfluss auf deren
   Einsetzbarkeit und Nutzen~\cite[][]{naumann2007datenqualitat,
-  helfert2000massnahmen}. Somit liegt es im Interesse eines Unternehmens eine
+  helfert2000massnahmen}. Somit liegt es im Interesse eines Unternehmens, eine
   hohe Datenqualität anzustreben. Innerhalb eines Unternehmens ist dies Aufgabe
   des Stammdatenmanagements~\cite[][]{legner2007stammdaten}.
   Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
@@ -162,7 +184,7 @@
   ist im Deutschen zu übersetzen als \textit{Datenschmelzofen}. Die
   \textit{DataFurnace}-Sprache und -Software kombinieren im Rahmen der
   Unternehmensdatenanalyse verschiedene Daten zu neuen Erkentnissen, ähnlich
-  zum Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
+  einem Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
   verschmolzen werden.} \todo{Erklärung überarbeiten} verwiesen.
 
   Die \textit{DataRocket}-Softwarekomponente soll es ermöglichen, die zuvor
@@ -215,7 +237,7 @@
   Kapitel vier und Kapitel fünf schließen die Arbeit mit einer Evaluation und
   einem Fazit ab. Ersteres beurteilt die neue \textit{DataFurnace}-Sprache und
   -Software mit Hilfe von Nutzerbefragungen, letzteres
-  fasst die gewonnen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
+  fasst die gewonnenen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
   Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure}
   visualisiert.
 
@@ -273,7 +295,7 @@
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
   Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
 
-  Um verschiedene Sichten auf diese Fakten zu erlangen, werden diese in Dimensionen gruppiert, \bzw{} Dimensionsausprägungen zugewiesen~\cite[][S.
+  Um verschiedene Sichten auf diese Fakten zu erlangen, werden sie in Dimensionen gruppiert, \bzw{} werden sie Dimensionsausprägungen zugewiesen~\cite[][S.
   66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
   verschiedenen Dimensionen zu filtern und zu vergleichen. Dimensionen werden
   hierarchisch strukturiert. Mit Hilfe der daraus entstehenden Hierarchiestufen
@@ -439,7 +461,7 @@
 	geringere Normalisierung zurückzuführen ist, wodurch sich die
 	multidimensionale Modellierung gegenüber der ER-Modellierung für
 	\acrshort{OLAP}-Systeme besser eignet~\cite[][S.
-	52]{ballard2012dimensional}. Diese Feststellung ist von Relevanz da
+	52]{ballard2012dimensional}. Diese Feststellung ist von Relevanz, da
 	Stammdatenmanagementsoftware im Allgemeinen und \textit{DataRocket} im
 	Speziellen dem \acrlong{OLAP}-Systemtyp angehören.
 
@@ -470,7 +492,7 @@
 		unterschieden in Basiskennzahlen und berechneten Kennzahlen, welche
 		wiederum in Kennzahlen mit Bezug auf ein und mit Bezug auf mehrere Objekte
 		unterteilt werden~\cite[][S.  15]{becker2007h2}.
-		\textsc{\citeauthor{becker2007h2}} nennt als Beispiel einer berechneten
+		\textsc{\citeauthor{becker2007h2}} nennen als Beispiel einer berechneten
 		Kennzahl den Umsatz~(\cite{becker2007h2}, S. 17).
 
     \item Berichte dienen der Visualisierung von Erkenntnissen aus der
@@ -558,7 +580,7 @@
   \textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
   US-Dollar Kosten im Jahr entstanden durch
   Datenqualitätsprobleme~(\citeyear{eckerson2002data}, S. 3).
-  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählt als aktuelle Hürden
+  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählen als aktuelle Hürden
   und Herausforderungen des Stammdatenmanagements die notwendige
   Datenstandardisierung über Unternehmensgrenzen hinaus, behördliche und
   gesetzliche Auflagen, den 360-Grad-Blick\footnote{Für weitere Details zum
@@ -613,7 +635,7 @@
 	wird~(\citeyear{baghi2013controlling}, S. 2). Diese Messung kann anhand von
 	Datenqualitätskennzahlen vollzogen werden, welche die Position eines
 	Stammdatums in einer Datenqualitätsdimension bestimmen. Die
-	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{} ob ein bestimmtes Feld
+	Datenqualitätskennzahl \textit{nicht-leer} prüft \zB{}, ob ein bestimmtes Feld
 	eines Stammdatums gefüllt ist. Angewandt auf die Datenqualitätsdimension
 	\textit{Vollständigkeit} der Dimensionskategorie \textit{Nutzung} kann sie
 	angeben, wie vollständig ein bestimmtes Datum ist. Die Überwachung der
@@ -625,11 +647,11 @@
 	Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S.
 	2).
 
-  Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden gilt es die
+  Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden, gilt es die
   vorhandenen Fehler zu beseitigen und deren Ursache zu identifizieren, um in
   Zukunft äquivalente Fehler zu vermeiden~\cite[][S. 22]{eckerson2002data}. Ein
   Beispiel für einen Datenqualitätsmisstand ist das Fehlen der Postleitzahl in
-  einer Adresse eines Kundenstammdatums. Schritt eins ist es den
+  einer Adresse eines Kundenstammdatensatzes. Schritt eins ist es den
   Kundendatensatz um die fehlende Postleitzahl zu erweitern. Wird in der
   Kundendateneingabemaske die Postleitzahl als Pflichtfeld deklariert wird
   dieser Fehler in der Zukunft für weitere Datensätze verhindert, womit auch
@@ -695,10 +717,10 @@
   einzelner Schritte näher erläutert wird:
 
 	\begin{enumerate}
-		\item Eine Aggregations-Modellierung wird durchgeführt, indem so genannte
+		\item Eine Aggregations-Modellierung wird durchgeführt, indem sogenannte
 		Geschäftsobjekte\footnote{Der DataRocket-Begriff Geschäftsobjekt wird in
 		Abschnitt~\ref{subsec:dimension} erläutert.} und ihre Attribute definiert
-		werden und mit einander in Beziehung gebracht werden. In späteren Schritten
+		werden und miteinander in Beziehung gebracht werden. In späteren Schritten
 		wird ein solches Geschäftsobjekt mit Informationen aus verschiedenen
 		Datenquellen befüllt, womit es eine Aggregation dieser darstellt. Ein
 		Beispiel ist das Geschäftsobjekt \textit{Kunde}, welches die Attribute
@@ -892,7 +914,7 @@
 
   Im Folgenden wird eine Anforderungsanalyse für die
   \textit{DataFurnace}-Sprache durchgeführt, um genaue Anforderungen an die
-  Sprache für die spätere Entwicklung dieser zu sammeln und zu spezifizieren.
+  Sprache für ihre spätere Entwicklung zu sammeln und zu spezifizieren.
   Hierzu wird auf die Vorgehensweise der \textit{zielorientierten
   Anforderungsanalyse} zurückgegriffen, näher beschrieben von
   \textsc{\citeauthor{van2001goal}}~\citeyearpar{van2001goal}.  Ziele werden
@@ -906,7 +928,7 @@
   \textit{Product-Owner} der Stammdatenmanagementsoftware \textit{DataRocket}
   und außerdem direkten Kundenanforderungen aus verschiedenen
   Präsentationsterminen.  Neben Anforderungen müssen des Weiteren Annahmen
-  getroffen werden, welche von der \textit{innoscale AG} vorrausgesetzt werden
+  getroffen werden, welche von der \textit{innoscale AG} vorausgesetzt werden
   und somit die Entwicklung der Sprache beeinflussen.
 
 
@@ -917,7 +939,7 @@
         Unternehemensdatentypen sollen in ihrem Aufbau spezifiziert werden
         können. Hierzu zählt die Benennung von Attributen eines Datensatztypus
         und die Spezifikation der hierarchischen Strukturen innerhalb seiner
-        Attribute. Zum Beispiel soll dem Unternehmensdatentyp \textit{Produkt}
+        Attribute. Zum Beispiel sollen dem Unternehmensdatentyp \textit{Produkt}
         die Attribute \textit{Preis} und \textit{Produktkategorie} zugeordnet
         werden können. Das Attribut \textit{Produktkategorie} soll des Weiteren
         in seine Bestandteile \textit{Warenlinie} und \textit{Warenbereich}
@@ -941,7 +963,7 @@
         gehalten werden, dass sie nicht nur der Datenqualitätsbeurteilung
         dienen, sondern auch allgemeine Beurteilungen erbringen können. Will
         sich ein Nutzer beispielsweise in einem großen Datenqualitätsprojekt
-        zunächst nur auf die lukrativen Instanzen des Geschäftsobjekt
+        zunächst nur auf die lukrativen Instanzen des Geschäftsobjekts
         \textit{Produkt} konzentrieren, so soll er mit Hilfe der
         betriebswirtschaftlichen Kennzahl \textit{Gewinn} diese gefiltert
         analysieren können.
@@ -966,9 +988,9 @@
     \begin{enumerate}
       \item \textbf{Hohe Verständlichkeit}\label{item:hohe-verstaendlichkeit}
 
-				Die Sprache soll sehr leicht verständlich sein, um mit dem
+				Die Sprache soll sehr leicht verständlich sein, um dem
 				Alleinstellungsmerkmal von \textit{DataRocket}, den Zugang zu
-				Datenqualitätsmanagement IT-Laien zu ermöglichen, kohärent zu bleiben.
+				Datenqualitätsmanagement IT-Laien zu ermöglichen, zu entsprechen.
 				Ein besonderer Fokus soll auf einer geringen Komplexität der Sprache
 				liegen, wodurch der Nutzer die Sprache schnell verstehen und erlernen
 				kann.
@@ -1015,7 +1037,7 @@
 
 			\item \textbf{Visualisation in tabellarischer Form}
 
-			Der \textit{Visualization}-Baustein, beschriebn in
+			Der \textit{Visualization}-Baustein, beschrieben in
 			Abschnitt~\ref{sec:Vorstellung-DataRocket}, zur Abbildung von Daten in
 			Form von attraktiven Diagrammen ist bereits vollständig in
 			\textit{DataRocket} implementiert. Als Eingabe nimmt der Baustein Daten
@@ -1033,13 +1055,13 @@
 
   Die \textit{DataFurnace}-Sprache wurde in enger Zusammenarbeit und ständiger
   Absprache mit der \textit{innoscale AG} und unter Einbeziehung des
-  aktuellen Stand der Wissenschaft im Bereich des Datenqualitätsmanagements und
+  aktuellen Stands der Wissenschaft im Bereich des Datenqualitätsmanagements und
   der Unternehmensdatenanalyse entwickelt. Im Folgenden wird die Sprache,
   strukturiert anhand ihres Vokabulars, erklärt. Dieses unterteilt sich in die
   Vokabulargruppen Dimensionen, Kennzahlen und Berichte, welche in ihrer Summe
   die \textit{DataFurnace}-Sprache ausmachen. Die gesamte Sprache ist in
-  Abbildung~\ref{fig:language_spec-erm} gezeigt, welche für jede
-  Vokabulargruppe in Ausschnitten betrachtet wird.
+  Abbildung~\ref{fig:language_spec-erm} gezeigt. Die Abbildung wird im Folgenden für jede
+  Vokabulargruppe in separaten Ausschnitten erneut betrachtet.
 
   \begin{figure}
     \resizebox{\columnwidth}{!}{\input{content/figures/language_spec-erm.tex}}
@@ -1265,7 +1287,7 @@
   sich auf mehr als zwei Dimensionen beziehen. Diese multidimensionalen
   Fragestellungen werden in der Sprache, wie auch in \textit{H2 for Reporting},
   in Form einer Tabelle aus dem multidimensionalen Raum ins Zweidimensionale
-  projeziert~\cite[][S.  23]{becker2007h2}. Diese Tabelle bildet die
+  projiziert~\cite[][S.  23]{becker2007h2}. Diese Tabelle bildet die
   Kernkomponente eines Berichts.  Sie wird über ihre Kopfzeilen und Kopfspalte
   konfiguriert.
 
@@ -1430,9 +1452,7 @@
       muss die \textit{DataFurnace}-Software die Voraussetzung zur
       Spezifikation von komplexen Kennzahlen schaffen. Die Komplexität der
       Kennzahlen soll sich sowohl über mathematische Formeln als auch
-      über programmatische Funktionen abbilden lassen. Der Bezug dieser soll auf
-      eine einzelne Geschäftsobjektinstanz ebenso wie auf mehrere Instanzen
-      liegen können.
+      über programmatische Funktionen abbilden lassen.
 
     \item \textbf{Kombination zu Berichten}
 
@@ -1472,7 +1492,7 @@
 
 			Bei der Konzeption und Entwicklung der \textit{DataFurnace}-Software soll
 			besonderer Wert auf die Benutzerfreundlichkeit der Oberfläche gesetzt
-			werden, um jedem Nutzer, obgleich seines bisherigen Kenntnisstandes,
+			werden, um jedem Nutzer, ungeachtet seines bisherigen Kenntnisstandes,
 			einen leichten Zugang zu der \textit{DataFurnace}-Sprache über die
 			Software zu eröffnen. Orientierung sollen hier die \glqq{}Ten usability
 			heuristics of user interface and design\grqq{} von
@@ -1484,7 +1504,7 @@
       Wie in Abschnitt~\ref{sec:Vorstellung-DataRocket} beschrieben, folgt
       \textit{DataRocket} für die Datenqualitätsverbesserung einem Vorgehen mit
       genau definierten Schritten. Die \textit{DataFurnace}-Software soll dies
-      \textit{DataRocket} gleich tun, um einem unerfahrenen Nutzer ohne viel
+      \textit{DataRocket} gleichtun, um einem unerfahrenen Nutzer ohne viel
       Einarbeitungszeit durch das Datenanalyseverfahren zu leiten.  Dieses
       Vorgehen soll mit seinen Schritten tief in der Struktur der Oberfläche
       verankert sein.
@@ -1581,8 +1601,8 @@
   \subsection{Dimensionsansicht}\label{subsec:dimensionsansicht}
 
   Das Modellierungsvorgehen beginnt in der Dimensionsansicht, welche sich aus
-  Baumstrukturen zur Representation von Geschäftsobjekten mit ihren Attributen
-  und Dimensionenauf der linken Seite und einer Detailansicht zur näheren
+  Baumstrukturen zur Repräsentation von Geschäftsobjekten mit ihren Attributen
+  und Dimensionen auf der linken Seite und einer Detailansicht zur näheren
   Beschreibung einzelner Elemente auf der rechten Seite aufbaut (siehe
   Abbildung~\ref{dimensionsansicht}). 
 
@@ -1734,8 +1754,8 @@
   In der Mitte des Kennzahleditors wird die Formel zu Berechnung der Kennzahl
   angezeigt. Bei einer just erstellten Kennzahl wird hier lediglich der
   Kennzahlname visualisiert, gefolgt von einem Gleichheitszeichen. Das
-  Gleichheitszeichen hält hier die Funktion einer Zuweisung wie im Gebrauch
-  der Informatik, nicht eines Vergleichs wie in der Mathematik, inne.
+  Gleichheitszeichen hat hier die Funktion einer Zuweisung wie im Gebrauch
+  der Informatik, nicht eines Vergleichs wie in der Mathematik.
   Alternativ könnte die Zuweisung an dieser Stelle auch durch das Zeichen
   \mbox{:=} verdeutlicht werden. 
   
@@ -1786,7 +1806,7 @@
     \item Durch einen Klick auf einen \textbf{Kennzahlausdruck} wird ein
       Auswahldialog angezeigt wie auch beim Attributausdruck, welcher alle
       erstellten Kennzahlen im System bis auf die aktuelle zur Auswahl stellt.
-      Ein Nutzer kann hiervon eine auswählen, dessen Namen als ebenfalls als
+      Ein Nutzer kann hiervon eine auswählen, deren Name ebenfalls als
       Platzhalter in der Formel erscheint.  
 
     \item Wird ein \textbf{Operatorausdruck} zur Konfiguration ausgewählt,
@@ -1822,7 +1842,7 @@
   [A\textminus{}Za\textminus{}z])))} ein, welche nur den boolschen Wert
   \textit{wahr} zurück gibt, wenn der \textit{Verkaufspreis} nicht leer ist und
   keine Buchstaben enthält. Analog zu dieser Kennzahl erstellt er ebenfalls
-  Kennzahlenn für die Prüfung der Attribute \textit{E-Mail-Adresse} und
+  Kennzahlen für die Prüfung der Attribute \textit{E-Mail-Adresse} und
   \textit{Anschrift} des Geschäftsobjekts \textit{Kunde}.
 
   Neben den drei soeben beschriebenen Datenqualitätskennzahlen der Attribute
@@ -2035,12 +2055,12 @@
   bedient. Eine nähere Erläuterung jeder Technologie und deren Integration im
   Softwaresystem würde über den Rahmen dieser Arbeit hinaus gehen, jedoch soll
   im Folgenden auf die Systemarchitektur und die Möglichkeit der
-  Echtzeitkollaboration, aufgegriffen aus der Anforderungsanalyse aus
+  Echtzeitkollaboration, aufgegriffen in der Anforderungsanalyse aus
   Abschnitt~\ref{sec:software/anforderungsanalyse}, eingegangen werden.
 
   \paragraph{Systemarchitektur}
   Die \textit{DataFurnace}-Software ist eine eigenständige  Webanwendung,
-  welche auf dem hierfür klassischem Client-Sever-Modell aufbaut. Die
+  welche auf dem hierfür klassischen Client-Sever-Modell aufbaut. Die
   Serverarchitektur setzt sich aus einem Webserver und einem Datenbankserver
   zusammen. Der Webserver ist eine \textit{NodeJS}-Anwendung unter Verwendung
   des \textit{MeteorJS}-Frameworks. Über das \textit{HTTP}-Protokoll für
@@ -2124,7 +2144,7 @@
   Software von mehreren Personen gleichzeitig genutzt werden können. Um diese
   Kollaboration über mehrere Clients hinweg so benutzerfreundlich wie möglich
   zu gestalten, müssen Änderungen eines Nutzers in Echtzeit nicht nur im
-  eigenen Client, sondern allen Clients sichtbar sein. Um diese Reaktivität
+  eigenen Client, sondern in allen Clients sichtbar sein. Um diese Reaktivität
   technisch umsetzen zu können, werden das Webserver-Framework \textit{MeteorJS},
   die Datenbank \textit{MongoDB}, sowie die \textit{JavaScript}-Bibliothek
   \textit{ReactJS} verwendet. Anhand eines konkreten Beispiels soll im
@@ -2206,7 +2226,7 @@ Probleme der Sprache und Software erkennen zu können~\cite[][S. 9]{hegner2003me
 \paragraph{Vorbereitung und Ablauf} Zwar versucht die
 \textit{DataFurnace}-Sprache und -Software einem Nutzer durch intuitive
 Konzepte einen leichten Einstieg in die konzeptionelle Datenqualitätsanalyse zu
-ermöglichen, jedoch ist eine kurze Einweisung gerade in die Thematik der
+ermöglichen, dennoch ist eine kurze Einweisung gerade in die Thematik der
 Sprache zur Nutzung nötig. Den Testpersonen wurde vor der Nutzung des Produkts
 eine kurze Einführung in die Datenmodellierung, das Stammdatenmanagement und
 die \textit{DataFurnace}-Sprache gegeben. Der Umfang der Einführung kann mit
@@ -2228,13 +2248,13 @@ ihre Eindrücke und Gedanken während der Nutzung der Sprache und Software
 mitzuteilen. Neben dieser Form der Rückmeldung wurden die Schritte des
 Testnutzers am Computer beobachtet.
 
-\paragraph{Erkenntnisse}\todo{Wirklich so nennen?} Nachfolgend wird von den Erkentnisse aus der
+\paragraph{Erkenntnisse}\todo{Wirklich so nennen?} Nachfolgend wird von den Erkentnissen aus der
 durchgeführten formativen Evaluation berichtet, strukturiert anhand der zuvor
 spezifizierten Anforderungen (siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}
 und~\ref{sec:software/anforderungsanalyse}) und dem
 \textit{DataFurnace}-Vorgehen (siehe
 Abschnitt~\ref{sec:software/fachliches-konzept}). Auf Erkentnisse
-aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen
+aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen,
 übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich ausgewählte
 Erkenntnisse behandelt werden, welche aus der Gesamtmenge mit ihrer
 Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
@@ -2242,7 +2262,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
 \begin{itemize}
   \item \textbf{Spezifikation von Unternehmensdatenstrukturen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Verständlichkeit} (\ref{sec:sprache/anforderungsanalyse})
 
-    Der erste Schritt im Rahmen der Datenalyse aus dem Anwendungsbeispiels ist
+    Der erste Schritt im Rahmen der Datenalyse des Anwendungsbeispiels ist
     die Spezifikation von Unternehmensdatenstrukturen in der Dimensionsansicht
     der \textit{DataFurnace}-Software. Die Identifizierung von
     Geschäftsobjekten und deren Attribute aus der
@@ -2264,7 +2284,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Software und Hinweise, welche den Nutzer besser durch die Prozessschritte
     leiten. Außerdem sollte die Darstellung von Attributen unter Dimensionen
     überdacht werden, da häufig die Modellierung der Attribute vor der
-    Modellierung der Dimensionen vom Nutzer angestrebt wurden.\todo{Auch
+    Modellierung der Dimensionen vom Nutzer angestrebt wurde.\todo{Auch
     mögliche Lösungen erläutern?}
 
   \item \textbf{Definition von Kennzahlen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Benutzerfreundlichkeit} (\ref{sec:software/anforderungsanalyse})
@@ -2300,7 +2320,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Tabellenkomponente hinzugefügt und wenn nötig weiter konfiguriert. Durch
     die Erklärungen der \textit{DataFurnace}-Sprache waren sich alle Probanden
     der groben Vorgehensweise des Vorgehensschritts bewusst. Neun von elf
-    Testpersonen haben korrekter Weise mit der Erstellung von Filtern begonnen.
+    Testpersonen haben korrekterweise mit der Erstellung von Filtern begonnen.
     Acht von zehn Personen haben intuitiv einen Bericht pro Geschäftsobjekt
     angefertigt.  Einzelne Probleme hatten Probanden bei der Entscheidung, ob
     Dimensionslevel oder Kennzahlen der Filter- oder der Tabellenkomponente
@@ -2309,7 +2329,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Die Kombination zu Berichten könnte einem Nutzer erleichtert werden, indem,
     sobald er Elemente der Oberfläche mit der Maus zieht, mögliche Absetzplätze
     hervorgehoben werden. Des Weiteren sollte der Vorgehensschritt zur Erstellung
-    eines Berichts in konkrete Subschritte aufgeteilt werden um den Nutzer
+    eines Berichts in konkrete Subschritte aufgeteilt werden, um den Nutzer
     besser zu leiten.
 
   % \item \textbf{UI} Tastaturunterstützung im Formeleditor (Nielsen Nummer 7 `Flexibility
@@ -2333,7 +2353,7 @@ vergessen.
 % ################################################################################
 % \todo[inline]{Fazit ca.\ 1--2 Seiten}
 
-Diese Arbeit verfolgt zwei Ziele: die Entwicklung einer Sprache zur
+Diese Arbeit verfolgte \todo{Vergangenheit} zwei Ziele: die Entwicklung einer Sprache zur
 Modellierung von Qualitätskennzahlen für die Unternehmensdatenanalyse und die
 prototypische Implementierung einer Komponente für die softwaregestütze Nutzung
 dieser Sprache in \textit{DataRocket}. Ergebnis der vorliegenden Arbeit ist die
@@ -2350,7 +2370,7 @@ Datenqualitätsmanagement zu ermöglichen. Wie durch Kapitel~\ref{ch:evaluation}
 aufgezeigt, kann die Sprache bereits nach einer kurzen Einführung und mit wenig
 Hilfe produktiv eingesetzt werden, unabhängig von dem jeweiligen
 Haupttätigkeitsfeld des Anwenders. Das einfache Konzept der Sprache hindert einen
-erfahrenen Nutzer nicht daran komplexe Analysen zu konzipieren, durch die
+erfahrenen Nutzer nicht daran, komplexe Analysen zu konzipieren durch die
 Möglichkeit der Definition eigener Kennzahlfunktionen und die Möglichkeit der
 Komposition von Kennzahlen. Das Vokabular der Sprache übernimmt Sprachbegriffe
 und Konzepte aus der \textit{DataRocket}-Sprache, wie \zB{} den Begriff
