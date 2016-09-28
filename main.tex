@@ -83,13 +83,13 @@
   tutor-supervisor={}, % If required, define an additional supervisor resp. tutor here
   group={Lehrstuhl für Wirtschaftsinformatik und Informationsmanagement},
   group-institute={Westfälische Wilhelms-Universität, M\"unster},
-  associate-group={innoscale AG}, % When the thesis is done in cooperation with another chair, add it here
+  associate-group={\textit{innoscale AG}}, % When the thesis is done in cooperation with another chair, add it here
   %associate-group-institute={innoscale AG}, % add cooperating institute or university here
   seminar={Scientific Writing for Beginners}, % The title of your seminar
   submission-date={}, % !!! In  isthesis.cls ändern
   %primary-logo={}, % Uses the WWU logo by default
   %primary-logo-height={}, % Uses 16mm as default height
-  secondary-logo={lib/assets/innoscale-logo}, % Logo of the secondary institution (cooperating chair/university), USES Faculty logo by default
+  secondary-logo={lib/assets/faculty-de}, % Logo of the secondary institution (cooperating chair/university), USES Faculty logo by default
   %secondary-logo-height={} % Uses 16mm as default height
 }
 \begin{document}
@@ -246,7 +246,7 @@
   visualisiert.
 
   \begin{figure}
-    \includegraphics[scale=0.60]{content/figures/thesis-structure}
+    \includegraphics[scale=0.70]{content/figures/thesis-structure}
     \caption{Aufbau der Arbeit}\label{fig:thesis-structure}
   \end{figure}
 
@@ -336,8 +336,8 @@
   werden~\citeyearpar{codd1970relational,codd1972further}.
 
   \begin{figure}
-    \resizebox{0.5\linewidth}{!}{\input{content/figures/star-schema.tex}}
-    \caption[Star-Schema Beispielmodell]{Star-Schema Beispielmodell angelehnt an~\cite{Kemper2010} Abb. 2.30}\label{fig:star-schema}
+    \resizebox{0.6\linewidth}{!}{\input{content/figures/star-schema.tex}}
+    \caption[Star-Schema Beispielmodell]{Star-Schema Beispielmodell angelehnt an~\textsc{\cite{Kemper2010}} Abb. 2.30}\label{fig:star-schema}
   \end{figure}
 
   \begin{table}[]
@@ -361,7 +361,7 @@
   sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
   visualisiert die strenge Normalisierung an der Dimension Ort.
   Abbildung~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten dieser
-  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlägt alternativ
+  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlagen alternativ
   nicht den Ansatz der vollen Normalisierung im Snowflake-Modell vor, sondern eine
   geschwindigkeitsorientierte Teilnormalisierung~(\citeyear{Kemper2010}, S. 70).
   \textsc{\citeauthor{Kimball2013}} hingegen raten komplett vom Snowflake-Modell
@@ -416,7 +416,7 @@
 	Seite 4--9) und \textsc{\citeauthor{schutte2013grundsatze}}
 	(\citeyear{schutte2013grundsatze}, Seite 93--99) erklärt.
 
-  \textsc{\citeauthor{ballard1998data}} bezeichnet die multidimensionale
+  \textsc{\citeauthor{ballard1998data}} bezeichnen die multidimensionale
   Modellierung eine Obermenge der ER-Modellierung (\citeyear{ballard1998data},
   S. 47). Die multidimensionale Modellierung kann laut
   \textsc{\citeauthor{ballard1998data}} mittels der Notation der
@@ -428,12 +428,12 @@
 
   \begin{figure}
     \centering
-    \begin{subfigure}{.49\textwidth}
+    \begin{subfigure}{.70\textwidth}
       \centering
       \resizebox{\linewidth}{!}{\input{content/figures/star-schema.tex}}
       \caption{Multidimensionales Modell}
     \end{subfigure}
-    \begin{subfigure}{.49\textwidth}
+    \begin{subfigure}{.70\textwidth}
       \centering
       \resizebox{\linewidth}{!}{\input{content/figures/star-schema-erm.tex}}
       \caption{Entity-Relationship-Modell}\label{vergleich-erm}
@@ -629,7 +629,7 @@
 	Abbildung~\ref{15-dimensions}).
 
   \begin{figure}
-    \includegraphics[scale=0.60]{content/figures/15-dimensions}
+    \includegraphics[scale=0.75]{content/figures/15-dimensions}
     \caption[Datenqualitätsdimensionen]{Datenqualitätsdimensionen angelehnt an~\textsc{\citeauthor{rohweder2015informationsqualitat}} (\citeyear{rohweder2015informationsqualitat}, S. 30)}\label{15-dimensions}
   \end{figure}
 
@@ -667,13 +667,13 @@
   \textsc{\citeauthor{baghi2014toward}} definieren
   Stammdatenmanagement-Software allgemein als eine Applikation, welche
   Attribute von Stammdaten erstellen, speichern und verändern
-  kann~(\citeyear{baghi2014toward}, S. 3828). \todo{Direkt übersetzt!
-  Anführungszeichen?} Sie ermöglicht es dem Endnutzer, die Daten in einer
-  qualitativ hochwertigen konsolidierten Form zu konsumieren~\cite[][Abschnitt
-  1.2.]{dreibelbis2008enterprise}.  \textsc{\citeauthor{baghi2014toward}}
-  unterscheiden Stammdatenmanagement-Software anhand ihrer Architektur in
+  kann~(\citeyear{baghi2014toward}, S. 3828). Sie ermöglicht es dem Endnutzer,
+  die Daten in einer qualitativ hochwertigen konsolidierten Form zu
+  konsumieren~\cite[][Abschnitt 1.2.]{dreibelbis2008enterprise}.
+  \textsc{\citeauthor{baghi2014toward}} unterscheiden
+  Stammdatenmanagement-Software anhand ihrer Architektur in
   \textit{Central-System}, \textit{Leading-System},
-  \textit{Service-Oriented-Architecture}\todo{gefährliche}, \textit{Registry},
+  \textit{Service-Oriented-Architecture}, \textit{Registry},
   \textit{Consolidation-Hub} und
   \textit{Peer-to-Peer}~(\citeyear{baghi2014toward}, S. 3829)~\cite[][Abschnitt
   5.3.1.]{dreibelbis2008enterprise}. Im späteren Verlauf dieser Arbeit wird auf
@@ -709,7 +709,7 @@
 	Änderungen an Attributen eines Stammdatums an diese weiter geben kann, \bzw{}
 	die Änderungen zurückschreiben kann.  Alleinstellungsmerkmale der Software
 	sind: Domänenunabhängigkeit, einfache Bedienung und hoher
-	Funktionsumfang\todo{\ggf{} hoher Funktionsumfang noch ersetzen, für Leute aus der IT und den Fachabteilungen}.
+	Funktionsumfang.
 	\textit{DataRocket} fällt in die Gruppe der \acrshort{OLAP}-Systeme und
 	implementiert einen \textit{\acrlong{ETL}}-Prozess\footnote{Für Definitionen
 	des ETL-Prozesses siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
@@ -1250,31 +1250,24 @@
   Attribut \textit{Verfallsdatum}, als Filter hinzu. In diesem Filter fügt er
   die Dimensions\-level\-ausprägung \textit{2016} in die Positivliste ein.
 
-	Alternativ zu der Filterung über Dimensions\-levelausprägungen kann der Nutzer
-	auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Dies ist
-	jedoch nur mit Kennzahlen möglich, welche sich auf eine einzelne
-	Geschäftsobjektinstanz anwenden lassen. Enthält die Formel einer Kennzahl
-	eine Aggregationsfunktion ist sie für die Filterkomponente ungeeignet, da
-	hier jeweils eine einzelne Instanz betrachtet wird. Für die Filterung mit
-	einer Kennzahl mit Bezug auf eine einzelne Instanz wählt ein Nutzer eine
-	zuvor definierte Kennzahl aus und konkretisiert, bei welchen Ergebnissen der
-	Kennzahl eine Instanz eines Geschäftsobjekts in die nähere Auswahl
-	aufgenommen oder ausgefiltert wird.
-
-  Für diese Konkretisierung müssen Kennzahlen zunächst anhand ihrer
-  Ergebnistypen in zwei Gruppen unterteilt werden. Die erste Gruppe gibt als
-  Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober- und Untergrenzen
-  benennen, in welchen der Ergebniszahlenwert der Kennzahl einer
-  Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden. Ein
-  Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt, ist der
+  Alternativ zu der Filterung über Dimensions\-levelausprägungen kann der
+  Nutzer auch eine Filterung über Ergebnisse von Kennzahlen durchführen. Für
+  eine solche Filterung wählt ein Nutzer eine zuvor definierte
+  Kennzahl aus und konkretisiert, bei welchen Ergebnissen der Kennzahl eine
+  Instanz eines Geschäftsobjekts in die nähere Auswahl aufgenommen oder
+  ausgefiltert wird.  Für diese Konkretisierung müssen Kennzahlen zunächst
+  anhand ihrer Ergebnistypen in zwei Gruppen unterteilt werden. Die erste
+  Gruppe gibt als Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober-
+  und Untergrenzen benennen, in welchen der Ergebniszahlenwert der Kennzahl
+  einer Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden.
+  Ein Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt, ist der
   \textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen, welche
   einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die gesuchte
   Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen muss oder
   nicht bestehen darf. Als Beispiel kann hier die \textit{nicht-leer}-Kennzahl
   genannt werden, welche lediglich \textit{wahr}, das Attribut der
   Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder \textit{falsch}, das
-  Attribut ist nicht gefüllt\todo{Erklärungen jeweils in Klammern, statt mit
-  Komma abgetrennt?}, zurück gibt.
+  Attribut ist nicht gefüllt, zurück gibt.
 
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
@@ -2071,7 +2064,7 @@
   Anwendungsdaten kommuniziert er mit dem Client. Neben der Verbindung zum
   Client hat der Anwendungsserver direkten Zugriff auf den Datenbankserver.
   Bedingt durch die Einschränkung, dass \textit{MeteorJS} seine volle
-  Funktionalität nur in Verbindung mit einem \textit{MongoDB}-Datenbankservers
+  Funktionalität nur in Verbindung mit einem \textit{MongoDB}-Datenbankserver
   bieten kann, wird ebendiese Technologie für den Datenbankserver der
   \textit{DataFurnace}-Software eingesetzt. Sowohl Webserver als auch
   Datenbankserver werden mit der Virtualisierungssoftware \textit{Docker}
@@ -2258,9 +2251,9 @@ und~\ref{sec:software/anforderungsanalyse}) und dem
 \textit{DataFurnace}-Vorgehen (siehe
 Abschnitt~\ref{sec:software/fachliches-konzept}). Auf Erkentnisse
 aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen,
-übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich ausgewählte
+übersteigt den Rahmen dieser Arbeit, weswegen hier lediglich ausgewählte
 Erkenntnisse behandelt werden, welche aus der Gesamtmenge mit ihrer
-Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
+Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
 
 \begin{itemize}
   \item \textbf{Spezifikation von Unternehmensdatenstrukturen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Verständlichkeit} (\ref{sec:sprache/anforderungsanalyse})
