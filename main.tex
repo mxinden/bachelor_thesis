@@ -2193,7 +2193,7 @@ des Syntaxdiagramms genutzt.
 
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
 -Software sollen im Folgenden diese Ergebnisse evaluiert werden. Um zu
-überprüfen inwiefern die getroffenen Anforderungen erfüllt wurden, wurden elf
+überprüfen, inwiefern die getroffenen Anforderungen erfüllt werden, wurden elf
 Personen (siehe Tabelle~\ref{table:testgruppe}) gebeten die Datenanalyse
 beschrieben im Anwendungsfallbeispiel
 Abschnitt~\ref{sec:anwendungsfallbeispiel} konzeptionell mit der
@@ -2232,7 +2232,7 @@ den jeweiligen Abschnitten und Kapiteln
 (\ref{sec:modellierung},~\ref{sec:stammdatenmanagement},~\ref{ch:entwicklung-datafurnace-sprache})
 dieser Arbeit verglichen werden.  Nach der Einführung wurden die Probanden mit
 dem Anwendungsfallbeispiel aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
-vertraut gemacht und wurden daraufhin aufgefordert die gegebenen
+vertraut gemacht und wurden daraufhin aufgefordert, die gegebenen
 Fragestellungen aus dem Anwendungsfallbeispiel konzeptionell mit Hilfe der
 \textit{DataFurnace}-Sprache und -Software in Form einer Datenanalyse
 abzubilden. Die Musterlösung der Aufgabenschritte kann pro Ansicht der
@@ -2240,21 +2240,21 @@ abzubilden. Die Musterlösung der Aufgabenschritte kann pro Ansicht der
 Abschnitte~\ref{subsec:dimensionsansicht},~\ref{subsec:kennzahlansicht}
 und~\ref{subsec:berichtsansicht} gefunden werden. Hier werden die Erläuterungen
 der \textit{DataFurnace}-Software auf das Anwendungsfallbeispiel übertragen.
-Probanten wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
+Probanden wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
 (\cite{holzinger2005usability}, S.  73;~\cite{nielsen1994usability}, S. 195)
 ihre Eindrücke und Gedanken während der Nutzung der Sprache und Software
 mitzuteilen. Neben dieser Form der Rückmeldung wurden die Schritte des
 Testnutzers am Computer beobachtet.
 
 \paragraph{Erkenntnisse}\todo{Wirklich so nennen?} Nachfolgend wird von den Erkentnisse aus der
-durchgeführten formativen Evaluation strukturiert anhand der zuvor
+durchgeführten formativen Evaluation berichtet, strukturiert anhand der zuvor
 spezifizierten Anforderungen (siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}
 und~\ref{sec:software/anforderungsanalyse}) und dem
 \textit{DataFurnace}-Vorgehen (siehe
-Abschnitt~\ref{sec:software/fachliches-konzept}) berichtet. Auf Erkentnisse
+Abschnitt~\ref{sec:software/fachliches-konzept}). Auf Erkentnisse
 aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen
-übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich eine ausgewählte
-Menge von Erkenntnissen behandelt wird, welche aus der Gesamtmenge mit ihrer
+übersteigt den Rahmen dieser Arbeit, wewegen hier lediglich ausgewählte
+Erkenntnisse behandelt werden, welche aus der Gesamtmenge mit ihrer
 Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
 
 \begin{itemize}
@@ -2272,10 +2272,10 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
     Hintergrund aus der Wirtschaftsinformatik taten sich jedoch mit diesem
     Schritt schwer. Häufigstes Problem war die sinvolle Benennung von Elementen
     und das Verständnis über die Beziehungen und Kardinalitäten zwischen
-    Dimensionen, Dimensionsleveln und Attributen. Des Weiteren wurde häufig der
+    Dimensionen, Dimensionsleveln und Attributen. Außerdem wurde häufig der
     Fehler gemacht, Dimensionslevel nicht hierarchisch, sondern auf einer
     Hierarchiestufe zu modellieren. So wurde in vier von elf Fällen
-    der \textit{Monat} nicht dem \textit{Jahr} sondern lediglich der Dimension
+    der \textit{Monat} nicht dem \textit{Jahr}, sondern lediglich der Dimension
     \textit{Zeit} untergeordnet. 
     
     Mögliche Lösungen sind strengere Restriktionen durch die
@@ -2288,36 +2288,36 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
   \item \textbf{Definition von Kennzahlen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Benutzerfreundlichkeit} (\ref{sec:software/anforderungsanalyse})
 
     Die Definition von Kennzahlen ist der zweite Schritt im
-    \textit{DataFurnace}-Prozess (siehe
+    \textit{DataFurnace}-Vorgehen (siehe
     Abschnitt~\ref{sec:sprache/fachliches-konzept}). Zunächst mussten die
     Probanden die benötigten Kennzahlen aus dem Anwendungsfallbeispiel
     identifizieren und diese daraufhin in der Software modellieren. Für sieben
-    von elf Personen stellt dies kein Problem dar.  Für die restlichen vier
+    von elf Personen stellte dies kein Problem dar.  Für die restlichen vier
     Personen (Softwareentwickler 31, Projektmanagerin 61, BWL-Student 26,
     Berater 34) war vorallem die Identifikation von Qualitätskennzahlen, nicht
     die Identifikation von der betriebswirtschaftlichen Kennzahl
     \textit{Gewinn}, eine Hürde. Des Weiteren wurde die Schachtelung von
     Funktionen im Formeleditor nicht intuitiv und erst nach einem Hinweis
-    verwendet. Alle Probanden erwarteten die nicht gegebene Möglichkeit der
+    verwendet. Alle Probanden erwarteten die Möglichkeit der
     Navigation per Tastatur beispielsweise durch die Pfeiltasten im
-    Formeleditor.
+    Formeleditor, jedoch ist die Navigation lediglich mit der Maus möglich.
 
     Beispiellösungen für die erkannten Defizite sind das Anzeigen einer
     Beispielkennzahl mit verschachtelten Funktionen bei der ersten Benutzung
     der Software und die Unterstützung intuitiver Eingabekonzepte wie die
     Navigation innerhalb einer Kennzahlformel durch die Pfeiltasten oder
-    das löschen eines Funktionsausdrucks durch die Rücktaste.
+    das Entfernen eines Funktionsausdrucks durch die Rücktaste.
 
   \item \textbf{Kombination zu Berichten} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{strukturiertes Vorgehen} (\ref{sec:software/anforderungsanalyse})
 
-    Dritter und letzter Schritt des \textit{DataFurnace}-Prozess (siehe
+    Dritter und letzter Schritt des \textit{DataFurnace}-Vorgehens (siehe
     Abschnitt~\ref{sec:sprache/fachliches-konzept}) ist die Kombination von
     modellierten Dimensionen und spezifizierten Kennzahlen zu Berichten. Die
     Probanden sind hierzu in die Berichtsansicht gewechselt, haben einen neuen
     Bericht erstellt, haben Dimenionslevel und Kennzahlen zur Filter- und
     Tabellenkomponente hinzugefügt und wenn nötig weiter konfiguriert. Durch
     die Erklärungen der \textit{DataFurnace}-Sprache waren sich alle Probanden
-    der groben Vorgehensweise des Prozessschritts bewusst. Neun von elf
+    der groben Vorgehensweise des Vorgehensschritts bewusst. Neun von elf
     Testpersonen haben korrekter Weise mit der Erstellung von Filtern begonnen.
     Acht von zehn Personen haben intuitiv einen Bericht pro Geschäftsobjekt
     angefertigt.  Einzelne Probleme hatten Probanden bei der Entscheidung, ob
@@ -2326,7 +2326,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstehen.
 
     Die Kombination zu Berichten könnte einem Nutzer erleichtert werden, indem,
     sobald er Elemente der Oberfläche mit der Maus zieht, mögliche Absetzplätze
-    hervorgehoben werden. Des Weiteren sollte der Prozessschritt zur Erstellung
+    hervorgehoben werden. Des Weiteren sollte der Vorgehensschritt zur Erstellung
     eines Berichts in konkrete Subschritte aufgeteilt werden um den Nutzer
     besser zu leiten.
 
@@ -2391,12 +2391,13 @@ Jegliche Änderungen eines Nutzers in der Software werden in Echtzeit an alle
 Nutzer übertragen.
 
 Dem aktuellen Implementierungsstand der \textit{DataFurnace}-Software mangelt
-es noch an Reife, wie aus Kapitel~\ref{ch:evaluation} hervorgeht. So sollte
+es noch an Reife, wie aus Kapitel~\ref{ch:evaluation} hervorgeht. Es sollte
 beispielsweise die Tastatur als Navigationsmöglichkeit innerhalb einer
 Kennzahlformel unterstützt werden oder der Nutzer mit mehr Hinweisen durch die
-Konzeption der Analyse geleitet werden. Werden diese Probleme gelöst, steht der
-Integration der \textit{DataFurnace}-Sprache und -Software in
-\textit{DataRocket} nichts mehr im Weg.
+Konzeption der Analyse geleitet werden. Nach einer Umsetzung der
+vorgeschlagenen Lösungen (siehe Kapitel~\ref{ch:evaluation}) für die
+angesprochenen Probleme steht der Integration der \textit{DataFurnace}-Sprache
+und -Software in \textit{DataRocket} nichts mehr im Weg.
  % ################################################################################
   \input{content/notes}
   % ################################################################################
