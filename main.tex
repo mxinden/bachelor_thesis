@@ -151,8 +151,7 @@
   Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
   sind nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
   softwareunterstützt analysiert werden können, um Schwachstellen zu
-  erkennen~\cite[][S. 2]{baghi2013controlling}.\todo{Mehr Quellen}
-  \todo{Digitale Agenda der Bundesregierung}
+  erkennen~\cite[][S. 2]{baghi2013controlling}.
 
   Gegenstand dieser Arbeit ist die konzeptionelle Analyse von Unternehmensdaten
   in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013 gegründetes
@@ -189,7 +188,7 @@
   \textit{DataFurnace}-Sprache und -Software kombinieren im Rahmen der
   Unternehmensdatenanalyse verschiedene Daten zu neuen Erkentnissen, ähnlich
   einem Schmelzofen, in welchem beispielsweise Metalle zu neuen Formen
-  verschmolzen werden.} \todo{Erklärung überarbeiten} verwiesen.
+  verschmolzen werden.} verwiesen.
 
   Die \textit{DataRocket}-Softwarekomponente soll es ermöglichen, die zuvor
   spezifizierte Sprache in \textit{DataRocket} zu verwenden. Sie wird als
@@ -260,13 +259,13 @@
 
   Qualitätskennzahlen im Stammdatenmanagement kombinieren die
   beiden Welten \textit{Datenanalyse} und \textit{Datenqualität} miteinander.
-  Im folgenden Kapitel wird auf Grundlagen der beiden Welten mit einem
-  jeweiligen Abschnitt eingegangen: die Modellierung von Unternehmensdaten für die
+  Im folgenden Kapitel wird auf Grundlagen der beiden Welten mit jeweils einem
+  Abschnitt eingegangen: die Modellierung von Unternehmensdaten für die
   Datenanalyse und das Stammdatenmanagement als verantwortliche Funktion eines
   Unternehmens für die Datenqualität. Des Weiteren wird im letzten Abschnitt des
   Kapitels ein Anwendungsfallbeispiel beschrieben, auf welches in späteren
   Erklärungen der \textit{DataFurnace}-Sprache und -Software im Rahmen
-  exemplarischer Umsetzungen zurück gegriffen wird.
+  exemplarischer Umsetzungen zurückgegriffen wird.
 
   \section{Modellierung von Unternehmenskennzahlen}\label{sec:modellierung}
 
@@ -275,11 +274,11 @@
   der Daten ist essentiell für die Analyse:
   \textsc{\citeauthor{phipps2002automating}} zählen diese zu den fünf
   Hauptschritten der Datenanalyse im Data-Warehouse-Kontext~\cite[][S.
-  1]{phipps2002automating}. Die beiden gängisten Typen sind die
+  1]{phipps2002automating}. Die beiden gängigsten Typen sind die
   multidimensionale Modellierung und die \acrlong{ER}-Modellierung~\cite[][S.
   36]{ballard1998data}. Es wird nun die multidimensionale Modellierung
   beleuchtet und im Kontext der Unternehmensdatenanalyse mit der
-  Entity-Relationship-Modellierung verglichen. Des Weiteren wird die Sprache
+  Entity-Relationship-Modellierung verglichen. Darüber hinaus wird die Sprache
   \textit{H2 for Reporting} für die multidimensionale Modellierung vorgestellt.
 
 
@@ -297,7 +296,7 @@
   Fakt kann eine Transaktion, ein Objekt oder ein Ereignis sein~\cite[][S.
   42]{ballard1998data}. \textsc{\citeauthor{Kemper2010}} nennen als Beispiele:
   \glqq{}Umsatzerlöse, Umsatzmengen, Einzelkosten oder den
-  Personalbedarf\grqq{}~(\citeyear{Kemper2010}, S. 66). 
+  Personalbestand\grqq{}~(\citeyear{Kemper2010}, S. 66). 
 
   Um verschiedene Sichten auf diese Fakten zu erlangen, werden sie in Dimensionen gruppiert, \bzw{} werden sie Dimensionsausprägungen zugewiesen~\cite[][S.
   66]{Kemper2010}. Dies ermöglicht es, in der späteren Analyse nach
@@ -309,12 +308,11 @@
   Dimension \textit{Zeit}.  Diese kann zum einen durch die
   Hierarchiestufenreihe \textit{Jahr, Monat, Tag} als auch durch \textit{Jahr,
   Woche, Tag} strukturiert werden (siehe
-  Abbildung~\ref{hierarchie-level-struktur}).\todo{Noch ein wenig holprig,
-  bzw.\ ist das überhaupt relevant?}
+  Abbildung~\ref{hierarchie-level-struktur}).
 
   \begin{figure}
     \resizebox{100pt}{!}{\input{content/figures/hierarchie-level-struktur.tex}}
-    \caption{Dimensionslevelstruktur der Beispieldimension Zeit}\label{hierarchie-level-struktur}
+    \caption{Dimensionslevelstruktur der Beispieldimension \textit{Zeit}}\label{hierarchie-level-struktur}
   \end{figure}
 
   Die multidimensionale Modellierung unterteilt sich nun in verschiedene
@@ -326,8 +324,8 @@
   mit Hilfe von Fremdschlüsseln auf Dimensionstabellen, welche jeweils eine
   komplette Dimension abbilden und somit im Gegenzug auf die dritte Normalform
   verzichten~\cite[][S. 67 f.]{Kemper2010}. Die bestehende Datenredundanz
-  (siehe Abbildung~\ref{table:dimension-table}) durch Mangel an Normalisierung
-  in den Dimensionstabellen, resultiert laut \textsc{\citeauthor{Kimball2013}}
+  (siehe Tabelle~\ref{table:dimension-table}) durch Mangel an Normalisierung
+  in den Dimensionstabellen resultiert laut \textsc{\citeauthor{Kimball2013}}
   durch ihre geringe Größe nicht in einer schlechteren Leistung des
   Datenbanksystems, sondern im Gegenzug in einer besseren Verständlichkeit der
   Struktur~\cite[][S. 15]{Kimball2013}. Weitere Details zur
@@ -337,7 +335,7 @@
 
   \begin{figure}
     \resizebox{0.6\linewidth}{!}{\input{content/figures/star-schema.tex}}
-    \caption[Star-Schema Beispielmodell]{Star-Schema Beispielmodell angelehnt an~\textsc{\cite{Kemper2010}} Abb. 2.30}\label{fig:star-schema}
+    \caption[Star-Schema Beispielmodell]{Star-Schema Beispielmodell angelehnt an~\textsc{\cite{Kemper2010}}, Abbildung 2.30}\label{fig:star-schema}
   \end{figure}
 
   \begin{table}[]
@@ -352,21 +350,23 @@
     \caption{Dimensionstabelle \textit{Ort} im Star-Schema}\label{table:dimension-table}
   \end{table}
 
-  Eine weitere Ausprägung der multidimensionalen Modellierung ist das Snowflake-Modell.
-  Analog zum Star-Modell gleicht die Form eines Snowflake-Modells einer
-  Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und Snowflake-Modell
-  unterscheiden sich in der Datenhaltung der Dimensionstabellen. Wie bereits im
-  vorherigen Absatz beschrieben verfolgt das Star-Schema einen denormalisierten
-  Ansatz, wohingegen die Dimensionstabellen des Snowflak-Modells normalisiert
-  sind~\cite[][S. 70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema}
-  visualisiert die strenge Normalisierung an der Dimension Ort.
-  Abbildung~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten dieser
-  Dimension in Form von Tabellen.  \textsc{\citeauthor{Kemper2010}} schlagen alternativ
-  nicht den Ansatz der vollen Normalisierung im Snowflake-Modell vor, sondern eine
-  geschwindigkeitsorientierte Teilnormalisierung~(\citeyear{Kemper2010}, S. 70).
-  \textsc{\citeauthor{Kimball2013}} hingegen raten komplett vom Snowflake-Modell
-  ab, da es ihrer Meinung nach sowohl die Verständlichkeit als auch gegebenenfalls die
-  Geschwindigkeit negativ beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
+  Eine weitere Ausprägung der multidimensionalen Modellierung ist das
+  Snowflake-Modell.  Analog zum Star-Modell gleicht die Form eines
+  Snowflake-Modells einer Schneeflocke~\cite[][S. 70]{Kemper2010}. Star- und
+  Snowflake-Modell unterscheiden sich in der Datenhaltung der
+  Dimensionstabellen. Wie bereits im vorherigen Absatz beschrieben, verfolgt
+  das Star-Schema einen denormalisierten Ansatz, wohingegen die
+  Dimensionstabellen des Snowflake-Modells normalisiert sind~\cite[][S.
+  70]{Kemper2010}. Abbildung~\ref{fig:snowflake-schema} visualisiert die
+  strenge Normalisierung anhand der Dimension \textit{Ort}.
+  Tabelle~\ref{table:dimension-table-snow} zeigt konkrete Beispieldaten
+  dieser Dimension in Form von Tabellen.  Alternativ zur vollen Normalisierung
+  im Snowflake-Modell schlagen \textsc{\citeauthor{Kemper2010}} eine
+  geschwindigkeitsorientierte Teilnormalisierung vor~(\citeyear{Kemper2010}, S.
+  70).  \textsc{\citeauthor{Kimball2013}} hingegen raten komplett vom
+  Snowflake-Modell ab, da es ihrer Meinung nach sowohl die Verständlichkeit, als
+  auch gegebenenfalls die Geschwindigkeit negativ
+  beeinträchtigt~(\citeyear{Kimball2013}, S. 50).
 
   \begin{figure}
     \resizebox{250pt}{!}{\input{content/figures/snowflake-schema.tex}}
@@ -405,8 +405,7 @@
 	Entity-Set-Modell stellt \textsc{\citeauthor{chen1976entity}}
 	\citeyear{chen1976entity} mit seiner Publikation \textit{\glqq{}The
 	entity-relationship model—toward a unified view of data\grqq{}} das
-	Entity-Relationship-Modell (\acrshort{ERM}) vor~\cite[][S.
-	2]{chen1976entity}.  Genauer auf \acrshort{ER}-Modellierung einzugehen ist
+  Entity-Relationship-Modell (\acrshort{ERM}) vor.  Genauer auf \acrshort{ER}-Modellierung einzugehen, ist
 	nicht Teil dieser Arbeit. Weitere Details des Grundmodells werden in
 	\textsc{\cite{chen1976entity}} beschrieben. Die Erweiterungen der
 	ER-Modellierung mit Kardinalitäten, Generalisierung und Spezialisierung wird
@@ -452,7 +451,7 @@
 	Anwendungsbereiche der beiden Systeme sind disjunkt~\cite[][S.
 	334]{chamoni2000line}. Nach \textsc{\citeauthor{phipps2002automating}} wird
 	im Umgang mit \acrshort{OLTP}-Systemen überwiegend auf die ER-Modellierung
-	zurück gegriffen, wohingegen \acrshort{OLAP}-Systeme meist mit der
+	zurückgegriffen, wohingegen \acrshort{OLAP}-Systeme meist mit der
 	multidimensionalen Modellierung konzipiert
 	werden~(\citeyear{phipps2002automating}, S. 2). 
 
@@ -512,10 +511,9 @@
 	33]{fleischer2013konstruktion}, welches darüber hinaus Weiterentwicklungen
 	der Sprache \textit{H2 for Reporting} sowie andere Sprachen
 	unterstützt~\cite[][S. 86]{becker2012fachkonzeptionelle}. Das
-	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU}-Münster
+	Metamodellierungswerkzeug wurde ebenfalls an der \acrshort{WWU} Münster
 	entwickelt~\cite[][S.  34]{becker2007h2}.
 
-  \todo{H2fR Beispiel Grafik}
 
 	Neben \textit{H2 for Reporting} existieren weitere alternative Erweiterungen
 	der multidimensionalen Modellierung. Bekannte Beispiele sind:
@@ -560,7 +558,7 @@
 
   \section{Stammdatenmanagement}\label{sec:stammdatenmanagement}
 
-  Wie in Kapitel~\ref{ch:einleitung} der Arbeit festgehalten ist die
+  Wie in Kapitel~\ref{ch:einleitung} der Arbeit festgehalten, ist die
   Qualitätsanalyse von Unternehmensdaten Teil des Stammdatenmanagements. Die
   Entwicklung der \textit{DataFurnace}-Sprache und die Implementierung der
   \textit{DataFurnace}-Software baut folglich auf der Unternehmensfunktion
@@ -569,7 +567,7 @@
 
 	Das Stammdatenmanagement ist eine Funktion eines Unternehmens, welches eine
 	langfristig hohe Datenqualität der Stammdaten anstrebt und sowohl den
-	organisatorischen als auch technischen Umgang in einem Unternehmen
+	organisatorischen, als auch technischen Umgang in einem Unternehmen
 	beinhaltet~\cite[][S.  2]{legner2007stammdaten}.  Die Definition von
 	Prozessen im Umgang mit Stammdaten gehört \zB{} zum organisatorischen
 	Stammdatenmanagement, wohingegen der Einsatz einer Stammdatenmanagement-Software
@@ -577,19 +575,18 @@
 	kann.  
 
   Das Thema steigt laut \textsc{\citeauthor{otto2012design}} sowohl in der
-  Wissenschaft als auch in der Praxis in seiner
+  Wissenschaft, als auch in der Praxis in seiner
   Relevanz~(\citeyear{otto2012design}, S. 1). Die gesteigerte Aufmerksamkeit
-  lässt sich auf mangelhafte Stammdatenqualität und den hieraus resultierenden
-  hohen Kosten in Unternehmen zurückführen, wie zum Beispiel laut
-  \textsc{\citeauthor{eckerson2002data}} in den USA mit 600 Milliarden
-  US-Dollar Kosten im Jahr entstanden durch
-  Datenqualitätsprobleme~(\citeyear{eckerson2002data}, S. 3).
-  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählen als aktuelle Hürden
-  und Herausforderungen des Stammdatenmanagements die notwendige
+  lässt sich von mangelhafter Stammdatenqualität und den hieraus resultierenden
+  hohen Kosten in Unternehmen ableiten, so führen Datenqualitätsprobleme
+  laut \textsc{\citeauthor{eckerson2002data}} allein in den USA zu Mehrkosten
+  von 600 Milliarden US-Dollar im Jahr~(\citeyear{eckerson2002data}, S.
+  3).  \textsc{\citeauthor{otto2011stammdatenmanagement}} zählen als aktuelle
+  Hürden und Herausforderungen des Stammdatenmanagements die notwendige
   Datenstandardisierung über Unternehmensgrenzen hinaus, behördliche und
   gesetzliche Auflagen, den 360-Grad-Blick\footnote{Für weitere Details zum
   Begriff siehe~\cite{kotorov2003customer},~\cite{otto2016datenqualitat}
-  und~\cite{otto2016master}} auf einen Kunden und den Einsatz von Stammdaten in
+  und~\cite{otto2016master}.} auf einen Kunden und den Einsatz von Stammdaten in
   der Unternehmensdatenanalyse auf, welche alle eine hohe Stammdatenqualität
   voraussetzen~(\citeyear{otto2011stammdatenmanagement}, S. 5 f.).
 	
@@ -648,18 +645,18 @@
 	\textit{DataRocket}, kontinuierlich auf die gesamten Stammdaten eines
 	Unternehmens angewandt werden, womit nach
 	\textsc{\citeauthor{baghi2013controlling}} das Fundament für die
-	Datenqualitätsverbesserung erstellt ist~(\citeyear{baghi2013controlling}, S.
+	Datenqualitätsverbesserung gelegt ist~(\citeyear{baghi2013controlling}, S.
 	2).
 
-  Sind Qualitätsmisstände mit Hilfe von Kennzahlen ermittelt worden, gilt es die
-  vorhandenen Fehler zu beseitigen und deren Ursache zu identifizieren, um in
+  Sind Qualitätsmissstände mit Hilfe von Kennzahlen ermittelt worden, gilt es die
+  aufgedeckten Fehler zu beseitigen und deren Ursache zu identifizieren, um in
   Zukunft äquivalente Fehler zu vermeiden~\cite[][S. 22]{eckerson2002data}. Ein
-  Beispiel für einen Datenqualitätsmisstand ist das Fehlen der Postleitzahl in
-  einer Adresse eines Kundenstammdatensatzes. Schritt eins ist es den
+  Beispiel für einen Datenqualitätsmissstand ist das Fehlen der Postleitzahl in
+  einer Adresse eines Kundenstammdatensatzes. Im ersten Schritt gilt es den
   Kundendatensatz um die fehlende Postleitzahl zu erweitern. Wird in der
-  Kundendateneingabemaske die Postleitzahl als Pflichtfeld deklariert wird
-  dieser Fehler in der Zukunft für weitere Datensätze verhindert, womit auch
-  Schritt zwei erfüllt ist.
+  Kundendateneingabemaske die Postleitzahl als Pflichtfeld deklariert, wird
+  dieser Fehler in Zukunft für weitere Datensätze verhindert, womit auch der zweite
+  Schritt erfüllt ist.
 
 
   \subsection{Stammdatenmanagement-Software am Beispiel \textit{DataRocket}}\label{sec:Vorstellung-DataRocket}
@@ -706,7 +703,7 @@
 	strukturiert extrahiert und diese analysiert und in ihrer Qualität überwacht
 	und verbessert. \textit{DataRocket} kann auch mit
 	\textit{Leading-Systems}~\cite[][]{baghi2014toward} kollaborieren, da es
-	Änderungen an Attributen eines Stammdatums an diese weiter geben kann, \bzw{}
+	Änderungen an Attributen eines Stammdatums an diese weitergeben kann \bzw{}
 	die Änderungen zurückschreiben kann.  Alleinstellungsmerkmale der Software
 	sind: Domänenunabhängigkeit, einfache Bedienung und hoher
 	Funktionsumfang.
@@ -714,7 +711,7 @@
 	implementiert einen \textit{\acrlong{ETL}}-Prozess\footnote{Für Definitionen
 	des ETL-Prozesses siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
 	\citeyearpar{vassiliadis2002conceptual}
-	und~\textsc{\citeauthor{trujillo2003uml}}}.
+	und~\textsc{\citeauthor{trujillo2003uml}}.}.
 
   Für die Anwendung von \textit{DataRocket} auf die Stammdatenlandschaft eines
   Unternehmens ist ein Vorgehen von Nöten, welches im Folgenden anhand
@@ -743,7 +740,7 @@
 		indem Geschäftsobjekte beider Welten miteinander verbunden werden. Im
 		Kontext des oben genannten Beispiels wird hier das \acrshort{CRM}-System
 		eines Unternehmens mit \textit{DataRocket} verbunden und die Attribute des
-		Geschäftsobjekt \textit{Kunde} des \acrshort{CRM}-Systems dem
+		Geschäftsobjekts \textit{Kunde} des \acrshort{CRM}-Systems dem
 		Geschäftsobjekt \textit{Kunde} der Aggregations-Modellierung zugewiesen.
 		Kommt dieser Prozess \zB{} im Rahmen einer Umstrukturierungsmaßnahme
 		zum Einsatz, so kann die Aggregations- und Ist-Modellierung mit der Soll-
@@ -771,7 +768,7 @@
 		Geschäftsobjektinstanzen angewendet werden. Die Auswertungsergebnisse
 		einzelner Instanzen werden anhand von Geschäftsobjektinstanzaggregationen
 		gruppiert. Ein mögliches Auswertungsergebnis für das gesamte
-		Geschäftsobjekt Kunde über alle Instanzen ist, dass vier Prozent aller
+      Geschäftsobjekt \textit{Kunde} über alle Instanzen ist, dass vier Prozent aller
 		Kundenstammdaten in dem Attribut \textit{E-Mail-Adresse} das At-Zeichen
 		fehlt.
 
@@ -826,7 +823,7 @@
 
 	Ziel dieser Arbeit ist die Spezifikation einer Datenanalysesprache und die
 	prototypische Entwicklung einer Komponente für
-	\textit{DataRocket}. Sowohl die Sprache als auch die Komponente sollen im
+	\textit{DataRocket}. Sowohl die Sprache, als auch die Komponente sollen im
 	\textit{Calculation}-Baustein der \textit{Datapipeline} Anwendung finden.
 
   \section{Anwendungsfallbeispiel}\label{sec:anwendungsfallbeispiel}
@@ -836,7 +833,7 @@
   -Software zurückgegriffen wird. Im Fokus steht ein fiktives
   Einzelhandelsgeschäft, welches auf den Verkauf von Lebensmitteln
   spezialisiert ist, jedoch auch andere Produkte des täglichen Bedarfs
-  verkauft. Das Unternehmen betreibt Filialen in zwei Städten jeweils eine an
+  verkauft. Das Unternehmen betreibt Filialen in zwei Städten, jeweils eine an
   den Standorten Münster und Bonn.
 
   Lebensmittel haben ein Mindesthaltbarkeitsdatum und dürfen bei dessen
@@ -930,7 +927,7 @@
   Aufzählungen benannt, näher beschrieben und begründet. Ursprung der
   Anforderungen sind zwei Treffen im Rahmen dieser Arbeit mit dem
   \textit{Product-Owner} der Stammdatenmanagement-Software \textit{DataRocket}
-  und außerdem direkten Kundenanforderungen aus verschiedenen
+  und außerdem direkte Kundenanforderungen aus verschiedenen
   Präsentationsterminen.  Neben Anforderungen müssen des Weiteren Annahmen
   getroffen werden, welche von der \textit{innoscale AG} vorausgesetzt werden
   und somit die Entwicklung der Sprache beeinflussen.
@@ -950,6 +947,8 @@
         aufgeteilt werden können, wobei der Nutzer die Möglichkeit haben soll,
         den Warenbereich der Warenlinie funktional unterzuordnen.
 
+        \newpage
+
       \item \textbf{Definition von Kennzahlen} 
 
         \textit{DataRocket} misst Datenqualität anhand von
@@ -965,7 +964,7 @@
         Um im späteren Bericht nicht nur nach Datenqualitätsmerkmalen filtern
         zu können, sollen die \textit{DataFurnace}-Kennzahlen so allgemein
         gehalten werden, dass sie nicht nur der Datenqualitätsbeurteilung
-        dienen, sondern auch allgemeine Beurteilungen erbringen können. Will
+        dienen, sondern auch allgemeine Beurteilungen ermöglichen können. Will
         sich ein Nutzer beispielsweise in einem großen Datenqualitätsprojekt
         zunächst nur auf die lukrativen Instanzen des Geschäftsobjekts
         \textit{Produkt} konzentrieren, so soll er mit Hilfe der
@@ -980,7 +979,7 @@
         können. Somit soll es die Sprache ermöglichen, Fragestellungen zu
         entwickeln, welche die Qualtität von bestimmten Datensätzen hinterfragen.
         Zusätzlich soll sie den Nutzer befähigen, innerhalb einer
-        Fragestellung, mit Hilfe von Attributen, Datensätze gefiltert zu
+        Fragestellung mit Hilfe von Attributen Datensätze gefiltert zu
         betrachten und anhand von Attributgruppen zu vergleichen. Eine mögliche
         Fragestellung im oben aufgespannten Szenario ist: Wie viele
         \textit{Produkte} in der \textit{Warenlinie} \textit{Elektronik} haben
@@ -1002,7 +1001,7 @@
       \item \textbf{Verwendung des \textit{DataRocket}-Vokabulars}
 
 				Die Software \textit{DataRocket} nutzt in ihrer Oberfläche die
-				Englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
+				englische Sprache zur Kommunikation mit dem Nutzer. Zusätzlich benutzt
 				die Software einige Begriffe des Datenqualitätsmanagement-Jargons, wie
 				\zB{} Datenqualitätskennzahl, und führt in einigen wenigen Fällen ein
 				eigenes Vokabular ein, welches unikale Komponenten und Vorgänge der
@@ -1016,8 +1015,8 @@
 
 			\item \textbf{Deklarative Sprache}
 				
-				\textit{DataRocket} verfolgt ein deklaratives Bedienkonzept indem der
-				Nutzer beschreibt was er möchte und nicht wie es genau umgesetzt werden
+				\textit{DataRocket} verfolgt ein deklaratives Bedienkonzept, indem der
+				Nutzer beschreibt, was er möchte und nicht, wie es genau umgesetzt werden
 				soll (Imperativ). Die \textit{DataFurnace}-Sprache soll ebenfalls eine
 				deklarative Sprache zwischen Nutzer und Software bilden.
 
@@ -1075,7 +1074,7 @@
   \subsection{Dimensionen}\label{subsec:dimension}
 
 	Um den Sprachbegriff Dimension erklären zu können, muss zunächst der Begriff
-  Geschäftsobjekt erläutert werden, auf welchen \todo{welchen oder welchem?} der Begriff der Dimension
+  Geschäftsobjekt erläutert werden, auf welchen der Begriff der Dimension
 	essentiell aufbaut. Der Begriff Geschäftsobjekt wird aus dem
 	\textit{DataRocket}-Vokabular übernommen. Geschäftsobjekte sind Datenobjekte
 	innerhalb eines Unternehmens, welche isoliert betrachtet werden können. Sie
@@ -1097,14 +1096,14 @@
 	auf eine Gruppe von Instanzen, \ggf{} im Vergleich zu anderen Gruppen,
 	anzuwenden. Des Weiteren kann nach Untermengen der gesammten
 	Geschäftsobjektmenge gefiltert werden.  Eine Dimension bezieht sich nicht
-	direkt auf ein Geschäftsobjekt sondern auf ein Attribut eines
+	direkt auf ein Geschäftsobjekt, sondern auf ein Attribut eines
 	Geschäftsobjekts, auf welches sie verschiedene Sichten ermöglicht. Die
 	Dimension \textit{Zeit} bezieht sich \zB{} auf das Attribut
 	\textit{Verfallsdatum} des Geschäftsobjekts \textit{Produkt}. 
 
   \begin{figure}
     \resizebox{175px}{!}{\input{content/figures/language_spec-erm-dimension.tex}}
-    \caption{\acrshort{ERM} der Dimensionteilsprache}\label{dimension-erm}
+    \caption{\acrshort{ERM} der Dimensionsteilsprache}\label{dimension-erm}
   \end{figure}
 
 	Eine Dimension wird hierarchisch unterteilt in Dimensionslevel, welche die
@@ -1131,7 +1130,7 @@
   Eine Kennzahl bietet ein quantitatives Maß, welches die Informationen von
   einer Instanz eines Geschäftsobjekts weiterverarbeitet. Sie wird durch eine
   mathematische Formel spezifiziert und folgt der Grundrechenart mit den
-  Operationen \textit{Addition}, \textit{Substraktion}, \textit{Multiplikation}
+  Operationen \textit{Addition}, \textit{Subtraktion}, \textit{Multiplikation}
   und \textit{Division}, welche auf zwei oder mehr Operanden angewendet werden
   (siehe Abbildung~\ref{railroad-kennzahl} Gleis 1). Im weiteren Verlauf der
   \textit{DataFurnace}-Sprachvorstellung wird der Begriff \textit{Ausdruck} als
@@ -1187,9 +1186,9 @@
 	Weiteren datenqualitätsspezifische Funktionen zur Verfügung gestellt, um
 	Datensätze auf Datenqualitätsdimensionen zu lokalisieren, wie in
 	Abschnitt~\ref{subsec:stammdatenqualität} vorgestellt.  Beispiele sind die
-	\texttt{isEmpty}-Funktion, welche prüft ob ein Ausdruck Inhalt hat, und die
+	\texttt{isEmpty}-Funktion, welche prüft, ob ein Ausdruck Inhalt hat, und die
 	\texttt{contains}-Funktion, welche zwei Ausdrücke als Parameter nimmt und
-	kontrolliert ob der erste Audruck im zweiten Ausdruck vorhanden ist. Mit
+	kontrolliert, ob der zweite Audruck im ersten Ausdruck vorhanden ist. Mit
 	letzterer Funktion kann \zB{} geprüft werden, ob das Attribut
 	\textit{E-Mail-Adresse} ein At-Zeichen enthält. Dies kann beispielsweise für
 	eine Überprüfung der Datenqualitätsdimension \textit{einheitliche
@@ -1232,7 +1231,7 @@
   \end{figure}
   
   \paragraph{Filterkomponente}\label{paragraph:filternde-komponente} Um
-  Fragestellungen genau addressieren zu können, gibt die
+  Fragestellungen genau adressieren zu können, gibt die
   \textit{DataFurnace}-Sprache dem Nutzer zunächst die Möglichkeit seine
   Fragestellung auf eine Untermenge der gesamten Geschäftsobjektdaten zu
   beziehen, indem er verschiedene Filter auf die Gesamtdatenmenge anwendet.
@@ -1240,7 +1239,7 @@
   Ergebnisse von Kennzahlen zurückgreifen. 
   
   Für die Filterung über Dimensions\-levelausprägungen benennt der Nutzer
-  zunächst die Dimensions\-level nach denen er filtern möchte. Daraufhin erstellt
+  zunächst die Dimensions\-level, nach denen er filtern möchte. Daraufhin erstellt
   er für jedes zuvor spezifizierte Dimensions\-level eine Positivliste, welche
   alle die Ausprägungen des Dimensions\-levels enthält, nach denen er filtern
   möchte. Will ein Nutzer der \textit{DataFurnace}-Sprache beispielsweise in
@@ -1260,19 +1259,19 @@
   Gruppe gibt als Ergebnis einen Zahlenwert zurück. Hier kann ein Nutzer Ober-
   und Untergrenzen benennen, in welchen der Ergebniszahlenwert der Kennzahl
   einer Geschäftsobjektinstanz liegen muss, um nicht ausgefiltert zu werden.
-  Ein Beispiel für eine Kennzahl, welche einen Zahlenwert zurück gibt, ist der
+  Ein Beispiel für eine Kennzahl, welche einen Zahlenwert zurückgibt, ist der
   \textit{Umsatz}. In Gruppe zwei sind all die Kennzahlen einzuordnen, welche
   einen booleschen Rückgabewert haben. Hier gibt ein Nutzer an, ob die gesuchte
   Geschäftsobjektinstanzmenge die Auswertung der Kennzahl bestehen muss oder
   nicht bestehen darf. Als Beispiel kann hier die \textit{nicht-leer}-Kennzahl
   genannt werden, welche lediglich \textit{wahr}, das Attribut der
-  Geschäftsobjektinstanz ist mit Zeichen gefüllt, oder \textit{falsch}, das
-  Attribut ist nicht gefüllt, zurück gibt.
+  Geschäftsobjektinstanz enthält Zeichen, oder \textit{falsch}, das
+  Attribut ist nicht gefüllt, zurückgibt.
 
   Will ein Nutzer beispielsweise in seiner Fragestellung lediglich die
   Instanzen des Geschäftsobjekts \textit{Produkt} betrachten, welche einen
   validen Preis haben, fügt er die selbst erstellte Kennzahl
-  \textit{Preisvalidation}, welche prüft ob die Ausprägung des Attributes
+  \textit{Preisvalidation}, welche prüft, ob die Ausprägung des Attributes
   \textit{Preis} keine Buchstaben enthält, als Filter dem Bericht hinzu. In dem
   Filter spezifiziert er, dass er nach den Instanzen filtern möchten, welche
   die Qualitätskennzahl \textit{Preisvalidation} positiv durchlaufen, oder
@@ -1309,12 +1308,11 @@
   Tabelle pro möglicher Dimensionslevelausprägungskombination eine Spalte an.
   Aus einem Szenario von zwei Dimensionsleveln mit jeweils zwei selektierten
   Dimensionslevelausprägungen resultieren vier Spalten, exklusive der
-  Tabellenkopfspalte auf der linken Seite\footnote{Siehe hierzu Tabellen in
-  Abbildung~\ref{table:auftrittsreihenfolge}}. Bei mehreren Dimensionsleveln
+  Tabellenkopfspalte auf der linken Seite\footnote{Siehe hierzu Tabelle~\ref{table:auftrittsreihenfolge}.}. Bei mehreren Dimensionsleveln
   kann die Auftrittsreihenfolge der Tabellenkopfzeilen bestimmt werden. Die
   Auftrittsreihenfolge ist insofern relevant, als dass die Ergebniswerte eines
   Dimensionslevels in der Tabelle in Abhängigkeit des Dimensionslevels darüber
-  berechnet und positioniert werden. Nachfolgend wird das vorhergegangene
+  berechnet und positioniert werden. Nachfolgend wird das vorangegangene
   Beispiel erweitert. Fügt der Nutzer neben dem Dimensionslevel \textit{Jahr}
   das Dimensionslevel \textit{Stadt} der Dimension \textit{Ort} des
   Attributes \textit{Standort} hinzu, so kann er dies entweder oberhalb oder
@@ -1324,8 +1322,7 @@
   Auftrittsreihenfolge dient lediglich der Übersichtlichkeit, die eigentlichen
   Aussagen der Tabelle werden hierdurch nur verschieden innnerhalb dieser positioniert.
   Die Menge der Permutationen zwischen oberem und unterem Dimensionslevel
-  bleibt gleich, nachvollziehbar an den Tabellen in
-  Abbildung~\ref{table:auftrittsreihenfolge}.
+  bleibt gleich, nachvollziehbar an Tabelle~\ref{table:auftrittsreihenfolge}.
   
   \begin{table}
     \footnotesize
@@ -1376,11 +1373,11 @@
     \begin{tabular}{c c c c c}
       \textbf{Jahr} & \multicolumn{2}{c}{2015} & \multicolumn{2}{c}{2016} \\
       \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-      \textbf{Budesland} & Münster & Bonn & Münster & Bonn \\
+      \textbf{Stadt} & Münster & Bonn & Münster & Bonn \\
       \toprule
       \textbf{Preisvalidation} & 679 & 242 & 891 & 433 \\
     \end{tabular}
-    \caption{Preisvalidation des Geschäftsobjets \textit{Produkt}}\label{table:preisvalidation}
+    \caption{Preisvalidation des Geschäftsobjekts \textit{Produkt}}\label{table:preisvalidation}
   \end{table}
 
 
@@ -1410,13 +1407,13 @@
   \textit{DataFurnace}-Software soll zunächst als eigenständiges Produkt
   existieren, welches aber auch im soeben aufgegriffenen
   \textit{Calculation}-Baustein, als Ersatz zur bisherigen Implementierung, in
-  der Zukunft zum Tragen kommen kann. Die Anforderungsanalyse für die
+  Zukunft zum Tragen kommen kann. Die Anforderungsanalyse für die
   Komponente wird, wie in der Anforderungsanalyse der
   \textit{DataFurnace}-Sprache
   (Abschnitt~\ref{sec:sprache/anforderungsanalyse}), mit Hilfe der
   \textit{zielorientierten Anforderungsanalyse}~\cite[][]{van2001goal}
   durchgeführt\footnote{Für Details zur \textit{zielorientierten
-  Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}}.
+  Anforderungsanalyse} siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}.}.
   Des Weiteren werden für die \textit{DataFurncae}-Software ebenfalls Annahmen
   aufgelistet, welche in Zusammenarbeit mit der \textit{innoscale AG} getroffen
   wurden.
@@ -1427,16 +1424,16 @@
 
       Die \textit{DataFurnace}-Software soll es einem Nutzer zunächst
       ermöglichen, die Geschäftsobjekte eines Unternehmens abzubilden und ihnen
-      Attribute unterzuordnen. Sowohl Geschäftsobjekten als auch Attributen
-      ist ein Name zur Identifikation hinzuzufügen. Des Weiteren soll die
-      Möglichkeit bestehen, ein Attribut mit möglichen Attributausprägungen zu
+      Attribute unterzuordnen. Sowohl Geschäftsobjekten, als auch Attributen
+      ist ein Name zur Identifikation hinzuzufügen. Außerdem soll die
+      Möglichkeit bestehen, ein Attribut mit möglichen Attributsausprägungen zu
       ergänzen.
 
       Um Geschäftsobjektinstanzen gruppieren und filtern zu können, muss es
       möglich sein, Dimensionen zu modellieren, welche jeweils auf ein Attribut
       eines Geschäftsobjekts aufsetzen. In der Software soll der Nutzer
       Dimensionen erstellen und mit Dimensionsleveln hierarchisch strukturieren
-      können. Wie Attribute, sollen auch Dimensionslevel mit möglichen
+      können. Wie Attribute sollen auch Dimensionslevel mit möglichen
       Ausprägungen näher spezifiziert werden können. Einer Dimension und einem
       Dimensionslevel können beliebig viele Dimensionslevel folgen. Ein
       Dimensionslevel darf nie ohne eine zugehörige Dimension existieren.
@@ -1448,7 +1445,7 @@
       Um vorhandene Geschäftsobjekte und ihre Instanzen analysieren zu können,
       muss die \textit{DataFurnace}-Software die Voraussetzung zur
       Spezifikation von komplexen Kennzahlen schaffen. Die Komplexität der
-      Kennzahlen soll sich sowohl über mathematische Formeln als auch
+      Kennzahlen soll sich sowohl über mathematische Formeln, als auch
       über programmatische Funktionen abbilden lassen.
 
     \item \textbf{Kombination zu Berichten}
@@ -1488,13 +1485,15 @@
     \item \textbf{Hohe Benutzerfreundlichkeit}
 
 			Bei der Konzeption und Entwicklung der \textit{DataFurnace}-Software soll
-			besonderer Wert auf die Benutzerfreundlichkeit der Oberfläche gesetzt
+			besonderer Wert auf die Benutzerfreundlichkeit der Oberfläche gelegt
 			werden, um jedem Nutzer, ungeachtet seines bisherigen Kenntnisstandes,
 			einen leichten Zugang zu der \textit{DataFurnace}-Sprache über die
 			Software zu eröffnen. Orientierung sollen hier die \glqq{}Ten usability
 			heuristics of user interface and design\grqq{} von
 			\textsc{\citeauthor{nielsen1994heuristic}}
 			bieten~(\citeyear{nielsen1994heuristic}, S. 30).
+
+      \newpage
 
     \item \textbf{Strukturiertes Vorgehen}
 
@@ -1543,13 +1542,13 @@
 			Es kann angenommen werden, dass die oben beschriebenen Eingabedaten der
 			\textit{DataFurnace}-Software in denormalisierter Form wie im
 			Star-Modell\footnote{Für nähere Erläuterungen zum Star-Modell siehe
-			Abschnitt~\ref{subsec:multidimensionale-modellierung}} vorliegen.
+			Abschnitt~\ref{subsec:multidimensionale-modellierung}.} vorliegen.
 			\textit{DataRocket} bietet die volle Funktionalität für einen
 			\textit{Extract}-\textit{Transform}-\textit{Load}-Prozess\footnote{Für
 			Definitionen des ETL-Prozesses
 			siehe~\textsc{\citeauthor{vassiliadis2002conceptual}}
 			\citeyearpar{vassiliadis2002conceptual}
-			und~\textsc{\citeauthor{trujillo2003uml}} \citeyearpar{trujillo2003uml}}
+			und~\textsc{\citeauthor{trujillo2003uml}} \citeyearpar{trujillo2003uml}.}
 			an, welcher normalisierte Daten aus verschiedensten Datenquellen
 			kombiniert in denormalisierte Geschäftsobjektinstanzen wandeln kann, auf
 			welche wiederum die \textit{DataFurnace}-Software aufbauen soll.
@@ -1568,7 +1567,7 @@
   Ein Nutzer modelliert zunächst seine Geschäftsobjekte mit den zugehörigen
   Dimensionen, spezifiziert dann Kennzahlen mit Bezug auf die Attribute der
   Geschäftsobjekte, und kombiniert abschließend beide zu Berichten. Im
-  folgenden wird das fachliche Konzept der Software anhand der drei Ansichten
+  Folgenden wird das fachliche Konzept der Software anhand der drei Ansichten
   respektive Vorgehensschritten erklärt und für jeden Schritt im Rahmen des
   Anwendungsfallbeispiels aus Abschnitt~\ref{sec:anwendungsfallbeispiel}
   exemplarisch eingesetzt.
@@ -1612,7 +1611,7 @@
   Geschäftsobjekte, zu denen er eine Analyse modellieren möchte, hinzu. Im
   oberen Teil des Geschäftsobjektkastens, welcher für jedes neues Geschäftsobjekt erscheint, kann
   der Name eines Geschäftsobjekts gesetzt und das gesamte Objekt gelöscht
-  werden. Zum löschen des Geschäftsobjekts klickt ein Nutzer zunächst auf das
+  werden. Zum Löschen des Geschäftsobjekts klickt ein Nutzer zunächst auf das
   \textit{Löschen}-Symbol in der oberen Leiste, wodurch ein Dialog zur
   Bestätigung geöffnet wird. Erst wenn der Nutzer diesen Dialog bestätigt, wird
   das Geschäftsobjekt mit all seinen Dimensionen, Dimensionsleveln und
@@ -1629,7 +1628,7 @@
   Geschäftsobjekt können folglich beliebig viele Dimensionen angehören. Eine
   Dimension kann in beliebig viele Dimensionslevel aufgeteilt werden. Einem
   Dimensionslevel können weitere Dimensionslevel oder ein Attribut folgen. Eine
-  Dimension-Dimensionslevel Kette muss mit einem Attribut enden. Einem Attribut
+  Dimension-Dimensionslevel-Kette muss mit einem Attribut enden. Einem Attribut
   können keine weiteren Elemente folgen. Ein Beispiel ist in
   Abbildung~\ref{fig:baumstruktur-produkt} zu sehen.
 
@@ -1654,7 +1653,7 @@
 			}
 		[Geschäftsobjekt \textit{Produkt}
 			[Dimension \textit{Zeit}
-				[Dimenionslevel \textit{Jahr}
+				[Dimensionslevel \textit{Jahr}
 					[\ldots{}
 						[Attribut \textit{Verfallsdatum}]
 					]
@@ -1674,9 +1673,8 @@
   klassischen Ordnerbaumstruktur. Die Kindelemente eines Elternelements können
   auf- und zugeklappt, \bzw{} ein- und ausgeblendet werden, was es dem Nutzer
   ohne viel Aufwand ermöglicht, Teilausschnitte des Modells übersichtlich
-  betrachten zu können, ohne diese in seperate Modelle exportieren zu
-  müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. \todo{Zitat nochmal
-  überprüfen. Ordentlich umschrieben?} Elemente können durch einen Klick auf
+  betrachten zu können, ohne diese in separate Modelle exportieren zu
+  müssen~\cite[][S. 6 f.]{fleischer2013konstruktion}. Elemente können durch einen Klick auf
   das \textit{Löschen}-Symbol gelöscht und durch einen Klick auf den Namen an
   der Stelle umbenannt werden.
 
@@ -1690,7 +1688,7 @@
   \textit{Breadcrumb}-Navigation~\cite[][S. 1316]{maldonado2002common}
   angezeigt.  Der Name des Elements kann auch hier durch einen Klick auf das
   Wort an der Stelle bearbeitet werden. Sollen Details eines Elternobjekts
-  bearbeitet werden genügt ein Klick auf den Namen des Elternelements in der
+  bearbeitet werden, genügt ein Klick auf den Namen des Elternelements in der
   \textit{Breadcrump}-Navigation, um zur Detailansicht des geforderten Elements
   zu wechseln. 
 
@@ -1705,7 +1703,7 @@
   werden und die gesamte Ausprägung kann über das
   \textit{Löschen}-Symbol entfernt werden.
 
-  Ihm Rahmen des Anwendungsfallbeispiels aus
+  Im Rahmen des Anwendungsfallbeispiels aus
   Abschnitt~\ref{sec:anwendungsfallbeispiel} würde ein Nutzer in der
   Dimensionsansicht die Geschäftsobjekte \textit{Produkt} und \textit{Kunde}
   mit ihren jeweiligen Attributen, Dimensionen, Dimensionsleveln und
@@ -1718,7 +1716,7 @@
   \textit{Münster}, \textit{Bonn} gruppieren zu können. Für die Modellierung
   des Geschäftsobjekts \textit{Kunde} ist die Dimension \textit{Zeit} mit dem
   Dimensionslevel \textit{Jahr} für das Attribut \textit{Zuletzt\-Eingekauft}
-  wichtig, um diejenigen Kunden ausfiltern zu können, welche in diesem Jahr
+  wichtig, um diejenigen Kunden herausfiltern zu können, welche in diesem Jahr
   noch nicht beim Unternehmen eingekauft haben.
 
 
@@ -1745,7 +1743,7 @@
   \textit{Löschen}-Symbol die Kennzahl aus dem System entfernen. In der unteren
   Leiste wird der Ausdruckkasten angezeigt. Mögliche Ausdrücke sind der
   \mbox{Attribut-,} \mbox{Konstanten-,} \mbox{Kennzahl-,} \mbox{Operator-,}
-  Funktions- und Klammerausdruck.  Des Weiteren ist rechts neben dem
+  Funktions- und Klammerausdruck.  Darüber hinaus ist rechts neben dem
   Funktionsbaukasten die Funktion zur Löschung eines Ausdrucks gegeben.
 
   In der Mitte des Kennzahleditors wird die Formel zu Berechnung der Kennzahl
@@ -1754,7 +1752,7 @@
   Gleichheitszeichen hat hier die Funktion einer Zuweisung wie im Gebrauch
   der Informatik, nicht eines Vergleichs wie in der Mathematik.
   Alternativ könnte die Zuweisung an dieser Stelle auch durch das Zeichen
-  \mbox{:=} verdeutlicht werden. 
+  \glqq{}\mbox{:=}\grqq{} verdeutlicht werden. 
   
   Eine Kennzahlformel in der \textit{DataFurnace}-Sprache besteht aus
   Ausdrücken, welche ein Nutzer über den Funktionsbaukasten in der unteren
@@ -1763,7 +1761,7 @@
   Cursor vor oder hinter jeden bestehenden Ausdruck gesetzt werden, welcher die
   aktuelle Position wie in einem Texteingabefeld markiert. Will ein Nutzer die
   Formel einer neu erstellten Kennzahl spezifizieren, klickt er zunächst hinter
-  das Gleichheitszeichen um den Cursor zu positionieren.  Daraufhin wählt er
+  das Gleichheitszeichen, um den Cursor zu positionieren.  Daraufhin wählt er
   aus dem Funktionsbaukasten beliebig viele Ausdrücke aus, welche in der
   gleichen Reihenfolge hinter dem gesetzten Cursor erscheinen.  Dieser springt
   nach dem Erscheinen eines Ausdrucks eine Stelle weiter nach rechts hinter den
@@ -1837,7 +1835,7 @@
   zunächst eine neue Kennzahl. Im Formeleditor der Kennzahl fügt er die Formel
   \texttt{AND (NOT (ISEMPTY (Verkaufspreis)), NOT (CONTAINS (Verkaufspreis,
   [A\textminus{}Za\textminus{}z])))} ein, welche nur den boolschen Wert
-  \textit{wahr} zurück gibt, wenn der \textit{Verkaufspreis} nicht leer ist und
+  \textit{wahr} zurückgibt, wenn der \textit{Verkaufspreis} nicht leer ist und
   keine Buchstaben enthält. Analog zu dieser Kennzahl erstellt er ebenfalls
   Kennzahlen für die Prüfung der Attribute \textit{E-Mail-Adresse} und
   \textit{Anschrift} des Geschäftsobjekts \textit{Kunde}.
@@ -1887,12 +1885,12 @@
   auf den Namen benennen lässt. Die Komponente unterteilt sich horizontal in
   den tabellarischen Bericht (Tabellenkomponente) und den spezifizierten
   Filtern (Filterkomponente) darunter. Zunächst soll auf die
-  Filterspezifikation eingegangenn werden. 
+  Filterspezifikation eingegangen werden. 
   
   \paragraph{Filterkomponente}
   
   Wie in Abschnitt~\ref{paragraph:filternde-komponente}
-  beschrieben, kann ein Filter sowohl auf einem Dimensionslevel als auch auf einer
+  beschrieben, kann ein Filter sowohl auf einem Dimensionslevel, als auch auf einer
   Kennzahl basieren. Will ein Nutzer eine neue Kennzahl auf Basis eines
   Dimensionslevels erstellen, sucht er das Level zunächst aus den
   Geschäftsobjektbaumstrukturen auf der linken Seite der Berichtsansicht heraus
@@ -1908,10 +1906,10 @@
   Möchte der Nutzer auf Basis einer Kennzahl filtern, zieht er analog zur
   Basis auf ein Dimensionslevel, eine Kennzahl aus der rechten
   Kennzahlkomponente und legt diese in der Filterkomponente ab. Sobald die
-  Kennzahl über der Filterkomponente los gelassen wird, wird ein Filter auf
+  Kennzahl über der Filterkomponente losgelassen wird, wird ein Filter auf
   Basis der Kennzahl erstellt. Nun kann der Nutzer im Filter spezifizieren, bei
   welchen Ergebnissen der Kennzahl er ausfiltern möchte und bei welchen
-  Ergebnissen eine Geschäftsobjektinstanz in die nähere Auswahl weiter kommt,
+  Ergebnissen eine Geschäftsobjektinstanz in die nähere Auswahl kommt,
   indem er \zB{} Ober- und Untergrenzen bei Kennzahlen mit
   Zahlenwertergebnissen definiert, oder bei Kennzahlen mit booleschen
   Rückgabewerten entscheidet, ob Geschäftsobjektinstanzen die Prüfung der
@@ -2003,7 +2001,7 @@
   Kennzahlkomponente auf die Berichtstabelle herüber gezogen wird. Wird die
   Kennzahl über der Berichtstabelle losgelassen, erstellt die
   \textit{DataFurnace}-Software in der Spalte eine neue Zelle mit dem Namen der
-  Kennzahl. Wurde eine Kennzahl versehentlich hinzugefügt oder in der
+  Kennzahl. Wird eine Kennzahl versehentlich hinzugefügt oder in der
   Berichtstabelle nicht weiter benötigt, kann sie über das
   \textit{Löschen}-Symbol entfernt werden.
 
@@ -2020,16 +2018,16 @@
   \textit{Produkt}-Geschäftsobjektinstanzen betrachtet werden, welche einen
   validen Preis haben. Nun soll im Anwendungsfallbeispiel der Gewinnverlust der
   Standorte \textit{Münster} und \textit{Bonn} in den Monaten \textit{Oktober}
-  und \textit{November} verglichen werden. Um dies zu realisieren fügt der
+  und \textit{November} verglichen werden. Um dies zu realisieren, fügt der
   Nutzer die Dimensionslevel \textit{Ort} und \textit{Monat} den
   Tabellenkopfzeilen hinzu und wählt die Dimensionslevelausprägungen
   \textit{Münster} und \textit{Bonn} und \textit{Oktober} und \textit{November}
   aus. Abschließend fügt er die Kennzahl zur Berechnung des \textit{Gewinns}
-  der Tabellenkopfspalte hinzu.  \todo[inline]{Beispielberichtstabelle}
+  der Tabellenkopfspalte hinzu.
 
   Für die Analyse des Geschäftsobjekts \textit{Kunde} fügt der Nutzer einen
   weiteren Bericht hinzu. In diesem Bericht erstellt er einen Filter auf Basis
-  des Dimensionslevels Jahr des Attributes \textit{Zuletzt\-Eingekauft} und fügt
+  des Dimensionslevels \textit{Jahr} des Attributes \textit{Zuletzt\-Eingekauft} und fügt
   die Dimensionslevelausprägung \textit{2016} der Positivliste des Filters
   hinzu. Somit werden alle Kunden in der weiteren Analyse ausgefiltert, welche
   in diesem Jahr noch nicht beim Unternehmen eingekauft haben. Um die Anzahl
@@ -2039,7 +2037,6 @@
   Tabellenkopfspalte hinzugefügt. Zuletzt wird der Bericht durch ein beliebiges
   Dimensionslevel als Platzhalter für das Geschäftsobjekt \textit{Kunde} in den
   Tabellenkopfzeilen erweitert.
-	\todo[inline]{Langatmig, ggf visualisieren?}
 
 
   \section{Technische Umsetzung}\label{sec:technische-umsetzung}
@@ -2048,8 +2045,8 @@
 
   Die \textit{DataFurnace}-Software ist eine moderne Applikation, welche sich
   innovativer Technologien des neuesten Standes der Informationstechnik
-  bedient. Eine nähere Erläuterung jeder Technologie und deren Integration im
-  Softwaresystem würde über den Rahmen dieser Arbeit hinaus gehen, jedoch soll
+  bedient. Eine nähere Erläuterung jeder Technologie und deren Integration in das
+  Softwaresystem würde über den Rahmen dieser Arbeit hinausgehen, jedoch soll
   im Folgenden auf die Systemarchitektur und die Möglichkeit der
   Echtzeitkollaboration, aufgegriffen in der Anforderungsanalyse aus
   Abschnitt~\ref{sec:software/anforderungsanalyse}, eingegangen werden.
@@ -2066,7 +2063,7 @@
   Bedingt durch die Einschränkung, dass \textit{MeteorJS} seine volle
   Funktionalität nur in Verbindung mit einem \textit{MongoDB}-Datenbankserver
   bieten kann, wird ebendiese Technologie für den Datenbankserver der
-  \textit{DataFurnace}-Software eingesetzt. Sowohl Webserver als auch
+  \textit{DataFurnace}-Software eingesetzt. Sowohl Webserver, als auch
   Datenbankserver werden mit der Virtualisierungssoftware \textit{Docker}
   isoliert in Containern betrieben.  Der Client der
   \textit{DataFurnace}-Software kann mit Hilfe eines Webbrowsers aufgerufen
@@ -2097,7 +2094,7 @@
       \node (docker) [container, fit= (nodeJS) (databaseserver)] {};
       \node[fill=white, right=10pt] at (docker.north west) {Container virtualization};
 
-      \node (line) [draw, minimum height=0pt, minimum width=\textwidth - 70pt, inner sep=0pt, above = 30pt of docker] {};
+      \node (line) [draw, minimum height=0pt, minimum width=\textwidth - 110pt, inner sep=0pt, above = 30pt of docker] {};
 
       \node [above=2pt] at (line.north) {Client};
       \node [below=2pt] at (line.south) {Server};
@@ -2115,12 +2112,12 @@
     \caption{Systemarchitektur der \textit{DataFurnace}-Software}\label{fig:systemarchitektur}
 	\end{figure}
 
-  Mit dieser Systemarchitektur kann die \textit{DataFurnace}-Software losgelöst
-  von \textit{DataRocket} eigenständig betrieben und genutzt werden. Neben der
+  Mit dieser Systemarchitektur kann die \textit{DataFurnace}-Software, losgelöst
+  von \textit{DataRocket}, eigenständig betrieben und genutzt werden. Neben der
   Eigenständigkeit der Software ist auch die Integrierbarkeit in
   \textit{DataRocket} gefordert. Sowohl \textit{DataRocket} als auch die
   \textit{DataFurnace}-Software sind server- und clientseitig in der
-  Programmiersprache \textit{JavaScript} geschrieben, des Weiteren nutzen beide
+  Programmiersprache \textit{JavaScript} geschrieben. Darüber hinaus nutzen beide
   das \textit{MeteorJS}-Framework, womit die Integration der serverseitigen
   Funktionalität leicht umzusetzen ist. Clientseitig setzt \textit{DataRocket}
   auf die Oberflächenbibliothek \textit{Blaze}, \textit{DataFurnace} setzt den
@@ -2191,10 +2188,10 @@
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
 -Software sollen im Folgenden diese Ergebnisse evaluiert werden. Um zu
 überprüfen, inwiefern die getroffenen Anforderungen erfüllt werden, wurden elf
-Personen (siehe Tabelle~\ref{table:testgruppe}) gebeten die Datenanalyse
+Personen (siehe Tabelle~\ref{table:testgruppe}) gebeten, die Datenanalyse,
 beschrieben im Anwendungsfallbeispiel
-Abschnitt~\ref{sec:anwendungsfallbeispiel} konzeptionell mit der
-\textit{DataFurnace}-Sprache und -Software umzusetzten. Es wird das Verfahren
+Abschnitt~\ref{sec:anwendungsfallbeispiel}, konzeptionell mit der
+\textit{DataFurnace}-Sprache und -Software umzusetzen. Es wird das Verfahren
 der formativen Evaluation verwendet, welches hier das Ziel verfolgt, mögliche
 Probleme der Sprache und Software erkennen zu können~\cite[][S. 9]{hegner2003methoden}.
 
@@ -2280,8 +2277,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
     Software und Hinweise, welche den Nutzer besser durch die Prozessschritte
     leiten. Außerdem sollte die Darstellung von Attributen unter Dimensionen
     überdacht werden, da häufig die Modellierung der Attribute vor der
-    Modellierung der Dimensionen vom Nutzer angestrebt wurde.\todo{Auch
-    mögliche Lösungen erläutern?}
+    Modellierung der Dimensionen vom Nutzer angestrebt wurde.
 
   \item \textbf{Definition von Kennzahlen} (\ref{sec:sprache/anforderungsanalyse}) \& \textbf{hohe Benutzerfreundlichkeit} (\ref{sec:software/anforderungsanalyse})
 
@@ -2302,7 +2298,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
 
     Beispiellösungen für die erkannten Defizite sind das Anzeigen einer
     Beispielkennzahl mit verschachtelten Funktionen bei der ersten Benutzung
-    der Software und die Unterstützung intuitiver Eingabekonzepte wie die
+    der Software und die Unterstützung intuitiver Eingabekonzepte, wie die
     Navigation innerhalb einer Kennzahlformel durch die Pfeiltasten oder
     das Entfernen eines Funktionsausdrucks durch die Rücktaste.
 
@@ -2374,7 +2370,7 @@ Geschäftsobjekt, Attribut und Kennzahl und ermöglicht somit eine leichte
 spätere Integration der Sprache in das Produkt \textit{DataRocket}.
 
 Aus der prototypischen Implementierung der \textit{DataFurnace}-Software
-resultiert eine alleinstehende moderne Webapplikation, welche einen Nutzer bei
+resultiert eine alleinstehende, moderne Webapplikation, welche einen Nutzer bei
 der Konzeption von Datenqualitätsanalysen unterstützt. Sie deckt den gesamten
 Sprachraum der \textit{DataFurnace}-Sprache mit einem dreistufigen Vorgehen,
 der Modellierung von Dimensionen, Spezifikation von Kennzahlen und der
@@ -2398,6 +2394,7 @@ leicht verständlich und anwendungsbezogen bewährt. Nach einer Umsetzung der
 vorgeschlagenen Lösungen für die im Evaluationskapitel angesprochenen Probleme
 steht der Integration der \textit{DataFurnace}-Sprache und -Software in
 \textit{DataRocket} nichts mehr im Weg.
+
 
  % ################################################################################
   %\input{content/notes}

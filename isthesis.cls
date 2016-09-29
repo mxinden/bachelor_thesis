@@ -660,7 +660,7 @@
 \let\maketitle@default\maketitle
 \renewcommand{\maketitle}{%
     \maketitle@default%
-    \setcounter{page}{3}%
+    \setcounter{page}{2}%
 }
 
 % Abstract style
