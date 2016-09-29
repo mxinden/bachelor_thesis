@@ -75,9 +75,9 @@
   author-email={max.inden@uni-muenster.de},
   author-phone={+49 178 1493411}, % Use international numbers format
   author-matriculation={409098},
-  author-address={Biemsmaar 4c},
-  author-zip={53343},
-  author-city={Wachtberg},
+  author-address={Rudolf-Harbig-Weg 44},
+  author-zip={48149},
+  author-city={Münster},
   principal-supervisor={Prof.\ Dr.\ Dr.\ h.c. Dr.\ h.c. J\"org Becker}, % This has to be a professor
   associate-supervisor={Dr.\ Stefan Fleischer}, % This is your main supervisor, i.e., a post doc or PhD student
   tutor-supervisor={}, % If required, define an additional supervisor resp. tutor here
@@ -149,15 +149,15 @@
   hohe Datenqualität anzustreben. Innerhalb eines Unternehmens ist dies Aufgabe
   des Stammdatenmanagements~\cite[][]{legner2007stammdaten}.
   Qualitätsverbesserung und Qualitätssicherung durch das Stammdatenmanagement
-  ist nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
-  softwareunterstützt analyiert werden können, um Schwachstellen zu
+  sind nur möglich, wenn Daten kontinuierlich anhand von Qualitätskriterien
+  softwareunterstützt analysiert werden können, um Schwachstellen zu
   erkennen~\cite[][S. 2]{baghi2013controlling}.\todo{Mehr Quellen}
   \todo{Digitale Agenda der Bundesregierung}
 
   Gegenstand dieser Arbeit ist die konzeptionelle Analyse von Unternehmensdaten
   in Zusammenarbeit mit der \textit{innoscale AG}, ein 2013 gegründetes
   Unternehmen aus Berlin.  Spezialisiert auf das Stammdatenmanagement ist es
-  sowohl beratend als auch mit einem eigenen Produkt namens
+  sowohl beratend, als auch mit einem eigenen Produkt namens
   \textit{DataRocket}\footnote{Siehe Abschnitt Vorstellung
   \textit{DataRocket}~\ref{sec:Vorstellung-DataRocket}}, zur Verbesserung von
   Stammdatenqualität, tätig. Im Rahmen der Datenqualitätsverbesserung und
@@ -173,12 +173,12 @@
   Sprache in \textit{DataRocket}.
 
   Die Modellierungssprache soll die Möglichkeit bieten, bestehende Daten zu
-  gliedern, Kennzahlen zur Anwendung auf diesen Daten zu spezifizieren und
+  gliedern, Kennzahlen zur Anwendung auf diesen Daten zu spezifizieren sowie
   Daten und Kennzahlen zu Analysen zu kombinieren. Das Vokabular der Sprache
   soll mit dem von \textit{DataRocket} harmonieren und an den jeweiligen
   Schnittpunkten übereinstimmen.  Das Stammdatenmanagement ist nicht mehr
   allein Aufgabe der IT-Abteilung eines Unternehmens\todo{Zitieren}, sondern
-  erstreckt sich auch über die Fachabteilungen, welche ohne eine dedizierte
+  erstreckt sich auch über die Fachabteilungen, welche auch ohne eine dedizierte
   Ausbildung im Stammdatenmanagement mit Hilfe der Sprache die Datenqualität im
   Unternehmen analysieren und überwachen können sollen. Folglich soll die
   Sprache wie \textit{DataRocket} ein einfach zu bedienendes und innovatives
@@ -234,7 +234,7 @@
   Grundpfeiler der Sprache zurückzuführen sind
   (Abschnitt~\ref{sec:software/fachliches-konzept}). Des Weiteren wird die
   Software im Zusammenhang des Anwendungsbeispiels exemplarisch eingesetzt.
-  Zuletzt wird im Kapitel die Architektur der Software sowie einzelne
+  Zuletzt werden im Kapitel die Architektur der Software sowie einzelne
   technische Aspekte für die Erfüllung der Anforderungen thematisiert
   (Abschnitt~\ref{sec:technische-umsetzung}).
 
@@ -242,7 +242,7 @@
   einem Fazit ab. Ersteres beurteilt die neue \textit{DataFurnace}-Sprache und
   -Software mit Hilfe von Nutzerbefragungen, letzteres
   fasst die gewonnenen Erkentnisse der Arbeit zusammen.  Der gesamte Aufbau der
-  Arbeit wird erneut durch Abbildung~\ref{fig:thesis-structure}
+  Arbeit wird durch Abbildung~\ref{fig:thesis-structure}
   visualisiert.
 
   \begin{figure}
@@ -2187,7 +2187,6 @@
 
 % ################################################################################
 \chapter{Evaluation der \textit{DataFurnace}-Sprache und -Software}\label{ch:evaluation}
-\todo[inline]{Alternativ der Begriff Beurteilung oder Diskussion als Kapiteltitel}
 
 Nach der Entwicklung und Implementierung der \textit{DataFurnace}-Sprache und
 -Software sollen im Folgenden diese Ergebnisse evaluiert werden. Um zu
@@ -2211,7 +2210,7 @@ Probleme der Sprache und Software erkennen zu können~\cite[][S. 9]{hegner2003me
       Projektmanagerin für Informationssysteme & befriedigend & weiblich & 61\\
       Softwareentwickler & sehr gut & männlich & 31 \\
       Softwareentwickler & sehr gut & männlich & 32 \\
-      \acrshort{WI}-Doktorant & sehr gut & männlich & 27 \\
+      \acrshort{WI}-Doktorant & sehr gut & männlich & 31 \\
       \acrshort{WI}-Student & gut & männlich & 22 \\
       \acrshort{WI}-Student & sehr gut & männlich & 23 \\
       \acrshort{WI}-Studentin & gut & weiblich & 25 \\
@@ -2242,17 +2241,18 @@ Probanden wurden gebeten nach dem \textit{Thinking-Aloud}-Prinzip
 (\cite{holzinger2005usability}, S.  73;~\cite{nielsen1994usability}, S. 195)
 ihre Eindrücke und Gedanken während der Nutzung der Sprache und Software
 mitzuteilen. Neben dieser Form der Rückmeldung wurden die Schritte des
-Testnutzers am Computer beobachtet.
+Testnutzers am Computer beobachtet. Alle Befragungen wurden in einem informellen
+Rahmen auf mündlicher Basis durchgeführt.
 
-\paragraph{Erkenntnisse}\todo{Wirklich so nennen?} Nachfolgend wird von den Erkentnissen aus der
-durchgeführten formativen Evaluation berichtet, strukturiert anhand der zuvor
+\paragraph{Erkenntnisse} Nachfolgend wird von den Erkentnissen aus der
+durchgeführten Evaluation berichtet, strukturiert anhand der zuvor
 spezifizierten Anforderungen (siehe Abschnitt~\ref{sec:sprache/anforderungsanalyse}
 und~\ref{sec:software/anforderungsanalyse}) und dem
 \textit{DataFurnace}-Vorgehen (siehe
 Abschnitt~\ref{sec:software/fachliches-konzept}). Auf Erkentnisse
 aller Anforderungen der \textit{DataFurnace}-Sprache und Software einzugehen,
 übersteigt den Rahmen dieser Arbeit, weswegen hier lediglich ausgewählte
-Erkenntnisse behandelt werden, welche aus der Gesamtmenge mit ihrer
+Erkenntnisse behandelt werden, die aus der Gesamtmenge mit ihrer
 Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
 
 \begin{itemize}
@@ -2270,7 +2270,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
     Hintergrund aus der Wirtschaftsinformatik taten sich jedoch mit diesem
     Schritt schwer. Häufigstes Problem war die sinvolle Benennung von Elementen
     und das Verständnis über die Beziehungen und Kardinalitäten zwischen
-    Dimensionen, Dimensionsleveln und Attributen. Außerdem wurde häufig der
+    Dimensionen, Dimensionsleveln und Attributen. Außerdem wurde mehrmals der
     Fehler gemacht, Dimensionslevel nicht hierarchisch, sondern auf einer
     Hierarchiestufe zu modellieren. So wurde in vier von elf Fällen
     der \textit{Monat} nicht dem \textit{Jahr}, sondern lediglich der Dimension
@@ -2292,7 +2292,7 @@ Relevanz für die Weiterentwicklung der Sprache und Software herausstechen.
     identifizieren und diese daraufhin in der Software modellieren. Für sieben
     von elf Personen stellte dies kein Problem dar.  Für die restlichen vier
     Personen (Softwareentwickler 31, Projektmanagerin 61, BWL-Student 26,
-    Berater 34) war vor allem die Identifikation von Qualitätskennzahlen, nicht
+    Datenanalyst 28) war vor allem die Identifikation von Qualitätskennzahlen, nicht
     die Identifikation von der betriebswirtschaftlichen Kennzahl
     \textit{Gewinn}, eine Hürde. Des Weiteren wurde die Schachtelung von
     Funktionen im Formeleditor nicht intuitiv und erst nach einem Hinweis
@@ -2411,55 +2411,6 @@ steht der Integration der \textit{DataFurnace}-Sprache und -Software in
 % Appendix
 % ################################################################################
 %\begin{appendix}
-%  \section{Aufzeichnungen der Nutzerbefragung}\label{sec:appendix01}
-%
-%  \begin{table}[]
-%    \footnotesize
-%    \begin{tabular}{l l l l l}
-%      Tätigkeit & Computerkenntnisse & Geschlecht & Alter & Datum \\
-%      \toprule
-%      Berater für Stammdatenmanagement & gut & männlich & 34 \\
-%      \acrshort{BWL}-Student & gut & männlich & 26 \\
-%      \acrshort{BWL}-Studentin & ausreichend & weiblich & 21 \\
-%      Datenanalyst & sehr gut & männlich & 28 \\
-%      Projektmanagerin für Informationssysteme & befriedigend & weiblich & 61\\
-%      Softwareentwickler & sehr gut & männlich & 31 \\
-%      Softwareentwickler & sehr gut & männlich & 32 \\
-%      \acrshort{WI}-Doktorant & sehr gut & männlich & 27 \\
-%      \acrshort{WI}-Student & gut & männlich & 22 \\
-%      \acrshort{WI}-Student & sehr gut & männlich & 23 \\
-%      \acrshort{WI}-Studentin & gut & weiblich & 25 \\
-%    \end{tabular}
-%    \caption{Soziodemografische Eigenschaften der Testgruppe}
-%  \end{table}
-%
-%  \begin{table}[]
-%    \footnotesize
-%    \begin{tabularx}{\textwidth}{l l X }
-%      Tätigkeit & Alter & Ansicht \\
-%      \toprule
-%      Berater & 34 \\
-%      \acrshort{BWL}-Student & 26 \\
-%      \acrshort{BWL}-Studentin & 21 \\
-%      Datenanalyst & 28 \\
-%      Projektmanagerin & 61\\
-%      Softwareentwickler & 31 \\
-%      Softwareentwickler & 32 \\
-%      \acrshort{WI}-Doktorant & 27 \\
-%
-%      \acrshort{WI}-Student & 22 & \textbf{Dimensionsansicht: }Buttons in
-%      Geschäftsobjektbaumstruktur zu nah aneinander;\\
-%      && \textbf{Kennzahlansicht: } wendet Datenqualitätsfunktionen intuitiv an;\\
-%      && \textbf{Berichtsansicht: } \\
-%
-%      \acrshort{WI}-Student & 23 & Bäume öffnen sich nicht von allein; baut
-%      normalisierte Datenstrukturen; ordnet Dimensionslevel nicht hierarchisch
-%      an & versteht Funktionsschachtelung direkt \\
-%      \acrshort{WI}-Studentin & 25 & Baumstruktur öffnet sich nicht automatisch; verwechselt Dimensionsausprägungen mit Dimensionsleveln; ordnet Dimensionslevel \textit{Tag} nicht dem \textit{Monat} unter; Löschen-Button in Geschäftsobjektbaumstruktur zu nah am Hinzufügen-Button & versteht Funktionsschachtelung nicht \\
-%    \end{tabularx}
-%  \end{table}
-%
-%
 %\end{appendix}
 
 
@@ -2475,7 +2426,7 @@ steht der Integration der \textit{DataFurnace}-Sprache und -Software in
 % Declaration of authorship
 % ################################################################################
 %\authorshipstatement[pagenumbering=false]
-%\authorshipstatement[pagenumbering=true]
+\authorshipstatement[pagenumbering=true]
 % \authorshipstatement[pagenumbering=only]
 
 % Bonus: Wordcount
